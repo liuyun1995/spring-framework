@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2016 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.mvc;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,76 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.WebContentGenerator;
 import org.springframework.web.util.WebUtils;
 
-/**
- * Convenient superclass for controller implementations, using the Template Method
- * design pattern.
- *
- * <p><b><a name="workflow">Workflow
- * (<a href="Controller.html#workflow">and that defined by interface</a>):</b><br>
- * <ol>
- * <li>{@link #handleRequest(HttpServletRequest, HttpServletResponse) handleRequest()}
- * will be called by the DispatcherServlet</li>
- * <li>Inspection of supported methods (ServletException if request method
- * is not support)</li>
- * <li>If session is required, try to get it (ServletException if not found)</li>
- * <li>Set caching headers if needed according to the cacheSeconds property</li>
- * <li>Call abstract method {@link #handleRequestInternal(HttpServletRequest, HttpServletResponse) handleRequestInternal()}
- * (optionally synchronizing around the call on the HttpSession),
- * which should be implemented by extending classes to provide actual
- * functionality to return {@link org.springframework.web.servlet.ModelAndView ModelAndView} objects.</li>
- * </ol>
- *
- * <p><b><a name="config">Exposed configuration properties</a>
- * (<a href="Controller.html#config">and those defined by interface</a>):</b><br>
- * <table border="1">
- * <tr>
- * <td><b>name</b></th>
- * <td><b>default</b></td>
- * <td><b>description</b></td>
- * </tr>
- * <tr>
- * <td>supportedMethods</td>
- * <td>GET,POST</td>
- * <td>comma-separated (CSV) list of methods supported by this controller,
- * such as GET, POST and PUT</td>
- * </tr>
- * <tr>
- * <td>requireSession</td>
- * <td>false</td>
- * <td>whether a session should be required for requests to be able to
- * be handled by this controller. This ensures that derived controller
- * can - without fear of null pointers - call request.getSession() to
- * retrieve a session. If no session can be found while processing
- * the request, a ServletException will be thrown</td>
- * </tr>
- * <tr>
- * <td>cacheSeconds</td>
- * <td>-1</td>
- * <td>indicates the amount of seconds to include in the cache header
- * for the response following on this request. 0 (zero) will include
- * headers for no caching at all, -1 (the default) will not generate
- * <i>any headers</i> and any positive number will generate headers
- * that state the amount indicated as seconds to cache the content</td>
- * </tr>
- * <tr>
- * <td>synchronizeOnSession</td>
- * <td>false</td>
- * <td>whether the call to {@code handleRequestInternal} should be
- * synchronized around the HttpSession, to serialize invocations
- * from the same client. No effect if there is no HttpSession.
- * </td>
- * </tr>
- * </table>
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @author Rossen Stoyanchev
- * @see WebContentInterceptor
- */
 public abstract class AbstractController extends WebContentGenerator implements Controller {
 
 	private boolean synchronizeOnSession = false;
-
 
 	/**
 	 * Create a new AbstractController which supports

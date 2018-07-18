@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2017 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.view;
 
 import java.io.ByteArrayOutputStream;
@@ -38,25 +22,7 @@ import org.springframework.web.context.support.WebApplicationObjectSupport;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.support.RequestContext;
 
-/**
- * Abstract base class for {@link org.springframework.web.servlet.View}
- * implementations. Subclasses should be JavaBeans, to allow for
- * convenient configuration as Spring-managed bean instances.
- *
- * <p>Provides support for static attributes, to be made available to the view,
- * with a variety of ways to specify them. Static attributes will be merged
- * with the given dynamic attributes (the model that the controller returned)
- * for each render operation.
- *
- * <p>Extends {@link WebApplicationObjectSupport}, which will be helpful to
- * some views. Subclasses just need to implement the actual rendering.
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @see #setAttributes
- * @see #setAttributesMap
- * @see #renderMergedOutputModel
- */
+//抽象视图
 public abstract class AbstractView extends WebApplicationObjectSupport implements View, BeanNameAware {
 
 	/** Default content type. Overridable as bean property. */
@@ -284,20 +250,13 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 		return this.beanName;
 	}
 
-
-	/**
-	 * Prepares the view given the specified model, merging it with static
-	 * attributes and a RequestContext attribute, if necessary.
-	 * Delegates to renderMergedOutputModel for the actual rendering.
-	 * @see #renderMergedOutputModel
-	 */
+	//渲染视图
 	@Override
 	public void render(Map<String, ?> model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		if (logger.isTraceEnabled()) {
 			logger.trace("Rendering view with name '" + this.beanName + "' with model " + model +
 				" and static attributes " + this.staticAttributes);
 		}
-
 		Map<String, Object> mergedModel = createMergedOutputModel(model, request, response);
 		prepareResponse(request, response);
 		renderMergedOutputModel(mergedModel, getRequestToExpose(request), response);
