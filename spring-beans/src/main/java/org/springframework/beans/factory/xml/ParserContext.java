@@ -1,7 +1,5 @@
 package org.springframework.beans.factory.xml;
 
-import java.util.Stack;
-
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.parsing.BeanComponentDefinition;
 import org.springframework.beans.factory.parsing.ComponentDefinition;
@@ -9,17 +7,8 @@ import org.springframework.beans.factory.parsing.CompositeComponentDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionReaderUtils;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 
-/**
- * Context that gets passed along a bean definition parsing process,
- * encapsulating all relevant configuration as well as state. Nested inside an
- * {@link XmlReaderContext}.
- *
- * @author Rob Harrop
- * @author Juergen Hoeller
- * @since 2.0
- * @see XmlReaderContext
- * @see BeanDefinitionParserDelegate
- */
+import java.util.Stack;
+
 public final class ParserContext {
 
 	private final XmlReaderContext readerContext;

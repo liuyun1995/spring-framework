@@ -17,17 +17,9 @@ import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.util.StringUtils;
 
-/**
- * {@link NamespaceHandler} for the {@code util} namespace.
- *
- * @author Rob Harrop
- * @author Juergen Hoeller
- * @since 2.0
- */
 public class UtilNamespaceHandler extends NamespaceHandlerSupport {
 
 	private static final String SCOPE_ATTRIBUTE = "scope";
-
 
 	@Override
 	public void init() {
@@ -38,7 +30,6 @@ public class UtilNamespaceHandler extends NamespaceHandlerSupport {
 		registerBeanDefinitionParser("map", new MapBeanDefinitionParser());
 		registerBeanDefinitionParser("properties", new PropertiesBeanDefinitionParser());
 	}
-
 
 	private static class ConstantBeanDefinitionParser extends AbstractSimpleBeanDefinitionParser {
 

@@ -10,7 +10,6 @@ import org.xml.sax.InputSource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-
 public class BeansDtdResolver implements EntityResolver {
 
     private static final String DTD_EXTENSION = ".dtd";

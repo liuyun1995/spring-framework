@@ -45,13 +45,6 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 
 	private BeanDefinitionParserDelegate delegate;
 
-	/**
-	 * This implementation parses bean definitions according to the "spring-beans"
-	 * XSD (or DTD, historically).
-	 * <p>
-	 * Opens a DOM Document; then initializes the default settings specified at the
-	 * {@code <beans/>} level; then parses the contained bean definitions.
-	 */
 	@Override
 	public void registerBeanDefinitions(Document doc, XmlReaderContext readerContext) {
 		this.readerContext = readerContext;

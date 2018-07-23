@@ -13,17 +13,11 @@ import org.xml.sax.InputSource;
 
 import org.springframework.util.xml.XmlValidationModeDetector;
 
-//Ä¬ÈÏÎÄµµ¼ÓÔØÆ÷
+//é»˜è®¤æ–‡æ¡£åŠ è½½å™¨
 public class DefaultDocumentLoader implements DocumentLoader {
 
-	/**
-	 * JAXP attribute used to configure the schema language for validation.
-	 */
 	private static final String SCHEMA_LANGUAGE_ATTRIBUTE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
 
-	/**
-	 * JAXP attribute value indicating the XSD schema language.
-	 */
 	private static final String XSD_SCHEMA_LANGUAGE = "http://www.w3.org/2001/XMLSchema";
 
 	private static final Log logger = LogFactory.getLog(DefaultDocumentLoader.class);
@@ -39,20 +33,6 @@ public class DefaultDocumentLoader implements DocumentLoader {
 		return builder.parse(inputSource);
 	}
 
-	/**
-	 * Create the {@link DocumentBuilderFactory} instance.
-	 * 
-	 * @param validationMode
-	 *            the type of validation:
-	 *            {@link XmlValidationModeDetector#VALIDATION_DTD DTD} or
-	 *            {@link XmlValidationModeDetector#VALIDATION_XSD XSD})
-	 * @param namespaceAware
-	 *            whether the returned factory is to provide support for XML
-	 *            namespaces
-	 * @return the JAXP DocumentBuilderFactory
-	 * @throws ParserConfigurationException
-	 *             if we failed to build a proper DocumentBuilderFactory
-	 */
 	protected DocumentBuilderFactory createDocumentBuilderFactory(int validationMode, boolean namespaceAware)
 			throws ParserConfigurationException {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -78,22 +58,6 @@ public class DefaultDocumentLoader implements DocumentLoader {
 		return factory;
 	}
 
-	/**
-	 * Create a JAXP DocumentBuilder that this bean definition reader will use for
-	 * parsing XML documents. Can be overridden in subclasses, adding further
-	 * initialization of the builder.
-	 * 
-	 * @param factory
-	 *            the JAXP DocumentBuilderFactory that the DocumentBuilder should be
-	 *            created with
-	 * @param entityResolver
-	 *            the SAX EntityResolver to use
-	 * @param errorHandler
-	 *            the SAX ErrorHandler to use
-	 * @return the JAXP DocumentBuilder
-	 * @throws ParserConfigurationException
-	 *             if thrown by JAXP methods
-	 */
 	protected DocumentBuilder createDocumentBuilder(DocumentBuilderFactory factory, EntityResolver entityResolver,
 			ErrorHandler errorHandler) throws ParserConfigurationException {
 
