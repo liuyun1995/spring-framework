@@ -20,6 +20,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternUtils;
 
+//单例Bean工厂定位器
 public class SingletonBeanFactoryLocator implements BeanFactoryLocator {
 
     private static final String DEFAULT_RESOURCE_LOCATION = "classpath*:beanRefFactory.xml";
@@ -149,25 +150,14 @@ public class SingletonBeanFactoryLocator implements BeanFactoryLocator {
         return factory;
     }
 
-    /**
-     * Instantiate singletons and do any other normal initialization of the factory.
-     * Subclasses that override {@link #createDefinition createDefinition()} should
-     * also override this method.
-     *
-     * @param groupDef the factory returned by {@link #createDefinition createDefinition()}
-     */
+    //初始化定义
     protected void initializeDefinition(BeanFactory groupDef) {
         if (groupDef instanceof ConfigurableListableBeanFactory) {
             ((ConfigurableListableBeanFactory) groupDef).preInstantiateSingletons();
         }
     }
 
-    /**
-     * Destroy definition in separate method so subclass may work with other definition types.
-     *
-     * @param groupDef the factory returned by {@link #createDefinition createDefinition()}
-     * @param selector the resource location for this factory group
-     */
+    //销毁定义
     protected void destroyDefinition(BeanFactory groupDef, String selector) {
         if (groupDef instanceof ConfigurableBeanFactory) {
             if (logger.isTraceEnabled()) {

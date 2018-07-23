@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.util.Assert;
 
+//混合组件定义
 public class CompositeComponentDefinition extends AbstractComponentDefinition {
 
 	private final String name;
@@ -29,20 +30,11 @@ public class CompositeComponentDefinition extends AbstractComponentDefinition {
 		return this.source;
 	}
 
-
-	/**
-	 * Add the given component as nested element of this composite component.
-	 * @param component the nested component to add
-	 */
 	public void addNestedComponent(ComponentDefinition component) {
 		Assert.notNull(component, "ComponentDefinition must not be null");
 		this.nestedComponents.add(component);
 	}
 
-	/**
-	 * Return the nested components that this composite component holds.
-	 * @return the array of nested components, or an empty array if none
-	 */
 	public ComponentDefinition[] getNestedComponents() {
 		return this.nestedComponents.toArray(new ComponentDefinition[this.nestedComponents.size()]);
 	}

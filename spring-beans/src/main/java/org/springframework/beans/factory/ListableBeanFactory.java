@@ -6,7 +6,6 @@ import org.springframework.core.ResolvableType;
 import java.lang.annotation.Annotation;
 import java.util.Map;
 
-
 public interface ListableBeanFactory extends BeanFactory {
 
 	//是否包含该Bean

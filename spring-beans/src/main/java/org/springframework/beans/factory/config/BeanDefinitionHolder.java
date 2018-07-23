@@ -6,7 +6,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
-//Bean¶¨Òå³ÖÓĞÕß
+//Beanå®šä¹‰æŒæœ‰å™¨
 public class BeanDefinitionHolder implements BeanMetadataElement {
 
 	private final BeanDefinition beanDefinition;

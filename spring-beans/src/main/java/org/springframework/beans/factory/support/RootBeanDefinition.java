@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2016 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.beans.factory.support;
 
 import java.lang.reflect.AnnotatedElement;
@@ -29,24 +13,7 @@ import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.core.ResolvableType;
 import org.springframework.util.Assert;
 
-/**
- * A root bean definition represents the merged bean definition that backs
- * a specific bean in a Spring BeanFactory at runtime. It might have been created
- * from multiple original bean definitions that inherit from each other,
- * typically registered as {@link GenericBeanDefinition GenericBeanDefinitions}.
- * A root bean definition is essentially the 'unified' bean definition view at runtime.
- *
- * <p>Root bean definitions may also be used for registering individual bean definitions
- * in the configuration phase. However, since Spring 2.5, the preferred way to register
- * bean definitions programmatically is the {@link GenericBeanDefinition} class.
- * GenericBeanDefinition has the advantage that it allows to dynamically define
- * parent dependencies, not 'hard-coding' the role as a root bean definition.
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @see GenericBeanDefinition
- * @see ChildBeanDefinition
- */
+//基本Bean定义
 @SuppressWarnings("serial")
 public class RootBeanDefinition extends AbstractBeanDefinition {
 
@@ -96,37 +63,15 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 
 	private Set<String> externallyManagedDestroyMethods;
 
-
-	/**
-	 * Create a new RootBeanDefinition, to be configured through its bean
-	 * properties and configuration methods.
-	 * @see #setBeanClass
-	 * @see #setScope
-	 * @see #setConstructorArgumentValues
-	 * @see #setPropertyValues
-	 */
 	public RootBeanDefinition() {
 		super();
 	}
 
-	/**
-	 * Create a new RootBeanDefinition for a singleton.
-	 * @param beanClass the class of the bean to instantiate
-	 * @see #setBeanClass
-	 */
 	public RootBeanDefinition(Class<?> beanClass) {
 		super();
 		setBeanClass(beanClass);
 	}
 
-	/**
-	 * Create a new RootBeanDefinition for a singleton,
-	 * using the given autowire mode.
-	 * @param beanClass the class of the bean to instantiate
-	 * @param autowireMode by name or type, using the constants in this interface
-	 * @param dependencyCheck whether to perform a dependency check for objects
-	 * (not applicable to autowiring a constructor, thus ignored there)
-	 */
 	public RootBeanDefinition(Class<?> beanClass, int autowireMode, boolean dependencyCheck) {
 		super();
 		setBeanClass(beanClass);
@@ -136,46 +81,20 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
-	/**
-	 * Create a new RootBeanDefinition for a singleton,
-	 * providing constructor arguments and property values.
-	 * @param beanClass the class of the bean to instantiate
-	 * @param cargs the constructor argument values to apply
-	 * @param pvs the property values to apply
-	 */
 	public RootBeanDefinition(Class<?> beanClass, ConstructorArgumentValues cargs, MutablePropertyValues pvs) {
 		super(cargs, pvs);
 		setBeanClass(beanClass);
 	}
 
-	/**
-	 * Create a new RootBeanDefinition for a singleton,
-	 * providing constructor arguments and property values.
-	 * <p>Takes a bean class name to avoid eager loading of the bean class.
-	 * @param beanClassName the name of the class to instantiate
-	 */
 	public RootBeanDefinition(String beanClassName) {
 		setBeanClassName(beanClassName);
 	}
 
-	/**
-	 * Create a new RootBeanDefinition for a singleton,
-	 * providing constructor arguments and property values.
-	 * <p>Takes a bean class name to avoid eager loading of the bean class.
-	 * @param beanClassName the name of the class to instantiate
-	 * @param cargs the constructor argument values to apply
-	 * @param pvs the property values to apply
-	 */
 	public RootBeanDefinition(String beanClassName, ConstructorArgumentValues cargs, MutablePropertyValues pvs) {
 		super(cargs, pvs);
 		setBeanClassName(beanClassName);
 	}
 
-	/**
-	 * Create a new RootBeanDefinition as deep copy of the given
-	 * bean definition.
-	 * @param original the original bean definition to copy from
-	 */
 	public RootBeanDefinition(RootBeanDefinition original) {
 		super(original);
 		this.decoratedDefinition = original.decoratedDefinition;
@@ -185,15 +104,9 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		this.targetType = original.targetType;
 	}
 
-	/**
-	 * Create a new RootBeanDefinition as deep copy of the given
-	 * bean definition.
-	 * @param original the original bean definition to copy from
-	 */
 	RootBeanDefinition(BeanDefinition original) {
 		super(original);
 	}
-
 
 	@Override
 	public String getParentName() {

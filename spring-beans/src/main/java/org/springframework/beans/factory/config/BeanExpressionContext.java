@@ -2,6 +2,7 @@ package org.springframework.beans.factory.config;
 
 import org.springframework.util.Assert;
 
+//Bean表达式上下文
 public class BeanExpressionContext {
 
 	private final ConfigurableBeanFactory beanFactory;

@@ -2,7 +2,6 @@ package org.springframework.beans.factory;
 
 import org.springframework.beans.FatalBeanException;
 
-
 @SuppressWarnings("serial")
 public class BeanInitializationException extends FatalBeanException {
 	

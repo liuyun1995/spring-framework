@@ -21,28 +21,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.ReflectionUtils;
 
-/**
- * Simple template superclass for {@link FactoryBean} implementations that
- * creates a singleton or a prototype object, depending on a flag.
- *
- * <p>
- * If the "singleton" flag is {@code true} (the default), this class will create
- * the object that it creates exactly once on initialization and subsequently
- * return said singleton instance on all calls to the {@link #getObject()}
- * method.
- *
- * <p>
- * Else, this class will create a new instance every time the
- * {@link #getObject()} method is invoked. Subclasses are responsible for
- * implementing the abstract {@link #createInstance()} template method to
- * actually create the object(s) to expose.
- *
- * @author Juergen Hoeller
- * @author Keith Donald
- * @since 1.0.2
- * @see #setSingleton
- * @see #createInstance()
- */
+//抽象工厂Bean
 public abstract class AbstractFactoryBean<T>
 		implements FactoryBean<T>, BeanClassLoaderAware, BeanFactoryAware, InitializingBean, DisposableBean {
 
@@ -83,16 +62,7 @@ public abstract class AbstractFactoryBean<T>
 		return this.beanFactory;
 	}
 
-	/**
-	 * Obtain a bean type converter from the BeanFactory that this bean runs in.
-	 * This is typically a fresh instance for each call, since TypeConverters are
-	 * usually <i>not</i> thread-safe.
-	 * <p>
-	 * Falls back to a SimpleTypeConverter when not running in a BeanFactory.
-	 * 
-	 * @see ConfigurableBeanFactory#getTypeConverter()
-	 * @see org.springframework.beans.SimpleTypeConverter
-	 */
+	//获取Bean类型转换器
 	protected TypeConverter getBeanTypeConverter() {
 		BeanFactory beanFactory = getBeanFactory();
 		if (beanFactory instanceof ConfigurableBeanFactory) {

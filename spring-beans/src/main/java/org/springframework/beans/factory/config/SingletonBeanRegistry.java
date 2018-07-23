@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.config;
 
-
+//单例Bean注册器
 public interface SingletonBeanRegistry {
 	
 	void registerSingleton(String beanName, Object singletonObject);

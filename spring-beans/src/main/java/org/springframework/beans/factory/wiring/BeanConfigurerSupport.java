@@ -13,23 +13,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
-/**
- * Convenient base class for bean configurers that can perform Dependency Injection
- * on objects (however they may be created). Typically subclassed by AspectJ aspects.
- *
- * <p>Subclasses may also need a custom metadata resolution strategy, in the
- * {@link BeanWiringInfoResolver} interface. The default implementation looks for
- * a bean with the same name as the fully-qualified class name. (This is the default
- * name of the bean in a Spring XML file if the '{@code id}' attribute is not used.)
- *
- * @author Rob Harrop
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @author Adrian Colyer
- * @see #setBeanWiringInfoResolver
- * @see ClassNameBeanWiringInfoResolver
- * @since 2.0
- */
+//Bean配置器助手
 public class BeanConfigurerSupport implements BeanFactoryAware, InitializingBean, DisposableBean {
 
     protected final Log logger = LogFactory.getLog(getClass());
@@ -38,23 +22,11 @@ public class BeanConfigurerSupport implements BeanFactoryAware, InitializingBean
 
     private volatile ConfigurableListableBeanFactory beanFactory;
 
-
-    /**
-     * Set the {@link BeanWiringInfoResolver} to use.
-     * <p>The default behavior is to look for a bean with the same name as the class.
-     * As an alternative, consider using annotation-driven bean wiring.
-     *
-     * @see ClassNameBeanWiringInfoResolver
-     * @see org.springframework.beans.factory.annotation.AnnotationBeanWiringInfoResolver
-     */
     public void setBeanWiringInfoResolver(BeanWiringInfoResolver beanWiringInfoResolver) {
         Assert.notNull(beanWiringInfoResolver, "BeanWiringInfoResolver must not be null");
         this.beanWiringInfoResolver = beanWiringInfoResolver;
     }
 
-    /**
-     * Set the {@link BeanFactory} in which this aspect must configure beans.
-     */
     @Override
     public void setBeanFactory(BeanFactory beanFactory) {
         if (!(beanFactory instanceof ConfigurableListableBeanFactory)) {
@@ -67,43 +39,21 @@ public class BeanConfigurerSupport implements BeanFactoryAware, InitializingBean
         }
     }
 
-    /**
-     * Create the default BeanWiringInfoResolver to be used if none was
-     * specified explicitly.
-     * <p>The default implementation builds a {@link ClassNameBeanWiringInfoResolver}.
-     *
-     * @return the default BeanWiringInfoResolver (never {@code null})
-     */
     protected BeanWiringInfoResolver createDefaultBeanWiringInfoResolver() {
         return new ClassNameBeanWiringInfoResolver();
     }
 
-    /**
-     * Check that a {@link BeanFactory} has been set.
-     */
     @Override
     public void afterPropertiesSet() {
         Assert.notNull(this.beanFactory, "BeanFactory must be set");
     }
 
-    /**
-     * Release references to the {@link BeanFactory} and
-     * {@link BeanWiringInfoResolver} when the container is destroyed.
-     */
     @Override
     public void destroy() {
         this.beanFactory = null;
         this.beanWiringInfoResolver = null;
     }
 
-
-    /**
-     * Configure the bean instance.
-     * <p>Subclasses can override this to provide custom configuration logic.
-     * Typically called by an aspect, for all bean instances matched by a pointcut.
-     *
-     * @param beanInstance the bean instance to configure (must <b>not</b> be {@code null})
-     */
     public void configureBean(Object beanInstance) {
         if (this.beanFactory == null) {
             if (logger.isDebugEnabled()) {

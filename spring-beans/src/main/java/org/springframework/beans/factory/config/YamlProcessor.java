@@ -26,13 +26,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
-/**
- * Base class for YAML factories.
- *
- * @author Dave Syer
- * @author Juergen Hoeller
- * @since 4.1
- */
 public abstract class YamlProcessor {
 
 	private final Log logger = LogFactory.getLog(getClass());

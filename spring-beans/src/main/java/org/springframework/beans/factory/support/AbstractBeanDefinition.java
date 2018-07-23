@@ -19,7 +19,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
-
+//抽象Bean定义
 @SuppressWarnings("serial")
 public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccessor
 		implements BeanDefinition, Cloneable {
@@ -824,22 +824,11 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 		}
 	}
 
-
-	/**
-	 * Public declaration of Object's {@code clone()} method.
-	 * Delegates to {@link #cloneBeanDefinition()}.
-	 * @see Object#clone()
-	 */
 	@Override
 	public Object clone() {
 		return cloneBeanDefinition();
 	}
 
-	/**
-	 * Clone this bean definition.
-	 * To be implemented by concrete subclasses.
-	 * @return the cloned bean definition object
-	 */
 	public abstract AbstractBeanDefinition cloneBeanDefinition();
 
 	@Override

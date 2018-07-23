@@ -2,7 +2,7 @@ package org.springframework.beans.factory.annotation;
 
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 
-//自动装载类型
+//鑷姩瑁呴厤鏋氫妇
 public enum Autowire {
 
 	NO(AutowireCapableBeanFactory.AUTOWIRE_NO),

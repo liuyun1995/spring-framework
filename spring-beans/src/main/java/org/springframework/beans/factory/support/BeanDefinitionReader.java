@@ -4,7 +4,7 @@ import org.springframework.beans.factory.BeanDefinitionStoreException;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
-//Bean载入器
+//Bean定义载入器
 public interface BeanDefinitionReader {
 
 	//获取Bean定义注册工厂

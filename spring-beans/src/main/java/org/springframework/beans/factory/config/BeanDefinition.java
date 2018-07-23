@@ -4,14 +4,11 @@ import org.springframework.beans.BeanMetadataElement;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.core.AttributeAccessor;
 
-//Bean定义
+//Bean瀹氫箟
 public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
-	//单例模式
-	String SCOPE_SINGLETON = ConfigurableBeanFactory.SCOPE_SINGLETON;
-
-	//原型模式
-	String SCOPE_PROTOTYPE = ConfigurableBeanFactory.SCOPE_PROTOTYPE;
+	String SCOPE_SINGLETON = ConfigurableBeanFactory.SCOPE_SINGLETON;  //鍗曚緥
+	String SCOPE_PROTOTYPE = ConfigurableBeanFactory.SCOPE_PROTOTYPE;  //鍘熷瀷
 
 
 	/**
@@ -42,10 +39,10 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
 	// Modifiable attributes
 
-	//设置父Bean名称
+	//锟斤拷锟矫革拷Bean锟斤拷锟斤拷
 	void setParentName(String parentName);
 
-	//获取父Bean名称
+	//锟斤拷取锟斤拷Bean锟斤拷锟斤拷
 	String getParentName();
 
 	/**
@@ -98,10 +95,10 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	 */
 	boolean isLazyInit();
 
-	//设置依赖关系
+	//锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷系
 	void setDependsOn(String... dependsOn);
 
-	//获取依赖关系
+	//锟斤拷取锟斤拷锟斤拷锟斤拷系
 	String[] getDependsOn();
 
 	/**
@@ -174,13 +171,13 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
 	// Read-only attributes
 
-	//是否是单例
+	//锟角凤拷锟角碉拷锟斤拷
 	boolean isSingleton();
 
-	//是否是原型
+	//锟角凤拷锟斤拷原锟斤拷
 	boolean isPrototype();
 
-	//是否是抽象类
+	//锟角凤拷锟角筹拷锟斤拷锟斤拷
 	boolean isAbstract();
 
 	/**

@@ -6,15 +6,7 @@ import java.util.List;
 import org.springframework.beans.BeanMetadataElement;
 import org.springframework.beans.Mergeable;
 
-/**
- * Tag collection class used to hold managed List elements, which may
- * include runtime bean references (to be resolved into bean objects).
- *
- * @author Rod Johnson
- * @author Rob Harrop
- * @author Juergen Hoeller
- * @since 27.05.2003
- */
+//管理的集合
 @SuppressWarnings("serial")
 public class ManagedList<E> extends ArrayList<E> implements Mergeable, BeanMetadataElement {
 

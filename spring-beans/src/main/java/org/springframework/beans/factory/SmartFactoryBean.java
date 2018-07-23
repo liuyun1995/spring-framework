@@ -1,6 +1,6 @@
 package org.springframework.beans.factory;
 
-
+//智能工厂Bean
 public interface SmartFactoryBean<T> extends FactoryBean<T> {
 
 	//是否是原型

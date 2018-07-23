@@ -2,7 +2,7 @@ package org.springframework.beans.factory.support;
 
 import org.springframework.beans.factory.config.BeanDefinition;
 
-//Ä¬ÈÏµÄBeanÃû³ÆÉú³ÉÆ÷
+//é»˜è®¤Beanåç§°ç”Ÿæˆå™¨
 public class DefaultBeanNameGenerator implements BeanNameGenerator {
 
 	@Override

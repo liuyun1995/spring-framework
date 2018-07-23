@@ -1,35 +1,8 @@
-/*
- * Copyright 2002-2012 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.beans.factory.parsing;
 
 import java.util.Stack;
 
-/**
- * Simple {@link Stack}-based structure for tracking the logical position during
- * a parsing process. {@link Entry entries} are added to the stack at
- * each point during the parse phase in a reader-specific manner.
- *
- * <p>Calling {@link #toString()} will render a tree-style view of the current logical
- * position in the parse phase. This representation is intended for use in
- * error messages.
- *
- * @author Rob Harrop
- * @since 2.0
- */
+
 public final class ParseState {
 
 	/**
