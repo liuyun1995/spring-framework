@@ -92,39 +92,17 @@ public abstract class AbstractPropertyAccessor extends TypeConverterSupport impl
 		}
 	}
 
-	// Redefined with public visibility.
+	//获取属性类型
 	@Override
 	public Class<?> getPropertyType(String propertyPath) {
 		return null;
 	}
 
-	/**
-	 * Actually get the value of a property.
-	 * 
-	 * @param propertyName
-	 *            name of the property to get the value of
-	 * @return the value of the property
-	 * @throws InvalidPropertyException
-	 *             if there is no such property or if the property isn't readable
-	 * @throws PropertyAccessException
-	 *             if the property was valid but the accessor method failed
-	 */
+	//获取属性值
 	@Override
 	public abstract Object getPropertyValue(String propertyName) throws BeansException;
 
-	/**
-	 * Actually set a property value.
-	 * 
-	 * @param propertyName
-	 *            name of the property to set value of
-	 * @param value
-	 *            the new value
-	 * @throws InvalidPropertyException
-	 *             if there is no such property or if the property isn't writable
-	 * @throws PropertyAccessException
-	 *             if the property was valid but the accessor method failed or a
-	 *             type mismatch occurred
-	 */
+	//设置属性值
 	@Override
 	public abstract void setPropertyValue(String propertyName, Object value) throws BeansException;
 

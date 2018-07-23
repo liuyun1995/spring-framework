@@ -2,6 +2,7 @@ package org.springframework.beans;
 
 import java.beans.PropertyChangeEvent;
 
+//属性获取异常
 @SuppressWarnings({"serial", "deprecation"})
 public abstract class PropertyAccessException extends BeansException implements org.springframework.core.ErrorCoded {
 

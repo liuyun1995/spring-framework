@@ -9,16 +9,7 @@ import java.util.Set;
 
 import org.springframework.util.StringUtils;
 
-/**
- * Default implementation of the {@link PropertyValues} interface. Allows simple
- * manipulation of properties, and provides constructors to support deep copy
- * and construction from a Map.
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @author Rob Harrop
- * @since 13 May 2001
- */
+//易变属性值
 @SuppressWarnings("serial")
 public class MutablePropertyValues implements PropertyValues, Serializable {
 
@@ -33,8 +24,6 @@ public class MutablePropertyValues implements PropertyValues, Serializable {
 	}
 
 	public MutablePropertyValues(PropertyValues original) {
-		// We can optimize this because it's all new:
-		// There is no replacement of existing property values.
 		if (original != null) {
 			PropertyValue[] pvs = original.getPropertyValues();
 			this.propertyValueList = new ArrayList<PropertyValue>(pvs.length);

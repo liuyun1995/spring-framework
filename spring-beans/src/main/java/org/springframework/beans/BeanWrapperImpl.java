@@ -14,6 +14,7 @@ import org.springframework.core.convert.Property;
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.util.Assert;
 
+//Bean包装器实现类
 public class BeanWrapperImpl extends AbstractNestablePropertyAccessor implements BeanWrapper {
 
 	/**
@@ -52,15 +53,7 @@ public class BeanWrapperImpl extends AbstractNestablePropertyAccessor implements
 		setSecurityContext(parent.acc);
 	}
 
-	/**
-	 * Set a bean instance to hold, without any unwrapping of
-	 * {@link java.util.Optional}.
-	 * 
-	 * @param object
-	 *            the actual target object
-	 * @since 4.3
-	 * @see #setWrappedInstance(Object)
-	 */
+	//设置Bean实例
 	public void setBeanInstance(Object object) {
 		this.wrappedObject = object;
 		this.rootObject = object;

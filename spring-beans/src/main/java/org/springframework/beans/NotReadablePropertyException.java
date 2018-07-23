@@ -1,5 +1,6 @@
 package org.springframework.beans;
 
+//不可读的属性异常
 @SuppressWarnings("serial")
 public class NotReadablePropertyException extends InvalidPropertyException {
 	

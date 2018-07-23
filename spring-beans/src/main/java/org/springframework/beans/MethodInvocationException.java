@@ -2,7 +2,6 @@ package org.springframework.beans;
 
 import java.beans.PropertyChangeEvent;
 
-
 @SuppressWarnings("serial")
 public class MethodInvocationException extends PropertyAccessException {
 	

@@ -3,6 +3,7 @@ package org.springframework.beans;
 import org.springframework.core.NestedRuntimeException;
 import org.springframework.util.ObjectUtils;
 
+//抽象的Bean异常
 public abstract class BeansException extends NestedRuntimeException {
 	
 	public BeansException(String msg) {

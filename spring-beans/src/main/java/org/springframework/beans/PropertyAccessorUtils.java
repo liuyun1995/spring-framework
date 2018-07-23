@@ -3,14 +3,7 @@ package org.springframework.beans;
 //属性访问工具类
 public abstract class PropertyAccessorUtils {
 
-	/**
-	 * Return the actual property name for the given property path.
-	 * 
-	 * @param propertyPath
-	 *            the property path to determine the property name for (can include
-	 *            property keys, for example for specifying a map entry)
-	 * @return the actual property name, without any key elements
-	 */
+	//获取属性名
 	public static String getPropertyName(String propertyPath) {
 		int separatorIndex = (propertyPath.endsWith(PropertyAccessor.PROPERTY_KEY_SUFFIX)
 				? propertyPath.indexOf(PropertyAccessor.PROPERTY_KEY_PREFIX_CHAR)
@@ -18,14 +11,7 @@ public abstract class PropertyAccessorUtils {
 		return (separatorIndex != -1 ? propertyPath.substring(0, separatorIndex) : propertyPath);
 	}
 
-	/**
-	 * Check whether the given property path indicates an indexed or nested
-	 * property.
-	 * 
-	 * @param propertyPath
-	 *            the property path to check
-	 * @return whether the path indicates an indexed or nested property
-	 */
+	//是否是嵌套或索引属性
 	public static boolean isNestedOrIndexedProperty(String propertyPath) {
 		if (propertyPath == null) {
 			return false;
@@ -40,40 +26,17 @@ public abstract class PropertyAccessorUtils {
 		return false;
 	}
 
-	/**
-	 * Determine the first nested property separator in the given property path,
-	 * ignoring dots in keys (like "map[my.key]").
-	 * 
-	 * @param propertyPath
-	 *            the property path to check
-	 * @return the index of the nested property separator, or -1 if none
-	 */
+	//获取第一个嵌套属性
 	public static int getFirstNestedPropertySeparatorIndex(String propertyPath) {
 		return getNestedPropertySeparatorIndex(propertyPath, false);
 	}
 
-	/**
-	 * Determine the first nested property separator in the given property path,
-	 * ignoring dots in keys (like "map[my.key]").
-	 * 
-	 * @param propertyPath
-	 *            the property path to check
-	 * @return the index of the nested property separator, or -1 if none
-	 */
+	//获取最后一个嵌套属性
 	public static int getLastNestedPropertySeparatorIndex(String propertyPath) {
 		return getNestedPropertySeparatorIndex(propertyPath, true);
 	}
 
-	/**
-	 * Determine the first (or last) nested property separator in the given property
-	 * path, ignoring dots in keys (like "map[my.key]").
-	 * 
-	 * @param propertyPath
-	 *            the property path to check
-	 * @param last
-	 *            whether to return the last separator rather than the first
-	 * @return the index of the nested property separator, or -1 if none
-	 */
+	//获取嵌套属性
 	private static int getNestedPropertySeparatorIndex(String propertyPath, boolean last) {
 		boolean inKey = false;
 		int length = propertyPath.length();
@@ -98,16 +61,7 @@ public abstract class PropertyAccessorUtils {
 		return -1;
 	}
 
-	/**
-	 * Determine whether the given registered path matches the given property path,
-	 * either indicating the property itself or an indexed element of the property.
-	 * 
-	 * @param propertyPath
-	 *            the property path (typically without index)
-	 * @param registeredPath
-	 *            the registered path (potentially with index)
-	 * @return whether the paths match
-	 */
+	//匹配属性
 	public static boolean matchesProperty(String registeredPath, String propertyPath) {
 		if (!registeredPath.startsWith(propertyPath)) {
 			return false;
@@ -122,16 +76,7 @@ public abstract class PropertyAccessorUtils {
 				propertyPath.length() + 1) == registeredPath.length() - 1);
 	}
 
-	/**
-	 * Determine the canonical name for the given property path. Removes surrounding
-	 * quotes from map keys:<br>
-	 * {@code map['key']} -> {@code map[key]}<br>
-	 * {@code map["key"]} -> {@code map[key]}
-	 * 
-	 * @param propertyName
-	 *            the bean property path
-	 * @return the canonical representation of the property path
-	 */
+	//获取规范属性名称
 	public static String canonicalPropertyName(String propertyName) {
 		if (propertyName == null) {
 			return "";
@@ -159,15 +104,7 @@ public abstract class PropertyAccessorUtils {
 		return sb.toString();
 	}
 
-	/**
-	 * Determine the canonical names for the given property paths.
-	 * 
-	 * @param propertyNames
-	 *            the bean property paths (as array)
-	 * @return the canonical representation of the property paths (as array of the
-	 *         same size)
-	 * @see #canonicalPropertyName(String)
-	 */
+	//获取规范属性名称集合
 	public static String[] canonicalPropertyNames(String[] propertyNames) {
 		if (propertyNames == null) {
 			return null;

@@ -13,7 +13,7 @@ import org.springframework.util.StringUtils;
 //属性匹配器
 public abstract class PropertyMatches {
 
-	/** Default maximum property distance: 2 */
+	//默认最大属性距离
 	public static final int DEFAULT_MAX_DISTANCE = 2;
 
 	public static PropertyMatches forProperty(String propertyName, Class<?> beanClass) {
@@ -38,33 +38,19 @@ public abstract class PropertyMatches {
 
 	private String[] possibleMatches;
 
-	/**
-	 * Create a new PropertyMatches instance for the given property and possible
-	 * matches.
-	 */
 	private PropertyMatches(String propertyName, String[] possibleMatches) {
 		this.propertyName = propertyName;
 		this.possibleMatches = possibleMatches;
 	}
 
-	/**
-	 * Return the name of the requested property.
-	 */
 	public String getPropertyName() {
 		return this.propertyName;
 	}
 
-	/**
-	 * Return the calculated possible matches.
-	 */
 	public String[] getPossibleMatches() {
 		return this.possibleMatches;
 	}
 
-	/**
-	 * Build an error message for the given invalid property name, indicating the
-	 * possible property matches.
-	 */
 	public abstract String buildErrorMessage();
 
 	// Implementation support for subclasses

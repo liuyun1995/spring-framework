@@ -7,9 +7,7 @@ import org.springframework.util.ObjectUtils;
 public class BeanMetadataAttribute implements BeanMetadataElement {
 
     private final String name;
-
     private final Object value;
-
     private Object source;
 
     //构造器
@@ -29,10 +27,12 @@ public class BeanMetadataAttribute implements BeanMetadataElement {
         return this.value;
     }
 
+    //设置资源
     public void setSource(Object source) {
         this.source = source;
     }
 
+    //获取资源
     @Override
     public Object getSource() {
         return this.source;

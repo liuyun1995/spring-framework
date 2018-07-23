@@ -3,6 +3,7 @@ package org.springframework.beans;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
+//Bean实例化异常
 public class BeanInstantiationException extends FatalBeanException {
 
     private Class<?> beanClass;

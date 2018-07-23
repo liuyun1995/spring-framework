@@ -1,6 +1,6 @@
 package org.springframework.beans;
 
-
+//属性值接口
 public interface PropertyValues {
 	
 	PropertyValue[] getPropertyValues();

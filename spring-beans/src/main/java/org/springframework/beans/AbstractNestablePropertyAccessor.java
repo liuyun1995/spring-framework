@@ -95,24 +95,12 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         return this.autoGrowCollectionLimit;
     }
 
-    /**
-     * Switch the target object, replacing the cached introspection results only if
-     * the class of the new object is different to that of the replaced object.
-     *
-     * @param object the new target object
-     */
+    //设置包装的实例
     public void setWrappedInstance(Object object) {
         setWrappedInstance(object, "", null);
     }
 
-    /**
-     * Switch the target object, replacing the cached introspection results only if
-     * the class of the new object is different to that of the replaced object.
-     *
-     * @param object     the new target object
-     * @param nestedPath the nested path of the object
-     * @param rootObject the root object at the top of the path
-     */
+    //设置包装的实例
     public void setWrappedInstance(Object object, String nestedPath, Object rootObject) {
         Assert.notNull(object, "Target object must not be null");
         if (object.getClass() == javaUtilOptionalClass) {
@@ -134,31 +122,22 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         return (this.wrappedObject != null ? this.wrappedObject.getClass() : null);
     }
 
-    /**
-     * Return the nested path of the object wrapped by this accessor.
-     */
+    //获取嵌套路径
     public final String getNestedPath() {
         return this.nestedPath;
     }
 
-    /**
-     * Return the root object at the top of the path of this accessor.
-     *
-     * @see #getNestedPath
-     */
+    //获取根实例
     public final Object getRootInstance() {
         return this.rootObject;
     }
 
-    /**
-     * Return the class of the root object at the top of the path of this accessor.
-     *
-     * @see #getNestedPath
-     */
+    //获取根类型
     public final Class<?> getRootClass() {
         return (this.rootObject != null ? this.rootObject.getClass() : null);
     }
 
+    //设置属性值
     @Override
     public void setPropertyValue(String propertyName, Object value) throws BeansException {
         AbstractNestablePropertyAccessor nestedPa;
@@ -172,6 +151,7 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         nestedPa.setPropertyValue(tokens, new PropertyValue(propertyName, value));
     }
 
+    //设置属性值
     @Override
     public void setPropertyValue(PropertyValue pv) throws BeansException {
         PropertyTokenHolder tokens = (PropertyTokenHolder) pv.resolvedTokens;
@@ -194,6 +174,7 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         }
     }
 
+    //设置属性值
     protected void setPropertyValue(PropertyTokenHolder tokens, PropertyValue pv) throws BeansException {
         if (tokens.keys != null) {
             processKeyedProperty(tokens, pv);
@@ -321,6 +302,7 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         return propValue;
     }
 
+    //处理本地属性
     private void processLocalProperty(PropertyTokenHolder tokens, PropertyValue pv) {
         PropertyHandler ph = getLocalPropertyHandler(tokens.actualName);
         if (ph == null || !ph.isWritable()) {
@@ -384,6 +366,7 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         }
     }
 
+    //获取属性类型
     @Override
     public Class<?> getPropertyType(String propertyName) throws BeansException {
         try {
@@ -409,6 +392,7 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         return null;
     }
 
+    //获取属性类型修饰符
     @Override
     public TypeDescriptor getPropertyTypeDescriptor(String propertyName) throws BeansException {
         try {
@@ -433,6 +417,7 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         return null;
     }
 
+    //是否是可读属性
     @Override
     public boolean isReadableProperty(String propertyName) {
         try {
@@ -450,6 +435,7 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         return false;
     }
 
+    //是否是可写属性
     @Override
     public boolean isWritableProperty(String propertyName) {
         try {
@@ -496,6 +482,7 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         return convertIfNecessary(propertyName, oldValue, newValue, td.getType(), td);
     }
 
+    //获取属性值
     @Override
     public Object getPropertyValue(String propertyName) throws BeansException {
         AbstractNestablePropertyAccessor nestedPa = getPropertyAccessorForPropertyPath(propertyName);
@@ -503,6 +490,7 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         return nestedPa.getPropertyValue(tokens);
     }
 
+    //获取属性值
     @SuppressWarnings("unchecked")
     protected Object getPropertyValue(PropertyTokenHolder tokens) throws BeansException {
         String propertyName = tokens.canonicalName;
@@ -593,48 +581,23 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         }
     }
 
-    /**
-     * Return the {@link PropertyHandler} for the specified {@code propertyName},
-     * navigating if necessary. Return {@code null} if not found rather than
-     * throwing an exception.
-     *
-     * @param propertyName the property to obtain the descriptor for
-     * @return the property descriptor for the specified property, or {@code null}
-     * if not found
-     * @throws BeansException in case of introspection failure
-     */
+    //获取属性处理器
     protected PropertyHandler getPropertyHandler(String propertyName) throws BeansException {
         Assert.notNull(propertyName, "Property name must not be null");
         AbstractNestablePropertyAccessor nestedPa = getPropertyAccessorForPropertyPath(propertyName);
         return nestedPa.getLocalPropertyHandler(getFinalPath(nestedPa, propertyName));
     }
 
-    /**
-     * Return a {@link PropertyHandler} for the specified local
-     * {@code propertyName}. Only used to reach a property available in the current
-     * context.
-     *
-     * @param propertyName the name of a local property
-     * @return the handler for that property or {@code null} if it has not been
-     * found
-     */
+    //获取本地属性处理器
     protected abstract PropertyHandler getLocalPropertyHandler(String propertyName);
 
-    /**
-     * Create a new nested property accessor instance. Can be overridden in
-     * subclasses to create a PropertyAccessor subclass.
-     *
-     * @param object     object wrapped by this PropertyAccessor
-     * @param nestedPath the nested path of the object
-     * @return the nested PropertyAccessor instance
-     */
+    //新建嵌套属性获取器
     protected abstract AbstractNestablePropertyAccessor newNestedPropertyAccessor(Object object, String nestedPath);
 
-    /**
-     * Create a {@link NotWritablePropertyException} for the specified property.
-     */
+    //新建不可写属性异常
     protected abstract NotWritablePropertyException createNotWritablePropertyException(String propertyName);
 
+    //扩容数组
     private Object growArrayIfNecessary(Object array, int index, String name) {
         if (!isAutoGrowNestedPaths()) {
             return array;
@@ -654,6 +617,7 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         }
     }
 
+    //扩容集合
     private void growCollectionIfNecessary(Collection<Object> collection, int index, String name, PropertyHandler ph,
                                            int nestingLevel) {
         if (!isAutoGrowNestedPaths()) {
@@ -893,11 +857,9 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         public String actualName;
 
         public String[] keys;
+
     }
 
-    /**
-     * Inner class to avoid a hard dependency on Java 8.
-     */
     @UsesJava8
     private static class OptionalUnwrapper {
 
@@ -912,6 +874,7 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         public static boolean isEmpty(Object optionalObject) {
             return !((Optional<?>) optionalObject).isPresent();
         }
+
     }
 
 }

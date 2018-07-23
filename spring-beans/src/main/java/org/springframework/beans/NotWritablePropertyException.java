@@ -1,5 +1,6 @@
 package org.springframework.beans;
 
+//不可写的属性异常
 @SuppressWarnings("serial")
 public class NotWritablePropertyException extends InvalidPropertyException {
 

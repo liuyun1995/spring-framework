@@ -1,5 +1,6 @@
 package org.springframework.beans;
 
+//无效属性异常
 @SuppressWarnings("serial")
 public class InvalidPropertyException extends FatalBeanException {
 

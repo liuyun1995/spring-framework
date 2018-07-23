@@ -5,7 +5,7 @@ import org.springframework.beans.propertyeditors.PropertiesEditor;
 import java.beans.PropertyEditorSupport;
 import java.util.Properties;
 
-
+//属性值编辑器
 public class PropertyValuesEditor extends PropertyEditorSupport {
 
 	private final PropertiesEditor propertiesEditor = new PropertiesEditor();

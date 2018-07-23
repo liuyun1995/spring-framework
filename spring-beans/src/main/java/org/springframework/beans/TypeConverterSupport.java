@@ -5,6 +5,7 @@ import org.springframework.core.MethodParameter;
 import org.springframework.core.convert.ConversionException;
 import org.springframework.core.convert.ConverterNotFoundException;
 
+//类型转换器助手
 public abstract class TypeConverterSupport extends PropertyEditorRegistrySupport implements TypeConverter {
 
 	TypeConverterDelegate typeConverterDelegate;
@@ -17,7 +18,6 @@ public abstract class TypeConverterSupport extends PropertyEditorRegistrySupport
 	@Override
 	public <T> T convertIfNecessary(Object value, Class<T> requiredType, MethodParameter methodParam)
 			throws TypeMismatchException {
-
 		return doConvert(value, requiredType, methodParam, null);
 	}
 

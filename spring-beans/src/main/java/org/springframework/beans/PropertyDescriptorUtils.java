@@ -9,9 +9,6 @@ import java.util.Enumeration;
 
 class PropertyDescriptorUtils {
 
-	/**
-	 * See {@link java.beans.FeatureDescriptor}.
-	 */
 	public static void copyNonMethodProperties(PropertyDescriptor source, PropertyDescriptor target)
 			throws IntrospectionException {
 		target.setExpert(source.isExpert());

@@ -1,13 +1,6 @@
 package org.springframework.beans;
 
-import java.beans.IntrospectionException;
-import java.beans.PropertyDescriptor;
-import java.lang.reflect.Method;
-import java.util.HashSet;
-import java.util.Set;
-
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.core.BridgeMethodResolver;
 import org.springframework.core.GenericTypeResolver;
 import org.springframework.core.MethodParameter;
@@ -15,14 +8,12 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
-/**
- * Extension of the standard JavaBeans {@link PropertyDescriptor} class,
- * overriding {@code getPropertyType()} such that a generically declared type
- * variable will be resolved against the containing bean class.
- *
- * @author Juergen Hoeller
- * @since 2.5.2
- */
+import java.beans.IntrospectionException;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.Method;
+import java.util.HashSet;
+import java.util.Set;
+
 final class GenericTypeAwarePropertyDescriptor extends PropertyDescriptor {
 
 	private final Class<?> beanClass;

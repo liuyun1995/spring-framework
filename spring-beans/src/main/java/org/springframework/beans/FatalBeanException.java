@@ -1,5 +1,6 @@
 package org.springframework.beans;
 
+//致命的Bean异常
 @SuppressWarnings("serial")
 public class FatalBeanException extends BeansException {
 	

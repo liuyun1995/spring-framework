@@ -7,7 +7,6 @@ import java.lang.reflect.Method;
 
 import org.springframework.core.Ordered;
 
-
 public class ExtendedBeanInfoFactory implements BeanInfoFactory, Ordered {
 	
 	@Override

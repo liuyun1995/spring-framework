@@ -1,11 +1,12 @@
 package org.springframework.beans;
 
-import java.io.PrintStream;
-import java.io.PrintWriter;
-
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
+import java.io.PrintStream;
+import java.io.PrintWriter;
+
+//属性批次更新异常
 @SuppressWarnings("serial")
 public class PropertyBatchUpdateException extends BeansException {
 

@@ -2,6 +2,7 @@ package org.springframework.beans;
 
 import java.beans.PropertyChangeEvent;
 
+//版本不支持异常
 @SuppressWarnings("serial")
 public class ConversionNotSupportedException extends TypeMismatchException {
 	

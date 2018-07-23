@@ -23,44 +23,7 @@ import org.apache.commons.logging.LogFactory;
 
 import org.springframework.util.ObjectUtils;
 
-/**
- * Decorator for a standard {@link BeanInfo} object, e.g. as created by
- * {@link Introspector#getBeanInfo(Class)}, designed to discover and register
- * static and/or non-void returning setter methods. For example:
- * 
- * <pre class="code">
- * public class Bean {
- * 	private Foo foo;
- *
- * 	public Foo getFoo() {
- * 		return this.foo;
- * 	}
- *
- * 	public Bean setFoo(Foo foo) {
- * 		this.foo = foo;
- * 		return this;
- * 	}
- * }
- * </pre>
- * 
- * The standard JavaBeans {@code Introspector} will discover the {@code getFoo}
- * read method, but will bypass the {@code #setFoo(Foo)} write method, because
- * its non-void returning signature does not comply with the JavaBeans
- * specification. {@code ExtendedBeanInfo}, on the other hand, will recognize
- * and include it. This is designed to allow APIs with "builder" or
- * method-chaining style setter signatures to be used within Spring
- * {@code <beans>} XML. {@link #getPropertyDescriptors()} returns all existing
- * property descriptors from the wrapped {@code BeanInfo} as well any added for
- * non-void returning setters. Both standard ("non-indexed") and <a href=
- * "http://docs.oracle.com/javase/tutorial/javabeans/writing/properties.html">
- * indexed properties</a> are fully supported.
- *
- * @author Chris Beams
- * @since 3.1
- * @see #ExtendedBeanInfo(BeanInfo)
- * @see ExtendedBeanInfoFactory
- * @see CachedIntrospectionResults
- */
+//额外的Bean信息
 class ExtendedBeanInfo implements BeanInfo {
 
 	private static final Log logger = LogFactory.getLog(ExtendedBeanInfo.class);
@@ -70,23 +33,6 @@ class ExtendedBeanInfo implements BeanInfo {
 	private final Set<PropertyDescriptor> propertyDescriptors = new TreeSet<PropertyDescriptor>(
 			new PropertyDescriptorComparator());
 
-	/**
-	 * Wrap the given {@link BeanInfo} instance; copy all its existing property
-	 * descriptors locally, wrapping each in a custom
-	 * {@link SimpleIndexedPropertyDescriptor indexed} or
-	 * {@link SimplePropertyDescriptor non-indexed} {@code PropertyDescriptor}
-	 * variant that bypasses default JDK weak/soft reference management; then search
-	 * through its method descriptors to find any non-void returning write methods
-	 * and update or create the corresponding {@link PropertyDescriptor} for each
-	 * one found.
-	 * 
-	 * @param delegate
-	 *            the wrapped {@code BeanInfo}, which is never modified
-	 * @throws IntrospectionException
-	 *             if any problems occur creating and adding new property
-	 *             descriptors
-	 * @see #getPropertyDescriptors()
-	 */
 	public ExtendedBeanInfo(BeanInfo delegate) throws IntrospectionException {
 		this.delegate = delegate;
 		for (PropertyDescriptor pd : delegate.getPropertyDescriptors()) {
@@ -124,9 +70,6 @@ class ExtendedBeanInfo implements BeanInfo {
 				matches.add(method);
 			}
 		}
-		// Sort non-void returning write methods to guard against the ill effects of
-		// non-deterministic sorting of methods returned from Class#getDeclaredMethods
-		// under JDK 7. See http://bugs.sun.com/view_bug.do?bug_id=7023180
 		Collections.sort(matches, new Comparator<Method>() {
 			@Override
 			public int compare(Method m1, Method m2) {

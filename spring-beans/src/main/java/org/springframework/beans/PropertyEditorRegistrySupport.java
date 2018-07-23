@@ -58,18 +58,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourceArrayPropertyEditor;
 import org.springframework.util.ClassUtils;
 
-/**
- * Base implementation of the {@link PropertyEditorRegistry} interface. Provides
- * management of default editors and custom editors. Mainly serves as base class
- * for {@link BeanWrapperImpl}.
- *
- * @author Juergen Hoeller
- * @author Rob Harrop
- * @since 1.2.6
- * @see java.beans.PropertyEditorManager
- * @see java.beans.PropertyEditorSupport#setAsText
- * @see java.beans.PropertyEditorSupport#setValue
- */
+//属性编辑器注册器助手
 public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
 
 	private static Class<?> pathClass;
@@ -108,17 +97,12 @@ public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
 
 	private Map<Class<?>, PropertyEditor> customEditorCache;
 
-	/**
-	 * Specify a Spring 3.0 ConversionService to use for converting property values,
-	 * as an alternative to JavaBeans PropertyEditors.
-	 */
+	//设置版本服务
 	public void setConversionService(ConversionService conversionService) {
 		this.conversionService = conversionService;
 	}
 
-	/**
-	 * Return the associated ConversionService, if any.
-	 */
+	//获取版本服务
 	public ConversionService getConversionService() {
 		return this.conversionService;
 	}
