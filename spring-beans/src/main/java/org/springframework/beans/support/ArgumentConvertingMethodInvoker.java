@@ -10,7 +10,6 @@ import org.springframework.util.ReflectionUtils;
 import java.beans.PropertyEditor;
 import java.lang.reflect.Method;
 
-
 public class ArgumentConvertingMethodInvoker extends MethodInvoker {
 
     private TypeConverter typeConverter;
@@ -33,7 +32,6 @@ public class ArgumentConvertingMethodInvoker extends MethodInvoker {
         return new SimpleTypeConverter();
     }
 
-    //ע��༭��
     public void registerCustomEditor(Class<?> requiredType, PropertyEditor propertyEditor) {
         TypeConverter converter = getTypeConverter();
         if (!(converter instanceof PropertyEditorRegistry)) {
@@ -43,7 +41,6 @@ public class ArgumentConvertingMethodInvoker extends MethodInvoker {
         ((PropertyEditorRegistry) converter).registerCustomEditor(requiredType, propertyEditor);
     }
 
-    //Ѱ��ƥ��ķ���
     @Override
     protected Method findMatchingMethod() {
         Method matchingMethod = super.findMatchingMethod();
@@ -59,7 +56,6 @@ public class ArgumentConvertingMethodInvoker extends MethodInvoker {
         return matchingMethod;
     }
 
-    //Ѱ��ƥ��ķ���
     protected Method doFindMatchingMethod(Object[] arguments) {
         TypeConverter converter = getTypeConverter();
         if (converter != null) {

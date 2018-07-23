@@ -12,7 +12,6 @@ import org.apache.commons.logging.LogFactory;
 
 import org.springframework.beans.factory.BeanFactory;
 
-//Spring Bean El½âÎöÆ÷
 public abstract class SpringBeanELResolver extends ELResolver {
 
 	protected final Log logger = LogFactory.getLog(getClass());
@@ -86,7 +85,7 @@ public abstract class SpringBeanELResolver extends ELResolver {
 		return Object.class;
 	}
 
-	// »ñÈ¡Bean¹¤³§
+	// ï¿½ï¿½È¡Beanï¿½ï¿½ï¿½ï¿½
 	protected abstract BeanFactory getBeanFactory(ELContext elContext);
 
 }

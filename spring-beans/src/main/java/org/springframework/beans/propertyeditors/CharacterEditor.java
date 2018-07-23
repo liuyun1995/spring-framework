@@ -1,34 +1,15 @@
 package org.springframework.beans.propertyeditors;
 
-import java.beans.PropertyEditorSupport;
-
 import org.springframework.util.StringUtils;
+
+import java.beans.PropertyEditorSupport;
 
 public class CharacterEditor extends PropertyEditorSupport {
 
-	/**
-	 * The prefix that identifies a string as being a Unicode character sequence.
-	 */
-	private static final String UNICODE_PREFIX = "\\u";
+	private static final String UNICODE_PREFIX = "\\u";  //unicode前缀
+	private static final int UNICODE_LENGTH = 6;         //unicode长度
+	private final boolean allowEmpty;                    //是否为空
 
-	/**
-	 * The length of a Unicode character sequence.
-	 */
-	private static final int UNICODE_LENGTH = 6;
-
-	private final boolean allowEmpty;
-
-	/**
-	 * Create a new CharacterEditor instance.
-	 * <p>
-	 * The "allowEmpty" parameter controls whether an empty String is to be allowed
-	 * in parsing, i.e. be interpreted as the {@code null} value when
-	 * {@link #setAsText(String) text is being converted}. If {@code false}, an
-	 * {@link IllegalArgumentException} will be thrown at that time.
-	 * 
-	 * @param allowEmpty
-	 *            if empty strings are to be allowed
-	 */
 	public CharacterEditor(boolean allowEmpty) {
 		this.allowEmpty = allowEmpty;
 	}
@@ -36,7 +17,6 @@ public class CharacterEditor extends PropertyEditorSupport {
 	@Override
 	public void setAsText(String text) throws IllegalArgumentException {
 		if (this.allowEmpty && !StringUtils.hasLength(text)) {
-			// Treat empty String as null value.
 			setValue(null);
 		} else if (text == null) {
 			throw new IllegalArgumentException("null String cannot be converted to char type");

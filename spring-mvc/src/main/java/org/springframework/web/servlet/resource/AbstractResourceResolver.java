@@ -19,7 +19,6 @@ public abstract class AbstractResourceResolver implements ResourceResolver {
 
     protected final Log logger = LogFactory.getLog(getClass());
 
-
     @Override
     public Resource resolveResource(HttpServletRequest request, String requestPath,
                                     List<? extends Resource> locations, ResourceResolverChain chain) {

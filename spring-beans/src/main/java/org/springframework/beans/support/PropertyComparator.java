@@ -42,10 +42,7 @@ public class PropertyComparator<T> implements Comparator<T> {
 			v1 = ((String) v1).toLowerCase();
 			v2 = ((String) v2).toLowerCase();
 		}
-
 		int result;
-
-		// Put an object with null property at the end of the sort result.
 		try {
 			if (v1 != null) {
 				result = (v2 != null ? ((Comparable<Object>) v1).compareTo(v2) : -1);
@@ -62,17 +59,7 @@ public class PropertyComparator<T> implements Comparator<T> {
 		return (this.sortDefinition.isAscending() ? result : -result);
 	}
 
-	/**
-	 * Get the SortDefinition's property value for the given object.
-	 * 
-	 * @param obj
-	 *            the object to get the property value for
-	 * @return the property value
-	 */
 	private Object getPropertyValue(Object obj) {
-		// If a nested property cannot be read, simply return null
-		// (similar to JSTL EL). If the property doesn't exist in the
-		// first place, let the exception through.
 		try {
 			this.beanWrapper.setWrappedInstance(obj);
 			return this.beanWrapper.getPropertyValue(this.sortDefinition.getProperty());
@@ -82,38 +69,12 @@ public class PropertyComparator<T> implements Comparator<T> {
 		}
 	}
 
-	/**
-	 * Sort the given List according to the given sort definition.
-	 * <p>
-	 * Note: Contained objects have to provide the given property in the form of a
-	 * bean property, i.e. a getXXX method.
-	 * 
-	 * @param source
-	 *            the input List
-	 * @param sortDefinition
-	 *            the parameters to sort by
-	 * @throws java.lang.IllegalArgumentException
-	 *             in case of a missing propertyName
-	 */
 	public static void sort(List<?> source, SortDefinition sortDefinition) throws BeansException {
 		if (StringUtils.hasText(sortDefinition.getProperty())) {
 			Collections.sort(source, new PropertyComparator<Object>(sortDefinition));
 		}
 	}
 
-	/**
-	 * Sort the given source according to the given sort definition.
-	 * <p>
-	 * Note: Contained objects have to provide the given property in the form of a
-	 * bean property, i.e. a getXXX method.
-	 * 
-	 * @param source
-	 *            input source
-	 * @param sortDefinition
-	 *            the parameters to sort by
-	 * @throws java.lang.IllegalArgumentException
-	 *             in case of a missing propertyName
-	 */
 	public static void sort(Object[] source, SortDefinition sortDefinition) throws BeansException {
 		if (StringUtils.hasText(sortDefinition.getProperty())) {
 			Arrays.sort(source, new PropertyComparator<Object>(sortDefinition));

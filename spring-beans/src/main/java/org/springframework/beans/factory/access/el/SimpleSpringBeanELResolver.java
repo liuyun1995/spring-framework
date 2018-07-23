@@ -5,7 +5,6 @@ import javax.el.ELContext;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.util.Assert;
 
-//¼òµ¥Bean EL½âÎöÆ÷
 public class SimpleSpringBeanELResolver extends SpringBeanELResolver {
 
 	private final BeanFactory beanFactory;
