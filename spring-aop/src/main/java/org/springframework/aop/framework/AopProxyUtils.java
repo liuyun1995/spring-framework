@@ -1,25 +1,4 @@
-/*
- * Copyright 2002-2017 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.aop.framework;
-
-import java.lang.reflect.Array;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
-import java.util.Arrays;
 
 import org.springframework.aop.SpringProxy;
 import org.springframework.aop.TargetClassAware;
@@ -30,28 +9,13 @@ import org.springframework.core.DecoratingProxy;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
-/**
- * Utility methods for AOP proxy factories.
- * Mainly for internal use within the AOP framework.
- *
- * <p>See {@link org.springframework.aop.support.AopUtils} for a collection of
- * generic AOP utility methods which do not depend on AOP framework internals.
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @see org.springframework.aop.support.AopUtils
- */
+import java.lang.reflect.Array;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.Arrays;
+
 public abstract class AopProxyUtils {
 
-	/**
-	 * Obtain the singleton target object behind the given proxy, if any.
-	 * @param candidate the (potential) proxy to check
-	 * @return the singleton target object managed in a {@link SingletonTargetSource},
-	 * or {@code null} in any other case (not a proxy, not an existing singleton target)
-	 * @since 4.3.8
-	 * @see Advised#getTargetSource()
-	 * @see SingletonTargetSource#getTarget()
-	 */
 	public static Object getSingletonTarget(Object candidate) {
 		if (candidate instanceof Advised) {
 			TargetSource targetSource = ((Advised) candidate).getTargetSource();
@@ -62,16 +26,6 @@ public abstract class AopProxyUtils {
 		return null;
 	}
 
-	/**
-	 * Determine the ultimate target class of the given bean instance, traversing
-	 * not only a top-level proxy but any number of nested proxies as well &mdash;
-	 * as long as possible without side effects, that is, just for singleton targets.
-	 * @param candidate the instance to check (might be an AOP proxy)
-	 * @return the ultimate target class (or the plain class of the given
-	 * object as fallback; never {@code null})
-	 * @see org.springframework.aop.TargetClassAware#getTargetClass()
-	 * @see Advised#getTargetSource()
-	 */
 	public static Class<?> ultimateTargetClass(Object candidate) {
 		Assert.notNull(candidate, "Candidate object must not be null");
 		Object current = candidate;

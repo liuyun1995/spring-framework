@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2015 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.aop.framework;
 
 import org.springframework.aop.TargetSource;
@@ -26,17 +10,6 @@ import org.springframework.beans.factory.FactoryBeanNotInitializedException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.ClassUtils;
 
-/**
- * Convenient superclass for {@link FactoryBean} types that produce singleton-scoped
- * proxy objects.
- *
- * <p>Manages pre- and post-interceptors (references, rather than
- * interceptor names, as in {@link ProxyFactoryBean}) and provides
- * consistent interface management.
- *
- * @author Juergen Hoeller
- * @since 2.0
- */
 @SuppressWarnings("serial")
 public abstract class AbstractSingletonProxyFactoryBean extends ProxyConfig
 		implements FactoryBean<Object>, BeanClassLoaderAware, InitializingBean {
@@ -56,28 +29,10 @@ public abstract class AbstractSingletonProxyFactoryBean extends ProxyConfig
 
 	private Object proxy;
 
-
-	/**
-	 * Set the target object, that is, the bean to be wrapped with a transactional proxy.
-	 * <p>The target may be any object, in which case a SingletonTargetSource will
-	 * be created. If it is a TargetSource, no wrapper TargetSource is created:
-	 * This enables the use of a pooling or prototype TargetSource etc.
-	 * @see org.springframework.aop.TargetSource
-	 * @see org.springframework.aop.target.SingletonTargetSource
-	 * @see org.springframework.aop.target.LazyInitTargetSource
-	 * @see org.springframework.aop.target.PrototypeTargetSource
-	 * @see org.springframework.aop.target.CommonsPool2TargetSource
-	 */
 	public void setTarget(Object target) {
 		this.target = target;
 	}
 
-	/**
-	 * Specify the set of interfaces being proxied.
-	 * <p>If not specified (the default), the AOP infrastructure works
-	 * out which interfaces need proxying by analyzing the target,
-	 * proxying all the interfaces that the target object implements.
-	 */
 	public void setProxyInterfaces(Class<?>[] proxyInterfaces) {
 		this.proxyInterfaces = proxyInterfaces;
 	}
