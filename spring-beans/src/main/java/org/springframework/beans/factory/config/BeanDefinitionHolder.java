@@ -9,16 +9,16 @@ import org.springframework.util.StringUtils;
 //Bean定义持有器
 public class BeanDefinitionHolder implements BeanMetadataElement {
 
-	private final BeanDefinition beanDefinition;
+	private final BeanDefinition beanDefinition;   //Bean定义
+	private final String beanName;                 //Bean名称
+	private final String[] aliases;                //别名数组
 
-	private final String beanName;
-
-	private final String[] aliases;
-
+	//构造器1
 	public BeanDefinitionHolder(BeanDefinition beanDefinition, String beanName) {
 		this(beanDefinition, beanName, null);
 	}
 
+	//构造器2
 	public BeanDefinitionHolder(BeanDefinition beanDefinition, String beanName, String[] aliases) {
 		Assert.notNull(beanDefinition, "BeanDefinition must not be null");
 		Assert.notNull(beanName, "Bean name must not be null");
@@ -27,6 +27,7 @@ public class BeanDefinitionHolder implements BeanMetadataElement {
 		this.aliases = aliases;
 	}
 
+	//构造器3
 	public BeanDefinitionHolder(BeanDefinitionHolder beanDefinitionHolder) {
 		Assert.notNull(beanDefinitionHolder, "BeanDefinitionHolder must not be null");
 		this.beanDefinition = beanDefinitionHolder.getBeanDefinition();
@@ -34,39 +35,35 @@ public class BeanDefinitionHolder implements BeanMetadataElement {
 		this.aliases = beanDefinitionHolder.getAliases();
 	}
 
+	//获取Bean定义
 	public BeanDefinition getBeanDefinition() {
 		return this.beanDefinition;
 	}
 
+	//获取Bean名称
 	public String getBeanName() {
 		return this.beanName;
 	}
 
+	//获取别名数组
 	public String[] getAliases() {
 		return this.aliases;
 	}
 
+	//获取资源
 	@Override
 	public Object getSource() {
 		return this.beanDefinition.getSource();
 	}
 
-	/**
-	 * Determine whether the given candidate name matches the bean name or the
-	 * aliases stored in this bean definition.
-	 */
+	//匹配名称
 	public boolean matchesName(String candidateName) {
 		return (candidateName != null && (candidateName.equals(this.beanName)
 				|| candidateName.equals(BeanFactoryUtils.transformedBeanName(this.beanName))
 				|| ObjectUtils.containsElement(this.aliases, candidateName)));
 	}
 
-	/**
-	 * Return a friendly, short description for the bean, stating name and aliases.
-	 * 
-	 * @see #getBeanName()
-	 * @see #getAliases()
-	 */
+	//获取短描述符
 	public String getShortDescription() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Bean definition with name '").append(this.beanName).append("'");
@@ -76,13 +73,7 @@ public class BeanDefinitionHolder implements BeanMetadataElement {
 		return sb.toString();
 	}
 
-	/**
-	 * Return a long description for the bean, including name and aliases as well as
-	 * a description of the contained {@link BeanDefinition}.
-	 * 
-	 * @see #getShortDescription()
-	 * @see #getBeanDefinition()
-	 */
+	//获取长描述符
 	public String getLongDescription() {
 		StringBuilder sb = new StringBuilder(getShortDescription());
 		sb.append(": ").append(this.beanDefinition);

@@ -15,11 +15,9 @@ import org.springframework.util.StringUtils;
 //属性比较器
 public class PropertyComparator<T> implements Comparator<T> {
 
-	protected final Log logger = LogFactory.getLog(getClass());
-
-	private final SortDefinition sortDefinition;
-
-	private final BeanWrapperImpl beanWrapper = new BeanWrapperImpl(false);
+	protected final Log logger = LogFactory.getLog(getClass());              //日志类
+	private final SortDefinition sortDefinition;                             //排序定义
+	private final BeanWrapperImpl beanWrapper = new BeanWrapperImpl(false);  //Bean包装类
 
 	public PropertyComparator(SortDefinition sortDefinition) {
 		this.sortDefinition = sortDefinition;

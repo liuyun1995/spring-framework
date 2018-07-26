@@ -34,6 +34,8 @@ import org.springframework.util.ClassUtils;
 public class ResourceEditorRegistrar implements PropertyEditorRegistrar {
 
     private static Class<?> pathClass;
+    private final PropertyResolver propertyResolver;
+    private final ResourceLoader resourceLoader;
 
     static {
         try {
@@ -42,10 +44,6 @@ public class ResourceEditorRegistrar implements PropertyEditorRegistrar {
             pathClass = null;
         }
     }
-
-    private final PropertyResolver propertyResolver;
-
-    private final ResourceLoader resourceLoader;
 
     public ResourceEditorRegistrar(ResourceLoader resourceLoader, PropertyResolver propertyResolver) {
         this.resourceLoader = resourceLoader;

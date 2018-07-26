@@ -7,27 +7,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+//分页持有器
 @SuppressWarnings("serial")
 public class PagedListHolder<E> implements Serializable {
 
-	public static final int DEFAULT_PAGE_SIZE = 10;
-
-	public static final int DEFAULT_MAX_LINKED_PAGES = 10;
-
+	public static final int DEFAULT_PAGE_SIZE = 10;            //默认页大小
+	public static final int DEFAULT_MAX_LINKED_PAGES = 10;     //默认最大连接页数
 	private List<E> source;
-
 	private Date refreshDate;
-
 	private SortDefinition sort;
-
 	private SortDefinition sortUsed;
-
 	private int pageSize = DEFAULT_PAGE_SIZE;
-
 	private int page = 0;
-
 	private boolean newPageSet;
-
 	private int maxLinkedPages = DEFAULT_MAX_LINKED_PAGES;
 
 	public PagedListHolder() {

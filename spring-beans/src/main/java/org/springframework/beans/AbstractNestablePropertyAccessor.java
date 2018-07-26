@@ -703,12 +703,14 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         return setDefaultValue(tokens);
     }
 
+    //设置默认值
     private Object setDefaultValue(PropertyTokenHolder tokens) {
         PropertyValue pv = createDefaultPropertyValue(tokens);
         setPropertyValue(tokens, pv);
         return getPropertyValue(tokens);
     }
 
+    //创建默认属性值
     private PropertyValue createDefaultPropertyValue(PropertyTokenHolder tokens) {
         TypeDescriptor desc = getPropertyTypeDescriptor(tokens.canonicalName);
         Class<?> type = desc.getType();
@@ -803,11 +805,9 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
 
     protected abstract static class PropertyHandler {
 
-        private final Class<?> propertyType;
-
-        private final boolean readable;
-
-        private final boolean writable;
+        private final Class<?> propertyType;   //属性值类型
+        private final boolean readable;        //是否可读
+        private final boolean writable;        //是否可写
 
         public PropertyHandler(Class<?> propertyType, boolean readable, boolean writable) {
             this.propertyType = propertyType;
@@ -850,13 +850,12 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         public abstract void setValue(Object object, Object value) throws Exception;
     }
 
+    //属性标记持有器
     protected static class PropertyTokenHolder {
 
-        public String canonicalName;
-
-        public String actualName;
-
-        public String[] keys;
+        public String canonicalName;   //规范名称
+        public String actualName;      //实际名称
+        public String[] keys;          //键集合
 
     }
 

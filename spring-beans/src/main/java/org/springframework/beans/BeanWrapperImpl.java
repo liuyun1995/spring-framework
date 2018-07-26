@@ -22,11 +22,7 @@ public class BeanWrapperImpl extends AbstractNestablePropertyAccessor implements
 	 * cost of JavaBeans introspection every time.
 	 */
 	private CachedIntrospectionResults cachedIntrospectionResults;
-
-	/**
-	 * The security context used for invoking the property methods
-	 */
-	private AccessControlContext acc;
+	private AccessControlContext acc;                               //访问控制上下文
 
 	public BeanWrapperImpl() {
 		this(true);
@@ -61,6 +57,7 @@ public class BeanWrapperImpl extends AbstractNestablePropertyAccessor implements
 		setIntrospectionClass(object.getClass());
 	}
 
+	//设置包装类实例
 	@Override
 	public void setWrappedInstance(Object object, String nestedPath, Object rootObject) {
 		super.setWrappedInstance(object, nestedPath, rootObject);
@@ -92,37 +89,17 @@ public class BeanWrapperImpl extends AbstractNestablePropertyAccessor implements
 		return this.cachedIntrospectionResults;
 	}
 
-	/**
-	 * Set the security context used during the invocation of the wrapped instance
-	 * methods. Can be null.
-	 */
+	//设置访问控制上下文
 	public void setSecurityContext(AccessControlContext acc) {
 		this.acc = acc;
 	}
 
-	/**
-	 * Return the security context used during the invocation of the wrapped
-	 * instance methods. Can be null.
-	 */
+	//获取访问控制上下文
 	public AccessControlContext getSecurityContext() {
 		return this.acc;
 	}
 
-	/**
-	 * Convert the given value for the specified property to the latter's type.
-	 * <p>
-	 * This method is only intended for optimizations in a BeanFactory. Use the
-	 * {@code convertIfNecessary} methods for programmatic conversion.
-	 * 
-	 * @param value
-	 *            the value to convert
-	 * @param propertyName
-	 *            the target property (note that nested or indexed properties are
-	 *            not supported here)
-	 * @return the new value, possibly the result of type conversion
-	 * @throws TypeMismatchException
-	 *             if type conversion failed
-	 */
+	//转换属性
 	public Object convertForProperty(Object value, String propertyName) throws TypeMismatchException {
 		CachedIntrospectionResults cachedIntrospectionResults = getCachedIntrospectionResults();
 		PropertyDescriptor pd = cachedIntrospectionResults.getPropertyDescriptor(propertyName);
@@ -137,11 +114,13 @@ public class BeanWrapperImpl extends AbstractNestablePropertyAccessor implements
 		return convertForProperty(propertyName, null, value, td);
 	}
 
+	//根据描述符获取属性
 	private Property property(PropertyDescriptor pd) {
 		GenericTypeAwarePropertyDescriptor gpd = (GenericTypeAwarePropertyDescriptor) pd;
 		return new Property(gpd.getBeanClass(), gpd.getReadMethod(), gpd.getWriteMethod(), gpd.getName());
 	}
 
+	//获取本地属性处理器
 	@Override
 	protected BeanPropertyHandler getLocalPropertyHandler(String propertyName) {
 		PropertyDescriptor pd = getCachedIntrospectionResults().getPropertyDescriptor(propertyName);
@@ -151,11 +130,13 @@ public class BeanWrapperImpl extends AbstractNestablePropertyAccessor implements
 		return null;
 	}
 
+	//新建嵌套属性访问器
 	@Override
 	protected BeanWrapperImpl newNestedPropertyAccessor(Object object, String nestedPath) {
 		return new BeanWrapperImpl(object, nestedPath, this);
 	}
 
+	//创建属性不可写异常
 	@Override
 	protected NotWritablePropertyException createNotWritablePropertyException(String propertyName) {
 		PropertyMatches matches = PropertyMatches.forProperty(propertyName, getRootClass());
@@ -163,11 +144,13 @@ public class BeanWrapperImpl extends AbstractNestablePropertyAccessor implements
 				matches.buildErrorMessage(), matches.getPossibleMatches());
 	}
 
+	//获取所有属性描述符
 	@Override
 	public PropertyDescriptor[] getPropertyDescriptors() {
 		return getCachedIntrospectionResults().getPropertyDescriptors();
 	}
 
+	//获取属性描述符
 	@Override
 	public PropertyDescriptor getPropertyDescriptor(String propertyName) throws InvalidPropertyException {
 		BeanWrapperImpl nestedBw = (BeanWrapperImpl) getPropertyAccessorForPropertyPath(propertyName);
@@ -180,6 +163,8 @@ public class BeanWrapperImpl extends AbstractNestablePropertyAccessor implements
 		return pd;
 	}
 
+
+	//Bean属性处理器
 	private class BeanPropertyHandler extends PropertyHandler {
 
 		private final PropertyDescriptor pd;

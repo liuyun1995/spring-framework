@@ -15,8 +15,7 @@ public class MutableSortDefinition implements SortDefinition, Serializable {
 
     private boolean toggleAscendingOnProperty = false;
 
-    public MutableSortDefinition() {
-    }
+    public MutableSortDefinition() {}
 
     public MutableSortDefinition(SortDefinition source) {
         this.property = source.getProperty();

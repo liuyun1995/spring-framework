@@ -9,21 +9,23 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 
 import java.util.Stack;
 
+//解析上下文
 public final class ParserContext {
 
-	private final XmlReaderContext readerContext;
+	private final XmlReaderContext readerContext;          //xml阅读上下文
+	private final BeanDefinitionParserDelegate delegate;   //Bean定义解析器修饰器
+	private BeanDefinition containingBeanDefinition;       //Bean定义
 
-	private final BeanDefinitionParserDelegate delegate;
-
-	private BeanDefinition containingBeanDefinition;
-
+	//组件定义集合
 	private final Stack<ComponentDefinition> containingComponents = new Stack<ComponentDefinition>();
 
+	//构造器
 	public ParserContext(XmlReaderContext readerContext, BeanDefinitionParserDelegate delegate) {
 		this.readerContext = readerContext;
 		this.delegate = delegate;
 	}
 
+	//构造器
 	public ParserContext(XmlReaderContext readerContext, BeanDefinitionParserDelegate delegate,
 			BeanDefinition containingBeanDefinition) {
 

@@ -25,9 +25,6 @@ class TypeConverterDelegate {
 
     private static final Log logger = LogFactory.getLog(TypeConverterDelegate.class);
 
-    /**
-     * Java 8's java.util.Optional.empty() instance
-     */
     private static Object javaUtilOptionalEmpty = null;
 
     static {
@@ -39,44 +36,22 @@ class TypeConverterDelegate {
         }
     }
 
-
     private final PropertyEditorRegistrySupport propertyEditorRegistry;
 
     private final Object targetObject;
 
-
-    /**
-     * Create a new TypeConverterDelegate for the given editor registry.
-     *
-     * @param propertyEditorRegistry the editor registry to use
-     */
+    //构造器1
     public TypeConverterDelegate(PropertyEditorRegistrySupport propertyEditorRegistry) {
         this(propertyEditorRegistry, null);
     }
 
-    /**
-     * Create a new TypeConverterDelegate for the given editor registry and bean instance.
-     *
-     * @param propertyEditorRegistry the editor registry to use
-     * @param targetObject           the target object to work on (as context that can be passed to editors)
-     */
+    //构造器2
     public TypeConverterDelegate(PropertyEditorRegistrySupport propertyEditorRegistry, Object targetObject) {
         this.propertyEditorRegistry = propertyEditorRegistry;
         this.targetObject = targetObject;
     }
 
-
-    /**
-     * Convert the value to the specified required type.
-     *
-     * @param newValue     the proposed new value
-     * @param requiredType the type we must convert to
-     *                     (or {@code null} if not known, for example in case of a collection element)
-     * @param methodParam  the method parameter that is the target of the conversion
-     *                     (may be {@code null})
-     * @return the new value, possibly the result of type conversion
-     * @throws IllegalArgumentException if type conversion failed
-     */
+    //转换方法
     public <T> T convertIfNecessary(Object newValue, Class<T> requiredType, MethodParameter methodParam)
             throws IllegalArgumentException {
 
@@ -84,7 +59,7 @@ class TypeConverterDelegate {
                 (methodParam != null ? new TypeDescriptor(methodParam) : TypeDescriptor.valueOf(requiredType)));
     }
 
-
+    //转换方法
     public <T> T convertIfNecessary(Object newValue, Class<T> requiredType, Field field)
             throws IllegalArgumentException {
 
@@ -92,14 +67,14 @@ class TypeConverterDelegate {
                 (field != null ? new TypeDescriptor(field) : TypeDescriptor.valueOf(requiredType)));
     }
 
-
+    //转换方法
     public <T> T convertIfNecessary(
             String propertyName, Object oldValue, Object newValue, Class<T> requiredType)
             throws IllegalArgumentException {
         return convertIfNecessary(propertyName, oldValue, newValue, requiredType, TypeDescriptor.valueOf(requiredType));
     }
 
-
+    //核型转换方法
     @SuppressWarnings("unchecked")
     public <T> T convertIfNecessary(String propertyName, Object oldValue, Object newValue,
                                     Class<T> requiredType, TypeDescriptor typeDescriptor) throws IllegalArgumentException {
@@ -253,6 +228,7 @@ class TypeConverterDelegate {
         return (T) convertedValue;
     }
 
+    //将字符串转为枚举
     private Object attemptToConvertStringToEnum(Class<?> requiredType, String trimmedValue, Object currentConvertedValue) {
         Object convertedValue = currentConvertedValue;
 
@@ -296,12 +272,7 @@ class TypeConverterDelegate {
         return convertedValue;
     }
 
-    /**
-     * Find a default editor for the given type.
-     *
-     * @param requiredType the type to find an editor for
-     * @return the corresponding editor, or {@code null} if none
-     */
+    //寻找默认编辑器
     private PropertyEditor findDefaultEditor(Class<?> requiredType) {
         PropertyEditor editor = null;
         if (requiredType != null) {
@@ -315,18 +286,7 @@ class TypeConverterDelegate {
         return editor;
     }
 
-    /**
-     * Convert the value to the required type (if necessary from a String),
-     * using the given property editor.
-     *
-     * @param oldValue     the previous value, if available (may be {@code null})
-     * @param newValue     the proposed new value
-     * @param requiredType the type we must convert to
-     *                     (or {@code null} if not known, for example in case of a collection element)
-     * @param editor       the PropertyEditor to use
-     * @return the new value, possibly the result of type conversion
-     * @throws IllegalArgumentException if type conversion failed
-     */
+    //转换属性值类型
     private Object doConvertValue(Object oldValue, Object newValue, Class<?> requiredType, PropertyEditor editor) {
         Object convertedValue = newValue;
 
@@ -380,14 +340,7 @@ class TypeConverterDelegate {
         return returnValue;
     }
 
-    /**
-     * Convert the given text value using the given property editor.
-     *
-     * @param oldValue     the previous value, if available (may be {@code null})
-     * @param newTextValue the proposed text value
-     * @param editor       the PropertyEditor to use
-     * @return the converted value
-     */
+    //转换文本值
     private Object doConvertTextValue(Object oldValue, String newTextValue, PropertyEditor editor) {
         try {
             editor.setValue(oldValue);
@@ -401,6 +354,7 @@ class TypeConverterDelegate {
         return editor.getValue();
     }
 
+    //转成数组
     private Object convertToTypedArray(Object input, String propertyName, Class<?> componentType) {
         if (input instanceof Collection) {
             // Convert Collection elements to array elements.
@@ -437,6 +391,7 @@ class TypeConverterDelegate {
         }
     }
 
+    //转成集合
     @SuppressWarnings("unchecked")
     private Collection<?> convertToTypedCollection(
             Collection<?> original, String propertyName, Class<?> requiredType, TypeDescriptor typeDescriptor) {
@@ -514,6 +469,7 @@ class TypeConverterDelegate {
         return (originalAllowed ? original : convertedCopy);
     }
 
+    //转成Map
     @SuppressWarnings("unchecked")
     private Map<?, ?> convertToTypedMap(
             Map<?, ?> original, String propertyName, Class<?> requiredType, TypeDescriptor typeDescriptor) {

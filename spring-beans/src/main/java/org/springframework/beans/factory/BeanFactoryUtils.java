@@ -7,66 +7,34 @@ import org.springframework.util.StringUtils;
 
 import java.util.*;
 
+//Bean工厂工具
 public abstract class BeanFactoryUtils {
 
-    /**
-     * Separator for generated bean names. If a class name or parent name is not
-     * unique, "#1", "#2" etc will be appended, until the name becomes unique.
-     */
+    //生成的Bean名称分隔符
     public static final String GENERATED_BEAN_NAME_SEPARATOR = "#";
 
-
-    /**
-     * Return whether the given name is a factory dereference
-     * (beginning with the factory dereference prefix).
-     *
-     * @param name the name of the bean
-     * @return whether the given name is a factory dereference
-     * @see BeanFactory#FACTORY_BEAN_PREFIX
-     */
+    //给定名称是否是工厂名称
     public static boolean isFactoryDereference(String name) {
         return (name != null && name.startsWith(BeanFactory.FACTORY_BEAN_PREFIX));
     }
 
-    /**
-     * Return the actual bean name, stripping out the factory dereference
-     * prefix (if any, also stripping repeated factory prefixes if found).
-     *
-     * @param name the name of the bean
-     * @return the transformed name
-     * @see BeanFactory#FACTORY_BEAN_PREFIX
-     */
+    //转换成Bean的名称
     public static String transformedBeanName(String name) {
         Assert.notNull(name, "'name' must not be null");
         String beanName = name;
+        //截取工厂Bean前缀
         while (beanName.startsWith(BeanFactory.FACTORY_BEAN_PREFIX)) {
             beanName = beanName.substring(BeanFactory.FACTORY_BEAN_PREFIX.length());
         }
         return beanName;
     }
 
-    /**
-     * Return whether the given name is a bean name which has been generated
-     * by the default naming strategy (containing a "#..." part).
-     *
-     * @param name the name of the bean
-     * @return whether the given name is a generated bean name
-     * @see #GENERATED_BEAN_NAME_SEPARATOR
-     * @see org.springframework.beans.factory.support.BeanDefinitionReaderUtils#generateBeanName
-     * @see org.springframework.beans.factory.support.DefaultBeanNameGenerator
-     */
+    //给定名称是否是已生成的Bean名称
     public static boolean isGeneratedBeanName(String name) {
         return (name != null && name.contains(GENERATED_BEAN_NAME_SEPARATOR));
     }
 
-    /**
-     * Extract the "raw" bean name from the given (potentially generated) bean name,
-     * excluding any "#..." suffixes which might have been added for uniqueness.
-     *
-     * @param name the potentially generated bean name
-     * @return the raw bean name
-     * @see #GENERATED_BEAN_NAME_SEPARATOR
-     */
+    //原始化Bean名称
     public static String originalBeanName(String name) {
         Assert.notNull(name, "'name' must not be null");
         int separatorIndex = name.indexOf(GENERATED_BEAN_NAME_SEPARATOR);

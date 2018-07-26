@@ -46,6 +46,7 @@ public class DirectFieldAccessor extends AbstractNestablePropertyAccessor {
 				matches.buildErrorMessage(), matches.getPossibleMatches());
 	}
 
+	//字段属性处理器
 	private class FieldPropertyHandler extends PropertyHandler {
 
 		private final Field field;

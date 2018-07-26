@@ -8,24 +8,29 @@ import org.springframework.core.convert.ConverterNotFoundException;
 //类型转换器助手
 public abstract class TypeConverterSupport extends PropertyEditorRegistrySupport implements TypeConverter {
 
+	//类型转换器装饰器
 	TypeConverterDelegate typeConverterDelegate;
 
+	//转换方法
 	@Override
 	public <T> T convertIfNecessary(Object value, Class<T> requiredType) throws TypeMismatchException {
 		return doConvert(value, requiredType, null, null);
 	}
 
+	//转换方法
 	@Override
 	public <T> T convertIfNecessary(Object value, Class<T> requiredType, MethodParameter methodParam)
 			throws TypeMismatchException {
 		return doConvert(value, requiredType, methodParam, null);
 	}
 
+	//转换方法
 	@Override
 	public <T> T convertIfNecessary(Object value, Class<T> requiredType, Field field) throws TypeMismatchException {
 		return doConvert(value, requiredType, null, field);
 	}
 
+	//核心转换方法
 	private <T> T doConvert(Object value, Class<T> requiredType, MethodParameter methodParam, Field field)
 			throws TypeMismatchException {
 		try {

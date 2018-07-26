@@ -7,8 +7,10 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
 import java.util.Enumeration;
 
+//属性描述符工具
 class PropertyDescriptorUtils {
 
+	//复制非方法属性
 	public static void copyNonMethodProperties(PropertyDescriptor source, PropertyDescriptor target)
 			throws IntrospectionException {
 		target.setExpert(source.isExpert());
@@ -29,7 +31,7 @@ class PropertyDescriptorUtils {
 		target.setConstrained(source.isConstrained());
 	}
 
-
+	//寻找属性类型
 	public static Class<?> findPropertyType(Method readMethod, Method writeMethod) throws IntrospectionException {
 		Class<?> propertyType = null;
 		if (readMethod != null) {
@@ -63,7 +65,7 @@ class PropertyDescriptorUtils {
 		return propertyType;
 	}
 
-
+	//寻找属性类型
 	public static Class<?> findIndexedPropertyType(String name, Class<?> propertyType, Method indexedReadMethod,
 			Method indexedWriteMethod) throws IntrospectionException {
 		Class<?> indexedPropertyType = null;
@@ -110,7 +112,7 @@ class PropertyDescriptorUtils {
 		return indexedPropertyType;
 	}
 
-
+	//判断是否相等
 	public static boolean equals(PropertyDescriptor pd, PropertyDescriptor otherPd) {
 		return (ObjectUtils.nullSafeEquals(pd.getReadMethod(), otherPd.getReadMethod())
 				&& ObjectUtils.nullSafeEquals(pd.getWriteMethod(), otherPd.getWriteMethod())

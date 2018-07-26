@@ -14,22 +14,18 @@ import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Set;
 
+//范型属性描述符
 final class GenericTypeAwarePropertyDescriptor extends PropertyDescriptor {
 
-	private final Class<?> beanClass;
+	private final Class<?> beanClass;                      //Bean类型
+	private final Method readMethod;                       //读方法
+	private final Method writeMethod;                      //写方法
+	private volatile Set<Method> ambiguousWriteMethods;    //不明确的写方法
+	private MethodParameter writeMethodParameter;          //写方法参数
+	private Class<?> propertyType;                         //属性类型
+	private final Class<?> propertyEditorClass;            //属性编辑器类型
 
-	private final Method readMethod;
-
-	private final Method writeMethod;
-
-	private volatile Set<Method> ambiguousWriteMethods;
-
-	private MethodParameter writeMethodParameter;
-
-	private Class<?> propertyType;
-
-	private final Class<?> propertyEditorClass;
-
+	//构造器
 	public GenericTypeAwarePropertyDescriptor(Class<?> beanClass, String propertyName, Method readMethod,
 			Method writeMethod, Class<?> propertyEditorClass) throws IntrospectionException {
 

@@ -17,8 +17,10 @@ public abstract class AbstractBeanDefinitionParser implements BeanDefinitionPars
     public static final String ID_ATTRIBUTE = "id";
     public static final String NAME_ATTRIBUTE = "name";
 
+    //解析方法
     @Override
     public final BeanDefinition parse(Element element, ParserContext parserContext) {
+        //获取抽象Bean定义
         AbstractBeanDefinition definition = parseInternal(element, parserContext);
         if (definition != null && !parserContext.isNested()) {
             try {
@@ -35,7 +37,9 @@ public abstract class AbstractBeanDefinitionParser implements BeanDefinitionPars
                         aliases = StringUtils.trimArrayElements(StringUtils.commaDelimitedListToStringArray(name));
                     }
                 }
+                //创建Bean定义持有器
                 BeanDefinitionHolder holder = new BeanDefinitionHolder(definition, id, aliases);
+                //注册Bean定义
                 registerBeanDefinition(holder, parserContext.getRegistry());
                 if (shouldFireEvents()) {
                     BeanComponentDefinition componentDefinition = new BeanComponentDefinition(holder);
