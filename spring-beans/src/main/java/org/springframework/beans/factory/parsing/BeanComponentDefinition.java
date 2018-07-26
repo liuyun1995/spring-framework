@@ -12,9 +12,8 @@ import org.springframework.beans.factory.config.BeanReference;
 //Bean组件定义
 public class BeanComponentDefinition extends BeanDefinitionHolder implements ComponentDefinition {
 
-    private BeanDefinition[] innerBeanDefinitions;
-
-    private BeanReference[] beanReferences;
+    private BeanDefinition[] innerBeanDefinitions;  //内联Bean定义集合
+    private BeanReference[] beanReferences;         //Bean引用集合
 
     public BeanComponentDefinition(BeanDefinition beanDefinition, String beanName) {
         super(beanDefinition, beanName);

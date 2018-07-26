@@ -12,9 +12,8 @@ public class DelegatingEntityResolver implements EntityResolver {
 
     public static final String DTD_SUFFIX = ".dtd";  //dtd文件后缀
     public static final String XSD_SUFFIX = ".xsd";  //xsd文件后缀
-
-    private final EntityResolver dtdResolver;
-    private final EntityResolver schemaResolver;
+    private final EntityResolver dtdResolver;        //dtd转换器
+    private final EntityResolver schemaResolver;     //schema转换器
 
     //构造器
     public DelegatingEntityResolver(ClassLoader classLoader) {
@@ -30,7 +29,7 @@ public class DelegatingEntityResolver implements EntityResolver {
         this.schemaResolver = schemaResolver;
     }
 
-
+    //转换实体
     @Override
     public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
         if (systemId != null) {

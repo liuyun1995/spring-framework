@@ -17,22 +17,25 @@ import org.springframework.util.xml.XmlValidationModeDetector;
 public class DefaultDocumentLoader implements DocumentLoader {
 
 	private static final String SCHEMA_LANGUAGE_ATTRIBUTE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
-
 	private static final String XSD_SCHEMA_LANGUAGE = "http://www.w3.org/2001/XMLSchema";
-
 	private static final Log logger = LogFactory.getLog(DefaultDocumentLoader.class);
 
+	//加载文档
 	@Override
 	public Document loadDocument(InputSource inputSource, EntityResolver entityResolver, ErrorHandler errorHandler,
 			int validationMode, boolean namespaceAware) throws Exception {
+		//创建Document构建工厂
 		DocumentBuilderFactory factory = createDocumentBuilderFactory(validationMode, namespaceAware);
 		if (logger.isDebugEnabled()) {
 			logger.debug("Using JAXP provider [" + factory.getClass().getName() + "]");
 		}
+		//创建Document构建器
 		DocumentBuilder builder = createDocumentBuilder(factory, entityResolver, errorHandler);
+		//使用构建器进行解析
 		return builder.parse(inputSource);
 	}
 
+	//创建Document构建工厂
 	protected DocumentBuilderFactory createDocumentBuilderFactory(int validationMode, boolean namespaceAware)
 			throws ParserConfigurationException {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -40,7 +43,6 @@ public class DefaultDocumentLoader implements DocumentLoader {
 		if (validationMode != XmlValidationModeDetector.VALIDATION_NONE) {
 			factory.setValidating(true);
 			if (validationMode == XmlValidationModeDetector.VALIDATION_XSD) {
-				// Enforce namespace aware for XSD...
 				factory.setNamespaceAware(true);
 				try {
 					factory.setAttribute(SCHEMA_LANGUAGE_ATTRIBUTE, XSD_SCHEMA_LANGUAGE);
@@ -58,6 +60,7 @@ public class DefaultDocumentLoader implements DocumentLoader {
 		return factory;
 	}
 
+	//创建Document构建器
 	protected DocumentBuilder createDocumentBuilder(DocumentBuilderFactory factory, EntityResolver entityResolver,
 			ErrorHandler errorHandler) throws ParserConfigurationException {
 

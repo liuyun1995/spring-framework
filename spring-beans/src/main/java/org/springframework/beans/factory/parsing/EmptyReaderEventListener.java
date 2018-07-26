@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.parsing;
 
-
+//空的解析事件监听器
 public class EmptyReaderEventListener implements ReaderEventListener {
 
 	@Override

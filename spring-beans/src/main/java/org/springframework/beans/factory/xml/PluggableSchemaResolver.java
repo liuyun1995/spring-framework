@@ -20,48 +20,18 @@ import org.springframework.util.CollectionUtils;
 
 public class PluggableSchemaResolver implements EntityResolver {
 
-    /**
-     * The location of the file that defines schema mappings.
-     * Can be present in multiple JAR files.
-     */
     public static final String DEFAULT_SCHEMA_MAPPINGS_LOCATION = "META-INF/spring.schemas";
-
-
     private static final Log logger = LogFactory.getLog(PluggableSchemaResolver.class);
-
     private final ClassLoader classLoader;
-
     private final String schemaMappingsLocation;
-
-    /**
-     * Stores the mapping of schema URL -> local schema path
-     */
     private volatile Map<String, String> schemaMappings;
 
 
-    /**
-     * Loads the schema URL -> schema file location mappings using the default
-     * mapping file pattern "META-INF/spring.schemas".
-     *
-     * @param classLoader the ClassLoader to use for loading
-     *                    (can be {@code null}) to use the default ClassLoader)
-     * @see PropertiesLoaderUtils#loadAllProperties(String, ClassLoader)
-     */
     public PluggableSchemaResolver(ClassLoader classLoader) {
         this.classLoader = classLoader;
         this.schemaMappingsLocation = DEFAULT_SCHEMA_MAPPINGS_LOCATION;
     }
 
-    /**
-     * Loads the schema URL -> schema file location mappings using the given
-     * mapping file pattern.
-     *
-     * @param classLoader            the ClassLoader to use for loading
-     *                               (can be {@code null}) to use the default ClassLoader)
-     * @param schemaMappingsLocation the location of the file that defines schema mappings
-     *                               (must not be empty)
-     * @see PropertiesLoaderUtils#loadAllProperties(String, ClassLoader)
-     */
     public PluggableSchemaResolver(ClassLoader classLoader, String schemaMappingsLocation) {
         Assert.hasText(schemaMappingsLocation, "'schemaMappingsLocation' must not be empty");
         this.classLoader = classLoader;

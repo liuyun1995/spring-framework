@@ -17,12 +17,10 @@ import org.springframework.util.StringUtils;
 public class SimpleConstructorNamespaceHandler implements NamespaceHandler {
 
     private static final String REF_SUFFIX = "-ref";
-
     private static final String DELIMITER_PREFIX = "_";
 
     @Override
-    public void init() {
-    }
+    public void init() {}
 
     @Override
     public BeanDefinition parse(Element element, ParserContext parserContext) {

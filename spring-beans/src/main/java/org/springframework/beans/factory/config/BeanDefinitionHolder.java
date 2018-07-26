@@ -50,7 +50,7 @@ public class BeanDefinitionHolder implements BeanMetadataElement {
 		return this.aliases;
 	}
 
-	//获取资源
+	//获取xml资源
 	@Override
 	public Object getSource() {
 		return this.beanDefinition.getSource();

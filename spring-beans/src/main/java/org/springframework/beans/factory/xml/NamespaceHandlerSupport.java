@@ -10,40 +10,23 @@ import org.w3c.dom.Node;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
 
+//名称空间处理器助手
 public abstract class NamespaceHandlerSupport implements NamespaceHandler {
 
-    /**
-     * Stores the {@link BeanDefinitionParser} implementations keyed by the
-     * local name of the {@link Element Elements} they handle.
-     */
+    //Bean定义解析器
     private final Map<String, BeanDefinitionParser> parsers = new HashMap<String, BeanDefinitionParser>();
-
-    /**
-     * Stores the {@link BeanDefinitionDecorator} implementations keyed by the
-     * local name of the {@link Element Elements} they handle.
-     */
+    //元素-Bean定义装饰器
     private final Map<String, BeanDefinitionDecorator> decorators = new HashMap<String, BeanDefinitionDecorator>();
-
-    /**
-     * Stores the {@link BeanDefinitionDecorator} implementations keyed by the local
-     * name of the {@link Attr Attrs} they handle.
-     */
+    //属性-Bean定义装饰器
     private final Map<String, BeanDefinitionDecorator> attributeDecorators = new HashMap<String, BeanDefinitionDecorator>();
 
-
-    /**
-     * Parses the supplied {@link Element} by delegating to the {@link BeanDefinitionParser} that is
-     * registered for that {@link Element}.
-     */
+    //解析方法
     @Override
     public BeanDefinition parse(Element element, ParserContext parserContext) {
         return findParserForElement(element, parserContext).parse(element, parserContext);
     }
 
-    /**
-     * Locates the {@link BeanDefinitionParser} from the register implementations using
-     * the local name of the supplied {@link Element}.
-     */
+    //为元素寻找解析器
     private BeanDefinitionParser findParserForElement(Element element, ParserContext parserContext) {
         String localName = parserContext.getDelegate().getLocalName(element);
         BeanDefinitionParser parser = this.parsers.get(localName);
@@ -54,22 +37,13 @@ public abstract class NamespaceHandlerSupport implements NamespaceHandler {
         return parser;
     }
 
-    /**
-     * Decorates the supplied {@link Node} by delegating to the {@link BeanDefinitionDecorator} that
-     * is registered to handle that {@link Node}.
-     */
+    //装饰方法
     @Override
-    public BeanDefinitionHolder decorate(
-            Node node, BeanDefinitionHolder definition, ParserContext parserContext) {
-
+    public BeanDefinitionHolder decorate(Node node, BeanDefinitionHolder definition, ParserContext parserContext) {
         return findDecoratorForNode(node, parserContext).decorate(node, definition, parserContext);
     }
 
-    /**
-     * Locates the {@link BeanDefinitionParser} from the register implementations using
-     * the local name of the supplied {@link Node}. Supports both {@link Element Elements}
-     * and {@link Attr Attrs}.
-     */
+    //为节点寻找装饰器
     private BeanDefinitionDecorator findDecoratorForNode(Node node, ParserContext parserContext) {
         BeanDefinitionDecorator decorator = null;
         String localName = parserContext.getDelegate().getLocalName(node);
@@ -88,30 +62,14 @@ public abstract class NamespaceHandlerSupport implements NamespaceHandler {
         return decorator;
     }
 
-
-    /**
-     * Subclasses can call this to register the supplied {@link BeanDefinitionParser} to
-     * handle the specified element. The element name is the local (non-namespace qualified)
-     * name.
-     */
     protected final void registerBeanDefinitionParser(String elementName, BeanDefinitionParser parser) {
         this.parsers.put(elementName, parser);
     }
 
-    /**
-     * Subclasses can call this to register the supplied {@link BeanDefinitionDecorator} to
-     * handle the specified element. The element name is the local (non-namespace qualified)
-     * name.
-     */
     protected final void registerBeanDefinitionDecorator(String elementName, BeanDefinitionDecorator dec) {
         this.decorators.put(elementName, dec);
     }
 
-    /**
-     * Subclasses can call this to register the supplied {@link BeanDefinitionDecorator} to
-     * handle the specified attribute. The attribute name is the local (non-namespace qualified)
-     * name.
-     */
     protected final void registerBeanDefinitionDecoratorForAttribute(String attrName, BeanDefinitionDecorator dec) {
         this.attributeDecorators.put(attrName, dec);
     }

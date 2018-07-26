@@ -8,37 +8,21 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class PropertyValue extends BeanMetadataAttributeAccessor implements Serializable {
 
-	private final String name;
+	private final String name;                 //属性名
+	private final Object value;                //属性值
+	private boolean optional = false;          //是否原始属性
+	private boolean converted = false;         //是否已经转换
+	private Object convertedValue;             //转换后的值
+	volatile Boolean conversionNecessary;      //是否版本必须
+	transient volatile Object resolvedTokens;  //解析标记
 
-	private final Object value;
-
-	private boolean optional = false;
-
-	private boolean converted = false;
-
-	private Object convertedValue;
-
-	/** Package-visible field that indicates whether conversion is necessary */
-	volatile Boolean conversionNecessary;
-
-	/** Package-visible field for caching the resolved property path tokens */
-	transient volatile Object resolvedTokens;
-
-
-	/**
-	 * Create a new PropertyValue instance.
-	 * @param name the name of the property (never {@code null})
-	 * @param value the value of the property (possibly before type conversion)
-	 */
+	//构造器1
 	public PropertyValue(String name, Object value) {
 		this.name = name;
 		this.value = value;
 	}
 
-	/**
-	 * Copy constructor.
-	 * @param original the PropertyValue to copy (never {@code null})
-	 */
+	//构造器2
 	public PropertyValue(PropertyValue original) {
 		Assert.notNull(original, "Original must not be null");
 		this.name = original.getName();
@@ -52,12 +36,7 @@ public class PropertyValue extends BeanMetadataAttributeAccessor implements Seri
 		copyAttributesFrom(original);
 	}
 
-	/**
-	 * Constructor that exposes a new value for an original value holder.
-	 * The original holder will be exposed as source of the new holder.
-	 * @param original the PropertyValue to link to (never {@code null})
-	 * @param newValue the new value to apply
-	 */
+	//构造器3
 	public PropertyValue(PropertyValue original, Object newValue) {
 		Assert.notNull(original, "Original must not be null");
 		this.name = original.getName();
@@ -69,29 +48,17 @@ public class PropertyValue extends BeanMetadataAttributeAccessor implements Seri
 		copyAttributesFrom(original);
 	}
 
-
-	/**
-	 * Return the name of the property.
-	 */
+	//获取属性名
 	public String getName() {
 		return this.name;
 	}
 
-	/**
-	 * Return the value of the property.
-	 * <p>Note that type conversion will <i>not</i> have occurred here.
-	 * It is the responsibility of the BeanWrapper implementation to
-	 * perform type conversion.
-	 */
+	//获取属性值
 	public Object getValue() {
 		return this.value;
 	}
 
-	/**
-	 * Return the original PropertyValue instance for this value holder.
-	 * @return the original PropertyValue (either a source of this
-	 * value holder or this value holder itself).
-	 */
+	//获取原始属性值
 	public PropertyValue getOriginalPropertyValue() {
 		PropertyValue original = this;
 		Object source = getSource();
@@ -102,45 +69,28 @@ public class PropertyValue extends BeanMetadataAttributeAccessor implements Seri
 		return original;
 	}
 
-	/**
-	 * Set whether this is an optional value, that is, to be ignored
-	 * when no corresponding property exists on the target class.
-	 * @since 3.0
-	 */
+	//设置是否原始属性
 	public void setOptional(boolean optional) {
 		this.optional = optional;
 	}
 
-	/**
-	 * Return whether this is an optional value, that is, to be ignored
-	 * when no corresponding property exists on the target class.
-	 * @since 3.0
-	 */
+	//获取是否原始属性
 	public boolean isOptional() {
 		return this.optional;
 	}
 
-	/**
-	 * Return whether this holder contains a converted value already ({@code true}),
-	 * or whether the value still needs to be converted ({@code false}).
-	 */
+	//是否已经转换过
 	public synchronized boolean isConverted() {
 		return this.converted;
 	}
 
-	/**
-	 * Set the converted value of the constructor argument,
-	 * after processed type conversion.
-	 */
+	//设置转换后的值
 	public synchronized void setConvertedValue(Object value) {
 		this.converted = true;
 		this.convertedValue = value;
 	}
 
-	/**
-	 * Return the converted value of the constructor argument,
-	 * after processed type conversion.
-	 */
+	//获取转换后的值
 	public synchronized Object getConvertedValue() {
 		return this.convertedValue;
 	}

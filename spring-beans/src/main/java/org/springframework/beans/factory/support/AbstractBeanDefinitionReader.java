@@ -16,9 +16,10 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.util.Assert;
 
+//抽象Bean定义阅读器
 public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable, BeanDefinitionReader {
 
-    protected final Log logger = LogFactory.getLog(getClass());
+    protected final Log logger = LogFactory.getLog(getClass());                     //日志类
     private final BeanDefinitionRegistry registry;                                  //Bean定义注册器
     private ResourceLoader resourceLoader;                                          //资源加载器
     private ClassLoader beanClassLoader;                                            //Bean加载器

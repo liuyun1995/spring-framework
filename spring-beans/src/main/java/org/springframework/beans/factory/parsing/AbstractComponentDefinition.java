@@ -6,38 +6,31 @@ import org.springframework.beans.factory.config.BeanReference;
 //抽象组件定义
 public abstract class AbstractComponentDefinition implements ComponentDefinition {
 
+	//获取描述符
 	@Override
 	public String getDescription() {
 		return getName();
 	}
 
-	/**
-	 * Returns an empty array.
-	 */
+	//获取Bean定义数组
 	@Override
 	public BeanDefinition[] getBeanDefinitions() {
+		//返回空数组
 		return new BeanDefinition[0];
 	}
 
-	/**
-	 * Returns an empty array.
-	 */
+	//获取内部Bean定义数组
 	@Override
 	public BeanDefinition[] getInnerBeanDefinitions() {
 		return new BeanDefinition[0];
 	}
 
-	/**
-	 * Returns an empty array.
-	 */
+	//获取Bean引用数组
 	@Override
 	public BeanReference[] getBeanReferences() {
 		return new BeanReference[0];
 	}
 
-	/**
-	 * Delegates to {@link #getDescription}.
-	 */
 	@Override
 	public String toString() {
 		return getDescription();

@@ -24,6 +24,7 @@ public abstract class AbstractBeanDefinitionParser implements BeanDefinitionPars
         AbstractBeanDefinition definition = parseInternal(element, parserContext);
         if (definition != null && !parserContext.isNested()) {
             try {
+                //获取ID值
                 String id = resolveId(element, definition, parserContext);
                 if (!StringUtils.hasText(id)) {
                     parserContext.getReaderContext().error(
@@ -31,9 +32,13 @@ public abstract class AbstractBeanDefinitionParser implements BeanDefinitionPars
                                     + "' when used as a top-level tag", element);
                 }
                 String[] aliases = null;
+                //判断是否要解析名称作为别名
                 if (shouldParseNameAsAliases()) {
+                    //获取节点的name属性
                     String name = element.getAttribute(NAME_ATTRIBUTE);
+                    //如果name属性不为空
                     if (StringUtils.hasLength(name)) {
+                        //将解析后的数组设置为别名数组
                         aliases = StringUtils.trimArrayElements(StringUtils.commaDelimitedListToStringArray(name));
                     }
                 }
@@ -41,9 +46,13 @@ public abstract class AbstractBeanDefinitionParser implements BeanDefinitionPars
                 BeanDefinitionHolder holder = new BeanDefinitionHolder(definition, id, aliases);
                 //注册Bean定义
                 registerBeanDefinition(holder, parserContext.getRegistry());
+                //判断是否要移除事件
                 if (shouldFireEvents()) {
+                    //新建Bean组件定义
                     BeanComponentDefinition componentDefinition = new BeanComponentDefinition(holder);
+                    //执行勾子方法
                     postProcessComponentDefinition(componentDefinition);
+                    //注册组件定义
                     parserContext.registerComponent(componentDefinition);
                 }
             } catch (BeanDefinitionStoreException ex) {
@@ -51,136 +60,57 @@ public abstract class AbstractBeanDefinitionParser implements BeanDefinitionPars
                 return null;
             }
         }
+        //最后返回Bean定义
         return definition;
     }
 
-    /**
-     * Resolve the ID for the supplied {@link BeanDefinition}.
-     * <p>When using {@link #shouldGenerateId generation}, a name is generated automatically.
-     * Otherwise, the ID is extracted from the "id" attribute, potentially with a
-     * {@link #shouldGenerateIdAsFallback() fallback} to a generated id.
-     *
-     * @param element       the element that the bean definition has been built from
-     * @param definition    the bean definition to be registered
-     * @param parserContext the object encapsulating the current state of the parsing process;
-     *                      provides access to a {@link org.springframework.beans.factory.support.BeanDefinitionRegistry}
-     * @return the resolved id
-     * @throws BeanDefinitionStoreException if no unique name could be generated
-     *                                      for the given bean definition
-     */
+    //解析id
     protected String resolveId(Element element, AbstractBeanDefinition definition, ParserContext parserContext)
             throws BeanDefinitionStoreException {
-
+        //判断是否要生成id
         if (shouldGenerateId()) {
             return parserContext.getReaderContext().generateBeanName(definition);
         } else {
+            //获取节点的id属性
             String id = element.getAttribute(ID_ATTRIBUTE);
+            //若id属性为空，则再次判断是否要生成id
             if (!StringUtils.hasText(id) && shouldGenerateIdAsFallback()) {
                 id = parserContext.getReaderContext().generateBeanName(definition);
             }
+            //否则直接返回该id
             return id;
         }
     }
 
-    /**
-     * Register the supplied {@link BeanDefinitionHolder bean} with the supplied
-     * {@link BeanDefinitionRegistry registry}.
-     * <p>Subclasses can override this method to control whether or not the supplied
-     * {@link BeanDefinitionHolder bean} is actually even registered, or to
-     * register even more beans.
-     * <p>The default implementation registers the supplied {@link BeanDefinitionHolder bean}
-     * with the supplied {@link BeanDefinitionRegistry registry} only if the {@code isNested}
-     * parameter is {@code false}, because one typically does not want inner beans
-     * to be registered as top level beans.
-     *
-     * @param definition the bean definition to be registered
-     * @param registry   the registry that the bean is to be registered with
-     * @see BeanDefinitionReaderUtils#registerBeanDefinition(BeanDefinitionHolder, BeanDefinitionRegistry)
-     */
+    //注册Bean定义
     protected void registerBeanDefinition(BeanDefinitionHolder definition, BeanDefinitionRegistry registry) {
         BeanDefinitionReaderUtils.registerBeanDefinition(definition, registry);
     }
 
-
-    /**
-     * Central template method to actually parse the supplied {@link Element}
-     * into one or more {@link BeanDefinition BeanDefinitions}.
-     *
-     * @param element       the element that is to be parsed into one or more {@link BeanDefinition BeanDefinitions}
-     * @param parserContext the object encapsulating the current state of the parsing process;
-     *                      provides access to a {@link org.springframework.beans.factory.support.BeanDefinitionRegistry}
-     * @return the primary {@link BeanDefinition} resulting from the parsing of the supplied {@link Element}
-     * @see #parse(org.w3c.dom.Element, ParserContext)
-     * @see #postProcessComponentDefinition(org.springframework.beans.factory.parsing.BeanComponentDefinition)
-     */
+    //解析内部类Bean定义
     protected abstract AbstractBeanDefinition parseInternal(Element element, ParserContext parserContext);
 
-    /**
-     * Should an ID be generated instead of read from the passed in {@link Element}?
-     * <p>Disabled by default; subclasses can override this to enable ID generation.
-     * Note that this flag is about <i>always</i> generating an ID; the parser
-     * won't even check for an "id" attribute in this case.
-     *
-     * @return whether the parser should always generate an id
-     */
+    //是否要生成ID
     protected boolean shouldGenerateId() {
         return false;
     }
 
-    /**
-     * Should an ID be generated instead if the passed in {@link Element} does not
-     * specify an "id" attribute explicitly?
-     * <p>Disabled by default; subclasses can override this to enable ID generation
-     * as fallback: The parser will first check for an "id" attribute in this case,
-     * only falling back to a generated ID if no value was specified.
-     *
-     * @return whether the parser should generate an id if no id was specified
-     */
+    //是否要生成ID(若id属性值为空)
     protected boolean shouldGenerateIdAsFallback() {
         return false;
     }
 
-    /**
-     * Determine whether the element's "name" attribute should get parsed as
-     * bean definition aliases, i.e. alternative bean definition names.
-     * <p>The default implementation returns {@code true}.
-     *
-     * @return whether the parser should evaluate the "name" attribute as aliases
-     * @since 4.1.5
-     */
+    //是否解析名称作为别名
     protected boolean shouldParseNameAsAliases() {
         return true;
     }
 
-    /**
-     * Determine whether this parser is supposed to fire a
-     * {@link org.springframework.beans.factory.parsing.BeanComponentDefinition}
-     * event after parsing the bean definition.
-     * <p>This implementation returns {@code true} by default; that is,
-     * an event will be fired when a bean definition has been completely parsed.
-     * Override this to return {@code false} in order to suppress the event.
-     *
-     * @return {@code true} in order to fire a component registration event
-     * after parsing the bean definition; {@code false} to suppress the event
-     * @see #postProcessComponentDefinition
-     * @see org.springframework.beans.factory.parsing.ReaderContext#fireComponentRegistered
-     */
+    //是否要解除事件
     protected boolean shouldFireEvents() {
         return true;
     }
 
-    /**
-     * Hook method called after the primary parsing of a
-     * {@link BeanComponentDefinition} but before the
-     * {@link BeanComponentDefinition} has been registered with a
-     * {@link org.springframework.beans.factory.support.BeanDefinitionRegistry}.
-     * <p>Derived classes can override this method to supply any custom logic that
-     * is to be executed after all the parsing is finished.
-     * <p>The default implementation is a no-op.
-     *
-     * @param componentDefinition the {@link BeanComponentDefinition} that is to be processed
-     */
-    protected void postProcessComponentDefinition(BeanComponentDefinition componentDefinition) {
-    }
+
+    protected void postProcessComponentDefinition(BeanComponentDefinition componentDefinition) { }
 
 }

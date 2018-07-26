@@ -8,9 +8,7 @@ import org.springframework.util.Assert;
 public class ImportDefinition implements BeanMetadataElement {
 
 	private final String importedResource;
-
 	private final Resource[] actualResources;
-
 	private final Object source;
 
 	public ImportDefinition(String importedResource) {

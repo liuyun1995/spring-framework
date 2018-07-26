@@ -22,7 +22,6 @@ public class CustomEditorConfigurer implements BeanFactoryPostProcessor, Ordered
 
     private Map<Class<?>, Class<? extends PropertyEditor>> customEditors;
 
-
     public void setOrder(int order) {
         this.order = order;
     }

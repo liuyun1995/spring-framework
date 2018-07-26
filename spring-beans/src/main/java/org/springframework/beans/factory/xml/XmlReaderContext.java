@@ -15,13 +15,13 @@ import org.xml.sax.InputSource;
 
 import java.io.StringReader;
 
-
+//xml阅读器上下文
 public class XmlReaderContext extends ReaderContext {
 
-    private final XmlBeanDefinitionReader reader;
+    private final XmlBeanDefinitionReader reader;                        //Bean定义阅读器
+    private final NamespaceHandlerResolver namespaceHandlerResolver;     //名称空间处理器转换器
 
-    private final NamespaceHandlerResolver namespaceHandlerResolver;
-
+    //构造器
     public XmlReaderContext(Resource resource, ProblemReporter problemReporter, ReaderEventListener eventListener,
                             SourceExtractor sourceExtractor, XmlBeanDefinitionReader reader,
                             NamespaceHandlerResolver namespaceHandlerResolver) {
@@ -30,40 +30,49 @@ public class XmlReaderContext extends ReaderContext {
         this.namespaceHandlerResolver = namespaceHandlerResolver;
     }
 
+    //获取阅读器
     public final XmlBeanDefinitionReader getReader() {
         return this.reader;
     }
 
+    //获取Bean定义注册器
     public final BeanDefinitionRegistry getRegistry() {
         return this.reader.getRegistry();
     }
 
+    //获取资源加载器
     public final ResourceLoader getResourceLoader() {
         return this.reader.getResourceLoader();
     }
 
+    //获取类加载器
     public final ClassLoader getBeanClassLoader() {
         return this.reader.getBeanClassLoader();
     }
 
+    //获取环境信息
     public final Environment getEnvironment() {
         return this.reader.getEnvironment();
     }
 
+    //获取名称空间处理器转换器
     public final NamespaceHandlerResolver getNamespaceHandlerResolver() {
         return this.namespaceHandlerResolver;
     }
 
+    //生成Bean的名称
     public String generateBeanName(BeanDefinition beanDefinition) {
         return this.reader.getBeanNameGenerator().generateBeanName(beanDefinition, getRegistry());
     }
 
+    //根据生成的名称进行注册
     public String registerWithGeneratedName(BeanDefinition beanDefinition) {
         String generatedName = generateBeanName(beanDefinition);
         getRegistry().registerBeanDefinition(generatedName, beanDefinition);
         return generatedName;
     }
 
+    //从字符串中读取文档
     public Document readDocumentFromString(String documentContent) {
         InputSource is = new InputSource(new StringReader(documentContent));
         try {

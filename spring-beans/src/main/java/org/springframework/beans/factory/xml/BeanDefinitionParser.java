@@ -7,6 +7,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 //Bean定义解析器
 public interface BeanDefinitionParser {
 
+	//解析方法
 	BeanDefinition parse(Element element, ParserContext parserContext);
 
 }

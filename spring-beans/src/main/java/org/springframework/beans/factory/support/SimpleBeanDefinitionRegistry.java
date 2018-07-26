@@ -10,11 +10,12 @@ import org.springframework.core.SimpleAliasRegistry;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
-//�򵥵�Bean����ע����
+//简单Bean定义注册器
 public class SimpleBeanDefinitionRegistry extends SimpleAliasRegistry implements BeanDefinitionRegistry {
 	
 	private final Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<String, BeanDefinition>(64);
 
+	//注册Bean定义
 	@Override
 	public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition)
 			throws BeanDefinitionStoreException {
@@ -23,6 +24,7 @@ public class SimpleBeanDefinitionRegistry extends SimpleAliasRegistry implements
 		this.beanDefinitionMap.put(beanName, beanDefinition);
 	}
 
+	//注册Bean定义
 	@Override
 	public void removeBeanDefinition(String beanName) throws NoSuchBeanDefinitionException {
 		if (this.beanDefinitionMap.remove(beanName) == null) {
@@ -30,6 +32,7 @@ public class SimpleBeanDefinitionRegistry extends SimpleAliasRegistry implements
 		}
 	}
 
+	//获取Bean定义
 	@Override
 	public BeanDefinition getBeanDefinition(String beanName) throws NoSuchBeanDefinitionException {
 		BeanDefinition bd = this.beanDefinitionMap.get(beanName);
@@ -39,21 +42,25 @@ public class SimpleBeanDefinitionRegistry extends SimpleAliasRegistry implements
 		return bd;
 	}
 
+	//是否包含Bean定义
 	@Override
 	public boolean containsBeanDefinition(String beanName) {
 		return this.beanDefinitionMap.containsKey(beanName);
 	}
 
+	//获取所有Bean名称
 	@Override
 	public String[] getBeanDefinitionNames() {
 		return StringUtils.toStringArray(this.beanDefinitionMap.keySet());
 	}
 
+	//获取Bean定义数量
 	@Override
 	public int getBeanDefinitionCount() {
 		return this.beanDefinitionMap.size();
 	}
 
+	//是否Bean名称已被使用
 	@Override
 	public boolean isBeanNameInUse(String beanName) {
 		return isAlias(beanName) || containsBeanDefinition(beanName);

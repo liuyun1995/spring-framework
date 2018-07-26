@@ -85,14 +85,19 @@ public class MutablePropertyValues implements PropertyValues, Serializable {
 
 	//添加属性值
 	public MutablePropertyValues addPropertyValue(PropertyValue pv) {
+		//遍历属性值列表，查找是否存在该属性
 		for (int i = 0; i < this.propertyValueList.size(); i++) {
 			PropertyValue currentPv = this.propertyValueList.get(i);
+			//判断当前属性名是否和给定属性名相等
 			if (currentPv.getName().equals(pv.getName())) {
+				//合并两个属性
 				pv = mergeIfRequired(pv, currentPv);
+				//该位置的属性更新为合并后的属性
 				setPropertyValueAt(pv, i);
 				return this;
 			}
 		}
+		//若属性列表没有该属性，则添加进列表
 		this.propertyValueList.add(pv);
 		return this;
 	}

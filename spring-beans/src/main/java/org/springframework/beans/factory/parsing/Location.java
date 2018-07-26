@@ -5,9 +5,8 @@ import org.springframework.util.Assert;
 
 public class Location {
 
-	private final Resource resource;
-
-	private final Object source;
+	private final Resource resource;   //资源
+	private final Object source;       //目标对象
 
 	public Location(Resource resource) {
 		this(resource, null);

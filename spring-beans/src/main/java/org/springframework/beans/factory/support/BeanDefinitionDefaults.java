@@ -2,6 +2,7 @@ package org.springframework.beans.factory.support;
 
 import org.springframework.util.StringUtils;
 
+//默认Bean定义
 public class BeanDefinitionDefaults {
 
 	private boolean lazyInit;

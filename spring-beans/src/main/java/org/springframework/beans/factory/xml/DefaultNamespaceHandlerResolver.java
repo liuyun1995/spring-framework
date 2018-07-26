@@ -15,44 +15,34 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.CollectionUtils;
 
+//默认名称空间处理器转换器
 public class DefaultNamespaceHandlerResolver implements NamespaceHandlerResolver {
 
     public static final String DEFAULT_HANDLER_MAPPINGS_LOCATION = "META-INF/spring.handlers";
 
-    /**
-     * Logger available to subclasses
-     */
-    protected final Log logger = LogFactory.getLog(getClass());
+    protected final Log logger = LogFactory.getLog(getClass());    //日志类
+    private final ClassLoader classLoader;                         //类加载器
+    private final String handlerMappingsLocation;                  //处理器映射位置
+    private volatile Map<String, Object> handlerMappings;          //处理器映射
 
-    /**
-     * ClassLoader to use for NamespaceHandler classes
-     */
-    private final ClassLoader classLoader;
-
-    /**
-     * Resource location to search for
-     */
-    private final String handlerMappingsLocation;
-
-    /**
-     * Stores the mappings from namespace URI to NamespaceHandler class name / instance
-     */
-    private volatile Map<String, Object> handlerMappings;
-
+    //构造器1
     public DefaultNamespaceHandlerResolver() {
         this(null, DEFAULT_HANDLER_MAPPINGS_LOCATION);
     }
 
+    //构造器2
     public DefaultNamespaceHandlerResolver(ClassLoader classLoader) {
         this(classLoader, DEFAULT_HANDLER_MAPPINGS_LOCATION);
     }
 
+    //构造器3
     public DefaultNamespaceHandlerResolver(ClassLoader classLoader, String handlerMappingsLocation) {
         Assert.notNull(handlerMappingsLocation, "Handler mappings location must not be null");
         this.classLoader = (classLoader != null ? classLoader : ClassUtils.getDefaultClassLoader());
         this.handlerMappingsLocation = handlerMappingsLocation;
     }
 
+    //根据uri获取名称空间处理器
     @Override
     public NamespaceHandler resolve(String namespaceUri) {
         Map<String, Object> handlerMappings = getHandlerMappings();
@@ -83,9 +73,7 @@ public class DefaultNamespaceHandlerResolver implements NamespaceHandlerResolver
         }
     }
 
-    /**
-     * Load the specified NamespaceHandler mappings lazily.
-     */
+    //获取处理器映射
     private Map<String, Object> getHandlerMappings() {
         if (this.handlerMappings == null) {
             synchronized (this) {

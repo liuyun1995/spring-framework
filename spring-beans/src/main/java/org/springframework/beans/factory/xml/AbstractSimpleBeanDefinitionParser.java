@@ -9,7 +9,7 @@ import org.springframework.core.Conventions;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
-//抽象单例Bean定义解析器
+//抽象简单Bean定义解析器
 public abstract class AbstractSimpleBeanDefinitionParser extends AbstractSingleBeanDefinitionParser {
 
 	@Override

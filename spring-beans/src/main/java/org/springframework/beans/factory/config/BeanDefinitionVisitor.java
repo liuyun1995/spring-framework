@@ -18,8 +18,7 @@ public class BeanDefinitionVisitor {
         this.valueResolver = valueResolver;
     }
 
-    protected BeanDefinitionVisitor() {
-    }
+    protected BeanDefinitionVisitor() {}
 
     public void visitBeanDefinition(BeanDefinition beanDefinition) {
         visitParentName(beanDefinition);

@@ -13,11 +13,8 @@ import org.springframework.core.io.Resource;
 public class BeansDtdResolver implements EntityResolver {
 
     private static final String DTD_EXTENSION = ".dtd";
-
     private static final String DTD_FILENAME = "spring-beans-2.0";
-
     private static final String DTD_NAME = "spring-beans";
-
     private static final Log logger = LogFactory.getLog(BeansDtdResolver.class);
 
     @Override

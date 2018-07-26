@@ -1,5 +1,6 @@
 package org.springframework.beans.factory.parsing;
 
+//问题报告器
 public interface ProblemReporter {
 
 	void fatal(Problem problem);

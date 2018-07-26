@@ -6,11 +6,9 @@ import org.springframework.util.Assert;
 //别名定义
 public class AliasDefinition implements BeanMetadataElement {
 
-	private final String beanName;
-
-	private final String alias;
-
-	private final Object source;
+	private final String beanName;   //Bean名称
+	private final String alias;      //别名定义
+	private final Object source;     //资源
 	
 	public AliasDefinition(String beanName, String alias) {
 		this(beanName, alias, null);

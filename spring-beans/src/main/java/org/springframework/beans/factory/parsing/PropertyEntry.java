@@ -2,6 +2,7 @@ package org.springframework.beans.factory.parsing;
 
 import org.springframework.util.StringUtils;
 
+//属性实体
 public class PropertyEntry implements ParseState.Entry {
 
 	private final String name;

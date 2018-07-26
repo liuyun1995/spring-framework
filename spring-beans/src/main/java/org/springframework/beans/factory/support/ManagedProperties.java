@@ -10,7 +10,6 @@ import org.springframework.beans.Mergeable;
 public class ManagedProperties extends Properties implements Mergeable, BeanMetadataElement {
 
 	private Object source;
-
 	private boolean mergeEnabled;
 
 	public void setSource(Object source) {
