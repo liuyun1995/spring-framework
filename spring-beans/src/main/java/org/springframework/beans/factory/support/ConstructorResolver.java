@@ -836,8 +836,7 @@ class ConstructorResolver {
     /**
      * Marker for autowired arguments in a cached argument array.
      */
-    private static class AutowiredArgumentMarker {
-    }
+    private static class AutowiredArgumentMarker {}
 
 
     /**

@@ -18,13 +18,17 @@ public interface BeanDefinitionReader {
 
 	//获取Bean名称生成器
 	BeanNameGenerator getBeanNameGenerator();
-	
+
+	//加载Bean定义
 	int loadBeanDefinitions(Resource resource) throws BeanDefinitionStoreException;
 
+	//加载Bean定义
 	int loadBeanDefinitions(Resource... resources) throws BeanDefinitionStoreException;
 
+	//加载Bean定义
 	int loadBeanDefinitions(String location) throws BeanDefinitionStoreException;
-	
+
+	//加载Bean定义
 	int loadBeanDefinitions(String... locations) throws BeanDefinitionStoreException;
 
 }

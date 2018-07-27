@@ -2,7 +2,7 @@ package org.springframework.beans.factory.support;
 
 import org.springframework.beans.FatalBeanException;
 
-
+//Bean定义验证异常
 @SuppressWarnings("serial")
 public class BeanDefinitionValidationException extends FatalBeanException {
 	

@@ -21,6 +21,7 @@ import org.springframework.beans.factory.config.TypedStringValue;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
+//自动装配工具
 abstract class AutowireUtils {
 
     /**

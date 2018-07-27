@@ -1,14 +1,5 @@
 package org.springframework.beans.factory.support;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
-
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.TypeConverter;
@@ -16,25 +7,22 @@ import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.BeanDefinitionStoreException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.FactoryBean;
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.beans.factory.config.BeanDefinitionHolder;
-import org.springframework.beans.factory.config.RuntimeBeanNameReference;
-import org.springframework.beans.factory.config.RuntimeBeanReference;
-import org.springframework.beans.factory.config.TypedStringValue;
+import org.springframework.beans.factory.config.*;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
+import java.lang.reflect.Array;
+import java.util.*;
+
 class BeanDefinitionValueResolver {
 
-	private final AbstractBeanFactory beanFactory;
+	private final AbstractBeanFactory beanFactory;   //抽象Bean工厂
+	private final String beanName;                   //Bean的名称
+	private final BeanDefinition beanDefinition;     //Bean定义
+	private final TypeConverter typeConverter;       //类型转换器
 
-	private final String beanName;
-
-	private final BeanDefinition beanDefinition;
-
-	private final TypeConverter typeConverter;
-
+	//构造器
 	public BeanDefinitionValueResolver(AbstractBeanFactory beanFactory, String beanName, BeanDefinition beanDefinition,
 			TypeConverter typeConverter) {
 		this.beanFactory = beanFactory;
@@ -43,27 +31,7 @@ class BeanDefinitionValueResolver {
 		this.typeConverter = typeConverter;
 	}
 
-	/**
-	 * Given a PropertyValue, return a value, resolving any references to other
-	 * beans in the factory if necessary. The value could be:
-	 * <li>A BeanDefinition, which leads to the creation of a corresponding new bean
-	 * instance. Singleton flags and names of such "inner beans" are always ignored:
-	 * Inner beans are anonymous prototypes.
-	 * <li>A RuntimeBeanReference, which must be resolved.
-	 * <li>A ManagedList. This is a special collection that may contain
-	 * RuntimeBeanReferences or Collections that will need to be resolved.
-	 * <li>A ManagedSet. May also contain RuntimeBeanReferences or Collections that
-	 * will need to be resolved.
-	 * <li>A ManagedMap. In this case the value may be a RuntimeBeanReference or
-	 * Collection that will need to be resolved.
-	 * <li>An ordinary object or {@code null}, in which case it's left alone.
-	 * 
-	 * @param argName
-	 *            the name of the argument that the value is defined for
-	 * @param value
-	 *            the value object to resolve
-	 * @return the resolved object
-	 */
+
 	public Object resolveValueIfNecessary(Object argName, Object value) {
 		// We must check each value to see whether it requires a runtime reference
 		// to another bean to be resolved.

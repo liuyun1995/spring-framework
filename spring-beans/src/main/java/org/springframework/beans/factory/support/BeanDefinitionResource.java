@@ -8,7 +8,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.core.io.AbstractResource;
 import org.springframework.util.Assert;
 
-
+//Bean定义资源
 class BeanDefinitionResource extends AbstractResource {
 
 	private final BeanDefinition beanDefinition;

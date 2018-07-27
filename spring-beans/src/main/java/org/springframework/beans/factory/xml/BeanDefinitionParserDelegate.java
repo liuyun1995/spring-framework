@@ -1263,6 +1263,7 @@ public class BeanDefinitionParserDelegate {
         return originalDef;
     }
 
+    //解析嵌套的外部元素
     private BeanDefinitionHolder parseNestedCustomElement(Element ele, BeanDefinition containingBd) {
         BeanDefinition innerDefinition = parseCustomElement(ele, containingBd);
         if (innerDefinition == null) {
@@ -1305,6 +1306,7 @@ public class BeanDefinitionParserDelegate {
         return isDefaultNamespace(getNamespaceURI(node));
     }
 
+    //是否是候选元素
     private boolean isCandidateElement(Node node) {
         return (node instanceof Element && (isDefaultNamespace(node) || !isDefaultNamespace(node.getParentNode())));
     }

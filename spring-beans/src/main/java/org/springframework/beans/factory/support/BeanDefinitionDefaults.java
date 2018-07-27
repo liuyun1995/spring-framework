@@ -5,16 +5,11 @@ import org.springframework.util.StringUtils;
 //默认Bean定义
 public class BeanDefinitionDefaults {
 
-	private boolean lazyInit;
-
-	private int dependencyCheck = AbstractBeanDefinition.DEPENDENCY_CHECK_NONE;
-
-	private int autowireMode = AbstractBeanDefinition.AUTOWIRE_NO;
-
-	private String initMethodName;
-
-	private String destroyMethodName;
-
+	private boolean lazyInit;                                                     //是否懒加载
+	private int dependencyCheck = AbstractBeanDefinition.DEPENDENCY_CHECK_NONE;   //依赖检查
+	private int autowireMode = AbstractBeanDefinition.AUTOWIRE_NO;                //自动装配模式
+	private String initMethodName;                                                //初始化方法
+	private String destroyMethodName;                                             //销毁方法
 
 	public void setLazyInit(boolean lazyInit) {
 		this.lazyInit = lazyInit;

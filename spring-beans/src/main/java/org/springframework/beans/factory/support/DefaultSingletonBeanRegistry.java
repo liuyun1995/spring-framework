@@ -106,13 +106,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
         }
     }
 
-    /**
-     * Add the given singleton object to the singleton cache of this factory.
-     * <p>To be called for eager registration of singletons.
-     *
-     * @param beanName        the name of the bean
-     * @param singletonObject the singleton object
-     */
+    //添加单例
     protected void addSingleton(String beanName, Object singletonObject) {
         synchronized (this.singletonObjects) {
             this.singletonObjects.put(beanName, (singletonObject != null ? singletonObject : NULL_OBJECT));
@@ -122,15 +116,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
         }
     }
 
-    /**
-     * Add the given singleton factory for building the specified singleton
-     * if necessary.
-     * <p>To be called for eager registration of singletons, e.g. to be able to
-     * resolve circular references.
-     *
-     * @param beanName         the name of the bean
-     * @param singletonFactory the factory for the singleton object
-     */
+    //添加单例工厂
     protected void addSingletonFactory(String beanName, ObjectFactory<?> singletonFactory) {
         Assert.notNull(singletonFactory, "Singleton factory must not be null");
         synchronized (this.singletonObjects) {
@@ -142,20 +128,13 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
         }
     }
 
+    //获取单例
     @Override
     public Object getSingleton(String beanName) {
         return getSingleton(beanName, true);
     }
 
-    /**
-     * Return the (raw) singleton object registered under the given name.
-     * <p>Checks already instantiated singletons and also allows for an early
-     * reference to a currently created singleton (resolving a circular reference).
-     *
-     * @param beanName            the name of the bean to look for
-     * @param allowEarlyReference whether early references should be created or not
-     * @return the registered singleton object, or {@code null} if none found
-     */
+    //获取单例
     protected Object getSingleton(String beanName, boolean allowEarlyReference) {
         Object singletonObject = this.singletonObjects.get(beanName);
         if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
@@ -174,15 +153,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
         return (singletonObject != NULL_OBJECT ? singletonObject : null);
     }
 
-    /**
-     * Return the (raw) singleton object registered under the given name,
-     * creating and registering a new one if none registered yet.
-     *
-     * @param beanName         the name of the bean
-     * @param singletonFactory the ObjectFactory to lazily create the singleton
-     *                         with, if necessary
-     * @return the registered singleton object
-     */
+    //获取单例
     public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
         Assert.notNull(beanName, "'beanName' must not be null");
         synchronized (this.singletonObjects) {
@@ -247,13 +218,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
         }
     }
 
-    /**
-     * Remove the bean with the given name from the singleton cache of this factory,
-     * to be able to clean up eager registration of a singleton if creation failed.
-     *
-     * @param beanName the name of the bean
-     * @see #getSingletonMutex()
-     */
+    //移除单例
     protected void removeSingleton(String beanName) {
         synchronized (this.singletonObjects) {
             this.singletonObjects.remove(beanName);
@@ -263,11 +228,13 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
         }
     }
 
+    //是否包含指定单例
     @Override
     public boolean containsSingleton(String beanName) {
         return this.singletonObjects.containsKey(beanName);
     }
 
+    //获取所有单例名称
     @Override
     public String[] getSingletonNames() {
         synchronized (this.singletonObjects) {
@@ -275,6 +242,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
         }
     }
 
+    //获取所有单例数量
     @Override
     public int getSingletonCount() {
         synchronized (this.singletonObjects) {
