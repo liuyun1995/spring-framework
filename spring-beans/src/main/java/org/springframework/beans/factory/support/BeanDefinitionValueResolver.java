@@ -192,17 +192,7 @@ class BeanDefinitionValueResolver {
 		return value.resolveTargetType(this.beanFactory.getBeanClassLoader());
 	}
 
-	/**
-	 * Resolve an inner bean definition.
-	 * 
-	 * @param argName
-	 *            the name of the argument that the inner bean is defined for
-	 * @param innerBeanName
-	 *            the name of the inner bean
-	 * @param innerBd
-	 *            the bean definition for the inner bean
-	 * @return the resolved inner bean instance
-	 */
+	//解析内部Bean
 	private Object resolveInnerBean(Object argName, String innerBeanName, BeanDefinition innerBd) {
 		RootBeanDefinition mbd = null;
 		try {

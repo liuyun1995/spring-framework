@@ -7,7 +7,7 @@ import org.springframework.core.ResolvableType;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-//映射工厂Bean
+//Map对象工厂Bean
 public class MapFactoryBean extends AbstractFactoryBean<Map<Object, Object>> {
 
     private Map<?, ?> sourceMap;
@@ -15,21 +15,10 @@ public class MapFactoryBean extends AbstractFactoryBean<Map<Object, Object>> {
     @SuppressWarnings("rawtypes")
     private Class<? extends Map> targetMapClass;
 
-
-    /**
-     * Set the source Map, typically populated via XML "map" elements.
-     */
     public void setSourceMap(Map<?, ?> sourceMap) {
         this.sourceMap = sourceMap;
     }
 
-    /**
-     * Set the class to use for the target Map. Can be populated with a fully
-     * qualified class name when defined in a Spring application context.
-     * <p>Default is a linked HashMap, keeping the registration order.
-     *
-     * @see java.util.LinkedHashMap
-     */
     @SuppressWarnings("rawtypes")
     public void setTargetMapClass(Class<? extends Map> targetMapClass) {
         if (targetMapClass == null) {
@@ -40,7 +29,6 @@ public class MapFactoryBean extends AbstractFactoryBean<Map<Object, Object>> {
         }
         this.targetMapClass = targetMapClass;
     }
-
 
     @Override
     @SuppressWarnings("rawtypes")

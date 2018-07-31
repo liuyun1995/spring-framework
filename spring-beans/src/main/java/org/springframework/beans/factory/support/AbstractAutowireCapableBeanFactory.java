@@ -274,11 +274,14 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return initializeBean(beanName, existingBean, null);
 	}
 
+	//初始化Bean之前执行方法
 	@Override
 	public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName)
 			throws BeansException {
 		Object result = existingBean;
+		//遍历所有Bean切面加工器
 		for (BeanPostProcessor beanProcessor : getBeanPostProcessors()) {
+			//调用加工器的postProcessBeforeInitialization方法
 			result = beanProcessor.postProcessBeforeInitialization(result, beanName);
 			if (result == null) {
 				return result;
@@ -287,11 +290,14 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return result;
 	}
 
+	//初始化Bean之后执行方法
 	@Override
 	public Object applyBeanPostProcessorsAfterInitialization(Object existingBean, String beanName)
 			throws BeansException {
 		Object result = existingBean;
+		//遍历所有Bean切面加工器
 		for (BeanPostProcessor beanProcessor : getBeanPostProcessors()) {
+			//调用加工器的postProcessBeforeInitialization方法
 			result = beanProcessor.postProcessAfterInitialization(result, beanName);
 			if (result == null) {
 				return result;
@@ -300,6 +306,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return result;
 	}
 
+	//销毁Bean方法
 	@Override
 	public void destroyBean(Object existingBean) {
 		new DisposableBeanAdapter(existingBean, getBeanPostProcessors(), getAccessControlContext()).destroy();
@@ -310,6 +317,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	// ---------------------------------------------------------------------
 
 
+	//创建Bean实例
 	@Override
 	protected Object createBean(String beanName, RootBeanDefinition mbd, Object[] args) throws BeanCreationException {
 		if (logger.isDebugEnabled()) {
@@ -1474,20 +1482,24 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 			AccessController.doPrivileged(new PrivilegedAction<Object>() {
 				@Override
 				public Object run() {
+					//调用装配方法
 					invokeAwareMethods(beanName, bean);
 					return null;
 				}
 			}, getAccessControlContext());
 		} else {
+			//调用装配方法
 			invokeAwareMethods(beanName, bean);
 		}
 
 		Object wrappedBean = bean;
 		if (mbd == null || !mbd.isSynthetic()) {
+			//调用初始化方法之前执行
 			wrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);
 		}
 
 		try {
+			//调用初始化方法
 			invokeInitMethods(beanName, wrappedBean, mbd);
 		} catch (Throwable ex) {
 			throw new BeanCreationException((mbd != null ? mbd.getResourceDescription() : null), beanName,
@@ -1495,26 +1507,34 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		}
 
 		if (mbd == null || !mbd.isSynthetic()) {
+			//调用初始化方法之后执行
 			wrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);
 		}
 		return wrappedBean;
 	}
 
+	//调用自动装配方法
 	private void invokeAwareMethods(final String beanName, final Object bean) {
+		//若Bean实现了Aware接口
 		if (bean instanceof Aware) {
+			//若Bean实现了BeanNameAware接口
 			if (bean instanceof BeanNameAware) {
 				((BeanNameAware) bean).setBeanName(beanName);
 			}
+			//若Bean实现了BeanClassLoaderAware接口
 			if (bean instanceof BeanClassLoaderAware) {
 				((BeanClassLoaderAware) bean).setBeanClassLoader(getBeanClassLoader());
 			}
+			//若Bean实现了BeanFactoryAware接口
 			if (bean instanceof BeanFactoryAware) {
 				((BeanFactoryAware) bean).setBeanFactory(AbstractAutowireCapableBeanFactory.this);
 			}
 		}
 	}
 
+	//调用初始化方法
 	protected void invokeInitMethods(String beanName, final Object bean, RootBeanDefinition mbd) throws Throwable {
+		//判断Bean是否是InitializingBean类型
 		boolean isInitializingBean = (bean instanceof InitializingBean);
 		if (isInitializingBean && (mbd == null || !mbd.isExternallyManagedInitMethod("afterPropertiesSet"))) {
 			if (logger.isDebugEnabled()) {
@@ -1525,6 +1545,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 					AccessController.doPrivileged(new PrivilegedExceptionAction<Object>() {
 						@Override
 						public Object run() throws Exception {
+							//执行afterPropertiesSet方法
 							((InitializingBean) bean).afterPropertiesSet();
 							return null;
 						}
@@ -1533,6 +1554,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 					throw pae.getException();
 				}
 			} else {
+				//执行afterPropertiesSet方法
 				((InitializingBean) bean).afterPropertiesSet();
 			}
 		}
@@ -1541,11 +1563,13 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 			String initMethodName = mbd.getInitMethodName();
 			if (initMethodName != null && !(isInitializingBean && "afterPropertiesSet".equals(initMethodName))
 					&& !mbd.isExternallyManagedInitMethod(initMethodName)) {
+				//调用外部初始化方法
 				invokeCustomInitMethod(beanName, bean, mbd);
 			}
 		}
 	}
 
+	//调用外部初始化方法
 	protected void invokeCustomInitMethod(String beanName, final Object bean, RootBeanDefinition mbd) throws Throwable {
 		String initMethodName = mbd.getInitMethodName();
 		final Method initMethod = (mbd.isNonPublicAccessAllowed()
@@ -1611,9 +1635,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return applyBeanPostProcessorsAfterInitialization(object, beanName);
 	}
 
-	/**
-	 * Overridden to clear FactoryBean instance cache as well.
-	 */
+	//移除指定单例
 	@Override
 	protected void removeSingleton(String beanName) {
 		super.removeSingleton(beanName);

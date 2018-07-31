@@ -7,15 +7,7 @@ import org.springframework.core.ResolvableType;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-/**
- * Simple factory for shared Set instances. Allows for central setup of Sets via
- * the "set" element in XML bean definitions.
- *
- * @author Juergen Hoeller
- * @see ListFactoryBean
- * @see MapFactoryBean
- * @since 09.12.2003
- */
+//Set对象工厂Bean
 public class SetFactoryBean extends AbstractFactoryBean<Set<Object>> {
 
     private Set<?> sourceSet;
@@ -23,21 +15,10 @@ public class SetFactoryBean extends AbstractFactoryBean<Set<Object>> {
     @SuppressWarnings("rawtypes")
     private Class<? extends Set> targetSetClass;
 
-    /**
-     * Set the source Set, typically populated via XML "set" elements.
-     */
     public void setSourceSet(Set<?> sourceSet) {
         this.sourceSet = sourceSet;
     }
 
-    /**
-     * Set the class to use for the target Set. Can be populated with a fully
-     * qualified class name when defined in a Spring application context.
-     * <p>
-     * Default is a linked HashSet, keeping the registration order.
-     *
-     * @see java.util.LinkedHashSet
-     */
     @SuppressWarnings("rawtypes")
     public void setTargetSetClass(Class<? extends Set> targetSetClass) {
         if (targetSetClass == null) {

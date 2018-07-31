@@ -54,7 +54,6 @@ class TypeConverterDelegate {
     //转换方法
     public <T> T convertIfNecessary(Object newValue, Class<T> requiredType, MethodParameter methodParam)
             throws IllegalArgumentException {
-
         return convertIfNecessary(null, null, newValue, requiredType,
                 (methodParam != null ? new TypeDescriptor(methodParam) : TypeDescriptor.valueOf(requiredType)));
     }
@@ -62,7 +61,6 @@ class TypeConverterDelegate {
     //转换方法
     public <T> T convertIfNecessary(Object newValue, Class<T> requiredType, Field field)
             throws IllegalArgumentException {
-
         return convertIfNecessary(null, null, newValue, requiredType,
                 (field != null ? new TypeDescriptor(field) : TypeDescriptor.valueOf(requiredType)));
     }
@@ -79,12 +77,12 @@ class TypeConverterDelegate {
     public <T> T convertIfNecessary(String propertyName, Object oldValue, Object newValue,
                                     Class<T> requiredType, TypeDescriptor typeDescriptor) throws IllegalArgumentException {
 
-        // Custom editor for this type?
+        //获取外部属性编辑器
         PropertyEditor editor = this.propertyEditorRegistry.findCustomEditor(requiredType, propertyName);
 
         ConversionFailedException conversionAttemptEx = null;
 
-        // No custom editor but custom ConversionService specified?
+        //获取类型转换服务
         ConversionService conversionService = this.propertyEditorRegistry.getConversionService();
         if (editor == null && conversionService != null && newValue != null && typeDescriptor != null) {
             TypeDescriptor sourceTypeDesc = TypeDescriptor.forObject(newValue);
