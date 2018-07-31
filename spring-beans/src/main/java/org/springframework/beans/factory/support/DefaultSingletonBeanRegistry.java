@@ -115,13 +115,13 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
         }
     }
 
-    //获取单例
+    //获取单例(Bean名称)
     @Override
     public Object getSingleton(String beanName) {
         return getSingleton(beanName, true);
     }
 
-    //获取单例
+    //获取单例(Bean名称，是否提前引用)
     protected Object getSingleton(String beanName, boolean allowEarlyReference) {
         //从缓存中获取对应对象
         Object singletonObject = this.singletonObjects.get(beanName);
@@ -148,7 +148,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
         return (singletonObject != NULL_OBJECT ? singletonObject : null);
     }
 
-    //获取单例
+    //获取单例(Bean名称，对象工厂)
     public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
         Assert.notNull(beanName, "'beanName' must not be null");
         synchronized (this.singletonObjects) {
@@ -172,7 +172,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
                     this.suppressedExceptions = new LinkedHashSet<Exception>();
                 }
                 try {
-                    //从单例工厂中获取对象
+                    //从传入的对象工厂中获取对象
                     singletonObject = singletonFactory.getObject();
                     newSingleton = true;
                 } catch (IllegalStateException ex) {

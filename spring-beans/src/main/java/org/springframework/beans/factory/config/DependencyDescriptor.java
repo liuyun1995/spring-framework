@@ -22,30 +22,22 @@ import java.util.Map;
 public class DependencyDescriptor extends InjectionPoint implements Serializable {
 
     private final Class<?> declaringClass;
-
     private String methodName;
-
     private Class<?>[] parameterTypes;
-
     private int parameterIndex;
-
     private String fieldName;
-
     private final boolean required;
-
     private final boolean eager;
-
     private int nestingLevel = 1;
-
     private Class<?> containingClass;
-
     private volatile ResolvableType resolvableType;
 
-
+    //构造器1
     public DependencyDescriptor(MethodParameter methodParameter, boolean required) {
         this(methodParameter, required, true);
     }
 
+    //构造器2
     public DependencyDescriptor(MethodParameter methodParameter, boolean required, boolean eager) {
         super(methodParameter);
         this.declaringClass = methodParameter.getDeclaringClass();
@@ -61,10 +53,12 @@ public class DependencyDescriptor extends InjectionPoint implements Serializable
         this.eager = eager;
     }
 
+    //构造器3
     public DependencyDescriptor(Field field, boolean required) {
         this(field, required, true);
     }
 
+    //构造器4
     public DependencyDescriptor(Field field, boolean required, boolean eager) {
         super(field);
         this.declaringClass = field.getDeclaringClass();
@@ -73,6 +67,7 @@ public class DependencyDescriptor extends InjectionPoint implements Serializable
         this.eager = eager;
     }
 
+    //构造器5
     public DependencyDescriptor(DependencyDescriptor original) {
         super(original);
         this.declaringClass = original.declaringClass;
@@ -86,10 +81,7 @@ public class DependencyDescriptor extends InjectionPoint implements Serializable
         this.nestingLevel = original.nestingLevel;
     }
 
-
-    /**
-     * Return whether this dependency is required.
-     */
+    //是否需要
     public boolean isRequired() {
         return this.required;
     }
@@ -338,14 +330,11 @@ public class DependencyDescriptor extends InjectionPoint implements Serializable
 
 
     //---------------------------------------------------------------------
-    // Serialization support
+    // 序列化支持
     //---------------------------------------------------------------------
 
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
-        // Rely on default serialization; just initialize state after deserialization.
         ois.defaultReadObject();
-
-        // Restore reflective handles (which are unfortunately not serializable)
         try {
             if (this.fieldName != null) {
                 this.field = this.declaringClass.getDeclaredField(this.fieldName);

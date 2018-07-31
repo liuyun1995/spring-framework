@@ -117,10 +117,12 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		setParentBeanFactory(parentBeanFactory);
 	}
 
+	//设置实例化策略
 	public void setInstantiationStrategy(InstantiationStrategy instantiationStrategy) {
 		this.instantiationStrategy = instantiationStrategy;
 	}
 
+	//获取实例化策略
 	protected InstantiationStrategy getInstantiationStrategy() {
 		return this.instantiationStrategy;
 	}
@@ -313,7 +315,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	}
 
 	// ---------------------------------------------------------------------
-	// Implementation of relevant AbstractBeanFactory template methods
+	// 实现AbstractBeanFactory的抽象方法
 	// ---------------------------------------------------------------------
 
 
@@ -353,7 +355,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 			throw new BeanCreationException(mbdToUse.getResourceDescription(), beanName,
 					"BeanPostProcessor before instantiation of bean failed", ex);
 		}
-
+		//真正进行Bean实例的创建
 		Object beanInstance = doCreateBean(beanName, mbdToUse, args);
 		if (logger.isDebugEnabled()) {
 			logger.debug("Finished creating instance of bean '" + beanName + "'");
@@ -361,7 +363,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return beanInstance;
 	}
 
-
+	//核心创建Bean实例方法
 	protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, final Object[] args)
 			throws BeanCreationException {
 		BeanWrapper instanceWrapper = null;
@@ -917,23 +919,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return null;
 	}
 
-	/**
-	 * Create a new instance for the specified bean, using an appropriate
-	 * instantiation strategy: factory method, constructor autowiring, or simple
-	 * instantiation.
-	 * 
-	 * @param beanName
-	 *            the name of the bean
-	 * @param mbd
-	 *            the bean definition for the bean
-	 * @param args
-	 *            explicit arguments to use for constructor or factory method
-	 *            invocation
-	 * @return BeanWrapper for the new instance
-	 * @see #instantiateUsingFactoryMethod
-	 * @see #autowireConstructor
-	 * @see #instantiateBean
-	 */
+	//创建Bean实例
 	protected BeanWrapper createBeanInstance(String beanName, RootBeanDefinition mbd, Object[] args) {
 		// Make sure bean class is actually resolved at this point.
 		Class<?> beanClass = resolveBeanClass(mbd, beanName);
@@ -1008,15 +994,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return null;
 	}
 
-	/**
-	 * Instantiate the given bean using its default constructor.
-	 * 
-	 * @param beanName
-	 *            the name of the bean
-	 * @param mbd
-	 *            the bean definition for the bean
-	 * @return BeanWrapper for the new instance
-	 */
+	//实例化Bean
 	protected BeanWrapper instantiateBean(final String beanName, final RootBeanDefinition mbd) {
 		try {
 			Object beanInstance;

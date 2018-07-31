@@ -7,7 +7,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.*;
 
-//Bean工厂工具
+//Bean工厂工具类
 public abstract class BeanFactoryUtils {
 
     //生成的Bean名称分隔符
@@ -22,10 +22,12 @@ public abstract class BeanFactoryUtils {
     public static String transformedBeanName(String name) {
         Assert.notNull(name, "'name' must not be null");
         String beanName = name;
-        //截取工厂Bean前缀
+        //如果Bean名称以工厂Bean前缀开头
         while (beanName.startsWith(BeanFactory.FACTORY_BEAN_PREFIX)) {
+            //截取工厂Bean前缀之后的内容
             beanName = beanName.substring(BeanFactory.FACTORY_BEAN_PREFIX.length());
         }
+        //返回截取后的Bean名称
         return beanName;
     }
 

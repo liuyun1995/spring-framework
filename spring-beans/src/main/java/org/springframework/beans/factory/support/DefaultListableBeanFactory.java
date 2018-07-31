@@ -765,12 +765,9 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
 	//重置Bean定义
 	protected void resetBeanDefinition(String beanName) {
-		// Remove the merged bean definition for the given bean, if already created.
+		//清空合并的Bean定义
 		clearMergedBeanDefinition(beanName);
-
-		// Remove corresponding bean from singleton cache, if any. Shouldn't usually
-		// be necessary, rather just meant for overriding a context's default beans
-		// (e.g. the default StaticMessageSource in a StaticApplicationContext).
+		//销毁该Bean单例
 		destroySingleton(beanName);
 
 		// Reset all bean definitions that have the given bean as parent (recursively).
