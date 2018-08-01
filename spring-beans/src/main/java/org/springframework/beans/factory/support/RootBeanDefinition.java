@@ -13,65 +13,41 @@ import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.core.ResolvableType;
 import org.springframework.util.Assert;
 
-//基本Bean定义
+//根级Bean定义
 @SuppressWarnings("serial")
 public class RootBeanDefinition extends AbstractBeanDefinition {
 
-	private BeanDefinitionHolder decoratedDefinition;
-
-	private AnnotatedElement qualifiedElement;
-
-	boolean allowCaching = true;
-
-	boolean isFactoryMethodUnique = false;
-
-	volatile ResolvableType targetType;
-
-	/** Package-visible field for caching the determined Class of a given bean definition */
-	volatile Class<?> resolvedTargetType;
-
-	/** Package-visible field for caching the return type of a generically typed factory method */
-	volatile ResolvableType factoryMethodReturnType;
-
-	/** Common lock for the four constructor fields below */
-	final Object constructorArgumentLock = new Object();
-
-	/** Package-visible field for caching the resolved constructor or factory method */
-	Object resolvedConstructorOrFactoryMethod;
-
-	/** Package-visible field that marks the constructor arguments as resolved */
-	boolean constructorArgumentsResolved = false;
-
-	/** Package-visible field for caching fully resolved constructor arguments */
-	Object[] resolvedConstructorArguments;
-
-	/** Package-visible field for caching partly prepared constructor arguments */
-	Object[] preparedConstructorArguments;
-
-	/** Common lock for the two post-processing fields below */
-	final Object postProcessingLock = new Object();
-
-	/** Package-visible field that indicates MergedBeanDefinitionPostProcessor having been applied */
-	boolean postProcessed = false;
-
-	/** Package-visible field that indicates a before-instantiation post-processor having kicked in */
+	private BeanDefinitionHolder decoratedDefinition;      //Bean定义持有器
+	private AnnotatedElement qualifiedElement;             //合格的元素
+	boolean allowCaching = true;                           //是否允许缓存
+	boolean isFactoryMethodUnique = false;                 //工厂方法是否唯一
+	volatile ResolvableType targetType;                    //目标类型
+	volatile Class<?> resolvedTargetType;                  //解析的目标类型
+	volatile ResolvableType factoryMethodReturnType;       //工厂方法返回类型
+	final Object constructorArgumentLock = new Object();   //构造器参数锁
+	Object resolvedConstructorOrFactoryMethod;             //已解析的构造器或工厂方法
+	boolean constructorArgumentsResolved = false;          //是否构造器参数已解析
+	Object[] resolvedConstructorArguments;                 //已解析的构造参数集合
+	Object[] preparedConstructorArguments;                 //准备好的构造参数
+	final Object postProcessingLock = new Object();        //后置处理过程锁
+	boolean postProcessed = false;                         //是否执行后置加工
 	volatile Boolean beforeInstantiationResolved;
-
 	private Set<Member> externallyManagedConfigMembers;
-
 	private Set<String> externallyManagedInitMethods;
-
 	private Set<String> externallyManagedDestroyMethods;
 
+	//构造器1
 	public RootBeanDefinition() {
 		super();
 	}
 
+	//构造器2
 	public RootBeanDefinition(Class<?> beanClass) {
 		super();
 		setBeanClass(beanClass);
 	}
 
+	//构造器3
 	public RootBeanDefinition(Class<?> beanClass, int autowireMode, boolean dependencyCheck) {
 		super();
 		setBeanClass(beanClass);
@@ -81,20 +57,24 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
+	//构造器4
 	public RootBeanDefinition(Class<?> beanClass, ConstructorArgumentValues cargs, MutablePropertyValues pvs) {
 		super(cargs, pvs);
 		setBeanClass(beanClass);
 	}
 
+	//构造器5
 	public RootBeanDefinition(String beanClassName) {
 		setBeanClassName(beanClassName);
 	}
 
+	//构造器6
 	public RootBeanDefinition(String beanClassName, ConstructorArgumentValues cargs, MutablePropertyValues pvs) {
 		super(cargs, pvs);
 		setBeanClassName(beanClassName);
 	}
 
+	//构造器7
 	public RootBeanDefinition(RootBeanDefinition original) {
 		super(original);
 		this.decoratedDefinition = original.decoratedDefinition;
@@ -104,15 +84,18 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		this.targetType = original.targetType;
 	}
 
+	//构造器8
 	RootBeanDefinition(BeanDefinition original) {
 		super(original);
 	}
 
+	//获取父类名称
 	@Override
 	public String getParentName() {
 		return null;
 	}
 
+	//设置父类名称
 	@Override
 	public void setParentName(String parentName) {
 		if (parentName != null) {
@@ -257,7 +240,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
-
+	//克隆Bean定义
 	@Override
 	public RootBeanDefinition cloneBeanDefinition() {
 		return new RootBeanDefinition(this);

@@ -36,18 +36,18 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 	public static final String PROFILE_ATTRIBUTE = "profile";
 
 	protected final Log logger = LogFactory.getLog(getClass());    //日志类
-	private XmlReaderContext readerContext;                        //xml阅读器上下文
+	private XmlReaderContext readerContext;                        //XML阅读器上下文
 	private BeanDefinitionParserDelegate delegate;                 //Bean定义解析器装饰器
 
-	//构造器
+	//注册Bean定义
 	@Override
 	public void registerBeanDefinitions(Document doc, XmlReaderContext readerContext) {
 		//设置解析上下文
 		this.readerContext = readerContext;
 		logger.debug("Loading bean definitions");
-		//获取根元素
+		//获取文档根节点
 		Element root = doc.getDocumentElement();
-		//注册Bean定义
+		//从根节点开始解析
 		doRegisterBeanDefinitions(root);
 	}
 
@@ -61,7 +61,7 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 		return getReaderContext().extractSource(ele);
 	}
 
-	//核心注册方法
+	//核心注册Bean定义方法
 	protected void doRegisterBeanDefinitions(Element root) {
 		//获取当前Bean定义解析器
 		BeanDefinitionParserDelegate parent = this.delegate;
@@ -172,13 +172,13 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 		try {
 			absoluteLocation = ResourcePatternUtils.isUrl(location) || ResourceUtils.toURI(location).isAbsolute();
 		} catch (URISyntaxException ex) {
-			// cannot convert to an URI, considering the location relative
-			// unless it is the well-known Spring prefix "classpath*:"
+			//ignore
 		}
 
 		//如果是绝对路径
 		if (absoluteLocation) {
 			try {
+				//获取Bean定义阅读器并加载配置文件
 				int importCount = getReaderContext().getReader().loadBeanDefinitions(location, actualResources);
 				if (logger.isDebugEnabled()) {
 					logger.debug("Imported " + importCount + " bean definitions from URL location [" + location + "]");
@@ -242,17 +242,19 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 
 	//解析<bean>
 	protected void processBeanDefinition(Element ele, BeanDefinitionParserDelegate delegate) {
+		//获取Bean定义持有器
 		BeanDefinitionHolder bdHolder = delegate.parseBeanDefinitionElement(ele);
 		if (bdHolder != null) {
+			//对Bean定义进行装饰
 			bdHolder = delegate.decorateBeanDefinitionIfRequired(ele, bdHolder);
 			try {
-				// Register the final decorated instance.
+				//注册装饰后的Bean定义
 				BeanDefinitionReaderUtils.registerBeanDefinition(bdHolder, getReaderContext().getRegistry());
 			} catch (BeanDefinitionStoreException ex) {
 				getReaderContext().error(
 						"Failed to register bean definition with name '" + bdHolder.getBeanName() + "'", ele, ex);
 			}
-			// Send registration event.
+			//发送已注册事件
 			getReaderContext().fireComponentRegistered(new BeanComponentDefinition(bdHolder));
 		}
 	}

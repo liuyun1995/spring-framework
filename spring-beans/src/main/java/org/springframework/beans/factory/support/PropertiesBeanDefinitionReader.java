@@ -22,186 +22,72 @@ import org.springframework.util.DefaultPropertiesPersister;
 import org.springframework.util.PropertiesPersister;
 import org.springframework.util.StringUtils;
 
-//属性Bean定义载入器
+//Bean定义阅读器(从属性文件载入)
 public class PropertiesBeanDefinitionReader extends AbstractBeanDefinitionReader {
 
-    /**
-     * Value of a T/F attribute that represents true.
-     * Anything else represents false. Case seNsItive.
-     */
-    public static final String TRUE_VALUE = "true";
+    public static final String TRUE_VALUE = "true";                                         //True值
+    public static final String SEPARATOR = ".";                                             //名称属性分隔符
+    public static final String CLASS_KEY = "(class)";                                       //类名
+    public static final String PARENT_KEY = "(parent)";                                     //父Bean名
+    public static final String SCOPE_KEY = "(scope)";                                       //范围名
+    public static final String SINGLETON_KEY = "(singleton)";                               //是否是单例
+    public static final String ABSTRACT_KEY = "(abstract)";                                 //是否是抽象
+    public static final String LAZY_INIT_KEY = "(lazy-init)";                               //是否懒加载
+    public static final String REF_SUFFIX = "(ref)";                                        //引用后缀
+    public static final String REF_PREFIX = "*";                                            //引用前缀
+    public static final String CONSTRUCTOR_ARG_PREFIX = "$";                                //构造参数前缀
+    private String defaultParentBean;                                                       //默认父Bean名
+    private PropertiesPersister propertiesPersister = new DefaultPropertiesPersister();     //属性注册器
 
-    /**
-     * Separator between bean name and property name.
-     * We follow normal Java conventions.
-     */
-    public static final String SEPARATOR = ".";
-
-    /**
-     * Special key to distinguish {@code owner.(class)=com.myapp.MyClass}-
-     */
-    public static final String CLASS_KEY = "(class)";
-
-    /**
-     * Special key to distinguish {@code owner.(parent)=parentBeanName}.
-     */
-    public static final String PARENT_KEY = "(parent)";
-
-    /**
-     * Special key to distinguish {@code owner.(scope)=prototype}.
-     * Default is "true".
-     */
-    public static final String SCOPE_KEY = "(scope)";
-
-    /**
-     * Special key to distinguish {@code owner.(singleton)=false}.
-     * Default is "true".
-     */
-    public static final String SINGLETON_KEY = "(singleton)";
-
-    /**
-     * Special key to distinguish {@code owner.(abstract)=true}
-     * Default is "false".
-     */
-    public static final String ABSTRACT_KEY = "(abstract)";
-
-    /**
-     * Special key to distinguish {@code owner.(lazy-init)=true}
-     * Default is "false".
-     */
-    public static final String LAZY_INIT_KEY = "(lazy-init)";
-
-    /**
-     * Property suffix for references to other beans in the current
-     * BeanFactory: e.g. {@code owner.dog(ref)=fido}.
-     * Whether this is a reference to a singleton or a prototype
-     * will depend on the definition of the target bean.
-     */
-    public static final String REF_SUFFIX = "(ref)";
-
-    /**
-     * Prefix before values referencing other beans.
-     */
-    public static final String REF_PREFIX = "*";
-
-    /**
-     * Prefix used to denote a constructor argument definition.
-     */
-    public static final String CONSTRUCTOR_ARG_PREFIX = "$";
-
-
-    private String defaultParentBean;
-
-    private PropertiesPersister propertiesPersister = new DefaultPropertiesPersister();
-
-
-    /**
-     * Create new PropertiesBeanDefinitionReader for the given bean factory.
-     *
-     * @param registry the BeanFactory to load bean definitions into,
-     *                 in the form of a BeanDefinitionRegistry
-     */
+    //构造器
     public PropertiesBeanDefinitionReader(BeanDefinitionRegistry registry) {
         super(registry);
     }
 
-
-    /**
-     * Set the default parent bean for this bean factory.
-     * If a child bean definition handled by this factory provides neither
-     * a parent nor a class attribute, this default value gets used.
-     * <p>Can be used e.g. for view definition files, to define a parent
-     * with a default view class and common attributes for all views.
-     * View definitions that define their own parent or carry their own
-     * class can still override this.
-     * <p>Strictly speaking, the rule that a default parent setting does
-     * not apply to a bean definition that carries a class is there for
-     * backwards compatibility reasons. It still matches the typical use case.
-     */
+    //设置默认父Bean名称
     public void setDefaultParentBean(String defaultParentBean) {
         this.defaultParentBean = defaultParentBean;
     }
 
-    /**
-     * Return the default parent bean for this bean factory.
-     */
+    //获取默认父Bean名称
     public String getDefaultParentBean() {
         return this.defaultParentBean;
     }
 
-    /**
-     * Set the PropertiesPersister to use for parsing properties files.
-     * The default is DefaultPropertiesPersister.
-     *
-     * @see org.springframework.util.DefaultPropertiesPersister
-     */
+    //设置属性注册器
     public void setPropertiesPersister(PropertiesPersister propertiesPersister) {
         this.propertiesPersister =
                 (propertiesPersister != null ? propertiesPersister : new DefaultPropertiesPersister());
     }
 
-    /**
-     * Return the PropertiesPersister to use for parsing properties files.
-     */
+    //获取属性注册器
     public PropertiesPersister getPropertiesPersister() {
         return this.propertiesPersister;
     }
 
-
-    /**
-     * Load bean definitions from the specified properties file,
-     * using all property keys (i.e. not filtering by prefix).
-     *
-     * @param resource the resource descriptor for the properties file
-     * @return the number of bean definitions found
-     * @throws BeanDefinitionStoreException in case of loading or parsing errors
-     * @see #loadBeanDefinitions(org.springframework.core.io.Resource, String)
-     */
+    //加载Bean定义
     @Override
     public int loadBeanDefinitions(Resource resource) throws BeanDefinitionStoreException {
         return loadBeanDefinitions(new EncodedResource(resource), null);
     }
 
-    /**
-     * Load bean definitions from the specified properties file.
-     *
-     * @param resource the resource descriptor for the properties file
-     * @param prefix   a filter within the keys in the map: e.g. 'beans.'
-     *                 (can be empty or {@code null})
-     * @return the number of bean definitions found
-     * @throws BeanDefinitionStoreException in case of loading or parsing errors
-     */
+    //加载Bean定义
     public int loadBeanDefinitions(Resource resource, String prefix) throws BeanDefinitionStoreException {
         return loadBeanDefinitions(new EncodedResource(resource), prefix);
     }
 
-    /**
-     * Load bean definitions from the specified properties file.
-     *
-     * @param encodedResource the resource descriptor for the properties file,
-     *                        allowing to specify an encoding to use for parsing the file
-     * @return the number of bean definitions found
-     * @throws BeanDefinitionStoreException in case of loading or parsing errors
-     */
+    //加载Bean定义
     public int loadBeanDefinitions(EncodedResource encodedResource) throws BeanDefinitionStoreException {
         return loadBeanDefinitions(encodedResource, null);
     }
 
-    /**
-     * Load bean definitions from the specified properties file.
-     *
-     * @param encodedResource the resource descriptor for the properties file,
-     *                        allowing to specify an encoding to use for parsing the file
-     * @param prefix          a filter within the keys in the map: e.g. 'beans.'
-     *                        (can be empty or {@code null})
-     * @return the number of bean definitions found
-     * @throws BeanDefinitionStoreException in case of loading or parsing errors
-     */
+    //加载Bean定义
     public int loadBeanDefinitions(EncodedResource encodedResource, String prefix)
             throws BeanDefinitionStoreException {
-
+        //新建Properties对象
         Properties props = new Properties();
         try {
+            //获取配置文件输入流
             InputStream is = encodedResource.getResource().getInputStream();
             try {
                 if (encodedResource.getEncoding() != null) {
@@ -212,38 +98,20 @@ public class PropertiesBeanDefinitionReader extends AbstractBeanDefinitionReader
             } finally {
                 is.close();
             }
+            //注册Bean定义
             return registerBeanDefinitions(props, prefix, encodedResource.getResource().getDescription());
         } catch (IOException ex) {
             throw new BeanDefinitionStoreException("Could not parse properties from " + encodedResource.getResource(), ex);
         }
     }
 
-    /**
-     * Register bean definitions contained in a resource bundle,
-     * using all property keys (i.e. not filtering by prefix).
-     *
-     * @param rb the ResourceBundle to load from
-     * @return the number of bean definitions found
-     * @throws BeanDefinitionStoreException in case of loading or parsing errors
-     * @see #registerBeanDefinitions(java.util.ResourceBundle, String)
-     */
+    //注册Bean定义
     public int registerBeanDefinitions(ResourceBundle rb) throws BeanDefinitionStoreException {
         return registerBeanDefinitions(rb, null);
     }
 
-    /**
-     * Register bean definitions contained in a ResourceBundle.
-     * <p>Similar syntax as for a Map. This method is useful to enable
-     * standard Java internationalization support.
-     *
-     * @param rb     the ResourceBundle to load from
-     * @param prefix a filter within the keys in the map: e.g. 'beans.'
-     *               (can be empty or {@code null})
-     * @return the number of bean definitions found
-     * @throws BeanDefinitionStoreException in case of loading or parsing errors
-     */
+    //注册Bean定义
     public int registerBeanDefinitions(ResourceBundle rb, String prefix) throws BeanDefinitionStoreException {
-        // Simply create a map and call overloaded method.
         Map<String, Object> map = new HashMap<String, Object>();
         Enumeration<String> keys = rb.getKeys();
         while (keys.hasMoreElements()) {
@@ -253,53 +121,17 @@ public class PropertiesBeanDefinitionReader extends AbstractBeanDefinitionReader
         return registerBeanDefinitions(map, prefix);
     }
 
-
-    /**
-     * Register bean definitions contained in a Map,
-     * using all property keys (i.e. not filtering by prefix).
-     *
-     * @param map Map: name -> property (String or Object). Property values
-     *            will be strings if coming from a Properties file etc. Property names
-     *            (keys) <b>must</b> be Strings. Class keys must be Strings.
-     * @return the number of bean definitions found
-     * @throws BeansException in case of loading or parsing errors
-     * @see #registerBeanDefinitions(java.util.Map, String, String)
-     */
+    //注册Bean定义
     public int registerBeanDefinitions(Map<?, ?> map) throws BeansException {
         return registerBeanDefinitions(map, null);
     }
 
-    /**
-     * Register bean definitions contained in a Map.
-     * Ignore ineligible properties.
-     *
-     * @param map    Map name -> property (String or Object). Property values
-     *               will be strings if coming from a Properties file etc. Property names
-     *               (keys) <b>must</b> be Strings. Class keys must be Strings.
-     * @param prefix a filter within the keys in the map: e.g. 'beans.'
-     *               (can be empty or {@code null})
-     * @return the number of bean definitions found
-     * @throws BeansException in case of loading or parsing errors
-     */
+    //注册Bean定义
     public int registerBeanDefinitions(Map<?, ?> map, String prefix) throws BeansException {
         return registerBeanDefinitions(map, prefix, "Map " + map);
     }
 
-    /**
-     * Register bean definitions contained in a Map.
-     * Ignore ineligible properties.
-     *
-     * @param map                 Map name -> property (String or Object). Property values
-     *                            will be strings if coming from a Properties file etc. Property names
-     *                            (keys) <b>must</b> be strings. Class keys must be Strings.
-     * @param prefix              a filter within the keys in the map: e.g. 'beans.'
-     *                            (can be empty or {@code null})
-     * @param resourceDescription description of the resource that the
-     *                            Map came from (for logging purposes)
-     * @return the number of bean definitions found
-     * @throws BeansException in case of loading or parsing errors
-     * @see #registerBeanDefinitions(Map, String)
-     */
+    //注册Bean定义
     public int registerBeanDefinitions(Map<?, ?> map, String prefix, String resourceDescription)
             throws BeansException {
 
@@ -330,7 +162,7 @@ public class PropertiesBeanDefinitionReader extends AbstractBeanDefinitionReader
                         logger.debug("Found bean name '" + beanName + "'");
                     }
                     if (!getRegistry().containsBeanDefinition(beanName)) {
-                        // If we haven't already registered it...
+                        //真正进行Bean定义注册
                         registerBeanDefinition(beanName, map, prefix + beanName, resourceDescription);
                         ++beanCount;
                     }
@@ -347,17 +179,7 @@ public class PropertiesBeanDefinitionReader extends AbstractBeanDefinitionReader
         return beanCount;
     }
 
-    /**
-     * Get all property values, given a prefix (which will be stripped)
-     * and add the bean they define to the factory with the given name
-     *
-     * @param beanName            name of the bean to define
-     * @param map                 Map containing string pairs
-     * @param prefix              prefix of each entry, which will be stripped
-     * @param resourceDescription description of the resource that the
-     *                            Map came from (for logging purposes)
-     * @throws BeansException if the bean definition could not be parsed or registered
-     */
+    //核心注册Bean定义
     protected void registerBeanDefinition(String beanName, Map<?, ?> map, String prefix, String resourceDescription)
             throws BeansException {
 
@@ -429,13 +251,14 @@ public class PropertiesBeanDefinitionReader extends AbstractBeanDefinitionReader
         }
 
         try {
-            AbstractBeanDefinition bd = BeanDefinitionReaderUtils.createBeanDefinition(
-                    parent, className, getBeanClassLoader());
+            //创建抽象Bean定义
+            AbstractBeanDefinition bd = BeanDefinitionReaderUtils.createBeanDefinition(parent, className, getBeanClassLoader());
             bd.setScope(scope);
             bd.setAbstract(isAbstract);
             bd.setLazyInit(lazyInit);
             bd.setConstructorArgumentValues(cas);
             bd.setPropertyValues(pvs);
+            //获取注册器来注册Bean定义
             getRegistry().registerBeanDefinition(beanName, bd);
         } catch (ClassNotFoundException ex) {
             throw new CannotLoadBeanClassException(resourceDescription, beanName, className, ex);
@@ -444,10 +267,7 @@ public class PropertiesBeanDefinitionReader extends AbstractBeanDefinitionReader
         }
     }
 
-    /**
-     * Reads the value of the entry. Correctly interprets bean references for
-     * values that are prefixed with an asterisk.
-     */
+    //读取实体值
     private Object readValue(Map.Entry<?, ?> entry) {
         Object val = entry.getValue();
         if (val instanceof String) {

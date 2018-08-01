@@ -8,24 +8,28 @@ import org.springframework.util.ObjectUtils;
 @SuppressWarnings("serial")
 public class ChildBeanDefinition extends AbstractBeanDefinition {
 
-	private String parentName;
+	private String parentName;   //父类名称
 
+	//构造器1
 	public ChildBeanDefinition(String parentName) {
 		super();
 		this.parentName = parentName;
 	}
 
+	//构造器2
 	public ChildBeanDefinition(String parentName, MutablePropertyValues pvs) {
 		super(null, pvs);
 		this.parentName = parentName;
 	}
 
+	//构造器3
 	public ChildBeanDefinition(
 			String parentName, ConstructorArgumentValues cargs, MutablePropertyValues pvs) {
 		super(cargs, pvs);
 		this.parentName = parentName;
 	}
 
+	//构造器4
 	public ChildBeanDefinition(
 			String parentName, Class<?> beanClass, ConstructorArgumentValues cargs, MutablePropertyValues pvs) {
 		super(cargs, pvs);
@@ -33,6 +37,7 @@ public class ChildBeanDefinition extends AbstractBeanDefinition {
 		setBeanClass(beanClass);
 	}
 
+	//构造器5
 	public ChildBeanDefinition(
 			String parentName, String beanClassName, ConstructorArgumentValues cargs, MutablePropertyValues pvs) {
 
@@ -41,21 +46,24 @@ public class ChildBeanDefinition extends AbstractBeanDefinition {
 		setBeanClassName(beanClassName);
 	}
 
+	//构造器6
 	public ChildBeanDefinition(ChildBeanDefinition original) {
 		super(original);
 	}
 
-
+	//设置父类名称
 	@Override
 	public void setParentName(String parentName) {
 		this.parentName = parentName;
 	}
 
+	//获取父类名称
 	@Override
 	public String getParentName() {
 		return this.parentName;
 	}
 
+	//验证方法
 	@Override
 	public void validate() throws BeanDefinitionValidationException {
 		super.validate();
@@ -64,6 +72,7 @@ public class ChildBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
+	//克隆Bean定义
 	@Override
 	public AbstractBeanDefinition cloneBeanDefinition() {
 		return new ChildBeanDefinition(this);

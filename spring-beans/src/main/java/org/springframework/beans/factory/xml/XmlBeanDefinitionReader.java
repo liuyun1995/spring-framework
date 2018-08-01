@@ -33,7 +33,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.xml.SimpleSaxErrorHandler;
 import org.springframework.util.xml.XmlValidationModeDetector;
 
-//Bean定义阅读器(从xml文件读取)
+//Bean定义阅读器(从XML文件载入)
 public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 
 	public static final int VALIDATION_NONE = XmlValidationModeDetector.VALIDATION_NONE;
@@ -157,7 +157,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 		return loadBeanDefinitions(new EncodedResource(resource));
 	}
 
-	//加载Bean定义
+	//核型加载Bean定义
 	public int loadBeanDefinitions(EncodedResource encodedResource) throws BeanDefinitionStoreException {
 		Assert.notNull(encodedResource, "EncodedResource must not be null");
 		if (logger.isInfoEnabled()) {
@@ -165,23 +165,26 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 		}
 		//获取当前线程的资源集合
 		Set<EncodedResource> currentResources = this.resourcesCurrentlyBeingLoaded.get();
+		//如果当前资源集合为空则新建一个
 		if (currentResources == null) {
 			currentResources = new HashSet<EncodedResource>(4);
 			this.resourcesCurrentlyBeingLoaded.set(currentResources);
 		}
+		//将资源放入当前资源集合中
 		if (!currentResources.add(encodedResource)) {
 			throw new BeanDefinitionStoreException(
 					"Detected cyclic loading of " + encodedResource + " - check your import definitions!");
 		}
 		try {
+			//获取资源文件输入流
 			InputStream inputStream = encodedResource.getResource().getInputStream();
 			try {
 				InputSource inputSource = new InputSource(inputStream);
+				//如果编码规则不为空，则设置编码规则
 				if (encodedResource.getEncoding() != null) {
-					//设置编码规则
 					inputSource.setEncoding(encodedResource.getEncoding());
 				}
-				//加载Bean定义
+				//真正进行Bean定义加载
 				return doLoadBeanDefinitions(inputSource, encodedResource.getResource());
 			} finally {
 				inputStream.close();
@@ -190,8 +193,9 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 			throw new BeanDefinitionStoreException(
 					"IOException parsing XML document from " + encodedResource.getResource(), ex);
 		} finally {
-			//最后从当前资源中移除该资源
+			//最后从当前资源集合中移除该资源
 			currentResources.remove(encodedResource);
+			//如果当前资源集合为空，则将其从当前线程中删除
 			if (currentResources.isEmpty()) {
 				this.resourcesCurrentlyBeingLoaded.remove();
 			}

@@ -308,7 +308,7 @@ public class BeanDefinitionParserDelegate {
         String nameAttr = ele.getAttribute(NAME_ATTRIBUTE);
 
         List<String> aliases = new ArrayList<String>();
-        //如果name属性有值
+        //解析别名并放入别名数组
         if (StringUtils.hasLength(nameAttr)) {
             String[] nameArr = StringUtils.tokenizeToStringArray(nameAttr, MULTI_VALUE_ATTRIBUTE_DELIMITERS);
             aliases.addAll(Arrays.asList(nameArr));
@@ -316,6 +316,7 @@ public class BeanDefinitionParserDelegate {
         //将id属性设置为Bean名称
         String beanName = id;
 
+        //若为设置id属性，并且别名数组不为空，则获取第一个别名作为Bean名称
         if (!StringUtils.hasText(beanName) && !aliases.isEmpty()) {
             beanName = aliases.remove(0);
             if (logger.isDebugEnabled()) {
@@ -324,6 +325,7 @@ public class BeanDefinitionParserDelegate {
             }
         }
 
+        //如果包含Bean为空，则检查Bean名称的唯一性
         if (containingBean == null) {
             checkNameUniqueness(beanName, aliases, ele);
         }
@@ -340,12 +342,10 @@ public class BeanDefinitionParserDelegate {
                     } else {
                         //生成Bean名称
                         beanName = this.readerContext.generateBeanName(beanDefinition);
-                        // Register an alias for the plain bean class name, if still possible,
-                        // if the generator returned the class name plus a suffix.
-                        // This is expected for Spring 1.2/2.0 backwards compatibility.
 
                         //获取Bean的类名
                         String beanClassName = beanDefinition.getBeanClassName();
+                        //根据条件判断是否要将类名添加为别名
                         if (beanClassName != null &&
                                 beanName.startsWith(beanClassName) && beanName.length() > beanClassName.length() &&
                                 !this.readerContext.getRegistry().isBeanNameInUse(beanClassName)) {
@@ -1217,16 +1217,17 @@ public class BeanDefinitionParserDelegate {
         return handler.parse(ele, new ParserContext(this.readerContext, this, containingBd));
     }
 
+    //对Bean定义进行装饰
     public BeanDefinitionHolder decorateBeanDefinitionIfRequired(Element ele, BeanDefinitionHolder definitionHolder) {
         return decorateBeanDefinitionIfRequired(ele, definitionHolder, null);
     }
 
+    //对Bean定义进行装饰
     public BeanDefinitionHolder decorateBeanDefinitionIfRequired(
             Element ele, BeanDefinitionHolder definitionHolder, BeanDefinition containingBd) {
 
         BeanDefinitionHolder finalDefinition = definitionHolder;
 
-        // Decorate based on custom attributes first.
         NamedNodeMap attributes = ele.getAttributes();
         for (int i = 0; i < attributes.getLength(); i++) {
             Node node = attributes.item(i);
@@ -1244,9 +1245,12 @@ public class BeanDefinitionParserDelegate {
         return finalDefinition;
     }
 
+    //对Bean定义进行装饰
     public BeanDefinitionHolder decorateIfRequired(
             Node node, BeanDefinitionHolder originalDef, BeanDefinition containingBd) {
+        //获取节点的名称空间URI
         String namespaceUri = getNamespaceURI(node);
+        //如果是默认的名称空间URI
         if (!isDefaultNamespace(namespaceUri)) {
             NamespaceHandler handler = this.readerContext.getNamespaceHandlerResolver().resolve(namespaceUri);
             if (handler != null) {
@@ -1254,7 +1258,6 @@ public class BeanDefinitionParserDelegate {
             } else if (namespaceUri != null && namespaceUri.startsWith("http://www.springframework.org/")) {
                 error("Unable to locate Spring NamespaceHandler for XML schema namespace [" + namespaceUri + "]", node);
             } else {
-                // A custom namespace, not to be handled by Spring - maybe "xml:...".
                 if (logger.isDebugEnabled()) {
                     logger.debug("No Spring NamespaceHandler found for XML schema namespace [" + namespaceUri + "]");
                 }

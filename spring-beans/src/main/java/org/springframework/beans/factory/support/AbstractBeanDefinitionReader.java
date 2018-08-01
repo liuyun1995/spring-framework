@@ -23,22 +23,26 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
     private final BeanDefinitionRegistry registry;                                  //Bean定义注册器
     private ResourceLoader resourceLoader;                                          //资源加载器
     private ClassLoader beanClassLoader;                                            //Bean加载器
-    private Environment environment;                                                //环境信息
+    private Environment environment;                                                //运行环境
     private BeanNameGenerator beanNameGenerator = new DefaultBeanNameGenerator();   //Bean名称生成器
 
     //构造器
     protected AbstractBeanDefinitionReader(BeanDefinitionRegistry registry) {
         Assert.notNull(registry, "BeanDefinitionRegistry must not be null");
         this.registry = registry;
+        //如果注册器实现了ResourceLoader接口
         if (this.registry instanceof ResourceLoader) {
             this.resourceLoader = (ResourceLoader) this.registry;
         } else {
+            //否则，默认使用PathMatchingResourcePatternResolver
             this.resourceLoader = new PathMatchingResourcePatternResolver();
         }
 
+        //如果注册器实现了EnvironmentCapable接口
         if (this.registry instanceof EnvironmentCapable) {
             this.environment = ((EnvironmentCapable) this.registry).getEnvironment();
         } else {
+            //否则，默认使用StandardEnvironment
             this.environment = new StandardEnvironment();
         }
     }
@@ -103,6 +107,7 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
     public int loadBeanDefinitions(Resource... resources) throws BeanDefinitionStoreException {
         Assert.notNull(resources, "Resource array must not be null");
         int counter = 0;
+        //遍历资源集合，统计加载Bean定义的数量
         for (Resource resource : resources) {
             counter += loadBeanDefinitions(resource);
         }
@@ -128,16 +133,19 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
 
     //核心加载方法
     public int loadBeanDefinitions(String location, Set<Resource> actualResources) throws BeanDefinitionStoreException {
+        //获取资源加载器
         ResourceLoader resourceLoader = getResourceLoader();
         if (resourceLoader == null) {
             throw new BeanDefinitionStoreException(
                     "Cannot import bean definitions from location [" + location + "]: no ResourceLoader available");
         }
 
+        //如果资源加载器实现了ResourcePatternResolver
         if (resourceLoader instanceof ResourcePatternResolver) {
-            // Resource pattern matching available.
             try {
+                //获取对应路径的全部资源
                 Resource[] resources = ((ResourcePatternResolver) resourceLoader).getResources(location);
+                //
                 int loadCount = loadBeanDefinitions(resources);
                 if (actualResources != null) {
                     for (Resource resource : resources) {
@@ -153,7 +161,7 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
                         "Could not resolve bean definition resource pattern [" + location + "]", ex);
             }
         } else {
-            // Can only load single resources by absolute URL.
+            //否则，只能通过绝对路径加载单个资源
             Resource resource = resourceLoader.getResource(location);
             int loadCount = loadBeanDefinitions(resource);
             if (actualResources != null) {
