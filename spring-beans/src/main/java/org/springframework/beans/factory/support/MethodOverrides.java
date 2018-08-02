@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+//方法覆盖
 public class MethodOverrides {
 
-	private final Set<MethodOverride> overrides =
-			Collections.synchronizedSet(new LinkedHashSet<MethodOverride>(0));
+	private final Set<MethodOverride> overrides = Collections.synchronizedSet(new LinkedHashSet<MethodOverride>(0));
 
 	private volatile boolean modified = false;
 
@@ -53,7 +53,6 @@ public class MethodOverrides {
 			return match;
 		}
 	}
-
 
 	@Override
 	public boolean equals(Object other) {

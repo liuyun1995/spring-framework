@@ -162,11 +162,9 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 			return;
 		}
 
-		// Resolve system properties: e.g. "${user.dir}"
+		//解析路径中的系统属性
 		location = getReaderContext().getEnvironment().resolveRequiredPlaceholders(location);
-
 		Set<Resource> actualResources = new LinkedHashSet<Resource>(4);
-
 		//判断是绝对路径还是相对路径
 		boolean absoluteLocation = false;
 		try {
@@ -189,9 +187,9 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 			}
 		//如果是相对路径
 		} else {
-			// No URL -> considering resource location as relative to the current file.
 			try {
 				int importCount;
+				//根据相对路径获取资源
 				Resource relativeResource = getReaderContext().getResource().createRelative(location);
 				if (relativeResource.exists()) {
 					importCount = getReaderContext().getReader().loadBeanDefinitions(relativeResource);
@@ -213,6 +211,7 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 			}
 		}
 		Resource[] actResArray = actualResources.toArray(new Resource[actualResources.size()]);
+		//通知响应事件
 		getReaderContext().fireImportProcessed(location, actResArray, extractSource(ele));
 	}
 

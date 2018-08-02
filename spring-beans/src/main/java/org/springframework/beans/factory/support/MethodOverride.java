@@ -10,9 +10,7 @@ import org.springframework.util.ObjectUtils;
 public abstract class MethodOverride implements BeanMetadataElement {
 
     private final String methodName;
-
     private boolean overloaded = true;
-
     private Object source;
 
     protected MethodOverride(String methodName) {

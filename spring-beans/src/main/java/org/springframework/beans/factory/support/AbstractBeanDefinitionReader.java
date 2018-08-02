@@ -145,7 +145,7 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
             try {
                 //获取对应路径的全部资源
                 Resource[] resources = ((ResourcePatternResolver) resourceLoader).getResources(location);
-                //
+
                 int loadCount = loadBeanDefinitions(resources);
                 if (actualResources != null) {
                     for (Resource resource : resources) {

@@ -31,10 +31,10 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 	Object[] preparedConstructorArguments;                 //准备好的构造参数
 	final Object postProcessingLock = new Object();        //后置处理过程锁
 	boolean postProcessed = false;                         //是否执行后置加工
-	volatile Boolean beforeInstantiationResolved;
-	private Set<Member> externallyManagedConfigMembers;
-	private Set<String> externallyManagedInitMethods;
-	private Set<String> externallyManagedDestroyMethods;
+	volatile Boolean beforeInstantiationResolved;          //是否在实例化之前解析
+	private Set<Member> externallyManagedConfigMembers;    //额外管理的配置成员
+	private Set<String> externallyManagedInitMethods;      //额外管理的初始化方法
+	private Set<String> externallyManagedDestroyMethods;   //额外管理的销毁方法
 
 	//构造器1
 	public RootBeanDefinition() {
@@ -103,61 +103,37 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
-	/**
-	 * Register a target definition that is being decorated by this bean definition.
-	 */
+	//设置装饰过的Bean定义
 	public void setDecoratedDefinition(BeanDefinitionHolder decoratedDefinition) {
 		this.decoratedDefinition = decoratedDefinition;
 	}
 
-	/**
-	 * Return the target definition that is being decorated by this bean definition, if any.
-	 */
+	//获取装饰过的Bean定义
 	public BeanDefinitionHolder getDecoratedDefinition() {
 		return this.decoratedDefinition;
 	}
 
-	/**
-	 * Specify the {@link AnnotatedElement} defining qualifiers,
-	 * to be used instead of the target class or factory method.
-	 * @since 4.3.3
-	 * @see #setTargetType(ResolvableType)
-	 * @see #getResolvedFactoryMethod()
-	 */
+	//设置有资格的元素
 	public void setQualifiedElement(AnnotatedElement qualifiedElement) {
 		this.qualifiedElement = qualifiedElement;
 	}
 
-	/**
-	 * Return the {@link AnnotatedElement} defining qualifiers, if any.
-	 * Otherwise, the factory method and target class will be checked.
-	 * @since 4.3.3
-	 */
+	//获取有资格的元素
 	public AnnotatedElement getQualifiedElement() {
 		return this.qualifiedElement;
 	}
 
-	/**
-	 * Specify a generics-containing target type of this bean definition, if known in advance.
-	 * @since 4.3.3
-	 */
+	//设置目标类型
 	public void setTargetType(ResolvableType targetType) {
 		this.targetType = targetType;
 	}
 
-	/**
-	 * Specify the target type of this bean definition, if known in advance.
-	 * @since 3.2.2
-	 */
+	//设置目标类型
 	public void setTargetType(Class<?> targetType) {
 		this.targetType = (targetType != null ? ResolvableType.forClass(targetType) : null);
 	}
 
-	/**
-	 * Return the target type of this bean definition, if known
-	 * (either specified in advance or resolved on first instantiation).
-	 * @since 3.2.2
-	 */
+	//获取目标类型
 	public Class<?> getTargetType() {
 		if (this.resolvedTargetType != null) {
 			return this.resolvedTargetType;
@@ -165,26 +141,19 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		return (this.targetType != null ? this.targetType.resolve() : null);
 	}
 
-	/**
-	 * Specify a factory method name that refers to a non-overloaded method.
-	 */
+	//设置唯一工厂方法名
 	public void setUniqueFactoryMethodName(String name) {
 		Assert.hasText(name, "Factory method name must not be empty");
 		setFactoryMethodName(name);
 		this.isFactoryMethodUnique = true;
 	}
 
-	/**
-	 * Check whether the given candidate qualifies as a factory method.
-	 */
+	//是否是工厂方法
 	public boolean isFactoryMethod(Method candidate) {
 		return (candidate != null && candidate.getName().equals(getFactoryMethodName()));
 	}
 
-	/**
-	 * Return the resolved factory method as a Java Method object, if available.
-	 * @return the factory method, or {@code null} if not found or not resolved yet
-	 */
+	//获取解析过的工厂方法
 	public Method getResolvedFactoryMethod() {
 		synchronized (this.constructorArgumentLock) {
 			Object candidate = this.resolvedConstructorOrFactoryMethod;
@@ -192,6 +161,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
+	//注册额外管理的配置成员
 	public void registerExternallyManagedConfigMember(Member configMember) {
 		synchronized (this.postProcessingLock) {
 			if (this.externallyManagedConfigMembers == null) {
@@ -201,6 +171,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
+	//是否是额外管理的配置成员
 	public boolean isExternallyManagedConfigMember(Member configMember) {
 		synchronized (this.postProcessingLock) {
 			return (this.externallyManagedConfigMembers != null &&
@@ -208,6 +179,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
+	//注册额外管理的初始化方法
 	public void registerExternallyManagedInitMethod(String initMethod) {
 		synchronized (this.postProcessingLock) {
 			if (this.externallyManagedInitMethods == null) {
@@ -217,6 +189,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
+	//是否是额外管理的初始化方法
 	public boolean isExternallyManagedInitMethod(String initMethod) {
 		synchronized (this.postProcessingLock) {
 			return (this.externallyManagedInitMethods != null &&
@@ -224,6 +197,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
+	//注册额外管理的销毁方法
 	public void registerExternallyManagedDestroyMethod(String destroyMethod) {
 		synchronized (this.postProcessingLock) {
 			if (this.externallyManagedDestroyMethods == null) {
@@ -233,6 +207,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
+	//是否是额外管理的销毁方法
 	public boolean isExternallyManagedDestroyMethod(String destroyMethod) {
 		synchronized (this.postProcessingLock) {
 			return (this.externallyManagedDestroyMethods != null &&

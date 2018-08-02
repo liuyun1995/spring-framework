@@ -157,7 +157,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 		return loadBeanDefinitions(new EncodedResource(resource));
 	}
 
-	//核型加载Bean定义
+	//核心加载Bean定义
 	public int loadBeanDefinitions(EncodedResource encodedResource) throws BeanDefinitionStoreException {
 		Assert.notNull(encodedResource, "EncodedResource must not be null");
 		if (logger.isInfoEnabled()) {
@@ -261,14 +261,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 		return VALIDATION_XSD;
 	}
 
-	/**
-	 * Detects which kind of validation to perform on the XML file identified by the
-	 * supplied {@link Resource}. If the file has a {@code DOCTYPE} definition then
-	 * DTD validation is used otherwise XSD validation is assumed.
-	 * <p>
-	 * Override this method if you would like to customize resolution of the
-	 * {@link #VALIDATION_AUTO} mode.
-	 */
+	//检测验证模式
 	protected int detectValidationMode(Resource resource) {
 		if (resource.isOpen()) {
 			throw new BeanDefinitionStoreException("Passed-in Resource [" + resource + "] contains an open stream: "

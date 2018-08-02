@@ -4,7 +4,7 @@ import org.w3c.dom.Document;
 
 import org.springframework.beans.factory.BeanDefinitionStoreException;
 
-//Bean定义文档解析器
+//Bean定义文档阅读器
 public interface BeanDefinitionDocumentReader {
 
 	//注册Bean定义

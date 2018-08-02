@@ -123,7 +123,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 
     //获取单例(Bean名称，是否提前引用)
     protected Object getSingleton(String beanName, boolean allowEarlyReference) {
-        //根据名称从缓存中获取Bean对象
+        //根据Bean名称从缓存中获取Bean
         Object singletonObject = this.singletonObjects.get(beanName);
         //判断当前Bean对象是否正在被创建
         if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {

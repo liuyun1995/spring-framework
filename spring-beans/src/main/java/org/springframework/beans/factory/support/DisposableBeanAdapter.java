@@ -25,6 +25,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
+//一次性Bean适配器
 @SuppressWarnings("serial")
 class DisposableBeanAdapter implements DisposableBean, Runnable, Serializable {
 
@@ -109,11 +110,12 @@ class DisposableBeanAdapter implements DisposableBean, Runnable, Serializable {
 
     //推断销毁方法
     private String inferDestroyMethodIfNecessary(Object bean, RootBeanDefinition beanDefinition) {
+        //获取销毁方法名称
         String destroyMethodName = beanDefinition.getDestroyMethodName();
+        //销毁方法名为"(inferred)"，或者销毁方法名为空并且该Bean实现了可关闭接口
         if (AbstractBeanDefinition.INFER_METHOD.equals(destroyMethodName) ||
                 (destroyMethodName == null && closeableInterface.isInstance(bean))) {
-            // Only perform destroy method inference or Closeable detection
-            // in case of the bean not explicitly implementing DisposableBean
+            //如果Bean不是一次性对象
             if (!(bean instanceof DisposableBean)) {
                 try {
                     return bean.getClass().getMethod(CLOSE_METHOD_NAME).getName();
