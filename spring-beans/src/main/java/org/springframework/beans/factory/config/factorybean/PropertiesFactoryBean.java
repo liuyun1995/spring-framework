@@ -3,8 +3,7 @@ package org.springframework.beans.factory.config.factorybean;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.springframework.beans.factory.config.factorybean.FactoryBean;
-import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.bean.InitializingBean;
 import org.springframework.core.io.support.PropertiesLoaderSupport;
 
 //工厂Bean(获取Properties)

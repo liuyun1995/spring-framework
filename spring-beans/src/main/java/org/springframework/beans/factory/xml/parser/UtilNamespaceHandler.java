@@ -12,8 +12,8 @@ import org.springframework.beans.factory.config.factorybean.MapFactoryBean;
 import org.springframework.beans.factory.config.factorybean.PropertiesFactoryBean;
 import org.springframework.beans.factory.config.factorybean.PropertyPathFactoryBean;
 import org.springframework.beans.factory.config.factorybean.SetFactoryBean;
-import org.springframework.beans.factory.support.AbstractBeanDefinition;
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.bean.definition.AbstractBeanDefinition;
+import org.springframework.beans.factory.bean.definition.BeanDefinitionBuilder;
 import org.springframework.util.StringUtils;
 
 public class UtilNamespaceHandler extends NamespaceHandlerSupport {

@@ -1,6 +1,7 @@
 package org.springframework.beans.factory;
 
-import org.springframework.beans.BeansException;
+import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.factory.bean.factory.BeanFactory;
 
 //Bean工厂装配器
 public interface BeanFactoryAware extends Aware {

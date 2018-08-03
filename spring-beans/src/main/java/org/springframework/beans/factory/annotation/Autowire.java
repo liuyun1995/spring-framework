@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.annotation;
 
-import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.beans.factory.bean.factory.AutowireCapableBeanFactory;
 
 //自动装配枚举
 public enum Autowire {

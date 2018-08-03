@@ -14,10 +14,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import org.springframework.beans.factory.exception.BeanDefinitionStoreException;
-import org.springframework.beans.factory.config.BeanDefinitionHolder;
+import org.springframework.beans.exception.BeanDefinitionStoreException;
+import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.parsing.BeanComponentDefinition;
-import org.springframework.beans.factory.support.BeanDefinitionReaderUtils;
+import org.springframework.beans.factory.bean.definition.BeanDefinitionReaderUtils;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternUtils;
 import org.springframework.util.ResourceUtils;

@@ -1,9 +1,9 @@
 package org.springframework.beans.support;
 
-import org.springframework.beans.PropertyEditorRegistry;
+import org.springframework.beans.property.PropertyEditorRegistry;
 import org.springframework.beans.SimpleTypeConverter;
 import org.springframework.beans.TypeConverter;
-import org.springframework.beans.TypeMismatchException;
+import org.springframework.beans.exception.TypeMismatchException;
 import org.springframework.util.MethodInvoker;
 import org.springframework.util.ReflectionUtils;
 

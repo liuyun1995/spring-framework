@@ -2,9 +2,9 @@ package org.springframework.beans.factory.annotation;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.MutablePropertyValues;
-import org.springframework.beans.PropertyValues;
-import org.springframework.beans.factory.support.RootBeanDefinition;
+import org.springframework.beans.property.MutablePropertyValues;
+import org.springframework.beans.property.PropertyValues;
+import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
 import org.springframework.util.ReflectionUtils;
 
 import java.beans.PropertyDescriptor;

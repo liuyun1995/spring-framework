@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.access;
 
-import org.springframework.beans.FatalBeanException;
+import org.springframework.beans.exception.FatalBeanException;
 
 @SuppressWarnings("serial")
 public class BootstrapException extends FatalBeanException {

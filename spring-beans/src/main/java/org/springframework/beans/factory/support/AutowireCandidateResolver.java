@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.support;
 
-import org.springframework.beans.factory.config.BeanDefinitionHolder;
+import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.config.DependencyDescriptor;
 
 public interface AutowireCandidateResolver {

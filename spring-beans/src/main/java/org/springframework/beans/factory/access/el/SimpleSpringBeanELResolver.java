@@ -2,7 +2,7 @@ package org.springframework.beans.factory.access.el;
 
 import javax.el.ELContext;
 
-import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.bean.factory.BeanFactory;
 import org.springframework.util.Assert;
 
 public class SimpleSpringBeanELResolver extends SpringBeanELResolver {

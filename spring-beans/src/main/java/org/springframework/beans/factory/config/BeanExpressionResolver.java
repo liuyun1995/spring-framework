@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.config;
 
-import org.springframework.beans.BeansException;
+import org.springframework.beans.exception.BeansException;
 
 //Bean表达式转换器
 public interface BeanExpressionResolver {

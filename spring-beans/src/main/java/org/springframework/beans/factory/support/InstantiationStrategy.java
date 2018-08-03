@@ -1,7 +1,8 @@
 package org.springframework.beans.factory.support;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.factory.bean.factory.BeanFactory;
+import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -15,10 +16,10 @@ public interface InstantiationStrategy {
 
 	//Bean实例化方法
 	Object instantiate(RootBeanDefinition bd, String beanName, BeanFactory owner,
-			Constructor<?> ctor, Object... args) throws BeansException;
+					   Constructor<?> ctor, Object... args) throws BeansException;
 
 	//Bean实例化方法
 	Object instantiate(RootBeanDefinition bd, String beanName, BeanFactory owner,
-			Object factoryBean, Method factoryMethod, Object... args) throws BeansException;
+                       Object factoryBean, Method factoryMethod, Object... args) throws BeansException;
 
 }

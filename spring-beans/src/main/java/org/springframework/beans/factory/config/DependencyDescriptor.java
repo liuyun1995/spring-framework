@@ -1,9 +1,9 @@
 package org.springframework.beans.factory.config;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.factory.bean.factory.BeanFactory;
 import org.springframework.beans.factory.InjectionPoint;
-import org.springframework.beans.factory.exception.NoUniqueBeanDefinitionException;
+import org.springframework.beans.exception.NoUniqueBeanDefinitionException;
 import org.springframework.core.GenericTypeResolver;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.ParameterNameDiscoverer;

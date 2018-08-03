@@ -3,8 +3,8 @@ package org.springframework.beans.factory.config;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Constructor;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.PropertyValues;
+import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.property.PropertyValues;
 
 //实例化装配Bean的后置处理器适配器
 public abstract class InstantiationAwareBeanPostProcessorAdapter implements SmartInstantiationAwareBeanPostProcessor {

@@ -3,11 +3,11 @@ package org.springframework.beans.factory.annotation;
 import java.lang.annotation.Annotation;
 import java.util.Set;
 
-import org.springframework.beans.BeansException;
+import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.BeanClassLoaderAware;
-import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.support.processor.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.bean.factory.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.bean.factory.DefaultListableBeanFactory;
 import org.springframework.core.Ordered;
 import org.springframework.util.ClassUtils;
 

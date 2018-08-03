@@ -17,11 +17,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.exception.BeanCreationException;
-import org.springframework.beans.factory.config.DestructionAwareBeanPostProcessor;
-import org.springframework.beans.factory.support.MergedBeanDefinitionPostProcessor;
-import org.springframework.beans.factory.support.RootBeanDefinition;
+import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.exception.BeanCreationException;
+import org.springframework.beans.factory.support.processor.DestructionAwareBeanPostProcessor;
+import org.springframework.beans.factory.support.processor.MergedBeanDefinitionPostProcessor;
+import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
 import org.springframework.core.Ordered;
 import org.springframework.core.PriorityOrdered;
 import org.springframework.util.ClassUtils;

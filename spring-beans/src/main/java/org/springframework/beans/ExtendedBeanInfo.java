@@ -198,7 +198,7 @@ class ExtendedBeanInfo implements BeanInfo {
 
 		public SimplePropertyDescriptor(PropertyDescriptor original) throws IntrospectionException {
 			this(original.getName(), original.getReadMethod(), original.getWriteMethod());
-			PropertyDescriptorUtils.copyNonMethodProperties(original, this);
+			org.springframework.beans.property.PropertyDescriptorUtils.copyNonMethodProperties(original, this);
 		}
 
 		public SimplePropertyDescriptor(String propertyName, Method readMethod, Method writeMethod)
@@ -206,7 +206,7 @@ class ExtendedBeanInfo implements BeanInfo {
 			super(propertyName, null, null);
 			this.readMethod = readMethod;
 			this.writeMethod = writeMethod;
-			this.propertyType = PropertyDescriptorUtils.findPropertyType(readMethod, writeMethod);
+			this.propertyType = org.springframework.beans.property.PropertyDescriptorUtils.findPropertyType(readMethod, writeMethod);
 		}
 
 		@Override
@@ -233,7 +233,7 @@ class ExtendedBeanInfo implements BeanInfo {
 		public Class<?> getPropertyType() {
 			if (this.propertyType == null) {
 				try {
-					this.propertyType = PropertyDescriptorUtils.findPropertyType(this.readMethod, this.writeMethod);
+					this.propertyType = org.springframework.beans.property.PropertyDescriptorUtils.findPropertyType(this.readMethod, this.writeMethod);
 				} catch (IntrospectionException ex) {
 					// Ignore, as does PropertyDescriptor#getPropertyType
 				}
@@ -254,7 +254,7 @@ class ExtendedBeanInfo implements BeanInfo {
 		@Override
 		public boolean equals(Object other) {
 			return (this == other || (other instanceof PropertyDescriptor
-					&& PropertyDescriptorUtils.equals(this, (PropertyDescriptor) other)));
+					&& org.springframework.beans.property.PropertyDescriptorUtils.equals(this, (PropertyDescriptor) other)));
 		}
 
 		@Override
@@ -289,7 +289,7 @@ class ExtendedBeanInfo implements BeanInfo {
 		public SimpleIndexedPropertyDescriptor(IndexedPropertyDescriptor original) throws IntrospectionException {
 			this(original.getName(), original.getReadMethod(), original.getWriteMethod(),
 					original.getIndexedReadMethod(), original.getIndexedWriteMethod());
-			PropertyDescriptorUtils.copyNonMethodProperties(original, this);
+			org.springframework.beans.property.PropertyDescriptorUtils.copyNonMethodProperties(original, this);
 		}
 
 		public SimpleIndexedPropertyDescriptor(String propertyName, Method readMethod, Method writeMethod,
@@ -297,10 +297,10 @@ class ExtendedBeanInfo implements BeanInfo {
 			super(propertyName, null, null, null, null);
 			this.readMethod = readMethod;
 			this.writeMethod = writeMethod;
-			this.propertyType = PropertyDescriptorUtils.findPropertyType(readMethod, writeMethod);
+			this.propertyType = org.springframework.beans.property.PropertyDescriptorUtils.findPropertyType(readMethod, writeMethod);
 			this.indexedReadMethod = indexedReadMethod;
 			this.indexedWriteMethod = indexedWriteMethod;
-			this.indexedPropertyType = PropertyDescriptorUtils.findIndexedPropertyType(propertyName, this.propertyType,
+			this.indexedPropertyType = org.springframework.beans.property.PropertyDescriptorUtils.findIndexedPropertyType(propertyName, this.propertyType,
 					indexedReadMethod, indexedWriteMethod);
 		}
 
@@ -328,7 +328,7 @@ class ExtendedBeanInfo implements BeanInfo {
 		public Class<?> getPropertyType() {
 			if (this.propertyType == null) {
 				try {
-					this.propertyType = PropertyDescriptorUtils.findPropertyType(this.readMethod, this.writeMethod);
+					this.propertyType = org.springframework.beans.property.PropertyDescriptorUtils.findPropertyType(this.readMethod, this.writeMethod);
 				} catch (IntrospectionException ex) {
 					// Ignore, as does IndexedPropertyDescriptor#getPropertyType
 				}
@@ -360,7 +360,7 @@ class ExtendedBeanInfo implements BeanInfo {
 		public Class<?> getIndexedPropertyType() {
 			if (this.indexedPropertyType == null) {
 				try {
-					this.indexedPropertyType = PropertyDescriptorUtils.findIndexedPropertyType(getName(),
+					this.indexedPropertyType = org.springframework.beans.property.PropertyDescriptorUtils.findIndexedPropertyType(getName(),
 							getPropertyType(), this.indexedReadMethod, this.indexedWriteMethod);
 				} catch (IntrospectionException ex) {
 					// Ignore, as does IndexedPropertyDescriptor#getIndexedPropertyType
@@ -394,7 +394,7 @@ class ExtendedBeanInfo implements BeanInfo {
 			return (ObjectUtils.nullSafeEquals(getIndexedReadMethod(), otherPd.getIndexedReadMethod())
 					&& ObjectUtils.nullSafeEquals(getIndexedWriteMethod(), otherPd.getIndexedWriteMethod())
 					&& ObjectUtils.nullSafeEquals(getIndexedPropertyType(), otherPd.getIndexedPropertyType())
-					&& PropertyDescriptorUtils.equals(this, otherPd));
+					&& org.springframework.beans.property.PropertyDescriptorUtils.equals(this, otherPd));
 		}
 
 		@Override

@@ -1,6 +1,7 @@
 package org.springframework.beans.factory.config;
 
-import org.springframework.beans.BeansException;
+import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.factory.support.processor.InstantiationAwareBeanPostProcessor;
 
 import java.lang.reflect.Constructor;
 

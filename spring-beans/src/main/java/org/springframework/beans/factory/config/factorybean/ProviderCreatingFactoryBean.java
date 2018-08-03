@@ -3,9 +3,8 @@ package org.springframework.beans.factory.config.factorybean;
 import java.io.Serializable;
 import javax.inject.Provider;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.config.factorybean.AbstractFactoryBean;
+import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.factory.bean.factory.BeanFactory;
 import org.springframework.util.Assert;
 
 public class ProviderCreatingFactoryBean extends AbstractFactoryBean<Provider<Object>> {

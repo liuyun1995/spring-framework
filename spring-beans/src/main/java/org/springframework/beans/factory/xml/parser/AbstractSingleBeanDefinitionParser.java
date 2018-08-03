@@ -2,8 +2,8 @@ package org.springframework.beans.factory.xml.parser;
 
 import org.w3c.dom.Element;
 
-import org.springframework.beans.factory.support.AbstractBeanDefinition;
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.bean.definition.AbstractBeanDefinition;
+import org.springframework.beans.factory.bean.definition.BeanDefinitionBuilder;
 
 //抽象单例Bean定义解析器
 public abstract class AbstractSingleBeanDefinitionParser extends AbstractBeanDefinitionParser {

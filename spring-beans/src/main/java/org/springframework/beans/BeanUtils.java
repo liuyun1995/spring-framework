@@ -18,6 +18,9 @@ import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import org.springframework.beans.exception.BeanInstantiationException;
+import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.exception.FatalBeanException;
 import org.springframework.core.MethodParameter;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
@@ -31,52 +34,52 @@ public abstract class BeanUtils {
 
     private static final Set<Class<?>> unknownEditorTypes = Collections.newSetFromMap(new ConcurrentReferenceHashMap<Class<?>, Boolean>(64));
 
-    public static <T> T instantiate(Class<T> clazz) throws BeanInstantiationException {
+    public static <T> T instantiate(Class<T> clazz) throws org.springframework.beans.exception.BeanInstantiationException {
         Assert.notNull(clazz, "Class must not be null");
         if (clazz.isInterface()) {
-            throw new BeanInstantiationException(clazz, "Specified class is an interface");
+            throw new org.springframework.beans.exception.BeanInstantiationException(clazz, "Specified class is an interface");
         }
         try {
             return clazz.newInstance();
         } catch (InstantiationException ex) {
-            throw new BeanInstantiationException(clazz, "Is it an abstract class?", ex);
+            throw new org.springframework.beans.exception.BeanInstantiationException(clazz, "Is it an abstract class?", ex);
         } catch (IllegalAccessException ex) {
-            throw new BeanInstantiationException(clazz, "Is the constructor accessible?", ex);
+            throw new org.springframework.beans.exception.BeanInstantiationException(clazz, "Is the constructor accessible?", ex);
         }
     }
 
 
-    public static <T> T instantiateClass(Class<T> clazz) throws BeanInstantiationException {
+    public static <T> T instantiateClass(Class<T> clazz) throws org.springframework.beans.exception.BeanInstantiationException {
         Assert.notNull(clazz, "Class must not be null");
         if (clazz.isInterface()) {
-            throw new BeanInstantiationException(clazz, "Specified class is an interface");
+            throw new org.springframework.beans.exception.BeanInstantiationException(clazz, "Specified class is an interface");
         }
         try {
             return instantiateClass(clazz.getDeclaredConstructor());
         } catch (NoSuchMethodException ex) {
-            throw new BeanInstantiationException(clazz, "No default constructor found", ex);
+            throw new org.springframework.beans.exception.BeanInstantiationException(clazz, "No default constructor found", ex);
         }
     }
 
 
     @SuppressWarnings("unchecked")
-    public static <T> T instantiateClass(Class<?> clazz, Class<T> assignableTo) throws BeanInstantiationException {
+    public static <T> T instantiateClass(Class<?> clazz, Class<T> assignableTo) throws org.springframework.beans.exception.BeanInstantiationException {
         Assert.isAssignable(assignableTo, clazz);
         return (T) instantiateClass(clazz);
     }
 
 
-    public static <T> T instantiateClass(Constructor<T> ctor, Object... args) throws BeanInstantiationException {
+    public static <T> T instantiateClass(Constructor<T> ctor, Object... args) throws org.springframework.beans.exception.BeanInstantiationException {
         Assert.notNull(ctor, "Constructor must not be null");
         try {
             ReflectionUtils.makeAccessible(ctor);
             return ctor.newInstance(args);
         } catch (InstantiationException ex) {
-            throw new BeanInstantiationException(ctor, "Is it an abstract class?", ex);
+            throw new org.springframework.beans.exception.BeanInstantiationException(ctor, "Is it an abstract class?", ex);
         } catch (IllegalAccessException ex) {
-            throw new BeanInstantiationException(ctor, "Is the constructor accessible?", ex);
+            throw new org.springframework.beans.exception.BeanInstantiationException(ctor, "Is the constructor accessible?", ex);
         } catch (IllegalArgumentException ex) {
-            throw new BeanInstantiationException(ctor, "Illegal arguments for constructor", ex);
+            throw new org.springframework.beans.exception.BeanInstantiationException(ctor, "Illegal arguments for constructor", ex);
         } catch (InvocationTargetException ex) {
             throw new BeanInstantiationException(ctor, "Constructor threw exception", ex.getTargetException());
         }
@@ -251,19 +254,19 @@ public abstract class BeanUtils {
     }
 
 
-    public static PropertyDescriptor[] getPropertyDescriptors(Class<?> clazz) throws BeansException {
+    public static PropertyDescriptor[] getPropertyDescriptors(Class<?> clazz) throws org.springframework.beans.exception.BeansException {
         CachedIntrospectionResults cr = CachedIntrospectionResults.forClass(clazz);
         return cr.getPropertyDescriptors();
     }
 
 
-    public static PropertyDescriptor getPropertyDescriptor(Class<?> clazz, String propertyName) throws BeansException {
+    public static PropertyDescriptor getPropertyDescriptor(Class<?> clazz, String propertyName) throws org.springframework.beans.exception.BeansException {
         CachedIntrospectionResults cr = CachedIntrospectionResults.forClass(clazz);
         return cr.getPropertyDescriptor(propertyName);
     }
 
 
-    public static PropertyDescriptor findPropertyForMethod(Method method) throws BeansException {
+    public static PropertyDescriptor findPropertyForMethod(Method method) throws org.springframework.beans.exception.BeansException {
         return findPropertyForMethod(method, method.getDeclaringClass());
     }
 
@@ -275,10 +278,10 @@ public abstract class BeanUtils {
      * @param method the method to find a corresponding PropertyDescriptor for
      * @param clazz  the (most specific) class to introspect for descriptors
      * @return the corresponding PropertyDescriptor, or {@code null} if none
-     * @throws BeansException if PropertyDescriptor lookup fails
+     * @throws org.springframework.beans.exception.BeansException if PropertyDescriptor lookup fails
      * @since 3.2.13
      */
-    public static PropertyDescriptor findPropertyForMethod(Method method, Class<?> clazz) throws BeansException {
+    public static PropertyDescriptor findPropertyForMethod(Method method, Class<?> clazz) throws org.springframework.beans.exception.BeansException {
         Assert.notNull(method, "Method must not be null");
         PropertyDescriptor[] pds = getPropertyDescriptors(clazz);
         for (PropertyDescriptor pd : pds) {
@@ -390,17 +393,17 @@ public abstract class BeanUtils {
     }
 
 
-    public static void copyProperties(Object source, Object target) throws BeansException {
+    public static void copyProperties(Object source, Object target) throws org.springframework.beans.exception.BeansException {
         copyProperties(source, target, null, (String[]) null);
     }
 
 
-    public static void copyProperties(Object source, Object target, Class<?> editable) throws BeansException {
+    public static void copyProperties(Object source, Object target, Class<?> editable) throws org.springframework.beans.exception.BeansException {
         copyProperties(source, target, editable, (String[]) null);
     }
 
 
-    public static void copyProperties(Object source, Object target, String... ignoreProperties) throws BeansException {
+    public static void copyProperties(Object source, Object target, String... ignoreProperties) throws org.springframework.beans.exception.BeansException {
         copyProperties(source, target, null, ignoreProperties);
     }
 

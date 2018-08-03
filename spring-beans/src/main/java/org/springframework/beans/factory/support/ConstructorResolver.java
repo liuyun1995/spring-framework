@@ -19,16 +19,18 @@ import java.util.Set;
 import org.springframework.beans.BeanMetadataElement;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
-import org.springframework.beans.BeansException;
+import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.TypeConverter;
-import org.springframework.beans.TypeMismatchException;
-import org.springframework.beans.factory.exception.BeanCreationException;
-import org.springframework.beans.factory.exception.BeanDefinitionStoreException;
+import org.springframework.beans.exception.TypeMismatchException;
+import org.springframework.beans.factory.bean.factory.AbstractAutowireCapableBeanFactory;
+import org.springframework.beans.exception.BeanCreationException;
+import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.InjectionPoint;
-import org.springframework.beans.factory.exception.UnsatisfiedDependencyException;
+import org.springframework.beans.exception.UnsatisfiedDependencyException;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.beans.factory.config.ConstructorArgumentValues.ValueHolder;
 import org.springframework.beans.factory.config.DependencyDescriptor;
+import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
 import org.springframework.core.GenericTypeResolver;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.NamedThreadLocal;
@@ -543,8 +545,8 @@ class ConstructorResolver {
 
         TypeConverter customConverter = this.beanFactory.getCustomTypeConverter();
         TypeConverter converter = (customConverter != null ? customConverter : bw);
-        BeanDefinitionValueResolver valueResolver =
-                new BeanDefinitionValueResolver(this.beanFactory, beanName, mbd, converter);
+        org.springframework.beans.factory.support.beandefinition.BeanDefinitionValueResolver valueResolver =
+                new org.springframework.beans.factory.support.beandefinition.BeanDefinitionValueResolver(this.beanFactory, beanName, mbd, converter);
 
         int minNrOfArgs = cargs.getArgumentCount();
 
@@ -697,8 +699,8 @@ class ConstructorResolver {
 
         TypeConverter customConverter = this.beanFactory.getCustomTypeConverter();
         TypeConverter converter = (customConverter != null ? customConverter : bw);
-        BeanDefinitionValueResolver valueResolver =
-                new BeanDefinitionValueResolver(this.beanFactory, beanName, mbd, converter);
+        org.springframework.beans.factory.support.beandefinition.BeanDefinitionValueResolver valueResolver =
+                new org.springframework.beans.factory.support.beandefinition.BeanDefinitionValueResolver(this.beanFactory, beanName, mbd, converter);
         Class<?>[] paramTypes = (methodOrCtor instanceof Method ?
                 ((Method) methodOrCtor).getParameterTypes() : ((Constructor<?>) methodOrCtor).getParameterTypes());
 

@@ -15,15 +15,15 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.exception.BeanDefinitionStoreException;
+import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.parsing.EmptyReaderEventListener;
 import org.springframework.beans.factory.parsing.FailFastProblemReporter;
 import org.springframework.beans.factory.parsing.NullSourceExtractor;
 import org.springframework.beans.factory.parsing.ProblemReporter;
 import org.springframework.beans.factory.parsing.ReaderEventListener;
 import org.springframework.beans.factory.parsing.SourceExtractor;
-import org.springframework.beans.factory.support.AbstractBeanDefinitionReader;
-import org.springframework.beans.factory.support.BeanDefinitionRegistry;
+import org.springframework.beans.factory.bean.definition.AbstractBeanDefinitionReader;
+import org.springframework.beans.factory.bean.definition.BeanDefinitionRegistry;
 import org.springframework.core.Constants;
 import org.springframework.core.NamedThreadLocal;
 import org.springframework.core.io.DescriptiveResource;

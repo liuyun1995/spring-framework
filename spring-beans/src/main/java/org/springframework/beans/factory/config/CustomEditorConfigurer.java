@@ -6,10 +6,11 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.PropertyEditorRegistrar;
+import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.factory.bean.factory.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.support.processor.BeanFactoryPostProcessor;
+import org.springframework.beans.property.PropertyEditorRegistrar;
 import org.springframework.core.Ordered;
-import org.springframework.util.ClassUtils;
 
 //外部编辑器配置器
 public class CustomEditorConfigurer implements BeanFactoryPostProcessor, Ordered {

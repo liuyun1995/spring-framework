@@ -7,10 +7,11 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.security.PrivilegedExceptionAction;
 
-import org.springframework.beans.BeanInstantiationException;
+import org.springframework.beans.exception.BeanInstantiationException;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.beans.factory.bean.factory.BeanFactory;
+import org.springframework.beans.factory.bean.factory.ConfigurableBeanFactory;
+import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 

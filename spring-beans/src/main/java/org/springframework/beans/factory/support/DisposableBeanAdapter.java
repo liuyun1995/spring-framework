@@ -16,9 +16,12 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.beans.factory.config.DestructionAwareBeanPostProcessor;
+import org.springframework.beans.factory.bean.DisposableBean;
+import org.springframework.beans.factory.support.processor.BeanPostProcessor;
+import org.springframework.beans.factory.support.processor.DestructionAwareBeanPostProcessor;
+import org.springframework.beans.factory.bean.definition.AbstractBeanDefinition;
+import org.springframework.beans.factory.bean.definition.BeanDefinitionValidationException;
+import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.CollectionUtils;

@@ -8,11 +8,11 @@ import java.security.PrivilegedExceptionAction;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.exception.BeanCreationException;
-import org.springframework.beans.factory.exception.BeanCurrentlyInCreationException;
+import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.exception.BeanCreationException;
+import org.springframework.beans.exception.BeanCurrentlyInCreationException;
 import org.springframework.beans.factory.config.factorybean.FactoryBean;
-import org.springframework.beans.factory.exception.FactoryBeanNotInitializedException;
+import org.springframework.beans.exception.FactoryBeanNotInitializedException;
 
 //工厂Bean注册器助手
 public abstract class FactoryBeanRegistrySupport extends DefaultSingletonBeanRegistry {

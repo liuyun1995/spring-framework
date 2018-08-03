@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.config;
 
-import org.springframework.beans.factory.NamedBean;
+import org.springframework.beans.factory.bean.NamedBean;
 import org.springframework.util.Assert;
 
 //命名Bean持有器

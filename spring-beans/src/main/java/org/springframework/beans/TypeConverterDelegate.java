@@ -2,6 +2,7 @@ package org.springframework.beans;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.property.PropertyEditorRegistrySupport;
 import org.springframework.core.CollectionFactory;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.convert.ConversionFailedException;
@@ -24,7 +25,7 @@ import java.util.Map;
 class TypeConverterDelegate {
 
     private static final Log logger = LogFactory.getLog(TypeConverterDelegate.class);  //日志类
-    private final PropertyEditorRegistrySupport propertyEditorRegistry;                //属性编辑器注册器
+    private final org.springframework.beans.property.PropertyEditorRegistrySupport propertyEditorRegistry;                //属性编辑器注册器
     private final Object targetObject;                                                 //目标对象
     private static Object javaUtilOptionalEmpty = null;
 
@@ -38,7 +39,7 @@ class TypeConverterDelegate {
     }
 
     //构造器1
-    public TypeConverterDelegate(PropertyEditorRegistrySupport propertyEditorRegistry) {
+    public TypeConverterDelegate(org.springframework.beans.property.PropertyEditorRegistrySupport propertyEditorRegistry) {
         this(propertyEditorRegistry, null);
     }
 

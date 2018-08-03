@@ -4,9 +4,10 @@ import java.lang.reflect.InvocationTargetException;
 
 import org.springframework.beans.TypeConverter;
 import org.springframework.beans.factory.BeanClassLoaderAware;
-import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.bean.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.bean.InitializingBean;
+import org.springframework.beans.factory.bean.factory.ConfigurableBeanFactory;
 import org.springframework.beans.support.ArgumentConvertingMethodInvoker;
 import org.springframework.util.ClassUtils;
 

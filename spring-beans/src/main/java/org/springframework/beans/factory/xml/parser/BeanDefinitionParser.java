@@ -2,7 +2,7 @@ package org.springframework.beans.factory.xml.parser;
 
 import org.w3c.dom.Element;
 
-import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.bean.definition.BeanDefinition;
 
 //Bean定义解析器
 public interface BeanDefinitionParser {

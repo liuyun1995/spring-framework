@@ -3,10 +3,10 @@ package org.springframework.beans.factory.parsing;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.PropertyValue;
-import org.springframework.beans.PropertyValues;
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.beans.factory.config.BeanDefinitionHolder;
+import org.springframework.beans.property.PropertyValue;
+import org.springframework.beans.property.PropertyValues;
+import org.springframework.beans.factory.bean.definition.BeanDefinition;
+import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.config.BeanReference;
 
 //Bean组件定义

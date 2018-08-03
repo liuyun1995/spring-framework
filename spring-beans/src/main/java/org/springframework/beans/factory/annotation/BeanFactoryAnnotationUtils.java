@@ -1,15 +1,15 @@
 package org.springframework.beans.factory.annotation;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.factory.bean.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryUtils;
-import org.springframework.beans.factory.exception.NoSuchBeanDefinitionException;
-import org.springframework.beans.factory.exception.NoUniqueBeanDefinitionException;
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.beans.factory.support.AbstractBeanDefinition;
+import org.springframework.beans.exception.NoSuchBeanDefinitionException;
+import org.springframework.beans.exception.NoUniqueBeanDefinitionException;
+import org.springframework.beans.factory.bean.definition.BeanDefinition;
+import org.springframework.beans.factory.bean.factory.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.bean.definition.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.AutowireCandidateQualifier;
-import org.springframework.beans.factory.support.RootBeanDefinition;
+import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;

@@ -1,9 +1,12 @@
 package org.springframework.beans.factory.config;
 
-import org.springframework.beans.factory.exception.BeanDefinitionStoreException;
-import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.bean.factory.ConfigurableListableBeanFactory;
+import org.springframework.beans.exception.BeanDefinitionStoreException;
+import org.springframework.beans.factory.bean.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.bean.definition.BeanDefinition;
+import org.springframework.beans.factory.bean.definition.BeanDefinitionVisitor;
 import org.springframework.util.StringValueResolver;
 
 public abstract class PlaceholderConfigurerSupport extends PropertyResourceConfigurer

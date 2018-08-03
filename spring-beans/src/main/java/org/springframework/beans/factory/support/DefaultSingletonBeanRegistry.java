@@ -13,10 +13,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import org.springframework.beans.factory.exception.BeanCreationException;
-import org.springframework.beans.factory.exception.BeanCreationNotAllowedException;
-import org.springframework.beans.factory.exception.BeanCurrentlyInCreationException;
-import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.exception.BeanCreationException;
+import org.springframework.beans.exception.BeanCreationNotAllowedException;
+import org.springframework.beans.exception.BeanCurrentlyInCreationException;
+import org.springframework.beans.factory.bean.DisposableBean;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.SingletonBeanRegistry;
 import org.springframework.core.SimpleAliasRegistry;

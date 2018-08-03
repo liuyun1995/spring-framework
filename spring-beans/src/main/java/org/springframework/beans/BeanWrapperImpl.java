@@ -9,6 +9,11 @@ import java.security.PrivilegedAction;
 import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 
+import org.springframework.beans.exception.InvalidPropertyException;
+import org.springframework.beans.exception.NotWritablePropertyException;
+import org.springframework.beans.exception.TypeMismatchException;
+import org.springframework.beans.property.AbstractNestablePropertyAccessor;
+import org.springframework.beans.property.PropertyMatches;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.convert.Property;
 import org.springframework.core.convert.TypeDescriptor;
@@ -100,7 +105,7 @@ public class BeanWrapperImpl extends AbstractNestablePropertyAccessor implements
 		CachedIntrospectionResults cachedIntrospectionResults = getCachedIntrospectionResults();
 		PropertyDescriptor pd = cachedIntrospectionResults.getPropertyDescriptor(propertyName);
 		if (pd == null) {
-			throw new InvalidPropertyException(getRootClass(), getNestedPath() + propertyName,
+			throw new org.springframework.beans.exception.InvalidPropertyException(getRootClass(), getNestedPath() + propertyName,
 					"No property '" + propertyName + "' found");
 		}
 		TypeDescriptor td = cachedIntrospectionResults.getTypeDescriptor(pd);
@@ -134,8 +139,8 @@ public class BeanWrapperImpl extends AbstractNestablePropertyAccessor implements
 
 	//创建属性不可写异常
 	@Override
-	protected NotWritablePropertyException createNotWritablePropertyException(String propertyName) {
-		PropertyMatches matches = PropertyMatches.forProperty(propertyName, getRootClass());
+	protected org.springframework.beans.exception.NotWritablePropertyException createNotWritablePropertyException(String propertyName) {
+		org.springframework.beans.property.PropertyMatches matches = PropertyMatches.forProperty(propertyName, getRootClass());
 		throw new NotWritablePropertyException(getRootClass(), getNestedPath() + propertyName,
 				matches.buildErrorMessage(), matches.getPossibleMatches());
 	}
@@ -148,7 +153,7 @@ public class BeanWrapperImpl extends AbstractNestablePropertyAccessor implements
 
 	//获取属性描述符
 	@Override
-	public PropertyDescriptor getPropertyDescriptor(String propertyName) throws InvalidPropertyException {
+	public PropertyDescriptor getPropertyDescriptor(String propertyName) throws org.springframework.beans.exception.InvalidPropertyException {
 		BeanWrapperImpl nestedBw = (BeanWrapperImpl) getPropertyAccessorForPropertyPath(propertyName);
 		String finalPath = getFinalPath(nestedBw, propertyName);
 		PropertyDescriptor pd = nestedBw.getCachedIntrospectionResults().getPropertyDescriptor(finalPath);

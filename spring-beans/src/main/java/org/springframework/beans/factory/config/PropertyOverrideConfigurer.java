@@ -6,9 +6,11 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.PropertyValue;
-import org.springframework.beans.factory.exception.BeanInitializationException;
+import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.factory.bean.factory.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.bean.definition.BeanDefinition;
+import org.springframework.beans.property.PropertyValue;
+import org.springframework.beans.exception.BeanInitializationException;
 
 //属性覆盖配置器
 public class PropertyOverrideConfigurer extends PropertyResourceConfigurer {

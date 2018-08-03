@@ -2,12 +2,12 @@ package org.springframework.beans.factory.annotation;
 
 import org.springframework.beans.SimpleTypeConverter;
 import org.springframework.beans.TypeConverter;
-import org.springframework.beans.factory.exception.NoSuchBeanDefinitionException;
-import org.springframework.beans.factory.config.BeanDefinitionHolder;
+import org.springframework.beans.exception.NoSuchBeanDefinitionException;
+import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.config.DependencyDescriptor;
 import org.springframework.beans.factory.support.AutowireCandidateQualifier;
 import org.springframework.beans.factory.support.GenericTypeAwareAutowireCandidateResolver;
-import org.springframework.beans.factory.support.RootBeanDefinition;
+import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.core.annotation.AnnotationAttributes;

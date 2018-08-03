@@ -133,7 +133,7 @@ final class GenericTypeAwarePropertyDescriptor extends PropertyDescriptor {
 			return false;
 		}
 		GenericTypeAwarePropertyDescriptor otherPd = (GenericTypeAwarePropertyDescriptor) other;
-		return (getBeanClass().equals(otherPd.getBeanClass()) && PropertyDescriptorUtils.equals(this, otherPd));
+		return (getBeanClass().equals(otherPd.getBeanClass()) && org.springframework.beans.property.PropertyDescriptorUtils.equals(this, otherPd));
 	}
 
 	@Override

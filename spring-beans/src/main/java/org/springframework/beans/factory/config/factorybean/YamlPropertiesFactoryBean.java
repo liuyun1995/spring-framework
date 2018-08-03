@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.springframework.beans.factory.config.YamlProcessor;
-import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.bean.InitializingBean;
 import org.springframework.core.CollectionFactory;
 
 //Yaml属性工厂Bean

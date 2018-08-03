@@ -1,5 +1,9 @@
 package org.springframework.beans;
 
+import org.springframework.beans.exception.InvalidPropertyException;
+import org.springframework.beans.exception.NotWritablePropertyException;
+import org.springframework.beans.property.AbstractNestablePropertyAccessor;
+import org.springframework.beans.property.PropertyMatches;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.util.ReflectionUtils;
@@ -40,8 +44,8 @@ public class DirectFieldAccessor extends AbstractNestablePropertyAccessor {
 	}
 
 	@Override
-	protected NotWritablePropertyException createNotWritablePropertyException(String propertyName) {
-		PropertyMatches matches = PropertyMatches.forField(propertyName, getRootClass());
+	protected org.springframework.beans.exception.NotWritablePropertyException createNotWritablePropertyException(String propertyName) {
+		org.springframework.beans.property.PropertyMatches matches = PropertyMatches.forField(propertyName, getRootClass());
 		throw new NotWritablePropertyException(getRootClass(), getNestedPath() + propertyName,
 				matches.buildErrorMessage(), matches.getPossibleMatches());
 	}
@@ -77,7 +81,7 @@ public class DirectFieldAccessor extends AbstractNestablePropertyAccessor {
 				ReflectionUtils.makeAccessible(this.field);
 				return this.field.get(getWrappedInstance());
 			} catch (IllegalAccessException ex) {
-				throw new InvalidPropertyException(getWrappedClass(), this.field.getName(), "Field is not accessible",
+				throw new org.springframework.beans.exception.InvalidPropertyException(getWrappedClass(), this.field.getName(), "Field is not accessible",
 						ex);
 			}
 		}

@@ -16,6 +16,8 @@ import java.util.concurrent.ConcurrentMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.exception.FatalBeanException;
 import org.springframework.core.SpringProperties;
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.core.io.support.SpringFactoriesLoader;
@@ -77,10 +79,10 @@ public class CachedIntrospectionResults {
      *
      * @param beanClass the bean class to analyze
      * @return the corresponding CachedIntrospectionResults
-     * @throws BeansException in case of introspection failure
+     * @throws org.springframework.beans.exception.BeansException in case of introspection failure
      */
     @SuppressWarnings("unchecked")
-    static CachedIntrospectionResults forClass(Class<?> beanClass) throws BeansException {
+    static CachedIntrospectionResults forClass(Class<?> beanClass) throws org.springframework.beans.exception.BeansException {
         CachedIntrospectionResults results = strongClassCache.get(beanClass);
         if (results != null) {
             return results;
@@ -167,7 +169,7 @@ public class CachedIntrospectionResults {
      * Create a new CachedIntrospectionResults instance for the given class.
      *
      * @param beanClass the bean class to analyze
-     * @throws BeansException in case of introspection failure
+     * @throws org.springframework.beans.exception.BeansException in case of introspection failure
      */
     private CachedIntrospectionResults(Class<?> beanClass) throws BeansException {
         try {
@@ -230,7 +232,7 @@ public class CachedIntrospectionResults {
             }
             this.typeDescriptorCache = new ConcurrentReferenceHashMap<PropertyDescriptor, TypeDescriptor>();
         } catch (IntrospectionException ex) {
-            throw new FatalBeanException("Failed to obtain BeanInfo for class [" + beanClass.getName() + "]", ex);
+            throw new org.springframework.beans.exception.FatalBeanException("Failed to obtain BeanInfo for class [" + beanClass.getName() + "]", ex);
         }
     }
 

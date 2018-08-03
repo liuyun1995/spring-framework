@@ -6,8 +6,7 @@ import java.util.Map.Entry;
 import java.util.Properties;
 
 import org.springframework.beans.factory.config.YamlProcessor;
-import org.springframework.beans.factory.config.factorybean.FactoryBean;
-import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.bean.InitializingBean;
 
 public class YamlMapFactoryBean extends YamlProcessor implements FactoryBean<Map<String, Object>>, InitializingBean {
 

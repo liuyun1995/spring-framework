@@ -3,13 +3,13 @@ package org.springframework.beans.factory.wiring;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import org.springframework.beans.factory.exception.BeanCreationException;
-import org.springframework.beans.factory.exception.BeanCurrentlyInCreationException;
-import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.exception.BeanCreationException;
+import org.springframework.beans.exception.BeanCurrentlyInCreationException;
+import org.springframework.beans.factory.bean.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.bean.DisposableBean;
+import org.springframework.beans.factory.bean.InitializingBean;
+import org.springframework.beans.factory.bean.factory.ConfigurableListableBeanFactory;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
