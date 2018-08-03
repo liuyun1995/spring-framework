@@ -1,4 +1,4 @@
-package org.springframework.beans.factory.config.factorybean;
+package org.springframework.beans.factory.bean.factorybean;
 
 import java.io.IOException;
 import java.util.Properties;

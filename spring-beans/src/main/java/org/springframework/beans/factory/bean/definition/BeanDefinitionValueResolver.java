@@ -7,7 +7,7 @@ import org.springframework.beans.factory.bean.factory.AbstractBeanFactory;
 import org.springframework.beans.exception.BeanCreationException;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.BeanFactoryUtils;
-import org.springframework.beans.factory.config.factorybean.FactoryBean;
+import org.springframework.beans.factory.bean.factorybean.FactoryBean;
 import org.springframework.beans.factory.config.*;
 import org.springframework.beans.factory.support.*;
 import org.springframework.util.ClassUtils;
@@ -17,6 +17,7 @@ import org.springframework.util.StringUtils;
 import java.lang.reflect.Array;
 import java.util.*;
 
+//Bean定义值解析器
 class BeanDefinitionValueResolver {
 
 	private final AbstractBeanFactory beanFactory;   //抽象Bean工厂

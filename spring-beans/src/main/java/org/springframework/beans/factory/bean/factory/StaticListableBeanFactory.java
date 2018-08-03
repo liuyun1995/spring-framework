@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2017 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.beans.factory.bean.factory;
 
 import java.lang.annotation.Annotation;
@@ -27,78 +11,37 @@ import org.springframework.beans.exception.BeanCreationException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.exception.BeanIsNotAFactoryException;
 import org.springframework.beans.exception.BeanNotOfRequiredTypeException;
-import org.springframework.beans.factory.config.factorybean.FactoryBean;
+import org.springframework.beans.factory.bean.factorybean.FactoryBean;
 import org.springframework.beans.exception.NoSuchBeanDefinitionException;
 import org.springframework.beans.exception.NoUniqueBeanDefinitionException;
-import org.springframework.beans.factory.config.factorybean.SmartFactoryBean;
+import org.springframework.beans.factory.bean.factorybean.SmartFactoryBean;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
-/**
- * Static {@link BeanFactory} implementation
- * which allows to register existing singleton instances programmatically.
- * Does not have support for prototype beans or aliases.
- *
- * <p>Serves as example for a simple implementation of the
- * {@link ListableBeanFactory} interface,
- * managing existing bean instances rather than creating new ones based on bean
- * definitions, and not implementing any extended SPI interfaces (such as
- * {@link ConfigurableBeanFactory}).
- *
- * <p>For a full-fledged factory based on bean definitions, have a look
- * at {@link DefaultListableBeanFactory}.
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @since 06.01.2003
- * @see DefaultListableBeanFactory
- */
 public class StaticListableBeanFactory implements ListableBeanFactory {
 
 	/** Map from bean name to bean instance */
 	private final Map<String, Object> beans;
 
-
-	/**
-	 * Create a regular {@code StaticListableBeanFactory}, to be populated
-	 * with singleton bean instances through {@link #addBean} calls.
-	 */
 	public StaticListableBeanFactory() {
 		this.beans = new LinkedHashMap<String, Object>();
 	}
 
-	/**
-	 * Create a {@code StaticListableBeanFactory} wrapping the given {@code Map}.
-	 * <p>Note that the given {@code Map} may be pre-populated with beans;
-	 * or new, still allowing for beans to be registered via {@link #addBean};
-	 * or {@link java.util.Collections#emptyMap()} for a dummy factory which
-	 * enforces operating against an empty set of beans.
-	 * @param beans a {@code Map} for holding this factory's beans, with the
-	 * bean name String as key and the corresponding singleton object as value
-	 * @since 4.3
-	 */
 	public StaticListableBeanFactory(Map<String, Object> beans) {
 		Assert.notNull(beans, "Beans Map must not be null");
 		this.beans = beans;
 	}
 
-
-	/**
-	 * Add a new singleton bean.
-	 * Will overwrite any existing instance for the given name.
-	 * @param name the name of the bean
-	 * @param bean the bean instance
-	 */
 	public void addBean(String name, Object bean) {
 		this.beans.put(name, bean);
 	}
 
 
 	//---------------------------------------------------------------------
-	// Implementation of BeanFactory interface
+	// 实现BeanFactory接口方法
 	//---------------------------------------------------------------------
 
 	@Override
@@ -228,7 +171,7 @@ public class StaticListableBeanFactory implements ListableBeanFactory {
 
 
 	//---------------------------------------------------------------------
-	// Implementation of ListableBeanFactory interface
+	// 实现ListableBeanFactory接口方法
 	//---------------------------------------------------------------------
 
 	@Override
@@ -351,7 +294,6 @@ public class StaticListableBeanFactory implements ListableBeanFactory {
 	@Override
 	public <A extends Annotation> A findAnnotationOnBean(String beanName, Class<A> annotationType)
 			throws NoSuchBeanDefinitionException{
-
 		Class<?> beanType = getType(beanName);
 		return (beanType != null ? AnnotationUtils.findAnnotation(beanType, annotationType) : null);
 	}

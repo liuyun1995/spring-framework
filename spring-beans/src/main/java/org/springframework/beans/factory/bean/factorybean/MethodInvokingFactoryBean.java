@@ -1,4 +1,4 @@
-package org.springframework.beans.factory.config.factorybean;
+package org.springframework.beans.factory.bean.factorybean;
 
 import org.springframework.beans.factory.config.MethodInvokingBean;
 import org.springframework.beans.exception.FactoryBeanNotInitializedException;

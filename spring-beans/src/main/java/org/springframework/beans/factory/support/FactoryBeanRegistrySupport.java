@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.exception.BeanCreationException;
 import org.springframework.beans.exception.BeanCurrentlyInCreationException;
-import org.springframework.beans.factory.config.factorybean.FactoryBean;
+import org.springframework.beans.factory.bean.factorybean.FactoryBean;
 import org.springframework.beans.exception.FactoryBeanNotInitializedException;
 
 //工厂Bean注册器助手

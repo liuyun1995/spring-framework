@@ -1,4 +1,4 @@
-package org.springframework.beans.factory.config.factorybean;
+package org.springframework.beans.factory.bean.factorybean;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;

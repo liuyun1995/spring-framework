@@ -16,8 +16,7 @@
 
 package org.springframework.beans.exception;
 
-import org.springframework.beans.exception.FatalBeanException;
-import org.springframework.beans.factory.config.factorybean.FactoryBean;
+import org.springframework.beans.factory.bean.factorybean.FactoryBean;
 
 /**
  * Exception to be thrown from a FactoryBean's {@code getObject()} method

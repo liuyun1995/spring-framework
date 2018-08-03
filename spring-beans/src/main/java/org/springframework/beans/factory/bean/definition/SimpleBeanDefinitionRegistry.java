@@ -11,7 +11,8 @@ import org.springframework.util.StringUtils;
 
 //简单Bean定义注册器
 public class SimpleBeanDefinitionRegistry extends SimpleAliasRegistry implements BeanDefinitionRegistry {
-	
+
+	//Bean定义映射器
 	private final Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<String, BeanDefinition>(64);
 
 	//注册Bean定义

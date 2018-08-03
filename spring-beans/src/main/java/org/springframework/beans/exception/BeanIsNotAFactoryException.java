@@ -1,6 +1,6 @@
 package org.springframework.beans.exception;
 
-import org.springframework.beans.factory.config.factorybean.FactoryBean;
+import org.springframework.beans.factory.bean.factorybean.FactoryBean;
 
 @SuppressWarnings("serial")
 public class BeanIsNotAFactoryException extends BeanNotOfRequiredTypeException {

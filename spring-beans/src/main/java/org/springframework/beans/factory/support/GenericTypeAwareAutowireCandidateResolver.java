@@ -20,7 +20,7 @@ import java.lang.reflect.Method;
 
 import org.springframework.beans.factory.bean.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.config.factorybean.FactoryBean;
+import org.springframework.beans.factory.bean.factorybean.FactoryBean;
 import org.springframework.beans.factory.bean.definition.BeanDefinition;
 import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.bean.factory.ConfigurableListableBeanFactory;

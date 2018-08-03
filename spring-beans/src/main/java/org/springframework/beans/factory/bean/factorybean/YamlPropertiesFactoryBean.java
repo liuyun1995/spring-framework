@@ -1,4 +1,4 @@
-package org.springframework.beans.factory.config.factorybean;
+package org.springframework.beans.factory.bean.factorybean;
 
 import java.util.Map;
 import java.util.Properties;

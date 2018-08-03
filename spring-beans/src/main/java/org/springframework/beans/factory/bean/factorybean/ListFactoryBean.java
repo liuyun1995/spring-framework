@@ -1,8 +1,7 @@
-package org.springframework.beans.factory.config.factorybean;
+package org.springframework.beans.factory.bean.factorybean;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.TypeConverter;
-import org.springframework.beans.factory.config.factorybean.AbstractFactoryBean;
 import org.springframework.core.ResolvableType;
 
 import java.util.ArrayList;

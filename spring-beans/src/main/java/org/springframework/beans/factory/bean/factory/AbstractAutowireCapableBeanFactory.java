@@ -44,7 +44,7 @@ import org.springframework.beans.exception.BeanCurrentlyInCreationException;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.beans.factory.config.factorybean.FactoryBean;
+import org.springframework.beans.factory.bean.factorybean.FactoryBean;
 import org.springframework.beans.factory.bean.InitializingBean;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.exception.UnsatisfiedDependencyException;
