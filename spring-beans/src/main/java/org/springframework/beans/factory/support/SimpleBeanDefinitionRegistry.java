@@ -3,8 +3,8 @@ package org.springframework.beans.factory.support;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.springframework.beans.factory.BeanDefinitionStoreException;
-import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.beans.factory.exception.BeanDefinitionStoreException;
+import org.springframework.beans.factory.exception.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.core.SimpleAliasRegistry;
 import org.springframework.util.Assert;

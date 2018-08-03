@@ -1,6 +1,7 @@
 package org.springframework.beans.factory;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.exception.NoSuchBeanDefinitionException;
 import org.springframework.core.ResolvableType;
 
 import java.lang.annotation.Annotation;

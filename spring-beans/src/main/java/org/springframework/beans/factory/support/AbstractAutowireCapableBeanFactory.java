@@ -34,16 +34,16 @@ import org.springframework.beans.PropertyValues;
 import org.springframework.beans.TypeConverter;
 import org.springframework.beans.factory.Aware;
 import org.springframework.beans.factory.BeanClassLoaderAware;
-import org.springframework.beans.factory.BeanCreationException;
-import org.springframework.beans.factory.BeanCurrentlyInCreationException;
-import org.springframework.beans.factory.BeanDefinitionStoreException;
+import org.springframework.beans.factory.exception.BeanCreationException;
+import org.springframework.beans.factory.exception.BeanCurrentlyInCreationException;
+import org.springframework.beans.factory.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.beans.factory.FactoryBean;
+import org.springframework.beans.factory.config.factorybean.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.ObjectFactory;
-import org.springframework.beans.factory.UnsatisfiedDependencyException;
+import org.springframework.beans.factory.exception.UnsatisfiedDependencyException;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -1456,14 +1456,17 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		if (bean instanceof Aware) {
 			//若Bean实现了BeanNameAware接口
 			if (bean instanceof BeanNameAware) {
+				//设置Bean名称
 				((BeanNameAware) bean).setBeanName(beanName);
 			}
 			//若Bean实现了BeanClassLoaderAware接口
 			if (bean instanceof BeanClassLoaderAware) {
+				//设置类加载器
 				((BeanClassLoaderAware) bean).setBeanClassLoader(getBeanClassLoader());
 			}
 			//若Bean实现了BeanFactoryAware接口
 			if (bean instanceof BeanFactoryAware) {
+				//设置Bean工厂
 				((BeanFactoryAware) bean).setBeanFactory(AbstractAutowireCapableBeanFactory.this);
 			}
 		}

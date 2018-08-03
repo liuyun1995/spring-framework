@@ -3,7 +3,7 @@ package org.springframework.beans.factory.xml;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-import org.springframework.beans.factory.BeanDefinitionStoreException;
+import org.springframework.beans.factory.exception.BeanDefinitionStoreException;
 
 @SuppressWarnings("serial")
 public class XmlBeanDefinitionStoreException extends BeanDefinitionStoreException {

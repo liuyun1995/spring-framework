@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.parsing;
 
-import org.springframework.beans.factory.BeanDefinitionStoreException;
+import org.springframework.beans.factory.exception.BeanDefinitionStoreException;
 
 @SuppressWarnings("serial")
 public class BeanDefinitionParsingException extends BeanDefinitionStoreException {

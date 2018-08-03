@@ -5,6 +5,7 @@ import java.io.Serializable;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ObjectFactory;
+import org.springframework.beans.factory.config.factorybean.AbstractFactoryBean;
 import org.springframework.util.Assert;
 
 public class ObjectFactoryCreatingFactoryBean extends AbstractFactoryBean<ObjectFactory<Object>> {

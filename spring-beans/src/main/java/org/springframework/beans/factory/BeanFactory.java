@@ -1,6 +1,7 @@
 package org.springframework.beans.factory;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.exception.NoSuchBeanDefinitionException;
 import org.springframework.core.ResolvableType;
 
 //Bean工厂接口
@@ -28,16 +29,16 @@ public interface BeanFactory {
 	boolean containsBean(String name);
 
 	//指定Bean是否是单例
-	boolean isSingleton(String name) throws NoSuchBeanDefinitionException;
+	boolean isSingleton(String name) throws org.springframework.beans.factory.exception.NoSuchBeanDefinitionException;
 
 	//指定Bean是否是原型
-	boolean isPrototype(String name) throws NoSuchBeanDefinitionException;
+	boolean isPrototype(String name) throws org.springframework.beans.factory.exception.NoSuchBeanDefinitionException;
 
 	//是否类型匹配
-	boolean isTypeMatch(String name, ResolvableType typeToMatch) throws NoSuchBeanDefinitionException;
+	boolean isTypeMatch(String name, ResolvableType typeToMatch) throws org.springframework.beans.factory.exception.NoSuchBeanDefinitionException;
 
 	//是否类型匹配
-	boolean isTypeMatch(String name, Class<?> typeToMatch) throws NoSuchBeanDefinitionException;
+	boolean isTypeMatch(String name, Class<?> typeToMatch) throws org.springframework.beans.factory.exception.NoSuchBeanDefinitionException;
 
 	//获取指定Bean的类型
 	Class<?> getType(String name) throws NoSuchBeanDefinitionException;

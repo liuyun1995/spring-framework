@@ -1,12 +1,13 @@
 package org.springframework.beans.factory.xml;
 
-import org.springframework.beans.factory.BeanDefinitionStoreException;
+import org.springframework.beans.factory.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.parsing.ProblemReporter;
 import org.springframework.beans.factory.parsing.ReaderContext;
 import org.springframework.beans.factory.parsing.ReaderEventListener;
 import org.springframework.beans.factory.parsing.SourceExtractor;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
+import org.springframework.beans.factory.xml.reader.XmlBeanDefinitionReader;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -18,12 +19,12 @@ import java.io.StringReader;
 //xml阅读器上下文
 public class XmlReaderContext extends ReaderContext {
 
-    private final XmlBeanDefinitionReader reader;                        //Bean定义阅读器
+    private final org.springframework.beans.factory.xml.reader.XmlBeanDefinitionReader reader;                        //Bean定义阅读器
     private final NamespaceHandlerResolver namespaceHandlerResolver;     //名称空间处理器转换器
 
     //构造器
     public XmlReaderContext(Resource resource, ProblemReporter problemReporter, ReaderEventListener eventListener,
-                            SourceExtractor sourceExtractor, XmlBeanDefinitionReader reader,
+                            SourceExtractor sourceExtractor, org.springframework.beans.factory.xml.reader.XmlBeanDefinitionReader reader,
                             NamespaceHandlerResolver namespaceHandlerResolver) {
         super(resource, problemReporter, eventListener, sourceExtractor);
         this.reader = reader;

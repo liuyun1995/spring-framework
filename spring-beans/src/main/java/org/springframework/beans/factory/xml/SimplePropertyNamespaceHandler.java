@@ -1,5 +1,6 @@
 package org.springframework.beans.factory.xml;
 
+import org.springframework.beans.factory.xml.parser.ParserContext;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -18,7 +19,7 @@ public class SimplePropertyNamespaceHandler implements NamespaceHandler {
 	public void init() {}
 
 	@Override
-	public BeanDefinition parse(Element element, ParserContext parserContext) {
+	public BeanDefinition parse(Element element, org.springframework.beans.factory.xml.parser.ParserContext parserContext) {
 		parserContext.getReaderContext().error(
 				"Class [" + getClass().getName() + "] does not support custom elements.", element);
 		return null;

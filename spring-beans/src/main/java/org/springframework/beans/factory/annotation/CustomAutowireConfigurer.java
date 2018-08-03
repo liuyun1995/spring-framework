@@ -11,14 +11,12 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.core.Ordered;
 import org.springframework.util.ClassUtils;
 
+//外部自动装配配置器
 public class CustomAutowireConfigurer implements BeanFactoryPostProcessor, BeanClassLoaderAware, Ordered {
 
-    private int order = Ordered.LOWEST_PRECEDENCE;  // default: same as non-Ordered
-
+    private int order = Ordered.LOWEST_PRECEDENCE;
     private Set<?> customQualifierTypes;
-
     private ClassLoader beanClassLoader = ClassUtils.getDefaultClassLoader();
-
 
     public void setOrder(int order) {
         this.order = order;

@@ -3,6 +3,8 @@ package org.springframework.beans.factory.xml;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.xml.parser.BeanDefinitionParser;
+import org.springframework.beans.factory.xml.parser.ParserContext;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -14,7 +16,7 @@ import org.springframework.beans.factory.config.BeanDefinitionHolder;
 public abstract class NamespaceHandlerSupport implements NamespaceHandler {
 
     //Bean定义解析器
-    private final Map<String, BeanDefinitionParser> parsers = new HashMap<String, BeanDefinitionParser>();
+    private final Map<String, org.springframework.beans.factory.xml.parser.BeanDefinitionParser> parsers = new HashMap<String, org.springframework.beans.factory.xml.parser.BeanDefinitionParser>();
     //元素-Bean定义装饰器
     private final Map<String, BeanDefinitionDecorator> decorators = new HashMap<String, BeanDefinitionDecorator>();
     //属性-Bean定义装饰器
@@ -22,14 +24,14 @@ public abstract class NamespaceHandlerSupport implements NamespaceHandler {
 
     //解析方法
     @Override
-    public BeanDefinition parse(Element element, ParserContext parserContext) {
+    public BeanDefinition parse(Element element, org.springframework.beans.factory.xml.parser.ParserContext parserContext) {
         return findParserForElement(element, parserContext).parse(element, parserContext);
     }
 
     //为元素寻找解析器
-    private BeanDefinitionParser findParserForElement(Element element, ParserContext parserContext) {
+    private org.springframework.beans.factory.xml.parser.BeanDefinitionParser findParserForElement(Element element, org.springframework.beans.factory.xml.parser.ParserContext parserContext) {
         String localName = parserContext.getDelegate().getLocalName(element);
-        BeanDefinitionParser parser = this.parsers.get(localName);
+        org.springframework.beans.factory.xml.parser.BeanDefinitionParser parser = this.parsers.get(localName);
         if (parser == null) {
             parserContext.getReaderContext().fatal(
                     "Cannot locate BeanDefinitionParser for element [" + localName + "]", element);
@@ -39,7 +41,7 @@ public abstract class NamespaceHandlerSupport implements NamespaceHandler {
 
     //装饰方法
     @Override
-    public BeanDefinitionHolder decorate(Node node, BeanDefinitionHolder definition, ParserContext parserContext) {
+    public BeanDefinitionHolder decorate(Node node, BeanDefinitionHolder definition, org.springframework.beans.factory.xml.parser.ParserContext parserContext) {
         return findDecoratorForNode(node, parserContext).decorate(node, definition, parserContext);
     }
 

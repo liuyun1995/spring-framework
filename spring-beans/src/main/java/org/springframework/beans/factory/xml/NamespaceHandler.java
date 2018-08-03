@@ -1,5 +1,6 @@
 package org.springframework.beans.factory.xml;
 
+import org.springframework.beans.factory.xml.parser.ParserContext;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -13,7 +14,7 @@ public interface NamespaceHandler {
 	void init();
 
 	//解析方法
-	BeanDefinition parse(Element element, ParserContext parserContext);
+	BeanDefinition parse(Element element, org.springframework.beans.factory.xml.parser.ParserContext parserContext);
 
 	//修饰方法
 	BeanDefinitionHolder decorate(Node source, BeanDefinitionHolder definition, ParserContext parserContext);

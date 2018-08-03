@@ -1,5 +1,7 @@
 package org.springframework.beans.factory;
 
+import org.springframework.beans.factory.config.factorybean.FactoryBean;
+
 //智能工厂Bean
 public interface SmartFactoryBean<T> extends FactoryBean<T> {
 

@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValue;
-import org.springframework.beans.factory.BeanInitializationException;
+import org.springframework.beans.factory.exception.BeanInitializationException;
 
 //属性覆盖配置器
 public class PropertyOverrideConfigurer extends PropertyResourceConfigurer {
