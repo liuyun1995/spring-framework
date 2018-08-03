@@ -10,13 +10,11 @@ import org.springframework.core.Ordered;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
-//范围配置器
+//外部范围配置器
 public class CustomScopeConfigurer implements BeanFactoryPostProcessor, BeanClassLoaderAware, Ordered {
 
 	private Map<String, Object> scopes;
-
 	private int order = Ordered.LOWEST_PRECEDENCE;
-
 	private ClassLoader beanClassLoader = ClassUtils.getDefaultClassLoader();
 
 	public void setScopes(Map<String, Object> scopes) {

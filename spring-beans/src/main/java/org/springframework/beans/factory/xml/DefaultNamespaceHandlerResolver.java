@@ -15,7 +15,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.CollectionUtils;
 
-//默认名称空间处理器转换器
+//默认名称空间处理器解析器
 public class DefaultNamespaceHandlerResolver implements NamespaceHandlerResolver {
 
     public static final String DEFAULT_HANDLER_MAPPINGS_LOCATION = "META-INF/spring.handlers";

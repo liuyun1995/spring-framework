@@ -11,6 +11,7 @@ import org.springframework.util.PropertyPlaceholderHelper;
 import org.springframework.util.PropertyPlaceholderHelper.PlaceholderResolver;
 import org.springframework.util.StringValueResolver;
 
+//属性占位符配置器
 public class PropertyPlaceholderConfigurer extends PlaceholderConfigurerSupport {
 
     /**
@@ -171,7 +172,6 @@ public class PropertyPlaceholderConfigurer extends PlaceholderConfigurerSupport 
     @Override
     protected void processProperties(ConfigurableListableBeanFactory beanFactoryToProcess, Properties props)
             throws BeansException {
-
         StringValueResolver valueResolver = new PlaceholderResolvingStringValueResolver(props);
         doProcessProperties(beanFactoryToProcess, valueResolver);
     }

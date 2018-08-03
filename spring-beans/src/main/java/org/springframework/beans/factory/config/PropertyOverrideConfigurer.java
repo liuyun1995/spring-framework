@@ -14,11 +14,8 @@ import org.springframework.beans.factory.BeanInitializationException;
 public class PropertyOverrideConfigurer extends PropertyResourceConfigurer {
 
     public static final String DEFAULT_BEAN_NAME_SEPARATOR = ".";
-
     private String beanNameSeparator = DEFAULT_BEAN_NAME_SEPARATOR;
-
     private boolean ignoreInvalidKeys = false;
-
     private final Set<String> beanNames = Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>(16));
 
     public void setBeanNameSeparator(String beanNameSeparator) {

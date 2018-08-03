@@ -15,15 +15,10 @@ public abstract class PlaceholderConfigurerSupport extends PropertyResourceConfi
     protected String placeholderPrefix = DEFAULT_PLACEHOLDER_PREFIX;  //持有的前缀
     protected String placeholderSuffix = DEFAULT_PLACEHOLDER_SUFFIX;  //持有的后缀
     protected String valueSeparator = DEFAULT_VALUE_SEPARATOR;        //持有的分隔符
-
     protected boolean trimValues = false;
-
     protected String nullValue;
-
     protected boolean ignoreUnresolvablePlaceholders = false;
-
     private String beanName;
-
     private BeanFactory beanFactory;
 
 

@@ -10,11 +10,8 @@ import org.springframework.beans.factory.InitializingBean;
 public class PreferencesPlaceholderConfigurer extends PropertyPlaceholderConfigurer implements InitializingBean {
 
     private String systemTreePath;
-
     private String userTreePath;
-
     private Preferences systemPrefs;
-
     private Preferences userPrefs;
 
     public void setSystemTreePath(String systemTreePath) {

@@ -17,7 +17,7 @@ import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
-
+//可插拔的Schema解析器
 public class PluggableSchemaResolver implements EntityResolver {
 
     public static final String DEFAULT_SCHEMA_MAPPINGS_LOCATION = "META-INF/spring.schemas";

@@ -13,10 +13,8 @@ import org.springframework.util.ClassUtils;
 public class MethodInvokingBean extends ArgumentConvertingMethodInvoker
         implements BeanClassLoaderAware, BeanFactoryAware, InitializingBean {
 
-    private ClassLoader beanClassLoader = ClassUtils.getDefaultClassLoader();
-
-    private ConfigurableBeanFactory beanFactory;
-
+    private ClassLoader beanClassLoader = ClassUtils.getDefaultClassLoader();  //类型加载器
+    private ConfigurableBeanFactory beanFactory;                               //可配置的Bean工厂
 
     @Override
     public void setBeanClassLoader(ClassLoader classLoader) {

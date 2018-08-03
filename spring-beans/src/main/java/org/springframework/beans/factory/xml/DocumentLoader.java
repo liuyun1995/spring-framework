@@ -11,7 +11,6 @@ public interface DocumentLoader {
 	//加载文档
 	Document loadDocument(
 			InputSource inputSource, EntityResolver entityResolver,
-			ErrorHandler errorHandler, int validationMode, boolean namespaceAware)
-			throws Exception;
+			ErrorHandler errorHandler, int validationMode, boolean namespaceAware) throws Exception;
 
 }

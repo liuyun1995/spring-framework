@@ -12,10 +12,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLDecoder;
 
+//资源实体解析器
 public class ResourceEntityResolver extends DelegatingEntityResolver {
 
     private static final Log logger = LogFactory.getLog(ResourceEntityResolver.class);
-
     private final ResourceLoader resourceLoader;
 
     public ResourceEntityResolver(ResourceLoader resourceLoader) {

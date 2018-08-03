@@ -7,7 +7,7 @@ import org.springframework.core.ResolvableType;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-//Set对象工厂Bean
+//工厂Bean(获取Set对象)
 public class SetFactoryBean extends AbstractFactoryBean<Set<Object>> {
 
     private Set<?> sourceSet;

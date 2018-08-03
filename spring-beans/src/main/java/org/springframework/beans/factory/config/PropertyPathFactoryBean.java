@@ -17,17 +17,11 @@ import org.springframework.util.StringUtils;
 public class PropertyPathFactoryBean implements FactoryBean<Object>, BeanNameAware, BeanFactoryAware {
 
     private static final Log logger = LogFactory.getLog(PropertyPathFactoryBean.class);
-
     private BeanWrapper targetBeanWrapper;
-
     private String targetBeanName;
-
     private String propertyPath;
-
     private Class<?> resultType;
-
     private String beanName;
-
     private BeanFactory beanFactory;
 
     public void setTargetObject(Object targetObject) {

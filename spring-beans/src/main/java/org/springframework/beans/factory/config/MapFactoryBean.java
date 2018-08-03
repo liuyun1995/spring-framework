@@ -7,7 +7,7 @@ import org.springframework.core.ResolvableType;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-//Map对象工厂Bean
+//工厂Bean(获取Map对象)
 public class MapFactoryBean extends AbstractFactoryBean<Map<Object, Object>> {
 
     private Map<?, ?> sourceMap;

@@ -9,28 +9,33 @@ import org.springframework.util.Assert;
 
 public class ObjectFactoryCreatingFactoryBean extends AbstractFactoryBean<ObjectFactory<Object>> {
 
-	private String targetBeanName;
+	private String targetBeanName;  //目标Bean名称
 
+	//设置目标Bean名称
 	public void setTargetBeanName(String targetBeanName) {
 		this.targetBeanName = targetBeanName;
 	}
 
+	//属性设置之后执行
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		Assert.hasText(this.targetBeanName, "Property 'targetBeanName' is required");
 		super.afterPropertiesSet();
 	}
 
+	//获取对象类型
 	@Override
 	public Class<?> getObjectType() {
 		return ObjectFactory.class;
 	}
 
+	//创建实例
 	@Override
 	protected ObjectFactory<Object> createInstance() {
 		return new TargetBeanObjectFactory(getBeanFactory(), this.targetBeanName);
 	}
 
+	//目标Bean对象工厂
 	@SuppressWarnings("serial")
 	private static class TargetBeanObjectFactory implements ObjectFactory<Object>, Serializable {
 

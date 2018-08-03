@@ -5,9 +5,8 @@ import org.springframework.util.Assert;
 //Bean表达式上下文
 public class BeanExpressionContext {
 
-	private final ConfigurableBeanFactory beanFactory;
-
-	private final Scope scope;
+	private final ConfigurableBeanFactory beanFactory;   //可配置的Bean工厂
+	private final Scope scope;                           //Bean范围
 
 	public BeanExpressionContext(ConfigurableBeanFactory beanFactory, Scope scope) {
 		Assert.notNull(beanFactory, "BeanFactory must not be null");

@@ -48,6 +48,7 @@ public final class ParserContext {
 		return this.delegate;
 	}
 
+	//获取包含的Bean定义
 	public final BeanDefinition getContainingBeanDefinition() {
 		return this.containingBeanDefinition;
 	}

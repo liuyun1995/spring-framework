@@ -6,9 +6,7 @@ import org.springframework.beans.factory.FactoryBeanNotInitializedException;
 public class MethodInvokingFactoryBean extends MethodInvokingBean implements FactoryBean<Object> {
 
     private boolean singleton = true;
-
     private boolean initialized = false;
-
     private Object singletonObject;
 
     public void setSingleton(boolean singleton) {
@@ -43,7 +41,7 @@ public class MethodInvokingFactoryBean extends MethodInvokingBean implements Fac
     @Override
     public Class<?> getObjectType() {
         if (!isPrepared()) {
-            // Not fully initialized yet -> return null to indicate "not known yet".
+            //表明还未充分实例化，因此返回null
             return null;
         }
         return getPreparedMethod().getReturnType();

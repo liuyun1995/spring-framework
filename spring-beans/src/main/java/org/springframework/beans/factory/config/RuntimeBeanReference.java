@@ -2,12 +2,11 @@ package org.springframework.beans.factory.config;
 
 import org.springframework.util.Assert;
 
+//运行时Bean引用
 public class RuntimeBeanReference implements BeanReference {
 
     private final String beanName;
-
     private final boolean toParent;
-
     private Object source;
 
     public RuntimeBeanReference(String beanName) {

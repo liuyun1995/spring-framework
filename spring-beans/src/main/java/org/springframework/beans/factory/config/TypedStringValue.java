@@ -8,52 +8,45 @@ import org.springframework.util.ObjectUtils;
 public class TypedStringValue implements BeanMetadataElement {
 
     private String value;
-
     private volatile Object targetType;
-
     private Object source;
-
     private String specifiedTypeName;
-
     private volatile boolean dynamic;
 
+    //构造器1
     public TypedStringValue(String value) {
         setValue(value);
     }
 
+    //构造器2
     public TypedStringValue(String value, Class<?> targetType) {
         setValue(value);
         setTargetType(targetType);
     }
 
+    //构造器3
     public TypedStringValue(String value, String targetTypeName) {
         setValue(value);
         setTargetTypeName(targetTypeName);
     }
 
+    //设置值
     public void setValue(String value) {
         this.value = value;
     }
 
+    //获取值
     public String getValue() {
         return this.value;
     }
 
-    /**
-     * Set the type to convert to.
-     * <p>Only necessary for manipulating a registered value,
-     * for example in BeanFactoryPostProcessors.
-     *
-     * @see PropertyPlaceholderConfigurer
-     */
+    //设置目标类型
     public void setTargetType(Class<?> targetType) {
         Assert.notNull(targetType, "'targetType' must not be null");
         this.targetType = targetType;
     }
 
-    /**
-     * Return the type to convert to.
-     */
+    //获取目标类型
     public Class<?> getTargetType() {
         Object targetTypeValue = this.targetType;
         if (!(targetTypeValue instanceof Class)) {
@@ -62,17 +55,13 @@ public class TypedStringValue implements BeanMetadataElement {
         return (Class<?>) targetTypeValue;
     }
 
-    /**
-     * Specify the type to convert to.
-     */
+    //设置目标类型名
     public void setTargetTypeName(String targetTypeName) {
         Assert.notNull(targetTypeName, "'targetTypeName' must not be null");
         this.targetType = targetTypeName;
     }
 
-    /**
-     * Return the type to convert to.
-     */
+    //获取目标类型名
     public String getTargetTypeName() {
         Object targetTypeValue = this.targetType;
         if (targetTypeValue instanceof Class) {
@@ -82,22 +71,12 @@ public class TypedStringValue implements BeanMetadataElement {
         }
     }
 
-    /**
-     * Return whether this typed String value carries a target type .
-     */
+    //是否有目标类型
     public boolean hasTargetType() {
         return (this.targetType instanceof Class);
     }
 
-    /**
-     * Determine the type to convert to, resolving it from a specified class name
-     * if necessary. Will also reload a specified Class from its name when called
-     * with the target type already resolved.
-     *
-     * @param classLoader the ClassLoader to use for resolving a (potential) class name
-     * @return the resolved type to convert to
-     * @throws ClassNotFoundException if the type cannot be resolved
-     */
+    //解析目标类型
     public Class<?> resolveTargetType(ClassLoader classLoader) throws ClassNotFoundException {
         if (this.targetType == null) {
             return null;
@@ -107,49 +86,36 @@ public class TypedStringValue implements BeanMetadataElement {
         return resolvedClass;
     }
 
-
-    /**
-     * Set the configuration source {@code Object} for this metadata element.
-     * <p>The exact type of the object will depend on the configuration mechanism used.
-     */
+    //设置源文件
     public void setSource(Object source) {
         this.source = source;
     }
 
+    //获取源文件
     @Override
     public Object getSource() {
         return this.source;
     }
 
-    /**
-     * Set the type name as actually specified for this particular value, if any.
-     */
+    //设置具体的类型名
     public void setSpecifiedTypeName(String specifiedTypeName) {
         this.specifiedTypeName = specifiedTypeName;
     }
 
-    /**
-     * Return the type name as actually specified for this particular value, if any.
-     */
+    //获取具体的类型名
     public String getSpecifiedTypeName() {
         return this.specifiedTypeName;
     }
 
-    /**
-     * Mark this value as dynamic, i.e. as containing an expression
-     * and hence not being subject to caching.
-     */
+    //设置是否是动态的
     public void setDynamic() {
         this.dynamic = true;
     }
 
-    /**
-     * Return whether this value has been marked as dynamic.
-     */
+    //是否是动态的
     public boolean isDynamic() {
         return this.dynamic;
     }
-
 
     @Override
     public boolean equals(Object other) {

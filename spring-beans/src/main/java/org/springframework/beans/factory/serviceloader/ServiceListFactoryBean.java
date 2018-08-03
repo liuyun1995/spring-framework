@@ -6,7 +6,6 @@ import java.util.ServiceLoader;
 
 import org.springframework.beans.factory.BeanClassLoaderAware;
 
-
 public class ServiceListFactoryBean extends AbstractServiceLoaderBasedFactoryBean implements BeanClassLoaderAware {
 
 	@Override

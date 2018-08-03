@@ -2,34 +2,19 @@ package org.springframework.beans.factory.config;
 
 import org.springframework.util.StringValueResolver;
 
-/**
- * {@link StringValueResolver} adapter for resolving placeholders and
- * expressions against a {@link ConfigurableBeanFactory}.
- *
- * <p>Note that this adapter resolves expressions as well, in contrast
- * to the {@link ConfigurableBeanFactory#resolveEmbeddedValue} method.
- * The {@link BeanExpressionContext} used is for the plain bean factory,
- * with no scope specified for any contextual objects to access.
- *
- * @author Juergen Hoeller
- * @since 4.3
- * @see ConfigurableBeanFactory#resolveEmbeddedValue(String)
- * @see ConfigurableBeanFactory#getBeanExpressionResolver()
- * @see BeanExpressionContext
- */
+//嵌套值解析器
 public class EmbeddedValueResolver implements StringValueResolver {
 
-	private final BeanExpressionContext exprContext;
+	private final BeanExpressionContext exprContext;      //Bean表达式上下文
+	private final BeanExpressionResolver exprResolver;    //Bean表达式解析器
 
-	private final BeanExpressionResolver exprResolver;
-
-
+	//构造器
 	public EmbeddedValueResolver(ConfigurableBeanFactory beanFactory) {
 		this.exprContext = new BeanExpressionContext(beanFactory, null);
 		this.exprResolver = beanFactory.getBeanExpressionResolver();
 	}
 
-
+	//解析字符串值
 	@Override
 	public String resolveStringValue(String strVal) {
 		String value = this.exprContext.getBeanFactory().resolveEmbeddedValue(strVal);

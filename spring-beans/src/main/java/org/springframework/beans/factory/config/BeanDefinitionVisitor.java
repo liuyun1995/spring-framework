@@ -13,12 +13,12 @@ public class BeanDefinitionVisitor {
 
     private StringValueResolver valueResolver;
 
+    protected BeanDefinitionVisitor() {}
+
     public BeanDefinitionVisitor(StringValueResolver valueResolver) {
         Assert.notNull(valueResolver, "StringValueResolver must not be null");
         this.valueResolver = valueResolver;
     }
-
-    protected BeanDefinitionVisitor() {}
 
     public void visitBeanDefinition(BeanDefinition beanDefinition) {
         visitParentName(beanDefinition);

@@ -7,7 +7,7 @@ import org.springframework.core.ResolvableType;
 import java.util.ArrayList;
 import java.util.List;
 
-//List对象工厂Bean
+//工厂Bean(获取List对象)
 public class ListFactoryBean extends AbstractFactoryBean<List<Object>> {
 
     private List<?> sourceList;

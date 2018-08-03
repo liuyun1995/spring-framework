@@ -4,6 +4,7 @@ import org.springframework.beans.BeansException;
 
 import java.lang.reflect.Constructor;
 
+//智能的实例化装配Bean的后置处理器
 public interface SmartInstantiationAwareBeanPostProcessor extends InstantiationAwareBeanPostProcessor {
 
 	//预测Bean的类型

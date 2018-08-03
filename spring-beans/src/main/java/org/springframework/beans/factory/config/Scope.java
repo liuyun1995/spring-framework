@@ -2,6 +2,7 @@ package org.springframework.beans.factory.config;
 
 import org.springframework.beans.factory.ObjectFactory;
 
+//Bean范围接口
 public interface Scope {
 
 	//获取对象

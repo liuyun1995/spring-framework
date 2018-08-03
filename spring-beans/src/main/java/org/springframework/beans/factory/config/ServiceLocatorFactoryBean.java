@@ -20,13 +20,9 @@ import org.springframework.util.StringUtils;
 public class ServiceLocatorFactoryBean implements FactoryBean<Object>, BeanFactoryAware, InitializingBean {
 
     private Class<?> serviceLocatorInterface;
-
     private Constructor<Exception> serviceLocatorExceptionConstructor;
-
     private Properties serviceMappings;
-
     private ListableBeanFactory beanFactory;
-
     private Object proxy;
 
     public void setServiceLocatorInterface(Class<?> interfaceType) {

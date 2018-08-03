@@ -2,7 +2,7 @@ package org.springframework.beans.factory.config;
 
 import org.springframework.beans.BeansException;
 
-//Bean切面加工器
+//Bean后置加工器
 public interface BeanPostProcessor {
 
 	//初始化Bean之前执行

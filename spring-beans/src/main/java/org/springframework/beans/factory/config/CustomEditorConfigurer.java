@@ -11,15 +11,12 @@ import org.springframework.beans.PropertyEditorRegistrar;
 import org.springframework.core.Ordered;
 import org.springframework.util.ClassUtils;
 
-//编辑器配置器
+//外部编辑器配置器
 public class CustomEditorConfigurer implements BeanFactoryPostProcessor, Ordered {
 
     protected final Log logger = LogFactory.getLog(getClass());
-
     private int order = Ordered.LOWEST_PRECEDENCE;
-
     private PropertyEditorRegistrar[] propertyEditorRegistrars;
-
     private Map<Class<?>, Class<? extends PropertyEditor>> customEditors;
 
     public void setOrder(int order) {
