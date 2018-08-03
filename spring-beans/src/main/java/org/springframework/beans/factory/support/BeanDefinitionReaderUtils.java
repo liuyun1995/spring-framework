@@ -75,15 +75,15 @@ public class BeanDefinitionReaderUtils {
     public static void registerBeanDefinition(
             BeanDefinitionHolder definitionHolder, BeanDefinitionRegistry registry)
             throws BeanDefinitionStoreException {
-        //获取Bean的名称
+        //获取Bean名称
         String beanName = definitionHolder.getBeanName();
-        //在注册器中注册Bean定义
+        //调用注册器方法注册Bean定义
         registry.registerBeanDefinition(beanName, definitionHolder.getBeanDefinition());
         //获取别名数组
         String[] aliases = definitionHolder.getAliases();
         if (aliases != null) {
-            //遍历别名数组进行别名注册
             for (String alias : aliases) {
+                //调用注册器方法进行别名注册
                 registry.registerAlias(beanName, alias);
             }
         }
@@ -95,9 +95,9 @@ public class BeanDefinitionReaderUtils {
             throws BeanDefinitionStoreException {
         //生成Bean名称
         String generatedName = generateBeanName(definition, registry, false);
-        //注册Bean定义
+        //调用注册器方法注册Bean定义
         registry.registerBeanDefinition(generatedName, definition);
-        //返回Bean名称
+        //返回生成的Bean名称
         return generatedName;
     }
 

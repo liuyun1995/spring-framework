@@ -16,8 +16,8 @@ import java.security.AccessControlContext;
 //可配置的Bean工厂
 public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, SingletonBeanRegistry {
 
-	String SCOPE_SINGLETON = "singleton";
-	String SCOPE_PROTOTYPE = "prototype";
+	String SCOPE_SINGLETON = "singleton";     //单例范围
+	String SCOPE_PROTOTYPE = "prototype";     //原型范围
 
 	//设置父Bean工厂
 	void setParentBeanFactory(BeanFactory parentBeanFactory) throws IllegalStateException;
@@ -124,13 +124,13 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, Single
 	//获取所有被该Bean依赖的集合
 	String[] getDependenciesForBean(String beanName);
 
-	//销毁Bean
+	//销毁Bean实例
 	void destroyBean(String beanName, Object beanInstance);
 
 	//销毁范围Bean
 	void destroyScopedBean(String beanName);
 
-	//销毁单例
+	//销毁所有单例Bean
 	void destroySingletons();
 
 }

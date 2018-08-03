@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 
 import org.springframework.core.Ordered;
 
+//扩展的Bean信息工厂
 public class ExtendedBeanInfoFactory implements BeanInfoFactory, Ordered {
 	
 	@Override

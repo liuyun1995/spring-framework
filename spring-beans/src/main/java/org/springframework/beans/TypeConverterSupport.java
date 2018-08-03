@@ -34,10 +34,10 @@ public abstract class TypeConverterSupport extends PropertyEditorRegistrySupport
 	private <T> T doConvert(Object value, Class<T> requiredType, MethodParameter methodParam, Field field)
 			throws TypeMismatchException {
 		try {
+			//根据字段是否为空，调用类型转换助手的不同方法进行转换
 			if (field != null) {
 				return this.typeConverterDelegate.convertIfNecessary(value, requiredType, field);
 			} else {
-				//使用类型转换装饰器进行转换
 				return this.typeConverterDelegate.convertIfNecessary(value, requiredType, methodParam);
 			}
 		} catch (ConverterNotFoundException ex) {

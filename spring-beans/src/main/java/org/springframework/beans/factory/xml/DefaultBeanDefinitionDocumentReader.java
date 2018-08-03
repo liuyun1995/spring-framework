@@ -109,17 +109,13 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 
 	//解析Bean定义
 	protected void parseBeanDefinitions(Element root, BeanDefinitionParserDelegate delegate) {
-		//再次判断节点名称空间是否是默认名称空间
 		if (delegate.isDefaultNamespace(root)) {
 			NodeList nl = root.getChildNodes();
-			//遍历该节点的所有子节点
+			//遍历所有子节点，对各个子节点进行解析
 			for (int i = 0; i < nl.getLength(); i++) {
 				Node node = nl.item(i);
-				//若子节点是Element类型
 				if (node instanceof Element) {
-					//强转为Element类型
 					Element ele = (Element) node;
-					//判断节点名称空间是否是默认名称空间
 					if (delegate.isDefaultNamespace(ele)) {
 						//解析默认名称空间元素
 						parseDefaultElement(ele, delegate);
@@ -154,16 +150,17 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 
 	//解析<import>
 	protected void importBeanDefinitionResource(Element ele) {
-		//获取resource资源路径
+		//获取resource属性值
 		String location = ele.getAttribute(RESOURCE_ATTRIBUTE);
-		//若路径为空则记录错误
+		//若resource属性为空，则记录错误并返回
 		if (!StringUtils.hasText(location)) {
 			getReaderContext().error("Resource location must not be empty", ele);
 			return;
 		}
 
-		//解析路径中的系统属性
+		//解析资源路径中的系统属性
 		location = getReaderContext().getEnvironment().resolveRequiredPlaceholders(location);
+		//新建已创建资源文件集合
 		Set<Resource> actualResources = new LinkedHashSet<Resource>(4);
 		//判断是绝对路径还是相对路径
 		boolean absoluteLocation = false;
@@ -211,7 +208,7 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 			}
 		}
 		Resource[] actResArray = actualResources.toArray(new Resource[actualResources.size()]);
-		//通知响应事件
+		//处理完之后发送事件消息
 		getReaderContext().fireImportProcessed(location, actResArray, extractSource(ele));
 	}
 
@@ -220,40 +217,46 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 		String name = ele.getAttribute(NAME_ATTRIBUTE);
 		String alias = ele.getAttribute(ALIAS_ATTRIBUTE);
 		boolean valid = true;
+		//若name属性值为空，则记录异常
 		if (!StringUtils.hasText(name)) {
 			getReaderContext().error("Name must not be empty", ele);
 			valid = false;
 		}
+		//若alias属性值为空，则记录异常
 		if (!StringUtils.hasText(alias)) {
 			getReaderContext().error("Alias must not be empty", ele);
 			valid = false;
 		}
+
+		//若name和alias属性都有值
 		if (valid) {
 			try {
+				//获取Bean定义注册器并注册别名
 				getReaderContext().getRegistry().registerAlias(name, alias);
 			} catch (Exception ex) {
 				getReaderContext().error("Failed to register alias '" + alias + "' for bean with name '" + name + "'",
 						ele, ex);
 			}
+			//注册完之后发送已注册事件
 			getReaderContext().fireAliasRegistered(name, alias, extractSource(ele));
 		}
 	}
 
 	//解析<bean>
 	protected void processBeanDefinition(Element ele, BeanDefinitionParserDelegate delegate) {
-		//获取Bean定义持有器
+		//对节点进行解析，获取Bean定义持有器
 		BeanDefinitionHolder bdHolder = delegate.parseBeanDefinitionElement(ele);
 		if (bdHolder != null) {
-			//对Bean定义进行装饰
+			//如果有需要则对Bean定义进行修饰
 			bdHolder = delegate.decorateBeanDefinitionIfRequired(ele, bdHolder);
 			try {
-				//注册装饰后的Bean定义
+				//将Bean定义注册到注册器中
 				BeanDefinitionReaderUtils.registerBeanDefinition(bdHolder, getReaderContext().getRegistry());
 			} catch (BeanDefinitionStoreException ex) {
 				getReaderContext().error(
 						"Failed to register bean definition with name '" + bdHolder.getBeanName() + "'", ele, ex);
 			}
-			//发送已注册事件
+			//注册完之后发送已注册事件
 			getReaderContext().fireComponentRegistered(new BeanComponentDefinition(bdHolder));
 		}
 	}

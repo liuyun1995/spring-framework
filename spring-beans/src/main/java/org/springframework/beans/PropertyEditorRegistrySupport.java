@@ -62,7 +62,6 @@ import org.springframework.util.ClassUtils;
 public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
 
 	private static Class<?> pathClass;
-
 	private static Class<?> zoneIdClass;
 
 	static {
@@ -81,21 +80,14 @@ public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
 		}
 	}
 
-	private ConversionService conversionService;
-
-	private boolean defaultEditorsActive = false;
-
-	private boolean configValueEditorsActive = false;
-
-	private Map<Class<?>, PropertyEditor> defaultEditors;
-
-	private Map<Class<?>, PropertyEditor> overriddenDefaultEditors;
-
-	private Map<Class<?>, PropertyEditor> customEditors;
-
-	private Map<String, CustomEditorHolder> customEditorsForPath;
-
-	private Map<Class<?>, PropertyEditor> customEditorCache;
+	private ConversionService conversionService;                         //转换服务
+	private boolean defaultEditorsActive = false;                        //是否激活默认编辑器
+	private boolean configValueEditorsActive = false;                    //是否激活配置值编辑器
+	private Map<Class<?>, PropertyEditor> defaultEditors;                //默认属性编辑器集合
+	private Map<Class<?>, PropertyEditor> overriddenDefaultEditors;      //被覆盖的默认编辑器
+	private Map<Class<?>, PropertyEditor> customEditors;                 //额外属性编辑器集合
+	private Map<String, CustomEditorHolder> customEditorsForPath;        //额外编辑器
+	private Map<Class<?>, PropertyEditor> customEditorCache;             //额外编辑器
 
 	//设置转换服务
 	public void setConversionService(ConversionService conversionService) {
@@ -319,11 +311,12 @@ public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
 
 	//获取额外编辑器
 	private PropertyEditor getCustomEditor(String propertyName, Class<?> requiredType) {
+		//根据属性名获取属性编辑器持有者
 		CustomEditorHolder holder = this.customEditorsForPath.get(propertyName);
 		return (holder != null ? holder.getPropertyEditor(requiredType) : null);
 	}
 
-	//获取额外编辑器
+	//根据类型获取属性编辑器
 	private PropertyEditor getCustomEditor(Class<?> requiredType) {
 		if (requiredType == null || this.customEditors == null) {
 			return null;
@@ -434,26 +427,29 @@ public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
 		}
 	}
 
-	//额外编辑器持有者
+	//属性编辑器持有者
 	private static class CustomEditorHolder {
 
-		private final PropertyEditor propertyEditor;
+		private final PropertyEditor propertyEditor;   //属性编辑器
+		private final Class<?> registeredType;         //注册的类型
 
-		private final Class<?> registeredType;
-
+		//构造器
 		private CustomEditorHolder(PropertyEditor propertyEditor, Class<?> registeredType) {
 			this.propertyEditor = propertyEditor;
 			this.registeredType = registeredType;
 		}
 
+		//获取属性编辑器
 		private PropertyEditor getPropertyEditor() {
 			return this.propertyEditor;
 		}
 
+		//获取注册的类型
 		private Class<?> getRegisteredType() {
 			return this.registeredType;
 		}
 
+		//根据需求类型获取属性编辑器
 		private PropertyEditor getPropertyEditor(Class<?> requiredType) {
 			// Special case: If no required type specified, which usually only happens for
 			// Collection elements, or required type is not assignable to registered type,

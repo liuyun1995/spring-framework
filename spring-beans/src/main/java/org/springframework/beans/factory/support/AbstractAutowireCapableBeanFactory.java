@@ -64,47 +64,35 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
+//抽象的可自动装配Bean工厂
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory
 		implements AutowireCapableBeanFactory {
 
-	/** Strategy for creating bean instances */
+	//创建Bean实例策略
 	private InstantiationStrategy instantiationStrategy = new CglibSubclassingInstantiationStrategy();
 
-	/** Resolver strategy for method parameter names */
+	//方法参数名称解析器策略
 	private ParameterNameDiscoverer parameterNameDiscoverer = new DefaultParameterNameDiscoverer();
 
-	/** Whether to automatically try to resolve circular references between beans */
+	//是否允许循环依赖
 	private boolean allowCircularReferences = true;
 
-	/**
-	 * Whether to resort to injecting a raw bean instance in case of circular
-	 * reference, even if the injected bean eventually got wrapped.
-	 */
+	//是否允许注入原始Bean
 	private boolean allowRawInjectionDespiteWrapping = false;
 
-	/**
-	 * Dependency types to ignore on dependency check and autowire, as Set of Class
-	 * objects: for example, String. Default is none.
-	 */
+	//忽略依赖类型集合
 	private final Set<Class<?>> ignoredDependencyTypes = new HashSet<Class<?>>();
 
-	/**
-	 * Dependency interfaces to ignore on dependency check and autowire, as Set of
-	 * Class objects. By default, only the BeanFactory interface is ignored.
-	 */
+	//忽略依赖接口集合
 	private final Set<Class<?>> ignoredDependencyInterfaces = new HashSet<Class<?>>();
 
-	/**
-	 * Cache of unfinished FactoryBean instances: FactoryBean name --> BeanWrapper
-	 */
+	//工厂Bean实例缓存
 	private final Map<String, BeanWrapper> factoryBeanInstanceCache = new ConcurrentHashMap<String, BeanWrapper>(16);
 
-	/**
-	 * Cache of filtered PropertyDescriptors: bean Class -> PropertyDescriptor array
-	 */
-	private final ConcurrentMap<Class<?>, PropertyDescriptor[]> filteredPropertyDescriptorsCache = new ConcurrentHashMap<Class<?>, PropertyDescriptor[]>(
-			256);
+	//过滤的属性描述符缓存
+	private final ConcurrentMap<Class<?>, PropertyDescriptor[]> filteredPropertyDescriptorsCache = new ConcurrentHashMap<Class<?>, PropertyDescriptor[]>(256);
 
+	//构造器1
 	public AbstractAutowireCapableBeanFactory() {
 		super();
 		ignoreDependencyInterface(BeanNameAware.class);
@@ -112,6 +100,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		ignoreDependencyInterface(BeanClassLoaderAware.class);
 	}
 
+	//构造器2
 	public AbstractAutowireCapableBeanFactory(BeanFactory parentBeanFactory) {
 		this();
 		setParentBeanFactory(parentBeanFactory);
@@ -127,30 +116,37 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return this.instantiationStrategy;
 	}
 
+	//设置方法参数名称解析器策略
 	public void setParameterNameDiscoverer(ParameterNameDiscoverer parameterNameDiscoverer) {
 		this.parameterNameDiscoverer = parameterNameDiscoverer;
 	}
 
+	//获取方法参数名称解析器策略
 	protected ParameterNameDiscoverer getParameterNameDiscoverer() {
 		return this.parameterNameDiscoverer;
 	}
 
+	//设置是否允许循环依赖
 	public void setAllowCircularReferences(boolean allowCircularReferences) {
 		this.allowCircularReferences = allowCircularReferences;
 	}
 
+	//设置是否允许注入原始Bean
 	public void setAllowRawInjectionDespiteWrapping(boolean allowRawInjectionDespiteWrapping) {
 		this.allowRawInjectionDespiteWrapping = allowRawInjectionDespiteWrapping;
 	}
 
+	//设置忽略的依赖类型
 	public void ignoreDependencyType(Class<?> type) {
 		this.ignoredDependencyTypes.add(type);
 	}
 
+	//设置忽略的依赖接口
 	public void ignoreDependencyInterface(Class<?> ifc) {
 		this.ignoredDependencyInterfaces.add(ifc);
 	}
 
+	//复制配置信息
 	@Override
 	public void copyConfigurationFrom(ConfigurableBeanFactory otherFactory) {
 		super.copyConfigurationFrom(otherFactory);
@@ -164,9 +160,10 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	}
 
 	// -------------------------------------------------------------------------
-	// Typical methods for creating and populating external bean instances
+	// 创建并填充Bean实例的方法
 	// -------------------------------------------------------------------------
 
+	//创建Bean对象
 	@Override
 	@SuppressWarnings("unchecked")
 	public <T> T createBean(Class<T> beanClass) throws BeansException {
@@ -177,6 +174,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return (T) createBean(beanClass.getName(), bd, null);
 	}
 
+	//自动装配Bean
 	@Override
 	public void autowireBean(Object existingBean) {
 		RootBeanDefinition bd = new RootBeanDefinition(ClassUtils.getUserClass(existingBean));
@@ -187,6 +185,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		populateBean(bd.getBeanClass().getName(), bd, bw);
 	}
 
+	//配置Bean
 	@Override
 	public Object configureBean(Object existingBean, String beanName) throws BeansException {
 		markBeanAsCreated(beanName);
@@ -209,15 +208,17 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return initializeBean(beanName, existingBean, bd);
 	}
 
+	//解析依赖
 	@Override
 	public Object resolveDependency(DependencyDescriptor descriptor, String requestingBeanName) throws BeansException {
 		return resolveDependency(descriptor, requestingBeanName, null, null);
 	}
 
 	// -------------------------------------------------------------------------
-	// Specialized methods for fine-grained control over the bean lifecycle
+	// Bean的生命周期控制方法
 	// -------------------------------------------------------------------------
 
+	//创建Bean对象
 	@Override
 	public Object createBean(Class<?> beanClass, int autowireMode, boolean dependencyCheck) throws BeansException {
 		RootBeanDefinition bd = new RootBeanDefinition(beanClass, autowireMode, dependencyCheck);
@@ -225,6 +226,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return createBean(beanClass.getName(), bd, null);
 	}
 
+	//自动装配Bean
 	@Override
 	public Object autowire(Class<?> beanClass, int autowireMode, boolean dependencyCheck) throws BeansException {
 		final RootBeanDefinition bd = new RootBeanDefinition(beanClass, autowireMode, dependencyCheck);
@@ -249,6 +251,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		}
 	}
 
+	//自动装配Bean属性
 	@Override
 	public void autowireBeanProperties(Object existingBean, int autowireMode, boolean dependencyCheck)
 			throws BeansException {
@@ -262,6 +265,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		populateBean(bd.getBeanClass().getName(), bd, bw);
 	}
 
+	//应用Bean属性值
 	@Override
 	public void applyBeanPropertyValues(Object existingBean, String beanName) throws BeansException {
 		markBeanAsCreated(beanName);
@@ -271,12 +275,13 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		applyPropertyValues(beanName, bd, bw, bd.getPropertyValues());
 	}
 
+	//初始化Bean实例
 	@Override
 	public Object initializeBean(Object existingBean, String beanName) {
 		return initializeBean(beanName, existingBean, null);
 	}
 
-	//初始化Bean之前执行方法
+	//初始化前加工方法
 	@Override
 	public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName)
 			throws BeansException {
@@ -292,7 +297,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return result;
 	}
 
-	//初始化Bean之后执行方法
+	//初始化后加工方法
 	@Override
 	public Object applyBeanPostProcessorsAfterInitialization(Object existingBean, String beanName)
 			throws BeansException {
@@ -308,7 +313,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return result;
 	}
 
-	//销毁Bean方法
+	//销毁Bean实例
 	@Override
 	public void destroyBean(Object existingBean) {
 		new DisposableBeanAdapter(existingBean, getBeanPostProcessors(), getAccessControlContext()).destroy();
@@ -459,6 +464,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return exposedObject;
 	}
 
+	//预测Bean类型
 	@Override
 	protected Class<?> predictBeanType(String beanName, RootBeanDefinition mbd, Class<?>... typesToMatch) {
 		Class<?> targetType = determineTargetType(beanName, mbd, typesToMatch);
@@ -480,7 +486,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		return targetType;
 	}
 
-
+	//确定目标类型
 	protected Class<?> determineTargetType(String beanName, RootBeanDefinition mbd, Class<?>... typesToMatch) {
 		Class<?> targetType = mbd.getTargetType();
 		if (targetType == null) {
@@ -749,20 +755,10 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	}
 
 	// ---------------------------------------------------------------------
-	// Implementation methods
+	// 具体实现方法
 	// ---------------------------------------------------------------------
 
-	/**
-	 * Obtain a "shortcut" singleton FactoryBean instance to use for a
-	 * {@code getObjectType()} call, without full initialization of the FactoryBean.
-	 * 
-	 * @param beanName
-	 *            the name of the bean
-	 * @param mbd
-	 *            the bean definition for the bean
-	 * @return the FactoryBean instance, or {@code null} to indicate that we
-	 *         couldn't obtain a shortcut FactoryBean instance
-	 */
+	//在类型检查下获取单例工厂Bean
 	private FactoryBean<?> getSingletonFactoryBeanForTypeCheck(String beanName, RootBeanDefinition mbd) {
 		synchronized (getSingletonMutex()) {
 			BeanWrapper bw = this.factoryBeanInstanceCache.get(beanName);
@@ -798,22 +794,11 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		}
 	}
 
-	/**
-	 * Obtain a "shortcut" non-singleton FactoryBean instance to use for a
-	 * {@code getObjectType()} call, without full initialization of the FactoryBean.
-	 * 
-	 * @param beanName
-	 *            the name of the bean
-	 * @param mbd
-	 *            the bean definition for the bean
-	 * @return the FactoryBean instance, or {@code null} to indicate that we
-	 *         couldn't obtain a shortcut FactoryBean instance
-	 */
+	//在类型检查下获取非单例工厂Bean
 	private FactoryBean<?> getNonSingletonFactoryBeanForTypeCheck(String beanName, RootBeanDefinition mbd) {
 		if (isPrototypeCurrentlyInCreation(beanName)) {
 			return null;
 		}
-
 		Object instance = null;
 		try {
 			// Mark this bean as currently in creation, even if just partially.
@@ -1311,21 +1296,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 				|| AutowireUtils.isSetterDefinedInInterface(pd, this.ignoredDependencyInterfaces));
 	}
 
-	/**
-	 * Perform a dependency check that all properties exposed have been set, if
-	 * desired. Dependency checks can be objects (collaborating beans), simple
-	 * (primitives and String), or all (both).
-	 * 
-	 * @param beanName
-	 *            the name of the bean
-	 * @param mbd
-	 *            the merged bean definition the bean was created with
-	 * @param pds
-	 *            the relevant property descriptors for the target bean
-	 * @param pvs
-	 *            the property values to be applied to the bean
-	 * @see #isExcludedFromDependencyCheck(java.beans.PropertyDescriptor)
-	 */
+	//检查依赖关系
 	protected void checkDependencies(String beanName, AbstractBeanDefinition mbd, PropertyDescriptor[] pds,
 			PropertyValues pvs) throws UnsatisfiedDependencyException {
 
@@ -1344,20 +1315,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		}
 	}
 
-	/**
-	 * Apply the given property values, resolving any runtime references to other
-	 * beans in this bean factory. Must use deep copy, so we don't permanently
-	 * modify this property.
-	 * 
-	 * @param beanName
-	 *            the bean name passed for better exception information
-	 * @param mbd
-	 *            the merged bean definition
-	 * @param bw
-	 *            the BeanWrapper wrapping the target object
-	 * @param pvs
-	 *            the new property values
-	 */
+	//应用Bean属性值
 	protected void applyPropertyValues(String beanName, BeanDefinition mbd, BeanWrapper bw, PropertyValues pvs) {
 		if (pvs == null || pvs.isEmpty()) {
 			return;
@@ -1377,6 +1335,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 			if (mpvs.isConverted()) {
 				// Shortcut: use the pre-converted values as-is.
 				try {
+				    //设置属性值
 					bw.setPropertyValues(mpvs);
 					return;
 				} catch (BeansException ex) {

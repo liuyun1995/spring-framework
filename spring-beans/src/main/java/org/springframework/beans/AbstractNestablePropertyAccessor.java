@@ -114,10 +114,12 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         this.typeConverterDelegate = new TypeConverterDelegate(this, this.wrappedObject);
     }
 
+    //获取包装实例
     public final Object getWrappedInstance() {
         return this.wrappedObject;
     }
 
+    //获取包装类型
     public final Class<?> getWrappedClass() {
         return (this.wrappedObject != null ? this.wrappedObject.getClass() : null);
     }

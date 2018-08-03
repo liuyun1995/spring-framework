@@ -9,7 +9,6 @@ import java.util.Map;
 public abstract class AbstractPropertyAccessor extends TypeConverterSupport implements ConfigurablePropertyAccessor {
 
 	private boolean extractOldValueForEditor = false;
-
 	private boolean autoGrowNestedPaths = false;
 
 	@Override
@@ -32,26 +31,31 @@ public abstract class AbstractPropertyAccessor extends TypeConverterSupport impl
 		return this.autoGrowNestedPaths;
 	}
 
+	//设置属性值
 	@Override
 	public void setPropertyValue(PropertyValue pv) throws BeansException {
 		setPropertyValue(pv.getName(), pv.getValue());
 	}
 
+	//设置属性值
 	@Override
 	public void setPropertyValues(Map<?, ?> map) throws BeansException {
 		setPropertyValues(new MutablePropertyValues(map));
 	}
 
+	//设置属性值
 	@Override
 	public void setPropertyValues(PropertyValues pvs) throws BeansException {
 		setPropertyValues(pvs, false, false);
 	}
 
+	//设置属性值
 	@Override
 	public void setPropertyValues(PropertyValues pvs, boolean ignoreUnknown) throws BeansException {
 		setPropertyValues(pvs, ignoreUnknown, false);
 	}
 
+	//设置属性值
 	@Override
 	public void setPropertyValues(PropertyValues pvs, boolean ignoreUnknown, boolean ignoreInvalid)
 			throws BeansException {

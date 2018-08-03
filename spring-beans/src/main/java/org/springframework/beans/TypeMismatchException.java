@@ -4,13 +4,12 @@ import org.springframework.util.ClassUtils;
 
 import java.beans.PropertyChangeEvent;
 
+//类型不匹配异常
 @SuppressWarnings("serial")
 public class TypeMismatchException extends PropertyAccessException {
 	
 	public static final String ERROR_CODE = "typeMismatch";
-
 	private transient Object value;
-
 	private Class<?> requiredType;
 	
 	public TypeMismatchException(PropertyChangeEvent propertyChangeEvent, Class<?> requiredType) {

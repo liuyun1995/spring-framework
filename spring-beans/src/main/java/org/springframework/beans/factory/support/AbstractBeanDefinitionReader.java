@@ -102,7 +102,7 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
         return this.beanNameGenerator;
     }
 
-    //加载Bean定义
+    //加载Bean定义(Resource实例数组)
     @Override
     public int loadBeanDefinitions(Resource... resources) throws BeanDefinitionStoreException {
         Assert.notNull(resources, "Resource array must not be null");
@@ -114,13 +114,13 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
         return counter;
     }
 
-    //加载Bean定义
+    //加载Bean定义(单个资源路径)
     @Override
     public int loadBeanDefinitions(String location) throws BeanDefinitionStoreException {
         return loadBeanDefinitions(location, null);
     }
 
-    //加载Bean定义
+    //加载Bean定义(资源路径数组)
     @Override
     public int loadBeanDefinitions(String... locations) throws BeanDefinitionStoreException {
         Assert.notNull(locations, "Location array must not be null");
@@ -131,9 +131,9 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
         return counter;
     }
 
-    //核心加载方法
+    //加载Bean定义(资源路径，已加载集合)
     public int loadBeanDefinitions(String location, Set<Resource> actualResources) throws BeanDefinitionStoreException {
-        //获取资源加载器
+        //获取资源文件加载器
         ResourceLoader resourceLoader = getResourceLoader();
         if (resourceLoader == null) {
             throw new BeanDefinitionStoreException(

@@ -1330,7 +1330,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
                 if (!this.alreadyCreated.contains(beanName)) {
                     //清除合并的Bean定义
                     clearMergedBeanDefinition(beanName);
-                    //将该Bean添加到已创建Bean集合中
+                    //添加到已创建Bean集合中
                     this.alreadyCreated.add(beanName);
                 }
             }

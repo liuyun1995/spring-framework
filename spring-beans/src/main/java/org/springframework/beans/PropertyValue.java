@@ -5,6 +5,7 @@ import org.springframework.util.ObjectUtils;
 
 import java.io.Serializable;
 
+//属性值
 @SuppressWarnings("serial")
 public class PropertyValue extends BeanMetadataAttributeAccessor implements Serializable {
 

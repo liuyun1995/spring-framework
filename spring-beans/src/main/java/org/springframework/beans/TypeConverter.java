@@ -7,10 +7,13 @@ import java.lang.reflect.Field;
 //类型转换器
 public interface TypeConverter {
 
+	//类型转换方法
 	<T> T convertIfNecessary(Object value, Class<T> requiredType) throws TypeMismatchException;
 
+	//类型转换方法
 	<T> T convertIfNecessary(Object value, Class<T> requiredType, MethodParameter methodParam) throws TypeMismatchException;
 
+	//类型转换方法
 	<T> T convertIfNecessary(Object value, Class<T> requiredType, Field field) throws TypeMismatchException;
 
 }

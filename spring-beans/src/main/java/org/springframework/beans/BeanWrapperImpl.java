@@ -17,10 +17,6 @@ import org.springframework.util.Assert;
 //Bean包装器实现类
 public class BeanWrapperImpl extends AbstractNestablePropertyAccessor implements BeanWrapper {
 
-	/**
-	 * Cached introspections results for this object, to prevent encountering the
-	 * cost of JavaBeans introspection every time.
-	 */
 	private CachedIntrospectionResults cachedIntrospectionResults;
 	private AccessControlContext acc;                               //访问控制上下文
 

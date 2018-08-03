@@ -165,26 +165,26 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 		}
 		//获取当前线程的资源集合
 		Set<EncodedResource> currentResources = this.resourcesCurrentlyBeingLoaded.get();
-		//如果当前资源集合为空则新建一个
+		//若集合为空则新建一个集合放入当前线程中
 		if (currentResources == null) {
 			currentResources = new HashSet<EncodedResource>(4);
 			this.resourcesCurrentlyBeingLoaded.set(currentResources);
 		}
-		//将资源放入当前资源集合中
+		//尝试加入当前资源集合，若失败则报错
 		if (!currentResources.add(encodedResource)) {
 			throw new BeanDefinitionStoreException(
 					"Detected cyclic loading of " + encodedResource + " - check your import definitions!");
 		}
 		try {
-			//获取资源文件输入流
+			//获取资源文件的输入流
 			InputStream inputStream = encodedResource.getResource().getInputStream();
 			try {
+				//首先设置一下编码规则
 				InputSource inputSource = new InputSource(inputStream);
-				//如果编码规则不为空，则设置编码规则
 				if (encodedResource.getEncoding() != null) {
 					inputSource.setEncoding(encodedResource.getEncoding());
 				}
-				//真正进行Bean定义加载
+				//然后进行Bean定义加载
 				return doLoadBeanDefinitions(inputSource, encodedResource.getResource());
 			} finally {
 				inputStream.close();
@@ -193,9 +193,9 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 			throw new BeanDefinitionStoreException(
 					"IOException parsing XML document from " + encodedResource.getResource(), ex);
 		} finally {
-			//最后从当前资源集合中移除该资源
+			//移除当前资源
 			currentResources.remove(encodedResource);
-			//如果当前资源集合为空，则将其从当前线程中删除
+			//移除当前资源集合
 			if (currentResources.isEmpty()) {
 				this.resourcesCurrentlyBeingLoaded.remove();
 			}

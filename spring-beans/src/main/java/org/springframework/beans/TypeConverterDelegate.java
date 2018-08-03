@@ -20,11 +20,12 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 
-//类型转换器装饰器
+//类型转换器助手
 class TypeConverterDelegate {
 
-    private static final Log logger = LogFactory.getLog(TypeConverterDelegate.class);
-
+    private static final Log logger = LogFactory.getLog(TypeConverterDelegate.class);  //日志类
+    private final PropertyEditorRegistrySupport propertyEditorRegistry;                //属性编辑器注册器
+    private final Object targetObject;                                                 //目标对象
     private static Object javaUtilOptionalEmpty = null;
 
     static {
@@ -35,10 +36,6 @@ class TypeConverterDelegate {
             // Java 8 not available - conversion to Optional not supported then.
         }
     }
-
-    private final PropertyEditorRegistrySupport propertyEditorRegistry;
-
-    private final Object targetObject;
 
     //构造器1
     public TypeConverterDelegate(PropertyEditorRegistrySupport propertyEditorRegistry) {
@@ -72,7 +69,7 @@ class TypeConverterDelegate {
         return convertIfNecessary(propertyName, oldValue, newValue, requiredType, TypeDescriptor.valueOf(requiredType));
     }
 
-    //核型转换方法
+    //核心转换方法(属性名，旧值，新值，需求类型，类型描述符)
     @SuppressWarnings("unchecked")
     public <T> T convertIfNecessary(String propertyName, Object oldValue, Object newValue,
                                     Class<T> requiredType, TypeDescriptor typeDescriptor) throws IllegalArgumentException {
@@ -84,7 +81,9 @@ class TypeConverterDelegate {
 
         //获取类型转换服务
         ConversionService conversionService = this.propertyEditorRegistry.getConversionService();
+        //如果属性编辑器为空，并且转换服务不为空
         if (editor == null && conversionService != null && newValue != null && typeDescriptor != null) {
+            //获取类型描述符
             TypeDescriptor sourceTypeDesc = TypeDescriptor.forObject(newValue);
             if (conversionService.canConvert(sourceTypeDesc, typeDescriptor)) {
                 try {
@@ -98,7 +97,7 @@ class TypeConverterDelegate {
 
         Object convertedValue = newValue;
 
-        // Value not of required type?
+        //若值不是需求的类型
         if (editor != null || (requiredType != null && !ClassUtils.isAssignableValue(requiredType, convertedValue))) {
             if (typeDescriptor != null && requiredType != null && Collection.class.isAssignableFrom(requiredType) &&
                     convertedValue instanceof String) {
@@ -113,6 +112,7 @@ class TypeConverterDelegate {
             if (editor == null) {
                 editor = findDefaultEditor(requiredType);
             }
+            //进行转换
             convertedValue = doConvertValue(oldValue, convertedValue, requiredType, editor);
         }
 
@@ -284,7 +284,7 @@ class TypeConverterDelegate {
         return editor;
     }
 
-    //转换属性值类型
+    //核心转换方法
     private Object doConvertValue(Object oldValue, Object newValue, Class<?> requiredType, PropertyEditor editor) {
         Object convertedValue = newValue;
 

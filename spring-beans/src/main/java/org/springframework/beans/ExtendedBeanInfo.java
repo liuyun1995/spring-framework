@@ -23,15 +23,14 @@ import org.apache.commons.logging.LogFactory;
 
 import org.springframework.util.ObjectUtils;
 
-//额外的Bean信息
+//扩展的Bean信息
 class ExtendedBeanInfo implements BeanInfo {
 
 	private static final Log logger = LogFactory.getLog(ExtendedBeanInfo.class);
 
 	private final BeanInfo delegate;
 
-	private final Set<PropertyDescriptor> propertyDescriptors = new TreeSet<PropertyDescriptor>(
-			new PropertyDescriptorComparator());
+	private final Set<PropertyDescriptor> propertyDescriptors = new TreeSet<PropertyDescriptor>(new PropertyDescriptorComparator());
 
 	public ExtendedBeanInfo(BeanInfo delegate) throws IntrospectionException {
 		this.delegate = delegate;
@@ -41,7 +40,6 @@ class ExtendedBeanInfo implements BeanInfo {
 						? new SimpleIndexedPropertyDescriptor((IndexedPropertyDescriptor) pd)
 						: new SimplePropertyDescriptor(pd));
 			} catch (IntrospectionException ex) {
-				// Probably simply a method that wasn't meant to follow the JavaBeans pattern...
 				if (logger.isDebugEnabled()) {
 					logger.debug("Ignoring invalid bean property '" + pd.getName() + "': " + ex.getMessage());
 				}

@@ -3,7 +3,7 @@ package org.springframework.beans.factory.config;
 //单例Bean注册器
 public interface SingletonBeanRegistry {
 
-	//注册单例
+	//注册单例Bean
 	void registerSingleton(String beanName, Object singletonObject);
 
 	//根据名称获取单例
@@ -15,7 +15,7 @@ public interface SingletonBeanRegistry {
 	//获取所有单例名称
 	String[] getSingletonNames();
 
-	//获取单例总数
+	//获取单例Bean总数
 	int getSingletonCount();
 
 	//获取单例互斥体
