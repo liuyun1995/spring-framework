@@ -2,7 +2,6 @@ package org.springframework.beans.bean.definition;
 
 import org.springframework.beans.bean.BeanWrapper;
 import org.springframework.beans.exception.BeansException;
-import org.springframework.beans.factory.support.merge.*;
 import org.springframework.beans.property.type.TypeConverter;
 import org.springframework.beans.factory.AbstractBeanFactory;
 import org.springframework.beans.exception.BeanCreationException;
@@ -10,6 +9,7 @@ import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.bean.factorybean.FactoryBean;
 import org.springframework.beans.factory.config.*;
+import org.springframework.beans.support.merge.*;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;

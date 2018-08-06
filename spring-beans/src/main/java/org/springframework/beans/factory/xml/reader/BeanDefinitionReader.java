@@ -2,7 +2,7 @@ package org.springframework.beans.factory.xml.reader;
 
 import org.springframework.beans.bean.registry.BeanDefinitionRegistry;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
-import org.springframework.beans.factory.support.BeanNameGenerator;
+import org.springframework.beans.support.BeanNameGenerator;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 

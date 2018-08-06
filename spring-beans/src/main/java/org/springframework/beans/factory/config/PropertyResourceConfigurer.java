@@ -6,7 +6,7 @@ import java.util.Properties;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.exception.BeanInitializationException;
-import org.springframework.beans.factory.support.processor.BeanFactoryPostProcessor;
+import org.springframework.beans.support.processor.BeanFactoryPostProcessor;
 import org.springframework.core.Ordered;
 import org.springframework.core.PriorityOrdered;
 import org.springframework.core.io.support.PropertiesLoaderSupport;

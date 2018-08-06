@@ -1,9 +1,9 @@
 package org.springframework.beans.bean.factorybean;
 
 import java.lang.reflect.Field;
-import org.springframework.beans.factory.support.autowire.BeanClassLoaderAware;
+import org.springframework.beans.support.autowire.BeanClassLoaderAware;
 import org.springframework.beans.factory.BeanFactoryUtils;
-import org.springframework.beans.factory.support.autowire.BeanNameAware;
+import org.springframework.beans.support.autowire.BeanNameAware;
 import org.springframework.beans.exception.FactoryBeanNotInitializedException;
 import org.springframework.beans.bean.InitializingBean;
 import org.springframework.util.ClassUtils;

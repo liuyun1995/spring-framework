@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.springframework.beans.factory.support.merge.Mergeable;
+import org.springframework.beans.support.merge.Mergeable;
 import org.springframework.util.StringUtils;
 
 //多值属性值

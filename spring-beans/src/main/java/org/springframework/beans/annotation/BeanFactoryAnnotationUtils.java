@@ -8,7 +8,7 @@ import org.springframework.beans.exception.NoUniqueBeanDefinitionException;
 import org.springframework.beans.bean.definition.BeanDefinition;
 import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.bean.definition.AbstractBeanDefinition;
-import org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier;
+import org.springframework.beans.support.autowire.AutowireCandidateQualifier;
 import org.springframework.beans.bean.definition.RootBeanDefinition;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.Assert;

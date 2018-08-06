@@ -30,6 +30,7 @@ public class UtilNamespaceHandler extends NamespaceHandlerSupport {
 		registerBeanDefinitionParser("properties", new PropertiesBeanDefinitionParser());
 	}
 
+	//Bean定义解析器(constant)
 	private static class ConstantBeanDefinitionParser extends AbstractSimpleBeanDefinitionParser {
 
 		@Override
@@ -47,7 +48,7 @@ public class UtilNamespaceHandler extends NamespaceHandlerSupport {
 		}
 	}
 
-
+	//Bean定义解析器(property-path)
 	private static class PropertyPathBeanDefinitionParser extends org.springframework.beans.factory.xml.parser.AbstractSingleBeanDefinitionParser {
 
 		@Override
@@ -83,7 +84,7 @@ public class UtilNamespaceHandler extends NamespaceHandlerSupport {
 		}
 	}
 
-
+	//Bean定义解析器(list)
 	private static class ListBeanDefinitionParser extends org.springframework.beans.factory.xml.parser.AbstractSingleBeanDefinitionParser {
 
 		@Override
@@ -108,7 +109,7 @@ public class UtilNamespaceHandler extends NamespaceHandlerSupport {
 		}
 	}
 
-
+	//Bean定义解析器(set)
 	private static class SetBeanDefinitionParser extends org.springframework.beans.factory.xml.parser.AbstractSingleBeanDefinitionParser {
 
 		@Override
@@ -133,7 +134,7 @@ public class UtilNamespaceHandler extends NamespaceHandlerSupport {
 		}
 	}
 
-
+	//Bean定义解析器(map)
 	private static class MapBeanDefinitionParser extends org.springframework.beans.factory.xml.parser.AbstractSingleBeanDefinitionParser {
 
 		@Override
@@ -158,7 +159,7 @@ public class UtilNamespaceHandler extends NamespaceHandlerSupport {
 		}
 	}
 
-	//属性Bean定义解析器
+	//Bean定义解析器(properties)
 	private static class PropertiesBeanDefinitionParser extends AbstractSingleBeanDefinitionParser {
 
 		@Override

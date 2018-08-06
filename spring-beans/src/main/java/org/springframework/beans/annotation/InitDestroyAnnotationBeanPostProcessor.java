@@ -19,8 +19,8 @@ import org.apache.commons.logging.LogFactory;
 
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.exception.BeanCreationException;
-import org.springframework.beans.factory.support.processor.DestructionAwareBeanPostProcessor;
-import org.springframework.beans.factory.support.processor.MergedBeanDefinitionPostProcessor;
+import org.springframework.beans.support.processor.DestructionAwareBeanPostProcessor;
+import org.springframework.beans.support.processor.MergedBeanDefinitionPostProcessor;
 import org.springframework.beans.bean.definition.RootBeanDefinition;
 import org.springframework.core.Ordered;
 import org.springframework.core.PriorityOrdered;

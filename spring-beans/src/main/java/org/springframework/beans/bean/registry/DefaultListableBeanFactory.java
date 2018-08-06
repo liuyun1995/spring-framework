@@ -33,7 +33,7 @@ import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.*;
 import org.springframework.beans.factory.AbstractBeanFactory;
-import org.springframework.beans.factory.support.autowire.SimpleAutowireCandidateResolver;
+import org.springframework.beans.support.autowire.SimpleAutowireCandidateResolver;
 import org.springframework.beans.property.type.TypeConverter;
 import org.springframework.beans.exception.BeanCreationException;
 import org.springframework.beans.exception.BeanCurrentlyInCreationException;
@@ -52,8 +52,8 @@ import org.springframework.beans.factory.support.*;
 import org.springframework.beans.bean.definition.AbstractBeanDefinition;
 import org.springframework.beans.exception.BeanDefinitionValidationException;
 import org.springframework.beans.bean.definition.RootBeanDefinition;
-import org.springframework.beans.factory.support.autowire.AutowireCandidateResolver;
-import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
+import org.springframework.beans.support.autowire.AutowireCandidateResolver;
+import org.springframework.beans.support.autowire.BeanFactoryAware;
 import org.springframework.core.OrderComparator;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -101,7 +101,7 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	private Comparator<Object> dependencyComparator;
 
 	//自动装配候选者转换器
-	private org.springframework.beans.factory.support.autowire.AutowireCandidateResolver autowireCandidateResolver = new org.springframework.beans.factory.support.autowire.SimpleAutowireCandidateResolver();
+	private AutowireCandidateResolver autowireCandidateResolver = new SimpleAutowireCandidateResolver();
 
 	//可解析的依赖
 	private final Map<Class<?>, Object> resolvableDependencies = new ConcurrentHashMap<Class<?>, Object>(16);
@@ -184,16 +184,16 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	}
 
 	//设置自动装配候选转换器
-	public void setAutowireCandidateResolver(final org.springframework.beans.factory.support.autowire.AutowireCandidateResolver autowireCandidateResolver) {
+	public void setAutowireCandidateResolver(final AutowireCandidateResolver autowireCandidateResolver) {
 		Assert.notNull(autowireCandidateResolver, "AutowireCandidateResolver must not be null");
 		//是否实现了BeanFactoryAware接口
-		if (autowireCandidateResolver instanceof org.springframework.beans.factory.support.autowire.BeanFactoryAware) {
+		if (autowireCandidateResolver instanceof BeanFactoryAware) {
 			if (System.getSecurityManager() != null) {
 				AccessController.doPrivileged(new PrivilegedAction<Object>() {
 					@Override
 					public Object run() {
 						//设置默认的Bean工厂
-						((org.springframework.beans.factory.support.autowire.BeanFactoryAware) autowireCandidateResolver).setBeanFactory(DefaultListableBeanFactory.this);
+						((BeanFactoryAware) autowireCandidateResolver).setBeanFactory(DefaultListableBeanFactory.this);
 						return null;
 					}
 				}, getAccessControlContext());
@@ -205,7 +205,7 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	}
 
 	//获取自动装配候选转换器
-	public org.springframework.beans.factory.support.autowire.AutowireCandidateResolver getAutowireCandidateResolver() {
+	public AutowireCandidateResolver getAutowireCandidateResolver() {
 		return this.autowireCandidateResolver;
 	}
 
@@ -515,7 +515,7 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 
 	//是否是自动装配候选者
 	protected boolean isAutowireCandidate(String beanName, DependencyDescriptor descriptor,
-			org.springframework.beans.factory.support.autowire.AutowireCandidateResolver resolver) throws NoSuchBeanDefinitionException {
+			AutowireCandidateResolver resolver) throws NoSuchBeanDefinitionException {
 		String beanDefinitionName = BeanFactoryUtils.transformedBeanName(beanName);
 		if (containsBeanDefinition(beanDefinitionName)) {
 			return isAutowireCandidate(beanName, getMergedLocalBeanDefinition(beanDefinitionName), descriptor,
@@ -538,7 +538,7 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 
 	//是否是自动装配候选者
 	protected boolean isAutowireCandidate(String beanName, RootBeanDefinition mbd, DependencyDescriptor descriptor,
-										  org.springframework.beans.factory.support.autowire.AutowireCandidateResolver resolver) {
+										  AutowireCandidateResolver resolver) {
 		String beanDefinitionName = BeanFactoryUtils.transformedBeanName(beanName);
 		resolveBeanClass(mbd, beanDefinitionName);
 		if (mbd.isFactoryMethodUnique) {
@@ -1097,7 +1097,7 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 
 	private boolean isRequired(DependencyDescriptor descriptor) {
 		AutowireCandidateResolver resolver = getAutowireCandidateResolver();
-		return (resolver instanceof org.springframework.beans.factory.support.autowire.SimpleAutowireCandidateResolver
+		return (resolver instanceof SimpleAutowireCandidateResolver
 				? ((SimpleAutowireCandidateResolver) resolver).isRequired(descriptor)
 				: descriptor.isRequired());
 	}

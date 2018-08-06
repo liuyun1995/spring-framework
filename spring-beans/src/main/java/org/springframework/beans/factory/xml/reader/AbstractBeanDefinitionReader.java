@@ -8,8 +8,8 @@ import org.apache.commons.logging.LogFactory;
 
 import org.springframework.beans.bean.registry.BeanDefinitionRegistry;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
-import org.springframework.beans.factory.support.BeanNameGenerator;
-import org.springframework.beans.factory.support.DefaultBeanNameGenerator;
+import org.springframework.beans.support.BeanNameGenerator;
+import org.springframework.beans.support.DefaultBeanNameGenerator;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.EnvironmentCapable;
 import org.springframework.core.env.StandardEnvironment;

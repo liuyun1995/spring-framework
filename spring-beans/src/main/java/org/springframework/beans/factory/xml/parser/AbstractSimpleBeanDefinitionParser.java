@@ -3,7 +3,6 @@ package org.springframework.beans.factory.xml.parser;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
-
 import org.springframework.beans.bean.definition.BeanDefinitionBuilder;
 import org.springframework.core.Conventions;
 import org.springframework.util.Assert;
@@ -12,6 +11,7 @@ import org.springframework.util.StringUtils;
 //抽象简单Bean定义解析器
 public abstract class AbstractSimpleBeanDefinitionParser extends AbstractSingleBeanDefinitionParser {
 
+	//解析方法
 	@Override
 	protected void doParse(Element element, ParserContext parserContext, BeanDefinitionBuilder builder) {
 		NamedNodeMap attributes = element.getAttributes();

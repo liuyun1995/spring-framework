@@ -6,7 +6,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.exception.BeanCreationException;
 import org.springframework.beans.exception.BeanCurrentlyInCreationException;
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
+import org.springframework.beans.support.autowire.BeanFactoryAware;
 import org.springframework.beans.bean.DisposableBean;
 import org.springframework.beans.bean.InitializingBean;
 import org.springframework.beans.factory.ConfigurableListableBeanFactory;

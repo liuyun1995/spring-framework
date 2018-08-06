@@ -6,7 +6,7 @@ import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.bean.definition.BeanDefinition;
-import org.springframework.beans.factory.support.processor.BeanFactoryPostProcessor;
+import org.springframework.beans.support.processor.BeanFactoryPostProcessor;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 

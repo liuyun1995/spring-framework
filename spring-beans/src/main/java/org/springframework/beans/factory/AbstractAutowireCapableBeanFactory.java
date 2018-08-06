@@ -32,13 +32,13 @@ import org.springframework.beans.factory.support.*;
 import org.springframework.beans.bean.definition.AbstractBeanDefinition;
 import org.springframework.beans.exception.BeanDefinitionValidationException;
 import org.springframework.beans.bean.definition.RootBeanDefinition;
-import org.springframework.beans.factory.support.autowire.Aware;
-import org.springframework.beans.factory.support.autowire.BeanClassLoaderAware;
-import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
-import org.springframework.beans.factory.support.autowire.BeanNameAware;
-import org.springframework.beans.factory.support.processor.MergedBeanDefinitionPostProcessor;
-import org.springframework.beans.factory.support.strategy.CglibSubclassingInstantiationStrategy;
-import org.springframework.beans.factory.support.strategy.InstantiationStrategy;
+import org.springframework.beans.support.autowire.Aware;
+import org.springframework.beans.support.autowire.BeanClassLoaderAware;
+import org.springframework.beans.support.autowire.BeanFactoryAware;
+import org.springframework.beans.support.autowire.BeanNameAware;
+import org.springframework.beans.support.processor.MergedBeanDefinitionPostProcessor;
+import org.springframework.beans.support.strategy.CglibSubclassingInstantiationStrategy;
+import org.springframework.beans.support.strategy.InstantiationStrategy;
 import org.springframework.beans.property.MutablePropertyValues;
 import org.springframework.beans.property.accessor.PropertyAccessorUtils;
 import org.springframework.beans.property.PropertyValue;
@@ -51,11 +51,11 @@ import org.springframework.beans.bean.factorybean.FactoryBean;
 import org.springframework.beans.bean.InitializingBean;
 import org.springframework.beans.exception.UnsatisfiedDependencyException;
 import org.springframework.beans.bean.definition.BeanDefinition;
-import org.springframework.beans.factory.support.processor.BeanPostProcessor;
+import org.springframework.beans.support.processor.BeanPostProcessor;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.beans.factory.config.DependencyDescriptor;
-import org.springframework.beans.factory.support.processor.InstantiationAwareBeanPostProcessor;
-import org.springframework.beans.factory.support.processor.SmartInstantiationAwareBeanPostProcessor;
+import org.springframework.beans.support.processor.InstantiationAwareBeanPostProcessor;
+import org.springframework.beans.support.processor.SmartInstantiationAwareBeanPostProcessor;
 import org.springframework.beans.factory.config.TypedStringValue;
 import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.GenericTypeResolver;
@@ -73,7 +73,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		implements AutowireCapableBeanFactory {
 
 	//创建Bean实例策略
-	private org.springframework.beans.factory.support.strategy.InstantiationStrategy instantiationStrategy = new CglibSubclassingInstantiationStrategy();
+	private InstantiationStrategy instantiationStrategy = new CglibSubclassingInstantiationStrategy();
 
 	//方法参数名称解析器策略
 	private ParameterNameDiscoverer parameterNameDiscoverer = new DefaultParameterNameDiscoverer();
@@ -99,9 +99,9 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	//构造器1
 	public AbstractAutowireCapableBeanFactory() {
 		super();
-		ignoreDependencyInterface(org.springframework.beans.factory.support.autowire.BeanNameAware.class);
-		ignoreDependencyInterface(org.springframework.beans.factory.support.autowire.BeanFactoryAware.class);
-		ignoreDependencyInterface(org.springframework.beans.factory.support.autowire.BeanClassLoaderAware.class);
+		ignoreDependencyInterface(BeanNameAware.class);
+		ignoreDependencyInterface(BeanFactoryAware.class);
+		ignoreDependencyInterface(BeanClassLoaderAware.class);
 	}
 
 	//构造器2
@@ -111,7 +111,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	}
 
 	//设置实例化策略
-	public void setInstantiationStrategy(org.springframework.beans.factory.support.strategy.InstantiationStrategy instantiationStrategy) {
+	public void setInstantiationStrategy(InstantiationStrategy instantiationStrategy) {
 		this.instantiationStrategy = instantiationStrategy;
 	}
 
@@ -839,12 +839,12 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	 *            the actual type of the managed bean instance
 	 * @param beanName
 	 *            the name of the bean
-	 * @see org.springframework.beans.factory.support.processor.MergedBeanDefinitionPostProcessor#postProcessMergedBeanDefinition
+	 * @see MergedBeanDefinitionPostProcessor#postProcessMergedBeanDefinition
 	 */
 	protected void applyMergedBeanDefinitionPostProcessors(RootBeanDefinition mbd, Class<?> beanType, String beanName) {
 		for (BeanPostProcessor bp : getBeanPostProcessors()) {
-			if (bp instanceof org.springframework.beans.factory.support.processor.MergedBeanDefinitionPostProcessor) {
-				org.springframework.beans.factory.support.processor.MergedBeanDefinitionPostProcessor bdp = (MergedBeanDefinitionPostProcessor) bp;
+			if (bp instanceof MergedBeanDefinitionPostProcessor) {
+				MergedBeanDefinitionPostProcessor bdp = (MergedBeanDefinitionPostProcessor) bp;
 				bdp.postProcessMergedBeanDefinition(mbd, beanType, beanName);
 			}
 		}
@@ -1459,17 +1459,17 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		//若Bean实现了Aware接口
 		if (bean instanceof Aware) {
 			//若Bean实现了BeanNameAware接口
-			if (bean instanceof org.springframework.beans.factory.support.autowire.BeanNameAware) {
+			if (bean instanceof BeanNameAware) {
 				//设置Bean名称
 				((BeanNameAware) bean).setBeanName(beanName);
 			}
 			//若Bean实现了BeanClassLoaderAware接口
-			if (bean instanceof org.springframework.beans.factory.support.autowire.BeanClassLoaderAware) {
+			if (bean instanceof BeanClassLoaderAware) {
 				//设置类加载器
 				((BeanClassLoaderAware) bean).setBeanClassLoader(getBeanClassLoader());
 			}
 			//若Bean实现了BeanFactoryAware接口
-			if (bean instanceof org.springframework.beans.factory.support.autowire.BeanFactoryAware) {
+			if (bean instanceof BeanFactoryAware) {
 				//设置Bean工厂
 				((BeanFactoryAware) bean).setBeanFactory(AbstractAutowireCapableBeanFactory.this);
 			}

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.HierarchicalBeanFactory;
 import org.springframework.beans.factory.config.*;
 import org.springframework.beans.bean.definition.BeanDefinition;
-import org.springframework.beans.factory.support.processor.BeanPostProcessor;
+import org.springframework.beans.support.processor.BeanPostProcessor;
 import org.springframework.beans.property.PropertyEditorRegistrar;
 import org.springframework.beans.property.PropertyEditorRegistry;
 import org.springframework.beans.property.type.TypeConverter;

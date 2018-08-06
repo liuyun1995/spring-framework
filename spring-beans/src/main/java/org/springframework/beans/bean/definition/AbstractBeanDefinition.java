@@ -9,8 +9,8 @@ import java.util.Set;
 
 import org.springframework.beans.bean.BeanMetadataAttributeAccessor;
 import org.springframework.beans.exception.BeanDefinitionValidationException;
-import org.springframework.beans.factory.support.*;
-import org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier;
+import org.springframework.beans.support.MethodOverride;
+import org.springframework.beans.support.autowire.AutowireCandidateQualifier;
 import org.springframework.beans.property.MutablePropertyValues;
 import org.springframework.beans.factory.AutowireCapableBeanFactory;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
@@ -49,15 +49,15 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
     private String[] dependsOn;                                                //依赖对象名称集合
     private boolean autowireCandidate = true;                                  //是否自动装配候选
     private boolean primary = false;                                           //是否是主要候选者
-    private final Map<String, org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier> qualifiers =         //自动装配候选者
-            new LinkedHashMap<String, org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier>(0);
+    private final Map<String, AutowireCandidateQualifier> qualifiers =         //自动装配候选者
+            new LinkedHashMap<String, AutowireCandidateQualifier>(0);
     private boolean nonPublicAccessAllowed = true;                             //是否允许访问非公共属性
     private boolean lenientConstructorResolution = true;
     private String factoryBeanName;                                            //工厂Bean名称
     private String factoryMethodName;                                          //工厂方法名称
     private ConstructorArgumentValues constructorArgumentValues;               //构造器参数值
     private MutablePropertyValues propertyValues;                              //属性值
-    private MethodOverrides methodOverrides = new MethodOverrides();           //方法覆盖集合
+    private org.springframework.beans.support.MethodOverrides methodOverrides = new org.springframework.beans.support.MethodOverrides();           //方法覆盖集合
     private String initMethodName;                                             //指定的初始化方法
     private String destroyMethodName;                                          //指定的销毁方法
     private boolean enforceInitMethod = true;                                  //是否执行初始化方法
@@ -106,7 +106,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
             copyQualifiersFrom(originalAbd);
             setNonPublicAccessAllowed(originalAbd.isNonPublicAccessAllowed());
             setLenientConstructorResolution(originalAbd.isLenientConstructorResolution());
-            setMethodOverrides(new MethodOverrides(originalAbd.getMethodOverrides()));
+            setMethodOverrides(new org.springframework.beans.support.MethodOverrides(originalAbd.getMethodOverrides()));
             setInitMethodName(originalAbd.getInitMethodName());
             setEnforceInitMethod(originalAbd.isEnforceInitMethod());
             setDestroyMethodName(originalAbd.getDestroyMethodName());
@@ -350,7 +350,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
     }
 
     //添加自动装配合格者
-    public void addQualifier(org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier qualifier) {
+    public void addQualifier(AutowireCandidateQualifier qualifier) {
         this.qualifiers.put(qualifier.getTypeName(), qualifier);
     }
 
@@ -360,12 +360,12 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
     }
 
     //获取对应类型的合格者
-    public org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier getQualifier(String typeName) {
+    public AutowireCandidateQualifier getQualifier(String typeName) {
         return this.qualifiers.get(typeName);
     }
 
     //获取所有自动装配合格者
-    public Set<org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier> getQualifiers() {
+    public Set<AutowireCandidateQualifier> getQualifiers() {
         return new LinkedHashSet<AutowireCandidateQualifier>(this.qualifiers.values());
     }
 
@@ -455,12 +455,12 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
     }
 
     //设置方法覆盖集合
-    public void setMethodOverrides(MethodOverrides methodOverrides) {
-        this.methodOverrides = (methodOverrides != null ? methodOverrides : new MethodOverrides());
+    public void setMethodOverrides(org.springframework.beans.support.MethodOverrides methodOverrides) {
+        this.methodOverrides = (methodOverrides != null ? methodOverrides : new org.springframework.beans.support.MethodOverrides());
     }
 
     //获取方法覆盖集合
-    public MethodOverrides getMethodOverrides() {
+    public org.springframework.beans.support.MethodOverrides getMethodOverrides() {
         return this.methodOverrides;
     }
 
@@ -583,11 +583,11 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 
     //准备方法覆盖
     public void prepareMethodOverrides() throws org.springframework.beans.exception.BeanDefinitionValidationException {
-        MethodOverrides methodOverrides = getMethodOverrides();
+        org.springframework.beans.support.MethodOverrides methodOverrides = getMethodOverrides();
         if (!methodOverrides.isEmpty()) {
-            Set<MethodOverride> overrides = methodOverrides.getOverrides();
+            Set<org.springframework.beans.support.MethodOverride> overrides = methodOverrides.getOverrides();
             synchronized (overrides) {
-                for (MethodOverride mo : overrides) {
+                for (org.springframework.beans.support.MethodOverride mo : overrides) {
                     prepareMethodOverride(mo);
                 }
             }

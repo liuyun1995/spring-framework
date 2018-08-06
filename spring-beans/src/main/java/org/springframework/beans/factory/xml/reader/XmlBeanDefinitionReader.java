@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.springframework.beans.exception.XmlBeanDefinitionStoreException;
 import org.springframework.beans.factory.xml.*;
 import org.w3c.dom.Document;
@@ -14,7 +13,6 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
-
 import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.parsing.EmptyReaderEventListener;

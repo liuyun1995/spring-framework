@@ -7,12 +7,12 @@ import org.springframework.beans.bean.BeanMetadataAttributeAccessor;
 import org.springframework.beans.bean.definition.AbstractBeanDefinition;
 import org.springframework.beans.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.xml.reader.BeanDefinitionReaderUtils;
-import org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier;
-import org.springframework.beans.factory.support.merge.ManagedSet;
+import org.springframework.beans.support.ReplaceOverride;
+import org.springframework.beans.support.autowire.AutowireCandidateQualifier;
+import org.springframework.beans.support.merge.ManagedSet;
 import org.springframework.beans.property.PropertyValue;
 import org.springframework.beans.factory.config.*;
 import org.springframework.beans.factory.parsing.*;
-import org.springframework.beans.factory.support.*;
 import org.springframework.beans.factory.xml.DocumentDefaultsDefinition;
 import org.springframework.beans.factory.xml.NamespaceHandler;
 import org.springframework.beans.factory.xml.XmlReaderContext;
@@ -558,7 +558,7 @@ public class BeanDefinitionParserDelegate {
     /**
      * Parse lookup-override sub-elements of the given bean element.
      */
-    public void parseLookupOverrideSubElements(Element beanEle, MethodOverrides overrides) {
+    public void parseLookupOverrideSubElements(Element beanEle, org.springframework.beans.support.MethodOverrides overrides) {
         NodeList nl = beanEle.getChildNodes();
         for (int i = 0; i < nl.getLength(); i++) {
             Node node = nl.item(i);
@@ -566,7 +566,7 @@ public class BeanDefinitionParserDelegate {
                 Element ele = (Element) node;
                 String methodName = ele.getAttribute(NAME_ATTRIBUTE);
                 String beanRef = ele.getAttribute(BEAN_ELEMENT);
-                LookupOverride override = new LookupOverride(methodName, beanRef);
+                org.springframework.beans.support.LookupOverride override = new org.springframework.beans.support.LookupOverride(methodName, beanRef);
                 override.setSource(extractSource(ele));
                 overrides.addOverride(override);
             }
@@ -576,7 +576,7 @@ public class BeanDefinitionParserDelegate {
     /**
      * Parse replaced-method sub-elements of the given bean element.
      */
-    public void parseReplacedMethodSubElements(Element beanEle, MethodOverrides overrides) {
+    public void parseReplacedMethodSubElements(Element beanEle, org.springframework.beans.support.MethodOverrides overrides) {
         NodeList nl = beanEle.getChildNodes();
         for (int i = 0; i < nl.getLength(); i++) {
             Node node = nl.item(i);
@@ -584,7 +584,7 @@ public class BeanDefinitionParserDelegate {
                 Element replacedMethodEle = (Element) node;
                 String name = replacedMethodEle.getAttribute(NAME_ATTRIBUTE);
                 String callback = replacedMethodEle.getAttribute(REPLACER_ATTRIBUTE);
-                ReplaceOverride replaceOverride = new ReplaceOverride(name, callback);
+                org.springframework.beans.support.ReplaceOverride replaceOverride = new ReplaceOverride(name, callback);
                 // Look for arg-type match elements.
                 List<Element> argTypeEles = DomUtils.getChildElementsByTagName(replacedMethodEle, ARG_TYPE_ELEMENT);
                 for (Element argTypeEle : argTypeEles) {
@@ -693,7 +693,7 @@ public class BeanDefinitionParserDelegate {
         }
         this.parseState.push(new QualifierEntry(typeName));
         try {
-            org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier qualifier = new org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier(typeName);
+            AutowireCandidateQualifier qualifier = new AutowireCandidateQualifier(typeName);
             qualifier.setSource(extractSource(ele));
             String value = ele.getAttribute(VALUE_ATTRIBUTE);
             if (StringUtils.hasLength(value)) {
@@ -914,7 +914,7 @@ public class BeanDefinitionParserDelegate {
     public Object parseArrayElement(Element arrayEle, org.springframework.beans.bean.definition.BeanDefinition bd) {
         String elementType = arrayEle.getAttribute(VALUE_TYPE_ATTRIBUTE);
         NodeList nl = arrayEle.getChildNodes();
-        org.springframework.beans.factory.support.merge.ManagedArray target = new org.springframework.beans.factory.support.merge.ManagedArray(elementType, nl.getLength());
+        org.springframework.beans.support.merge.ManagedArray target = new org.springframework.beans.support.merge.ManagedArray(elementType, nl.getLength());
         target.setSource(extractSource(arrayEle));
         target.setElementTypeName(elementType);
         target.setMergeEnabled(parseMergeAttribute(arrayEle));
@@ -926,7 +926,7 @@ public class BeanDefinitionParserDelegate {
     public List<Object> parseListElement(Element collectionEle, org.springframework.beans.bean.definition.BeanDefinition bd) {
         String defaultElementType = collectionEle.getAttribute(VALUE_TYPE_ATTRIBUTE);
         NodeList nl = collectionEle.getChildNodes();
-        org.springframework.beans.factory.support.merge.ManagedList<Object> target = new org.springframework.beans.factory.support.merge.ManagedList<Object>(nl.getLength());
+        org.springframework.beans.support.merge.ManagedList<Object> target = new org.springframework.beans.support.merge.ManagedList<Object>(nl.getLength());
         target.setSource(extractSource(collectionEle));
         target.setElementTypeName(defaultElementType);
         target.setMergeEnabled(parseMergeAttribute(collectionEle));
@@ -938,7 +938,7 @@ public class BeanDefinitionParserDelegate {
     public Set<Object> parseSetElement(Element collectionEle, org.springframework.beans.bean.definition.BeanDefinition bd) {
         String defaultElementType = collectionEle.getAttribute(VALUE_TYPE_ATTRIBUTE);
         NodeList nl = collectionEle.getChildNodes();
-        org.springframework.beans.factory.support.merge.ManagedSet<Object> target = new ManagedSet<Object>(nl.getLength());
+        ManagedSet<Object> target = new ManagedSet<Object>(nl.getLength());
         target.setSource(extractSource(collectionEle));
         target.setElementTypeName(defaultElementType);
         target.setMergeEnabled(parseMergeAttribute(collectionEle));
@@ -964,7 +964,7 @@ public class BeanDefinitionParserDelegate {
         String defaultValueType = mapEle.getAttribute(VALUE_TYPE_ATTRIBUTE);
 
         List<Element> entryEles = DomUtils.getChildElementsByTagName(mapEle, ENTRY_ELEMENT);
-        org.springframework.beans.factory.support.merge.ManagedMap<Object, Object> map = new org.springframework.beans.factory.support.merge.ManagedMap<Object, Object>(entryEles.size());
+        org.springframework.beans.support.merge.ManagedMap<Object, Object> map = new org.springframework.beans.support.merge.ManagedMap<Object, Object>(entryEles.size());
         map.setSource(extractSource(mapEle));
         map.setKeyTypeName(defaultKeyType);
         map.setValueTypeName(defaultValueType);
@@ -1105,7 +1105,7 @@ public class BeanDefinitionParserDelegate {
 
     //解析prop属性
     public Properties parsePropsElement(Element propsEle) {
-        org.springframework.beans.factory.support.merge.ManagedProperties props = new org.springframework.beans.factory.support.merge.ManagedProperties();
+        org.springframework.beans.support.merge.ManagedProperties props = new org.springframework.beans.support.merge.ManagedProperties();
         props.setSource(extractSource(propsEle));
         props.setMergeEnabled(parseMergeAttribute(propsEle));
 
