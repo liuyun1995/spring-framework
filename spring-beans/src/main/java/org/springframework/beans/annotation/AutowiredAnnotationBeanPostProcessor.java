@@ -21,7 +21,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import org.springframework.beans.BeanUtils;
+import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.property.PropertyValues;
 import org.springframework.beans.property.type.TypeConverter;

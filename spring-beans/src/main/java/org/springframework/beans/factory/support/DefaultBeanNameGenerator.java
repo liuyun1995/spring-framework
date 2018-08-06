@@ -1,8 +1,8 @@
 package org.springframework.beans.factory.support;
 
 import org.springframework.beans.bean.definition.BeanDefinition;
-import org.springframework.beans.bean.definition.BeanDefinitionReaderUtils;
-import org.springframework.beans.bean.definition.BeanDefinitionRegistry;
+import org.springframework.beans.factory.xml.reader.BeanDefinitionReaderUtils;
+import org.springframework.beans.bean.registry.BeanDefinitionRegistry;
 
 //默认Bean名称生成器
 public class DefaultBeanNameGenerator implements BeanNameGenerator {

@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.BeanUtils;
+import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.TypeConverterDelegate;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.exception.ConversionNotSupportedException;

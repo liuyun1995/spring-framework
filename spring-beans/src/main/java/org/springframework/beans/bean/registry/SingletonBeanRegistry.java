@@ -1,4 +1,4 @@
-package org.springframework.beans.factory.config;
+package org.springframework.beans.bean.registry;
 
 //单例Bean注册器
 public interface SingletonBeanRegistry {

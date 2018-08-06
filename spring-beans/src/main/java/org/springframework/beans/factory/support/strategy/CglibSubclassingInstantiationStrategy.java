@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.beans.factory.support;
+package org.springframework.beans.factory.support.strategy;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -23,10 +23,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import org.springframework.beans.exception.BeanInstantiationException;
-import org.springframework.beans.BeanUtils;
+import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.ConfigurableBeanFactory;
+import org.springframework.beans.bean.registry.ConfigurableBeanFactory;
 import org.springframework.beans.bean.definition.RootBeanDefinition;
+import org.springframework.beans.factory.support.*;
 import org.springframework.cglib.core.ClassGenerator;
 import org.springframework.cglib.core.DefaultGeneratorStrategy;
 import org.springframework.cglib.core.SpringNamingPolicy;

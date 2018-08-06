@@ -1,7 +1,7 @@
-package org.springframework.beans.bean.definition;
+package org.springframework.beans.factory.support.processor;
 
+import org.springframework.beans.bean.registry.BeanDefinitionRegistry;
 import org.springframework.beans.exception.BeansException;
-import org.springframework.beans.factory.support.processor.BeanFactoryPostProcessor;
 
 //Bean定义注册器加工器
 public interface BeanDefinitionRegistryPostProcessor extends BeanFactoryPostProcessor {

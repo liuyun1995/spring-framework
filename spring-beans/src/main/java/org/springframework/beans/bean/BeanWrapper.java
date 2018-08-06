@@ -1,4 +1,4 @@
-package org.springframework.beans;
+package org.springframework.beans.bean;
 
 import org.springframework.beans.exception.InvalidPropertyException;
 import org.springframework.beans.property.ConfigurablePropertyAccessor;

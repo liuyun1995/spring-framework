@@ -1,6 +1,6 @@
 package org.springframework.beans.bean.definition;
 
-import org.springframework.beans.BeanMetadataElement;
+import org.springframework.beans.bean.BeanMetadataElement;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;

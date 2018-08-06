@@ -1,4 +1,4 @@
-package org.springframework.beans.factory.support;
+package org.springframework.beans.factory.support.strategy;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -8,10 +8,11 @@ import java.security.PrivilegedAction;
 import java.security.PrivilegedExceptionAction;
 
 import org.springframework.beans.exception.BeanInstantiationException;
-import org.springframework.beans.BeanUtils;
+import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.ConfigurableBeanFactory;
+import org.springframework.beans.bean.registry.ConfigurableBeanFactory;
 import org.springframework.beans.bean.definition.RootBeanDefinition;
+import org.springframework.beans.factory.support.strategy.InstantiationStrategy;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 

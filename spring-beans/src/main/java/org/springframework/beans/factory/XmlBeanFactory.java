@@ -1,8 +1,7 @@
 package org.springframework.beans.factory;
 
 import org.springframework.beans.exception.BeansException;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.DefaultListableBeanFactory;
+import org.springframework.beans.bean.registry.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.reader.XmlBeanDefinitionReader;
 import org.springframework.core.io.Resource;
 

@@ -1,5 +1,7 @@
 package org.springframework.beans;
 
+import org.springframework.beans.bean.BeanWrapper;
+import org.springframework.beans.bean.BeanWrapperImpl;
 import org.springframework.beans.property.ConfigurablePropertyAccessor;
 
 //属性访问工厂

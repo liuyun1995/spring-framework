@@ -1,4 +1,4 @@
-package org.springframework.beans.bean.definition;
+package org.springframework.beans.exception;
 
 import org.springframework.beans.exception.FatalBeanException;
 

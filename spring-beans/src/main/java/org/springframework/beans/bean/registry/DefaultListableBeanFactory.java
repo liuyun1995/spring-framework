@@ -1,4 +1,4 @@
-package org.springframework.beans.factory;
+package org.springframework.beans.bean.registry;
 
 import java.io.IOException;
 import java.io.NotSerializableException;
@@ -27,8 +27,11 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.inject.Provider;
 
-import org.springframework.beans.BeanUtils;
+import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.factory.*;
+import org.springframework.beans.factory.AbstractBeanFactory;
+import org.springframework.beans.factory.support.autowire.SimpleAutowireCandidateResolver;
 import org.springframework.beans.property.type.TypeConverter;
 import org.springframework.beans.exception.BeanCreationException;
 import org.springframework.beans.exception.BeanCurrentlyInCreationException;
@@ -45,7 +48,7 @@ import org.springframework.beans.factory.config.DependencyDescriptor;
 import org.springframework.beans.factory.config.NamedBeanHolder;
 import org.springframework.beans.factory.support.*;
 import org.springframework.beans.bean.definition.AbstractBeanDefinition;
-import org.springframework.beans.bean.definition.BeanDefinitionValidationException;
+import org.springframework.beans.exception.BeanDefinitionValidationException;
 import org.springframework.beans.bean.definition.RootBeanDefinition;
 import org.springframework.beans.factory.support.autowire.AutowireCandidateResolver;
 import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
@@ -61,8 +64,8 @@ import org.springframework.util.StringUtils;
 
 //默认可列举Bean工厂
 @SuppressWarnings("serial")
-public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory
-		implements ConfigurableListableBeanFactory, org.springframework.beans.bean.definition.BeanDefinitionRegistry, Serializable {
+public class DefaultListableBeanFactory extends org.springframework.beans.factory.AbstractAutowireCapableBeanFactory
+		implements ConfigurableListableBeanFactory, BeanDefinitionRegistry, Serializable {
 
 	private static Class<?> javaUtilOptionalClass = null;
 	private static Class<?> javaxInjectProviderClass = null;
@@ -96,7 +99,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 	private Comparator<Object> dependencyComparator;
 
 	//自动装配候选者转换器
-	private org.springframework.beans.factory.support.autowire.AutowireCandidateResolver autowireCandidateResolver = new SimpleAutowireCandidateResolver();
+	private org.springframework.beans.factory.support.autowire.AutowireCandidateResolver autowireCandidateResolver = new org.springframework.beans.factory.support.autowire.SimpleAutowireCandidateResolver();
 
 	//可解析的依赖
 	private final Map<Class<?>, Object> resolvableDependencies = new ConcurrentHashMap<Class<?>, Object>(16);
@@ -1092,7 +1095,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
 	private boolean isRequired(DependencyDescriptor descriptor) {
 		AutowireCandidateResolver resolver = getAutowireCandidateResolver();
-		return (resolver instanceof SimpleAutowireCandidateResolver
+		return (resolver instanceof org.springframework.beans.factory.support.autowire.SimpleAutowireCandidateResolver
 				? ((SimpleAutowireCandidateResolver) resolver).isRequired(descriptor)
 				: descriptor.isRequired());
 	}

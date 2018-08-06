@@ -20,8 +20,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.bean.BeanUtils;
+import org.springframework.beans.bean.BeanWrapper;
+import org.springframework.beans.bean.registry.ConfigurableBeanFactory;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.support.DisposableBeanAdapter;
 import org.springframework.beans.factory.support.FactoryBeanRegistrySupport;

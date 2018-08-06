@@ -1,7 +1,7 @@
 package org.springframework.beans.bean.definition;
 
-import org.springframework.beans.BeanMetadataElement;
-import org.springframework.beans.factory.ConfigurableBeanFactory;
+import org.springframework.beans.bean.BeanMetadataElement;
+import org.springframework.beans.bean.registry.ConfigurableBeanFactory;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.beans.property.MutablePropertyValues;
 import org.springframework.core.AttributeAccessor;
@@ -15,7 +15,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	int ROLE_SUPPORT = 1;
 	int ROLE_INFRASTRUCTURE = 2;
 
-	//-------------------可修改属性-------------------
+	//-------------------------------------------------可修改属性-------------------------------------------------
 
 	//设置父Bean名称
 	void setParentName(String parentName);
@@ -77,7 +77,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	//获取属性值
 	MutablePropertyValues getPropertyValues();
 
-	//-------------------只读属性-------------------
+	//-------------------------------------------------只读属性---------------------------------------------------
 
 	//是否单例
 	boolean isSingleton();

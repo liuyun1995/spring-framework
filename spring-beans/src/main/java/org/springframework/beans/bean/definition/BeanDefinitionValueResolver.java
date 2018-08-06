@@ -1,6 +1,6 @@
 package org.springframework.beans.bean.definition;
 
-import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.bean.BeanWrapper;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.property.type.TypeConverter;
 import org.springframework.beans.factory.AbstractBeanFactory;

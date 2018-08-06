@@ -6,7 +6,7 @@ import org.springframework.beans.factory.parsing.ProblemReporter;
 import org.springframework.beans.factory.parsing.ReaderContext;
 import org.springframework.beans.factory.parsing.ReaderEventListener;
 import org.springframework.beans.factory.parsing.SourceExtractor;
-import org.springframework.beans.bean.definition.BeanDefinitionRegistry;
+import org.springframework.beans.bean.registry.BeanDefinitionRegistry;
 import org.springframework.beans.factory.xml.reader.XmlBeanDefinitionReader;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;

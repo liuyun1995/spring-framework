@@ -1,5 +1,6 @@
-package org.springframework.beans.bean.definition;
+package org.springframework.beans.bean.registry;
 
+import org.springframework.beans.bean.definition.BeanDefinition;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.exception.NoSuchBeanDefinitionException;
 import org.springframework.core.AliasRegistry;

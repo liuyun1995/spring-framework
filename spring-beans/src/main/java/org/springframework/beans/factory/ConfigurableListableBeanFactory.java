@@ -1,5 +1,6 @@
 package org.springframework.beans.factory;
 
+import org.springframework.beans.bean.registry.ConfigurableBeanFactory;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.bean.definition.BeanDefinition;
 import org.springframework.beans.factory.config.DependencyDescriptor;

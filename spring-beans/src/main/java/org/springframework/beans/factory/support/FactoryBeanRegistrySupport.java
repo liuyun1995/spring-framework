@@ -8,6 +8,7 @@ import java.security.PrivilegedExceptionAction;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.springframework.beans.bean.registry.DefaultSingletonBeanRegistry;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.exception.BeanCreationException;
 import org.springframework.beans.exception.BeanCurrentlyInCreationException;

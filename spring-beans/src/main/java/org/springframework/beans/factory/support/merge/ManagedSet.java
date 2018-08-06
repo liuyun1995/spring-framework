@@ -3,7 +3,7 @@ package org.springframework.beans.factory.support.merge;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import org.springframework.beans.BeanMetadataElement;
+import org.springframework.beans.bean.BeanMetadataElement;
 
 //管理的Set
 @SuppressWarnings("serial")

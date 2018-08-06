@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.springframework.beans.BeanMetadataElement;
+import org.springframework.beans.bean.BeanMetadataElement;
 import org.springframework.beans.factory.support.merge.Mergeable;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;

@@ -1,5 +1,6 @@
 package org.springframework.beans.bean.definition;
 
+import org.springframework.beans.exception.BeanDefinitionValidationException;
 import org.springframework.beans.property.MutablePropertyValues;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.util.ObjectUtils;

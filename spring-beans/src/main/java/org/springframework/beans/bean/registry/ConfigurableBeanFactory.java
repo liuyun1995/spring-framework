@@ -1,5 +1,7 @@
-package org.springframework.beans.factory;
+package org.springframework.beans.bean.registry;
 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.HierarchicalBeanFactory;
 import org.springframework.beans.factory.config.*;
 import org.springframework.beans.bean.definition.BeanDefinition;
 import org.springframework.beans.factory.support.processor.BeanPostProcessor;

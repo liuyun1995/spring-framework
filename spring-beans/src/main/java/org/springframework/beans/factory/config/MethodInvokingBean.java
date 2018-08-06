@@ -7,7 +7,7 @@ import org.springframework.beans.factory.support.autowire.BeanClassLoaderAware;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
 import org.springframework.beans.bean.InitializingBean;
-import org.springframework.beans.factory.ConfigurableBeanFactory;
+import org.springframework.beans.bean.registry.ConfigurableBeanFactory;
 import org.springframework.beans.support.ArgumentConvertingMethodInvoker;
 import org.springframework.util.ClassUtils;
 

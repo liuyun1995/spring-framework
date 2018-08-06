@@ -1,6 +1,6 @@
 package org.springframework.beans.property;
 
-import org.springframework.beans.BeanMetadataAttributeAccessor;
+import org.springframework.beans.bean.BeanMetadataAttributeAccessor;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 

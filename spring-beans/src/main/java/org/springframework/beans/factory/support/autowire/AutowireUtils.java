@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Set;
 
-import org.springframework.beans.BeanMetadataElement;
+import org.springframework.beans.bean.BeanMetadataElement;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.TypedStringValue;
 import org.springframework.util.Assert;

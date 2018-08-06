@@ -3,7 +3,7 @@ package org.springframework.beans.factory.support.merge;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.BeanMetadataElement;
+import org.springframework.beans.bean.BeanMetadataElement;
 
 //管理的集合
 @SuppressWarnings("serial")

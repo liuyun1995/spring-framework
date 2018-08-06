@@ -14,7 +14,7 @@ import org.springframework.beans.factory.support.autowire.BeanClassLoaderAware;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
 import org.springframework.beans.bean.DisposableBean;
-import org.springframework.beans.factory.ConfigurableBeanFactory;
+import org.springframework.beans.bean.registry.ConfigurableBeanFactory;
 import org.springframework.beans.exception.FactoryBeanNotInitializedException;
 import org.springframework.beans.bean.InitializingBean;
 import org.springframework.util.ClassUtils;

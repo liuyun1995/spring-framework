@@ -2,11 +2,11 @@ package org.springframework.beans.factory.xml.parser;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.BeanMetadataAttribute;
-import org.springframework.beans.BeanMetadataAttributeAccessor;
+import org.springframework.beans.bean.BeanMetadataAttribute;
+import org.springframework.beans.bean.BeanMetadataAttributeAccessor;
 import org.springframework.beans.bean.definition.AbstractBeanDefinition;
 import org.springframework.beans.bean.definition.BeanDefinitionHolder;
-import org.springframework.beans.bean.definition.BeanDefinitionReaderUtils;
+import org.springframework.beans.factory.xml.reader.BeanDefinitionReaderUtils;
 import org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier;
 import org.springframework.beans.factory.support.merge.ManagedSet;
 import org.springframework.beans.property.PropertyValue;

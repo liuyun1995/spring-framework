@@ -56,154 +56,117 @@ public class BeanDefinitionBuilder {
         return builder;
     }
 
-    private AbstractBeanDefinition beanDefinition;
+    private AbstractBeanDefinition beanDefinition;   //抽象Bean定义
+    private int constructorArgIndex;                 //构造器参数索引
 
-    private int constructorArgIndex;
+    //构造器
+    private BeanDefinitionBuilder() {}
 
-    private BeanDefinitionBuilder() {
-    }
-
+    //获取原生Bean定义
     public AbstractBeanDefinition getRawBeanDefinition() {
         return this.beanDefinition;
     }
 
+    //获取Bean定义
     public AbstractBeanDefinition getBeanDefinition() {
         this.beanDefinition.validate();
         return this.beanDefinition;
     }
 
+    //设置父类Bean名称
     public BeanDefinitionBuilder setParentName(String parentName) {
         this.beanDefinition.setParentName(parentName);
         return this;
     }
 
+    //设置工厂方法名
     public BeanDefinitionBuilder setFactoryMethod(String factoryMethod) {
         this.beanDefinition.setFactoryMethodName(factoryMethod);
         return this;
     }
 
+    //为工厂Bean设置工厂方法名
     public BeanDefinitionBuilder setFactoryMethodOnBean(String factoryMethod, String factoryBean) {
         this.beanDefinition.setFactoryMethodName(factoryMethod);
         this.beanDefinition.setFactoryBeanName(factoryBean);
         return this;
     }
 
-    /**
-     * Add an indexed constructor arg value. The current index is tracked internally
-     * and all additions are at the present point.
-     *
-     * @deprecated since Spring 2.5, in favor of {@link #addConstructorArgValue}.
-     * This variant just remains around for Spring Security 2.x compatibility.
-     */
+    //添加构造器参数
     @Deprecated
     public BeanDefinitionBuilder addConstructorArg(Object value) {
         return addConstructorArgValue(value);
     }
 
-    /**
-     * Add an indexed constructor arg value. The current index is tracked internally
-     * and all additions are at the present point.
-     */
+    //添加构造器参数
     public BeanDefinitionBuilder addConstructorArgValue(Object value) {
         this.beanDefinition.getConstructorArgumentValues().addIndexedArgumentValue(
                 this.constructorArgIndex++, value);
         return this;
     }
 
-    /**
-     * Add a reference to a named bean as a constructor arg.
-     *
-     * @see #addConstructorArgValue(Object)
-     */
+    //添加构造器参数引用
     public BeanDefinitionBuilder addConstructorArgReference(String beanName) {
         this.beanDefinition.getConstructorArgumentValues().addIndexedArgumentValue(
                 this.constructorArgIndex++, new RuntimeBeanReference(beanName));
         return this;
     }
 
-    /**
-     * Add the supplied property value under the given name.
-     */
+    //添加属性值
     public BeanDefinitionBuilder addPropertyValue(String name, Object value) {
         this.beanDefinition.getPropertyValues().add(name, value);
         return this;
     }
 
-    /**
-     * Add a reference to the specified bean name under the property specified.
-     *
-     * @param name     the name of the property to add the reference to
-     * @param beanName the name of the bean being referenced
-     */
+    //添加属性值引用
     public BeanDefinitionBuilder addPropertyReference(String name, String beanName) {
         this.beanDefinition.getPropertyValues().add(name, new RuntimeBeanReference(beanName));
         return this;
     }
 
-    /**
-     * Set the init method for this definition.
-     */
+    //设置初始方法名
     public BeanDefinitionBuilder setInitMethodName(String methodName) {
         this.beanDefinition.setInitMethodName(methodName);
         return this;
     }
 
-    /**
-     * Set the destroy method for this definition.
-     */
+    //设置销毁方法名
     public BeanDefinitionBuilder setDestroyMethodName(String methodName) {
         this.beanDefinition.setDestroyMethodName(methodName);
         return this;
     }
 
-
-    /**
-     * Set the scope of this definition.
-     *
-     * @see BeanDefinition#SCOPE_SINGLETON
-     * @see BeanDefinition#SCOPE_PROTOTYPE
-     */
+    //设置Bean范围
     public BeanDefinitionBuilder setScope(String scope) {
         this.beanDefinition.setScope(scope);
         return this;
     }
 
-    /**
-     * Set whether or not this definition is abstract.
-     */
+    //设置是否抽象
     public BeanDefinitionBuilder setAbstract(boolean flag) {
         this.beanDefinition.setAbstract(flag);
         return this;
     }
 
-    /**
-     * Set whether beans for this definition should be lazily initialized or not.
-     */
+    //设置是否懒加载
     public BeanDefinitionBuilder setLazyInit(boolean lazy) {
         this.beanDefinition.setLazyInit(lazy);
         return this;
     }
 
-    /**
-     * Set the autowire mode for this definition.
-     */
+    //设置自动装配模式
     public BeanDefinitionBuilder setAutowireMode(int autowireMode) {
         beanDefinition.setAutowireMode(autowireMode);
         return this;
     }
 
-    /**
-     * Set the depency check mode for this definition.
-     */
+    //设置依赖检查模式
     public BeanDefinitionBuilder setDependencyCheck(int dependencyCheck) {
         beanDefinition.setDependencyCheck(dependencyCheck);
         return this;
     }
 
-    /**
-     * Append the specified bean name to the list of beans that this definition
-     * depends on.
-     */
+    //添加依赖
     public BeanDefinitionBuilder addDependsOn(String beanName) {
         if (this.beanDefinition.getDependsOn() == null) {
             this.beanDefinition.setDependsOn(beanName);
@@ -214,9 +177,7 @@ public class BeanDefinitionBuilder {
         return this;
     }
 
-    /**
-     * Set the role of this definition.
-     */
+    //设置角色
     public BeanDefinitionBuilder setRole(int role) {
         this.beanDefinition.setRole(role);
         return this;

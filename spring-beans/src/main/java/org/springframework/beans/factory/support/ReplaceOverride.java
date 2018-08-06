@@ -23,52 +23,30 @@ import java.util.List;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
-/**
- * Extension of MethodOverride that represents an arbitrary
- * override of a method by the IoC container.
- *
- * <p>Any non-final method can be overridden, irrespective of its
- * parameters and return types.
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @since 1.1
- */
+//替代覆盖
 public class ReplaceOverride extends MethodOverride {
 
-	private final String methodReplacerBeanName;
+	private final String methodReplacerBeanName;                         //方法替代者Bean名称
+	private List<String> typeIdentifiers = new LinkedList<String>();     //类型标识符集合
 
-	private List<String> typeIdentifiers = new LinkedList<String>();
-
-
-	/**
-	 * Construct a new ReplaceOverride.
-	 * @param methodName the name of the method to override
-	 * @param methodReplacerBeanName the bean name of the MethodReplacer
-	 */
+	//构造器
 	public ReplaceOverride(String methodName, String methodReplacerBeanName) {
 		super(methodName);
 		Assert.notNull(methodName, "Method replacer bean name must not be null");
 		this.methodReplacerBeanName = methodReplacerBeanName;
 	}
 
-
-	/**
-	 * Return the name of the bean implementing MethodReplacer.
-	 */
+	//获取方法替代者Bean名称
 	public String getMethodReplacerBeanName() {
 		return this.methodReplacerBeanName;
 	}
 
-	/**
-	 * Add a fragment of a class string, like "Exception"
-	 * or "java.lang.Exc", to identify a parameter type.
-	 * @param identifier a substring of the fully qualified class name
-	 */
+	//添加类型标识符
 	public void addTypeIdentifier(String identifier) {
 		this.typeIdentifiers.add(identifier);
 	}
 
+	//匹配方法
 	@Override
 	public boolean matches(Method method) {
 		if (!method.getName().equals(getMethodName())) {

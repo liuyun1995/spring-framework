@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.xml.reader;
 
-import org.springframework.beans.bean.definition.BeanDefinitionRegistry;
+import org.springframework.beans.bean.registry.BeanDefinitionRegistry;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.support.BeanNameGenerator;
 import org.springframework.core.io.Resource;

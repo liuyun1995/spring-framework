@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.config;
 
-import org.springframework.beans.BeanMetadataElement;
+import org.springframework.beans.bean.BeanMetadataElement;
 
 //Bean引用
 public interface BeanReference extends BeanMetadataElement {

@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.parsing;
 
-import org.springframework.beans.BeanMetadataElement;
+import org.springframework.beans.bean.BeanMetadataElement;
 import org.springframework.util.Assert;
 
 //别名定义

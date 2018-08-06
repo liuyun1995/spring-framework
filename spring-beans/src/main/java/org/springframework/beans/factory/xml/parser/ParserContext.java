@@ -4,8 +4,8 @@ import org.springframework.beans.bean.definition.BeanDefinition;
 import org.springframework.beans.factory.parsing.BeanComponentDefinition;
 import org.springframework.beans.factory.parsing.ComponentDefinition;
 import org.springframework.beans.factory.parsing.CompositeComponentDefinition;
-import org.springframework.beans.bean.definition.BeanDefinitionReaderUtils;
-import org.springframework.beans.bean.definition.BeanDefinitionRegistry;
+import org.springframework.beans.factory.xml.reader.BeanDefinitionReaderUtils;
+import org.springframework.beans.bean.registry.BeanDefinitionRegistry;
 import org.springframework.beans.factory.xml.XmlReaderContext;
 
 import java.util.Stack;

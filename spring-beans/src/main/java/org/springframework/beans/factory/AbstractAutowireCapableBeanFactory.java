@@ -23,19 +23,22 @@ import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.BeanWrapper;
-import org.springframework.beans.BeanWrapperImpl;
+import org.springframework.beans.bean.BeanUtils;
+import org.springframework.beans.bean.BeanWrapper;
+import org.springframework.beans.bean.BeanWrapperImpl;
+import org.springframework.beans.bean.registry.ConfigurableBeanFactory;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.support.*;
 import org.springframework.beans.bean.definition.AbstractBeanDefinition;
-import org.springframework.beans.bean.definition.BeanDefinitionValidationException;
+import org.springframework.beans.exception.BeanDefinitionValidationException;
 import org.springframework.beans.bean.definition.RootBeanDefinition;
 import org.springframework.beans.factory.support.autowire.Aware;
 import org.springframework.beans.factory.support.autowire.BeanClassLoaderAware;
 import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
 import org.springframework.beans.factory.support.autowire.BeanNameAware;
 import org.springframework.beans.factory.support.processor.MergedBeanDefinitionPostProcessor;
+import org.springframework.beans.factory.support.strategy.CglibSubclassingInstantiationStrategy;
+import org.springframework.beans.factory.support.strategy.InstantiationStrategy;
 import org.springframework.beans.property.MutablePropertyValues;
 import org.springframework.beans.property.PropertyAccessorUtils;
 import org.springframework.beans.property.PropertyValue;
@@ -52,7 +55,7 @@ import org.springframework.beans.factory.support.processor.BeanPostProcessor;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.beans.factory.config.DependencyDescriptor;
 import org.springframework.beans.factory.support.processor.InstantiationAwareBeanPostProcessor;
-import org.springframework.beans.factory.config.SmartInstantiationAwareBeanPostProcessor;
+import org.springframework.beans.factory.support.processor.SmartInstantiationAwareBeanPostProcessor;
 import org.springframework.beans.factory.config.TypedStringValue;
 import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.GenericTypeResolver;
@@ -70,7 +73,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		implements AutowireCapableBeanFactory {
 
 	//创建Bean实例策略
-	private InstantiationStrategy instantiationStrategy = new CglibSubclassingInstantiationStrategy();
+	private org.springframework.beans.factory.support.strategy.InstantiationStrategy instantiationStrategy = new CglibSubclassingInstantiationStrategy();
 
 	//方法参数名称解析器策略
 	private ParameterNameDiscoverer parameterNameDiscoverer = new DefaultParameterNameDiscoverer();
@@ -108,7 +111,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	}
 
 	//设置实例化策略
-	public void setInstantiationStrategy(InstantiationStrategy instantiationStrategy) {
+	public void setInstantiationStrategy(org.springframework.beans.factory.support.strategy.InstantiationStrategy instantiationStrategy) {
 		this.instantiationStrategy = instantiationStrategy;
 	}
 
@@ -961,7 +964,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	 * @return the candidate constructors, or {@code null} if none specified
 	 * @throws BeansException
 	 *             in case of errors
-	 * @see org.springframework.beans.factory.config.SmartInstantiationAwareBeanPostProcessor#determineCandidateConstructors
+	 * @see SmartInstantiationAwareBeanPostProcessor#determineCandidateConstructors
 	 */
 	protected Constructor<?>[] determineConstructorsFromBeanPostProcessors(Class<?> beanClass, String beanName)
 			throws BeansException {
@@ -1213,7 +1216,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	 * @param bw
 	 *            the BeanWrapper the bean was created with
 	 * @return an array of bean property names
-	 * @see org.springframework.beans.BeanUtils#isSimpleProperty
+	 * @see BeanUtils#isSimpleProperty
 	 */
 	protected String[] unsatisfiedNonSimpleProperties(AbstractBeanDefinition mbd, BeanWrapper bw) {
 		Set<String> result = new TreeSet<String>();
@@ -1240,7 +1243,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	 *            Class
 	 * @return the filtered PropertyDescriptors
 	 * @see #isExcludedFromDependencyCheck
-	 * @see #filterPropertyDescriptorsForDependencyCheck(org.springframework.beans.BeanWrapper)
+	 * @see #filterPropertyDescriptorsForDependencyCheck(BeanWrapper)
 	 */
 	protected PropertyDescriptor[] filterPropertyDescriptorsForDependencyCheck(BeanWrapper bw, boolean cache) {
 		PropertyDescriptor[] filtered = this.filteredPropertyDescriptorsCache.get(bw.getWrappedClass());

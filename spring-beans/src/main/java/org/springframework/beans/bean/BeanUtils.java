@@ -1,4 +1,4 @@
-package org.springframework.beans;
+package org.springframework.beans.bean;
 
 import java.beans.PropertyDescriptor;
 import java.beans.PropertyEditor;
@@ -18,6 +18,8 @@ import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import org.springframework.beans.CachedIntrospectionResults;
+import org.springframework.beans.GenericTypeAwarePropertyDescriptor;
 import org.springframework.beans.exception.BeanInstantiationException;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.exception.FatalBeanException;

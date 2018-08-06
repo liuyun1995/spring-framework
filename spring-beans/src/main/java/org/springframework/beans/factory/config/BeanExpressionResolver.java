@@ -2,7 +2,7 @@ package org.springframework.beans.factory.config;
 
 import org.springframework.beans.exception.BeansException;
 
-//Bean表达式转换器
+//Bean表达式解析器
 public interface BeanExpressionResolver {
 
 	//计算方法

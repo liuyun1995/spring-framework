@@ -1,6 +1,6 @@
 package org.springframework.beans.bean.factorybean;
 
-import org.springframework.beans.BeanUtils;
+import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.property.type.TypeConverter;
 import org.springframework.core.ResolvableType;
 

@@ -28,6 +28,7 @@ import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.DependencyDescriptor;
 import org.springframework.beans.bean.definition.RootBeanDefinition;
 import org.springframework.beans.factory.support.autowire.AutowireCandidateResolver;
+import org.springframework.beans.factory.support.autowire.SimpleAutowireCandidateResolver;
 import org.springframework.core.ResolvableType;
 import org.springframework.util.ClassUtils;
 

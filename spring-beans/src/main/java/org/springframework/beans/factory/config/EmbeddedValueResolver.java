@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.config;
 
-import org.springframework.beans.factory.ConfigurableBeanFactory;
+import org.springframework.beans.bean.registry.ConfigurableBeanFactory;
 import org.springframework.util.StringValueResolver;
 
 //嵌套值解析器

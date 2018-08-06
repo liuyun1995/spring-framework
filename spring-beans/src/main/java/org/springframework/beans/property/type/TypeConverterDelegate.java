@@ -2,7 +2,7 @@ package org.springframework.beans.property.type;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.BeanUtils;
+import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.PropertyAccessor;
 import org.springframework.beans.property.PropertyEditorRegistrySupport;
 import org.springframework.core.CollectionFactory;

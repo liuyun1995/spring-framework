@@ -10,6 +10,7 @@ import java.util.Properties;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.bean.definition.*;
+import org.springframework.beans.bean.registry.BeanDefinitionRegistry;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.property.MutablePropertyValues;
 import org.springframework.beans.PropertyAccessor;

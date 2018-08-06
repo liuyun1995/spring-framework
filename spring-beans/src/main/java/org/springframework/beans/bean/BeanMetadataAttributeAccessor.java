@@ -1,4 +1,4 @@
-package org.springframework.beans;
+package org.springframework.beans.bean;
 
 import org.springframework.core.AttributeAccessorSupport;
 

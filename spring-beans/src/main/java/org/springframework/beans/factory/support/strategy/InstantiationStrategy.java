@@ -1,4 +1,4 @@
-package org.springframework.beans.factory.support;
+package org.springframework.beans.factory.support.strategy;
 
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.BeanFactory;

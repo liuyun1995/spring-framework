@@ -3,14 +3,14 @@ package org.springframework.beans.bean.factorybean;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.bean.BeanWrapper;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.PropertyAccessorFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.support.autowire.BeanNameAware;
-import org.springframework.beans.factory.ConfigurableBeanFactory;
+import org.springframework.beans.bean.registry.ConfigurableBeanFactory;
 import org.springframework.util.StringUtils;
 
 //属性路径工厂Bean

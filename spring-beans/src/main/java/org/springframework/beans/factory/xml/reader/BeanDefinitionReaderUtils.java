@@ -1,5 +1,7 @@
-package org.springframework.beans.bean.definition;
+package org.springframework.beans.factory.xml.reader;
 
+import org.springframework.beans.bean.definition.*;
+import org.springframework.beans.bean.registry.BeanDefinitionRegistry;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.util.ClassUtils;

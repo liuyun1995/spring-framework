@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.support.autowire;
 
-import org.springframework.beans.BeanMetadataAttributeAccessor;
+import org.springframework.beans.bean.BeanMetadataAttributeAccessor;
 import org.springframework.util.Assert;
 
 //自动装配候选者合格者

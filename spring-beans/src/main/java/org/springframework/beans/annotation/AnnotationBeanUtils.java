@@ -1,6 +1,6 @@
 package org.springframework.beans.annotation;
 
-import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.bean.BeanWrapper;
 import org.springframework.beans.PropertyAccessorFactory;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringValueResolver;

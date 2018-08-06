@@ -7,7 +7,8 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.springframework.beans.BeanMetadataAttributeAccessor;
+import org.springframework.beans.bean.BeanMetadataAttributeAccessor;
+import org.springframework.beans.exception.BeanDefinitionValidationException;
 import org.springframework.beans.factory.support.*;
 import org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier;
 import org.springframework.beans.property.MutablePropertyValues;
@@ -569,9 +570,9 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
     }
 
     //验证方法
-    public void validate() throws BeanDefinitionValidationException {
+    public void validate() throws org.springframework.beans.exception.BeanDefinitionValidationException {
         if (!getMethodOverrides().isEmpty() && getFactoryMethodName() != null) {
-            throw new BeanDefinitionValidationException(
+            throw new org.springframework.beans.exception.BeanDefinitionValidationException(
                     "Cannot combine static factory method with method overrides: " +
                             "the static factory method must create the instance");
         }
@@ -581,7 +582,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
     }
 
     //准备方法覆盖
-    public void prepareMethodOverrides() throws BeanDefinitionValidationException {
+    public void prepareMethodOverrides() throws org.springframework.beans.exception.BeanDefinitionValidationException {
         MethodOverrides methodOverrides = getMethodOverrides();
         if (!methodOverrides.isEmpty()) {
             Set<MethodOverride> overrides = methodOverrides.getOverrides();
@@ -594,7 +595,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
     }
 
     //准备方法覆盖
-    protected void prepareMethodOverride(MethodOverride mo) throws BeanDefinitionValidationException {
+    protected void prepareMethodOverride(MethodOverride mo) throws org.springframework.beans.exception.BeanDefinitionValidationException {
         int count = ClassUtils.getMethodCountForName(getBeanClass(), mo.getMethodName());
         if (count == 0) {
             throw new BeanDefinitionValidationException(

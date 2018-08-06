@@ -9,15 +9,17 @@ import java.util.Set;
 public class MethodOverrides {
 
 	private final Set<MethodOverride> overrides = Collections.synchronizedSet(new LinkedHashSet<MethodOverride>(0));
-
 	private volatile boolean modified = false;
 
+	//构造器1
 	public MethodOverrides() {}
 
+	//构造器2
 	public MethodOverrides(MethodOverrides other) {
 		addOverrides(other);
 	}
 
+	//添加覆盖者集合
 	public void addOverrides(MethodOverrides other) {
 		if (other != null) {
 			this.modified = true;
@@ -25,20 +27,24 @@ public class MethodOverrides {
 		}
 	}
 
+	//添加覆盖着
 	public void addOverride(MethodOverride override) {
 		this.modified = true;
 		this.overrides.add(override);
 	}
 
+	//获取所有覆盖者
 	public Set<MethodOverride> getOverrides() {
 		this.modified = true;
 		return this.overrides;
 	}
 
+	//覆盖着是否为空
 	public boolean isEmpty() {
 		return (!this.modified || this.overrides.isEmpty());
 	}
 
+	//获取指定方法覆盖者
 	public MethodOverride getOverride(Method method) {
 		if (!this.modified) {
 			return null;

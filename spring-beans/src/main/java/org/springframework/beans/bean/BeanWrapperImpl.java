@@ -1,4 +1,4 @@
-package org.springframework.beans;
+package org.springframework.beans.bean;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
@@ -9,6 +9,8 @@ import java.security.PrivilegedAction;
 import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 
+import org.springframework.beans.CachedIntrospectionResults;
+import org.springframework.beans.GenericTypeAwarePropertyDescriptor;
 import org.springframework.beans.exception.InvalidPropertyException;
 import org.springframework.beans.exception.NotWritablePropertyException;
 import org.springframework.beans.exception.TypeMismatchException;

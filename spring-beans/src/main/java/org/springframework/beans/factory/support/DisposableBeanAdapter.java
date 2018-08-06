@@ -15,12 +15,12 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import org.springframework.beans.BeanUtils;
+import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.bean.DisposableBean;
 import org.springframework.beans.factory.support.processor.BeanPostProcessor;
 import org.springframework.beans.factory.support.processor.DestructionAwareBeanPostProcessor;
 import org.springframework.beans.bean.definition.AbstractBeanDefinition;
-import org.springframework.beans.bean.definition.BeanDefinitionValidationException;
+import org.springframework.beans.exception.BeanDefinitionValidationException;
 import org.springframework.beans.bean.definition.RootBeanDefinition;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;

@@ -1,4 +1,4 @@
-package org.springframework.beans;
+package org.springframework.beans.bean;
 
 //Bean元信息接口
 public interface BeanMetadataElement {

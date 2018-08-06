@@ -15,7 +15,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-import org.springframework.beans.BeanUtils;
+import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.parsing.EmptyReaderEventListener;
 import org.springframework.beans.factory.parsing.FailFastProblemReporter;
@@ -23,7 +23,7 @@ import org.springframework.beans.factory.parsing.NullSourceExtractor;
 import org.springframework.beans.factory.parsing.ProblemReporter;
 import org.springframework.beans.factory.parsing.ReaderEventListener;
 import org.springframework.beans.factory.parsing.SourceExtractor;
-import org.springframework.beans.bean.definition.BeanDefinitionRegistry;
+import org.springframework.beans.bean.registry.BeanDefinitionRegistry;
 import org.springframework.core.Constants;
 import org.springframework.core.NamedThreadLocal;
 import org.springframework.core.io.DescriptiveResource;

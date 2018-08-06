@@ -1,4 +1,4 @@
-package org.springframework.beans.factory.support;
+package org.springframework.beans.bean.registry;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -18,7 +18,6 @@ import org.springframework.beans.exception.BeanCreationNotAllowedException;
 import org.springframework.beans.exception.BeanCurrentlyInCreationException;
 import org.springframework.beans.bean.DisposableBean;
 import org.springframework.beans.factory.ObjectFactory;
-import org.springframework.beans.factory.config.SingletonBeanRegistry;
 import org.springframework.core.SimpleAliasRegistry;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;

@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Properties;
 
-import org.springframework.beans.BeanUtils;
+import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.exception.FatalBeanException;
 import org.springframework.beans.factory.BeanFactory;

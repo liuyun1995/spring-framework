@@ -17,7 +17,6 @@ import org.w3c.dom.NodeList;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.parsing.BeanComponentDefinition;
-import org.springframework.beans.bean.definition.BeanDefinitionReaderUtils;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternUtils;
 import org.springframework.util.ResourceUtils;

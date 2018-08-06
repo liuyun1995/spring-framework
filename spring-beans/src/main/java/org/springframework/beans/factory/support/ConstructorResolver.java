@@ -16,9 +16,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.springframework.beans.BeanMetadataElement;
-import org.springframework.beans.BeanWrapper;
-import org.springframework.beans.BeanWrapperImpl;
+import org.springframework.beans.bean.BeanMetadataElement;
+import org.springframework.beans.bean.BeanWrapper;
+import org.springframework.beans.bean.BeanWrapperImpl;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.property.type.TypeConverter;
 import org.springframework.beans.exception.TypeMismatchException;

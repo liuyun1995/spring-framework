@@ -1,4 +1,4 @@
-package org.springframework.beans.factory.config;
+package org.springframework.beans.factory.support.processor;
 
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.support.processor.InstantiationAwareBeanPostProcessor;

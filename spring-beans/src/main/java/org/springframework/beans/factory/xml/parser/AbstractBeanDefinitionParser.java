@@ -7,8 +7,8 @@ import org.springframework.beans.bean.definition.BeanDefinition;
 import org.springframework.beans.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.parsing.BeanComponentDefinition;
 import org.springframework.beans.bean.definition.AbstractBeanDefinition;
-import org.springframework.beans.bean.definition.BeanDefinitionReaderUtils;
-import org.springframework.beans.bean.definition.BeanDefinitionRegistry;
+import org.springframework.beans.factory.xml.reader.BeanDefinitionReaderUtils;
+import org.springframework.beans.bean.registry.BeanDefinitionRegistry;
 import org.springframework.util.StringUtils;
 
 //抽象Bean定义解析器
