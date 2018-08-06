@@ -1,7 +1,7 @@
 package org.springframework.beans.factory.support;
 
-import org.springframework.beans.factory.bean.definition.BeanDefinition;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionRegistry;
+import org.springframework.beans.bean.definition.BeanDefinition;
+import org.springframework.beans.bean.definition.BeanDefinitionRegistry;
 
 //Bean名称生成器
 public interface BeanNameGenerator {

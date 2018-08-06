@@ -3,12 +3,12 @@ package org.springframework.beans.factory.xml.parser;
 import org.w3c.dom.Element;
 
 import org.springframework.beans.exception.BeanDefinitionStoreException;
-import org.springframework.beans.factory.bean.definition.BeanDefinition;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
+import org.springframework.beans.bean.definition.BeanDefinition;
+import org.springframework.beans.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.parsing.BeanComponentDefinition;
-import org.springframework.beans.factory.bean.definition.AbstractBeanDefinition;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionReaderUtils;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionRegistry;
+import org.springframework.beans.bean.definition.AbstractBeanDefinition;
+import org.springframework.beans.bean.definition.BeanDefinitionReaderUtils;
+import org.springframework.beans.bean.definition.BeanDefinitionRegistry;
 import org.springframework.util.StringUtils;
 
 //抽象Bean定义解析器

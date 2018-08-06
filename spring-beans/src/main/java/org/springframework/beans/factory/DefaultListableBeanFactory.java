@@ -35,18 +35,18 @@ import org.springframework.beans.exception.BeanCurrentlyInCreationException;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.exception.BeanNotOfRequiredTypeException;
 import org.springframework.beans.exception.CannotLoadBeanClassException;
-import org.springframework.beans.factory.bean.factorybean.FactoryBean;
+import org.springframework.beans.bean.factorybean.FactoryBean;
 import org.springframework.beans.exception.NoSuchBeanDefinitionException;
 import org.springframework.beans.exception.NoUniqueBeanDefinitionException;
-import org.springframework.beans.factory.bean.factorybean.SmartFactoryBean;
-import org.springframework.beans.factory.bean.definition.BeanDefinition;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
+import org.springframework.beans.bean.factorybean.SmartFactoryBean;
+import org.springframework.beans.bean.definition.BeanDefinition;
+import org.springframework.beans.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.config.DependencyDescriptor;
 import org.springframework.beans.factory.config.NamedBeanHolder;
 import org.springframework.beans.factory.support.*;
-import org.springframework.beans.factory.bean.definition.AbstractBeanDefinition;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionValidationException;
-import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
+import org.springframework.beans.bean.definition.AbstractBeanDefinition;
+import org.springframework.beans.bean.definition.BeanDefinitionValidationException;
+import org.springframework.beans.bean.definition.RootBeanDefinition;
 import org.springframework.beans.factory.support.autowire.AutowireCandidateResolver;
 import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
 import org.springframework.core.OrderComparator;
@@ -62,7 +62,7 @@ import org.springframework.util.StringUtils;
 //默认可列举Bean工厂
 @SuppressWarnings("serial")
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory
-		implements ConfigurableListableBeanFactory, org.springframework.beans.factory.bean.definition.BeanDefinitionRegistry, Serializable {
+		implements ConfigurableListableBeanFactory, org.springframework.beans.bean.definition.BeanDefinitionRegistry, Serializable {
 
 	private static Class<?> javaUtilOptionalClass = null;
 	private static Class<?> javaxInjectProviderClass = null;

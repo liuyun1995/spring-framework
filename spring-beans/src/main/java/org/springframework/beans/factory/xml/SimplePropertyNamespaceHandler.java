@@ -6,8 +6,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import org.springframework.beans.property.MutablePropertyValues;
-import org.springframework.beans.factory.bean.definition.BeanDefinition;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
+import org.springframework.beans.bean.definition.BeanDefinition;
+import org.springframework.beans.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.config.RuntimeBeanReference;
 import org.springframework.core.Conventions;
 

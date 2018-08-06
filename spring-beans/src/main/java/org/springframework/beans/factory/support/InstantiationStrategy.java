@@ -2,7 +2,7 @@ package org.springframework.beans.factory.support;
 
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
+import org.springframework.beans.bean.definition.RootBeanDefinition;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;

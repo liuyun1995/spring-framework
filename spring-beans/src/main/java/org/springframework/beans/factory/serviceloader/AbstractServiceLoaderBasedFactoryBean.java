@@ -3,7 +3,7 @@ package org.springframework.beans.factory.serviceloader;
 import java.util.ServiceLoader;
 
 import org.springframework.beans.factory.support.autowire.BeanClassLoaderAware;
-import org.springframework.beans.factory.bean.factorybean.AbstractFactoryBean;
+import org.springframework.beans.bean.factorybean.AbstractFactoryBean;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 

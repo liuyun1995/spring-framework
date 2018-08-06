@@ -5,7 +5,7 @@ import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 import org.springframework.beans.exception.BeanDefinitionStoreException;
-import org.springframework.beans.factory.bean.InitializingBean;
+import org.springframework.beans.bean.InitializingBean;
 
 public class PreferencesPlaceholderConfigurer extends PropertyPlaceholderConfigurer implements InitializingBean {
 

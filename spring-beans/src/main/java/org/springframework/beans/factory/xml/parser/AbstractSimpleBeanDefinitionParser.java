@@ -4,7 +4,7 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 
-import org.springframework.beans.factory.bean.definition.BeanDefinitionBuilder;
+import org.springframework.beans.bean.definition.BeanDefinitionBuilder;
 import org.springframework.core.Conventions;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;

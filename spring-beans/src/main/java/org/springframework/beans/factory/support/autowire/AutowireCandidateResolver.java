@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.support.autowire;
 
-import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
+import org.springframework.beans.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.config.DependencyDescriptor;
 
 //自动装配候选者解析器

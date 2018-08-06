@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.springframework.beans.exception.XmlBeanDefinitionStoreException;
 import org.springframework.beans.factory.xml.*;
 import org.w3c.dom.Document;
 import org.xml.sax.EntityResolver;
@@ -22,8 +23,7 @@ import org.springframework.beans.factory.parsing.NullSourceExtractor;
 import org.springframework.beans.factory.parsing.ProblemReporter;
 import org.springframework.beans.factory.parsing.ReaderEventListener;
 import org.springframework.beans.factory.parsing.SourceExtractor;
-import org.springframework.beans.factory.bean.definition.AbstractBeanDefinitionReader;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionRegistry;
+import org.springframework.beans.bean.definition.BeanDefinitionRegistry;
 import org.springframework.core.Constants;
 import org.springframework.core.NamedThreadLocal;
 import org.springframework.core.io.DescriptiveResource;
@@ -225,7 +225,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 		} catch (BeanDefinitionStoreException ex) {
 			throw ex;
 		} catch (SAXParseException ex) {
-			throw new XmlBeanDefinitionStoreException(resource.getDescription(),
+			throw new org.springframework.beans.exception.XmlBeanDefinitionStoreException(resource.getDescription(),
 					"Line " + ex.getLineNumber() + " in XML document from " + resource + " is invalid", ex);
 		} catch (SAXException ex) {
 			throw new XmlBeanDefinitionStoreException(resource.getDescription(),

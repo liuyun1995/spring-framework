@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.property.PropertyValue;
 import org.springframework.beans.property.PropertyValues;
-import org.springframework.beans.factory.bean.definition.BeanDefinition;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
+import org.springframework.beans.bean.definition.BeanDefinition;
+import org.springframework.beans.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.config.BeanReference;
 
 //Bean组件定义

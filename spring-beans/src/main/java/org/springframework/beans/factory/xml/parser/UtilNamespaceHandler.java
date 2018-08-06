@@ -6,14 +6,14 @@ import java.util.Properties;
 import java.util.Set;
 import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 import org.w3c.dom.Element;
-import org.springframework.beans.factory.bean.factorybean.FieldRetrievingFactoryBean;
-import org.springframework.beans.factory.bean.factorybean.ListFactoryBean;
-import org.springframework.beans.factory.bean.factorybean.MapFactoryBean;
-import org.springframework.beans.factory.bean.factorybean.PropertiesFactoryBean;
-import org.springframework.beans.factory.bean.factorybean.PropertyPathFactoryBean;
-import org.springframework.beans.factory.bean.factorybean.SetFactoryBean;
-import org.springframework.beans.factory.bean.definition.AbstractBeanDefinition;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionBuilder;
+import org.springframework.beans.bean.factorybean.FieldRetrievingFactoryBean;
+import org.springframework.beans.bean.factorybean.ListFactoryBean;
+import org.springframework.beans.bean.factorybean.MapFactoryBean;
+import org.springframework.beans.bean.factorybean.PropertiesFactoryBean;
+import org.springframework.beans.bean.factorybean.PropertyPathFactoryBean;
+import org.springframework.beans.bean.factorybean.SetFactoryBean;
+import org.springframework.beans.bean.definition.AbstractBeanDefinition;
+import org.springframework.beans.bean.definition.BeanDefinitionBuilder;
 import org.springframework.util.StringUtils;
 
 public class UtilNamespaceHandler extends NamespaceHandlerSupport {

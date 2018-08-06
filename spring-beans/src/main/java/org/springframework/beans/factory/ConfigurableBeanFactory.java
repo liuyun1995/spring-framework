@@ -1,7 +1,7 @@
 package org.springframework.beans.factory;
 
 import org.springframework.beans.factory.config.*;
-import org.springframework.beans.factory.bean.definition.BeanDefinition;
+import org.springframework.beans.bean.definition.BeanDefinition;
 import org.springframework.beans.factory.support.processor.BeanPostProcessor;
 import org.springframework.beans.property.PropertyEditorRegistrar;
 import org.springframework.beans.property.PropertyEditorRegistry;

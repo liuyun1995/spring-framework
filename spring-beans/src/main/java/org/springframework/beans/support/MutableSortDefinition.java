@@ -8,11 +8,8 @@ import org.springframework.util.StringUtils;
 public class MutableSortDefinition implements SortDefinition, Serializable {
 
     private String property = "";
-
     private boolean ignoreCase = true;
-
     private boolean ascending = true;
-
     private boolean toggleAscendingOnProperty = false;
 
     public MutableSortDefinition() {}

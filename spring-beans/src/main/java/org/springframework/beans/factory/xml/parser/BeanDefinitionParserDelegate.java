@@ -4,9 +4,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeanMetadataAttribute;
 import org.springframework.beans.BeanMetadataAttributeAccessor;
-import org.springframework.beans.factory.bean.definition.AbstractBeanDefinition;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionReaderUtils;
+import org.springframework.beans.bean.definition.AbstractBeanDefinition;
+import org.springframework.beans.bean.definition.BeanDefinitionHolder;
+import org.springframework.beans.bean.definition.BeanDefinitionReaderUtils;
 import org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier;
 import org.springframework.beans.factory.support.merge.ManagedSet;
 import org.springframework.beans.property.PropertyValue;
@@ -214,8 +214,8 @@ public class BeanDefinitionParserDelegate {
     }
 
     //获取默认Bean定义
-    public org.springframework.beans.factory.bean.definition.BeanDefinitionDefaults getBeanDefinitionDefaults() {
-        org.springframework.beans.factory.bean.definition.BeanDefinitionDefaults bdd = new org.springframework.beans.factory.bean.definition.BeanDefinitionDefaults();
+    public org.springframework.beans.bean.definition.BeanDefinitionDefaults getBeanDefinitionDefaults() {
+        org.springframework.beans.bean.definition.BeanDefinitionDefaults bdd = new org.springframework.beans.bean.definition.BeanDefinitionDefaults();
         bdd.setLazyInit("TRUE".equalsIgnoreCase(this.defaults.getLazyInit()));
         bdd.setDependencyCheck(this.getDependencyCheck(DEFAULT_VALUE));
         bdd.setAutowireMode(this.getAutowireMode(DEFAULT_VALUE));
@@ -237,7 +237,7 @@ public class BeanDefinitionParserDelegate {
     }
 
     //解析Bean标签
-    public BeanDefinitionHolder parseBeanDefinitionElement(Element ele, org.springframework.beans.factory.bean.definition.BeanDefinition containingBean) {
+    public BeanDefinitionHolder parseBeanDefinitionElement(Element ele, org.springframework.beans.bean.definition.BeanDefinition containingBean) {
         //获取id属性
         String id = ele.getAttribute(ID_ATTRIBUTE);
         //获取name属性
@@ -324,7 +324,7 @@ public class BeanDefinitionParserDelegate {
 
     //解析Bean标签
     public AbstractBeanDefinition parseBeanDefinitionElement(
-            Element ele, String beanName, org.springframework.beans.factory.bean.definition.BeanDefinition containingBean) {
+            Element ele, String beanName, org.springframework.beans.bean.definition.BeanDefinition containingBean) {
         //设置解析状态
         this.parseState.push(new BeanEntry(beanName));
 
@@ -374,7 +374,7 @@ public class BeanDefinitionParserDelegate {
 
     //解析Bean定义属性
     public AbstractBeanDefinition parseBeanDefinitionAttributes(Element ele, String beanName,
-                                                                org.springframework.beans.factory.bean.definition.BeanDefinition containingBean, AbstractBeanDefinition bd) {
+                                                                org.springframework.beans.bean.definition.BeanDefinition containingBean, AbstractBeanDefinition bd) {
         //是否有singleton属性
         if (ele.hasAttribute(SINGLETON_ATTRIBUTE)) {
             error("Old 1.x 'singleton' attribute in use - upgrade to 'scope' declaration", ele);
@@ -519,7 +519,7 @@ public class BeanDefinitionParserDelegate {
     /**
      * Parse constructor-arg sub-elements of the given bean element.
      */
-    public void parseConstructorArgElements(Element beanEle, org.springframework.beans.factory.bean.definition.BeanDefinition bd) {
+    public void parseConstructorArgElements(Element beanEle, org.springframework.beans.bean.definition.BeanDefinition bd) {
         NodeList nl = beanEle.getChildNodes();
         for (int i = 0; i < nl.getLength(); i++) {
             Node node = nl.item(i);
@@ -532,7 +532,7 @@ public class BeanDefinitionParserDelegate {
     /**
      * Parse property sub-elements of the given bean element.
      */
-    public void parsePropertyElements(Element beanEle, org.springframework.beans.factory.bean.definition.BeanDefinition bd) {
+    public void parsePropertyElements(Element beanEle, org.springframework.beans.bean.definition.BeanDefinition bd) {
         NodeList nl = beanEle.getChildNodes();
         for (int i = 0; i < nl.getLength(); i++) {
             Node node = nl.item(i);
@@ -603,7 +603,7 @@ public class BeanDefinitionParserDelegate {
     /**
      * Parse a constructor-arg element.
      */
-    public void parseConstructorArgElement(Element ele, org.springframework.beans.factory.bean.definition.BeanDefinition bd) {
+    public void parseConstructorArgElement(Element ele, org.springframework.beans.bean.definition.BeanDefinition bd) {
         String indexAttr = ele.getAttribute(INDEX_ATTRIBUTE);
         String typeAttr = ele.getAttribute(TYPE_ATTRIBUTE);
         String nameAttr = ele.getAttribute(NAME_ATTRIBUTE);
@@ -656,7 +656,7 @@ public class BeanDefinitionParserDelegate {
     }
 
     //解析属性元素
-    public void parsePropertyElement(Element ele, org.springframework.beans.factory.bean.definition.BeanDefinition bd) {
+    public void parsePropertyElement(Element ele, org.springframework.beans.bean.definition.BeanDefinition bd) {
         //获取属性名
         String propertyName = ele.getAttribute(NAME_ATTRIBUTE);
         if (!StringUtils.hasLength(propertyName)) {
@@ -723,7 +723,7 @@ public class BeanDefinitionParserDelegate {
     }
 
     //解析属性值
-    public Object parsePropertyValue(Element ele, org.springframework.beans.factory.bean.definition.BeanDefinition bd, String propertyName) {
+    public Object parsePropertyValue(Element ele, org.springframework.beans.bean.definition.BeanDefinition bd, String propertyName) {
         String elementName = (propertyName != null) ?
                 "<property> element for property '" + propertyName + "'" :
                 "<constructor-arg> element";
@@ -773,7 +773,7 @@ public class BeanDefinitionParserDelegate {
         }
     }
 
-    public Object parsePropertySubElement(Element ele, org.springframework.beans.factory.bean.definition.BeanDefinition bd) {
+    public Object parsePropertySubElement(Element ele, org.springframework.beans.bean.definition.BeanDefinition bd) {
         return parsePropertySubElement(ele, bd, null);
     }
 
@@ -785,7 +785,7 @@ public class BeanDefinitionParserDelegate {
      * @param defaultValueType the default type (class name) for any
      *                         {@code <value>} tag that might be created
      */
-    public Object parsePropertySubElement(Element ele, org.springframework.beans.factory.bean.definition.BeanDefinition bd, String defaultValueType) {
+    public Object parsePropertySubElement(Element ele, org.springframework.beans.bean.definition.BeanDefinition bd, String defaultValueType) {
         if (!isDefaultNamespace(ele)) {
             return parseNestedCustomElement(ele, bd);
         } else if (nodeNameEquals(ele, BEAN_ELEMENT)) {
@@ -911,7 +911,7 @@ public class BeanDefinitionParserDelegate {
     }
 
     //解析数组元素
-    public Object parseArrayElement(Element arrayEle, org.springframework.beans.factory.bean.definition.BeanDefinition bd) {
+    public Object parseArrayElement(Element arrayEle, org.springframework.beans.bean.definition.BeanDefinition bd) {
         String elementType = arrayEle.getAttribute(VALUE_TYPE_ATTRIBUTE);
         NodeList nl = arrayEle.getChildNodes();
         org.springframework.beans.factory.support.merge.ManagedArray target = new org.springframework.beans.factory.support.merge.ManagedArray(elementType, nl.getLength());
@@ -923,7 +923,7 @@ public class BeanDefinitionParserDelegate {
     }
 
     //解析List元素
-    public List<Object> parseListElement(Element collectionEle, org.springframework.beans.factory.bean.definition.BeanDefinition bd) {
+    public List<Object> parseListElement(Element collectionEle, org.springframework.beans.bean.definition.BeanDefinition bd) {
         String defaultElementType = collectionEle.getAttribute(VALUE_TYPE_ATTRIBUTE);
         NodeList nl = collectionEle.getChildNodes();
         org.springframework.beans.factory.support.merge.ManagedList<Object> target = new org.springframework.beans.factory.support.merge.ManagedList<Object>(nl.getLength());
@@ -935,7 +935,7 @@ public class BeanDefinitionParserDelegate {
     }
 
     //解析Set元素
-    public Set<Object> parseSetElement(Element collectionEle, org.springframework.beans.factory.bean.definition.BeanDefinition bd) {
+    public Set<Object> parseSetElement(Element collectionEle, org.springframework.beans.bean.definition.BeanDefinition bd) {
         String defaultElementType = collectionEle.getAttribute(VALUE_TYPE_ATTRIBUTE);
         NodeList nl = collectionEle.getChildNodes();
         org.springframework.beans.factory.support.merge.ManagedSet<Object> target = new ManagedSet<Object>(nl.getLength());
@@ -948,7 +948,7 @@ public class BeanDefinitionParserDelegate {
 
     //解析Collection元素
     protected void parseCollectionElements(
-            NodeList elementNodes, Collection<Object> target, org.springframework.beans.factory.bean.definition.BeanDefinition bd, String defaultElementType) {
+            NodeList elementNodes, Collection<Object> target, org.springframework.beans.bean.definition.BeanDefinition bd, String defaultElementType) {
 
         for (int i = 0; i < elementNodes.getLength(); i++) {
             Node node = elementNodes.item(i);
@@ -959,7 +959,7 @@ public class BeanDefinitionParserDelegate {
     }
 
     //解析Map元素
-    public Map<Object, Object> parseMapElement(Element mapEle, org.springframework.beans.factory.bean.definition.BeanDefinition bd) {
+    public Map<Object, Object> parseMapElement(Element mapEle, org.springframework.beans.bean.definition.BeanDefinition bd) {
         String defaultKeyType = mapEle.getAttribute(KEY_TYPE_ATTRIBUTE);
         String defaultValueType = mapEle.getAttribute(VALUE_TYPE_ATTRIBUTE);
 
@@ -1086,7 +1086,7 @@ public class BeanDefinitionParserDelegate {
     /**
      * Parse a key sub-element of a map element.
      */
-    protected Object parseKeyElement(Element keyEle, org.springframework.beans.factory.bean.definition.BeanDefinition bd, String defaultKeyTypeName) {
+    protected Object parseKeyElement(Element keyEle, org.springframework.beans.bean.definition.BeanDefinition bd, String defaultKeyTypeName) {
         NodeList nl = keyEle.getChildNodes();
         Element subElement = null;
         for (int i = 0; i < nl.getLength(); i++) {
@@ -1135,12 +1135,12 @@ public class BeanDefinitionParserDelegate {
     }
 
     //解析外部名称空间元素
-    public org.springframework.beans.factory.bean.definition.BeanDefinition parseCustomElement(Element ele) {
+    public org.springframework.beans.bean.definition.BeanDefinition parseCustomElement(Element ele) {
         return parseCustomElement(ele, null);
     }
 
     //解析外部名称空间元素
-    public org.springframework.beans.factory.bean.definition.BeanDefinition parseCustomElement(Element ele, org.springframework.beans.factory.bean.definition.BeanDefinition containingBd) {
+    public org.springframework.beans.bean.definition.BeanDefinition parseCustomElement(Element ele, org.springframework.beans.bean.definition.BeanDefinition containingBd) {
         //获取名称空间URI
         String namespaceUri = getNamespaceURI(ele);
         //获取名称空间解析器
@@ -1160,7 +1160,7 @@ public class BeanDefinitionParserDelegate {
 
     //对Bean定义进行装饰
     public BeanDefinitionHolder decorateBeanDefinitionIfRequired(
-            Element ele, BeanDefinitionHolder definitionHolder, org.springframework.beans.factory.bean.definition.BeanDefinition containingBd) {
+            Element ele, BeanDefinitionHolder definitionHolder, org.springframework.beans.bean.definition.BeanDefinition containingBd) {
 
         BeanDefinitionHolder finalDefinition = definitionHolder;
 
@@ -1183,7 +1183,7 @@ public class BeanDefinitionParserDelegate {
 
     //对Bean定义进行装饰
     public BeanDefinitionHolder decorateIfRequired(
-            Node node, BeanDefinitionHolder originalDef, org.springframework.beans.factory.bean.definition.BeanDefinition containingBd) {
+            Node node, BeanDefinitionHolder originalDef, org.springframework.beans.bean.definition.BeanDefinition containingBd) {
         //获取节点的名称空间URI
         String namespaceUri = getNamespaceURI(node);
         //如果是默认的名称空间URI
@@ -1203,8 +1203,8 @@ public class BeanDefinitionParserDelegate {
     }
 
     //解析嵌套的外部元素
-    private BeanDefinitionHolder parseNestedCustomElement(Element ele, org.springframework.beans.factory.bean.definition.BeanDefinition containingBd) {
-        org.springframework.beans.factory.bean.definition.BeanDefinition innerDefinition = parseCustomElement(ele, containingBd);
+    private BeanDefinitionHolder parseNestedCustomElement(Element ele, org.springframework.beans.bean.definition.BeanDefinition containingBd) {
+        org.springframework.beans.bean.definition.BeanDefinition innerDefinition = parseCustomElement(ele, containingBd);
         if (innerDefinition == null) {
             error("Incorrect usage of element '" + ele.getNodeName() + "' in a nested manner. " +
                     "This tag cannot be used nested inside <property>.", ele);

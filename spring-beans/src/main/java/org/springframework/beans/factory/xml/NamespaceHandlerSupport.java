@@ -3,14 +3,15 @@ package org.springframework.beans.factory.xml;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.bean.definition.BeanDefinitionDecorator;
 import org.springframework.beans.factory.xml.parser.BeanDefinitionParser;
 import org.springframework.beans.factory.xml.parser.ParserContext;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import org.springframework.beans.factory.bean.definition.BeanDefinition;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
+import org.springframework.beans.bean.definition.BeanDefinition;
+import org.springframework.beans.bean.definition.BeanDefinitionHolder;
 
 //名称空间处理器助手
 public abstract class NamespaceHandlerSupport implements NamespaceHandler {
@@ -18,9 +19,9 @@ public abstract class NamespaceHandlerSupport implements NamespaceHandler {
     //Bean定义解析器
     private final Map<String, org.springframework.beans.factory.xml.parser.BeanDefinitionParser> parsers = new HashMap<String, org.springframework.beans.factory.xml.parser.BeanDefinitionParser>();
     //元素-Bean定义装饰器
-    private final Map<String, BeanDefinitionDecorator> decorators = new HashMap<String, BeanDefinitionDecorator>();
+    private final Map<String, org.springframework.beans.bean.definition.BeanDefinitionDecorator> decorators = new HashMap<String, org.springframework.beans.bean.definition.BeanDefinitionDecorator>();
     //属性-Bean定义装饰器
-    private final Map<String, BeanDefinitionDecorator> attributeDecorators = new HashMap<String, BeanDefinitionDecorator>();
+    private final Map<String, org.springframework.beans.bean.definition.BeanDefinitionDecorator> attributeDecorators = new HashMap<String, org.springframework.beans.bean.definition.BeanDefinitionDecorator>();
 
     //解析方法
     @Override
@@ -46,8 +47,8 @@ public abstract class NamespaceHandlerSupport implements NamespaceHandler {
     }
 
     //为节点寻找装饰器
-    private BeanDefinitionDecorator findDecoratorForNode(Node node, ParserContext parserContext) {
-        BeanDefinitionDecorator decorator = null;
+    private org.springframework.beans.bean.definition.BeanDefinitionDecorator findDecoratorForNode(Node node, ParserContext parserContext) {
+        org.springframework.beans.bean.definition.BeanDefinitionDecorator decorator = null;
         String localName = parserContext.getDelegate().getLocalName(node);
         if (node instanceof Element) {
             decorator = this.decorators.get(localName);
@@ -68,7 +69,7 @@ public abstract class NamespaceHandlerSupport implements NamespaceHandler {
         this.parsers.put(elementName, parser);
     }
 
-    protected final void registerBeanDefinitionDecorator(String elementName, BeanDefinitionDecorator dec) {
+    protected final void registerBeanDefinitionDecorator(String elementName, org.springframework.beans.bean.definition.BeanDefinitionDecorator dec) {
         this.decorators.put(elementName, dec);
     }
 

@@ -18,14 +18,15 @@ package org.springframework.beans.factory.support;
 
 import java.lang.reflect.Method;
 
+import org.springframework.beans.annotation.QualifierAnnotationAutowireCandidateResolver;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
-import org.springframework.beans.factory.bean.factorybean.FactoryBean;
-import org.springframework.beans.factory.bean.definition.BeanDefinition;
-import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
+import org.springframework.beans.bean.factorybean.FactoryBean;
+import org.springframework.beans.bean.definition.BeanDefinition;
+import org.springframework.beans.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.DependencyDescriptor;
-import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
+import org.springframework.beans.bean.definition.RootBeanDefinition;
 import org.springframework.beans.factory.support.autowire.AutowireCandidateResolver;
 import org.springframework.core.ResolvableType;
 import org.springframework.util.ClassUtils;
@@ -36,7 +37,7 @@ import org.springframework.util.ClassUtils;
  * (e.g. Repository&lt;Customer&gt;).
  *
  * <p>This is the base class for
- * {@link org.springframework.beans.factory.annotation.QualifierAnnotationAutowireCandidateResolver},
+ * {@link QualifierAnnotationAutowireCandidateResolver},
  * providing an implementation all non-annotation-based resolution steps at this level.
  *
  * @author Juergen Hoeller
