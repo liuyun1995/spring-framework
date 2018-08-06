@@ -18,14 +18,15 @@ package org.springframework.beans.factory.support;
 
 import java.lang.reflect.Method;
 
-import org.springframework.beans.factory.bean.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
 import org.springframework.beans.factory.bean.factorybean.FactoryBean;
 import org.springframework.beans.factory.bean.definition.BeanDefinition;
 import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
-import org.springframework.beans.factory.bean.factory.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.DependencyDescriptor;
 import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
+import org.springframework.beans.factory.support.autowire.AutowireCandidateResolver;
 import org.springframework.core.ResolvableType;
 import org.springframework.util.ClassUtils;
 

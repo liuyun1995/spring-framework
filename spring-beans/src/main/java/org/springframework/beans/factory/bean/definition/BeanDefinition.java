@@ -1,7 +1,7 @@
 package org.springframework.beans.factory.bean.definition;
 
 import org.springframework.beans.BeanMetadataElement;
-import org.springframework.beans.factory.bean.factory.ConfigurableBeanFactory;
+import org.springframework.beans.factory.ConfigurableBeanFactory;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.beans.property.MutablePropertyValues;
 import org.springframework.core.AttributeAccessor;

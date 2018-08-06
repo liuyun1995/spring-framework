@@ -20,9 +20,9 @@ import org.springframework.beans.BeanMetadataElement;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.exception.BeansException;
-import org.springframework.beans.TypeConverter;
+import org.springframework.beans.property.type.TypeConverter;
 import org.springframework.beans.exception.TypeMismatchException;
-import org.springframework.beans.factory.bean.factory.AbstractAutowireCapableBeanFactory;
+import org.springframework.beans.factory.AbstractAutowireCapableBeanFactory;
 import org.springframework.beans.exception.BeanCreationException;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.InjectionPoint;
@@ -111,7 +111,7 @@ class ConstructorResolver {
                                     "] from ClassLoader [" + beanClass.getClassLoader() + "] failed", ex);
                 }
             }
-            AutowireUtils.sortConstructors(candidates);
+            org.springframework.beans.factory.support.autowire.AutowireUtils.sortConstructors(candidates);
             int minTypeDiffWeight = Integer.MAX_VALUE;
             Set<Constructor<?>> ambiguousConstructors = null;
             LinkedList<UnsatisfiedDependencyException> causes = null;
@@ -372,7 +372,7 @@ class ConstructorResolver {
                 }
             }
             Method[] candidates = candidateSet.toArray(new Method[candidateSet.size()]);
-            AutowireUtils.sortFactoryMethods(candidates);
+            org.springframework.beans.factory.support.autowire.AutowireUtils.sortFactoryMethods(candidates);
 
             ConstructorArgumentValues resolvedValues = null;
             boolean autowiring = (mbd.getResolvedAutowireMode() == RootBeanDefinition.AUTOWIRE_CONSTRUCTOR);

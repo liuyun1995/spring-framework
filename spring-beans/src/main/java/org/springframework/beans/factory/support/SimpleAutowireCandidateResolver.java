@@ -18,9 +18,10 @@ package org.springframework.beans.factory.support;
 
 import org.springframework.beans.factory.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.config.DependencyDescriptor;
+import org.springframework.beans.factory.support.autowire.AutowireCandidateResolver;
 
 /**
- * {@link AutowireCandidateResolver} implementation to use when no annotation
+ * {@link org.springframework.beans.factory.support.autowire.AutowireCandidateResolver} implementation to use when no annotation
  * support is available. This implementation checks the bean definition only.
  *
  * @author Mark Fisher

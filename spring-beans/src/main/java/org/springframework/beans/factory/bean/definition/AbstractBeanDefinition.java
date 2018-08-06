@@ -9,8 +9,9 @@ import java.util.Set;
 
 import org.springframework.beans.BeanMetadataAttributeAccessor;
 import org.springframework.beans.factory.support.*;
+import org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier;
 import org.springframework.beans.property.MutablePropertyValues;
-import org.springframework.beans.factory.bean.factory.AutowireCapableBeanFactory;
+import org.springframework.beans.factory.AutowireCapableBeanFactory;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.core.io.DescriptiveResource;
 import org.springframework.core.io.Resource;
@@ -47,8 +48,8 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
     private String[] dependsOn;                                                //依赖对象名称集合
     private boolean autowireCandidate = true;                                  //是否自动装配候选
     private boolean primary = false;                                           //是否是主要候选者
-    private final Map<String, AutowireCandidateQualifier> qualifiers =         //自动装配候选者
-            new LinkedHashMap<String, AutowireCandidateQualifier>(0);
+    private final Map<String, org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier> qualifiers =         //自动装配候选者
+            new LinkedHashMap<String, org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier>(0);
     private boolean nonPublicAccessAllowed = true;                             //是否允许访问非公共属性
     private boolean lenientConstructorResolution = true;
     private String factoryBeanName;                                            //工厂Bean名称
@@ -348,7 +349,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
     }
 
     //添加自动装配合格者
-    public void addQualifier(AutowireCandidateQualifier qualifier) {
+    public void addQualifier(org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier qualifier) {
         this.qualifiers.put(qualifier.getTypeName(), qualifier);
     }
 
@@ -358,12 +359,12 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
     }
 
     //获取对应类型的合格者
-    public AutowireCandidateQualifier getQualifier(String typeName) {
+    public org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier getQualifier(String typeName) {
         return this.qualifiers.get(typeName);
     }
 
     //获取所有自动装配合格者
-    public Set<AutowireCandidateQualifier> getQualifiers() {
+    public Set<org.springframework.beans.factory.support.autowire.AutowireCandidateQualifier> getQualifiers() {
         return new LinkedHashSet<AutowireCandidateQualifier>(this.qualifiers.values());
     }
 

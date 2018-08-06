@@ -9,10 +9,10 @@ import java.util.Properties;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.exception.FatalBeanException;
-import org.springframework.beans.factory.bean.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
 import org.springframework.beans.factory.bean.InitializingBean;
-import org.springframework.beans.factory.bean.factory.ListableBeanFactory;
+import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 

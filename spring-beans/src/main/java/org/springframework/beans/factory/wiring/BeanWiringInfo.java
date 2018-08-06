@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.wiring;
 
-import org.springframework.beans.factory.bean.factory.AutowireCapableBeanFactory;
+import org.springframework.beans.factory.AutowireCapableBeanFactory;
 import org.springframework.util.Assert;
 
 public class BeanWiringInfo {

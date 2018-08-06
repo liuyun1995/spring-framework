@@ -4,8 +4,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import org.springframework.beans.exception.BeansException;
-import org.springframework.beans.factory.bean.factory.BeanFactory;
-import org.springframework.beans.factory.bean.factory.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.bean.definition.BeanDefinition;
 import org.springframework.beans.factory.support.processor.BeanFactoryPostProcessor;
 import org.springframework.util.ClassUtils;

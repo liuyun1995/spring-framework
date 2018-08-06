@@ -5,7 +5,7 @@ import java.util.Enumeration;
 import java.util.Properties;
 
 import org.springframework.beans.exception.BeansException;
-import org.springframework.beans.factory.bean.factory.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.exception.BeanInitializationException;
 import org.springframework.beans.factory.support.processor.BeanFactoryPostProcessor;
 import org.springframework.core.Ordered;

@@ -2,7 +2,7 @@ package org.springframework.beans.factory.serviceloader;
 
 import java.util.ServiceLoader;
 
-import org.springframework.beans.factory.BeanClassLoaderAware;
+import org.springframework.beans.factory.support.autowire.BeanClassLoaderAware;
 
 public class ServiceLoaderFactoryBean extends AbstractServiceLoaderBasedFactoryBean implements BeanClassLoaderAware {
 

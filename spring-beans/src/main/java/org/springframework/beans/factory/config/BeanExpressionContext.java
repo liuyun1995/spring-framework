@@ -1,6 +1,6 @@
 package org.springframework.beans.factory.config;
 
-import org.springframework.beans.factory.bean.factory.ConfigurableBeanFactory;
+import org.springframework.beans.factory.ConfigurableBeanFactory;
 import org.springframework.util.Assert;
 
 //Bean表达式上下文

@@ -3,7 +3,7 @@ package org.springframework.beans.factory.bean.factorybean;
 import java.io.Serializable;
 
 import org.springframework.beans.exception.BeansException;
-import org.springframework.beans.factory.bean.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.util.Assert;
 

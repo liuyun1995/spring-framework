@@ -1,9 +1,10 @@
 package org.springframework.beans.factory.config;
 
 import org.springframework.beans.exception.BeansException;
-import org.springframework.beans.factory.bean.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.InjectionPoint;
 import org.springframework.beans.exception.NoUniqueBeanDefinitionException;
+import org.springframework.beans.factory.support.autowire.AutowireCandidateResolver;
 import org.springframework.core.GenericTypeResolver;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.ParameterNameDiscoverer;
@@ -197,7 +198,7 @@ public class DependencyDescriptor extends InjectionPoint implements Serializable
     /**
      * Return whether a fallback match is allowed.
      * <p>This is {@code false} by default but may be overridden to return {@code true} in order
-     * to suggest to a {@link org.springframework.beans.factory.support.AutowireCandidateResolver}
+     * to suggest to a {@link AutowireCandidateResolver}
      * that a fallback match is acceptable as well.
      *
      * @since 4.0

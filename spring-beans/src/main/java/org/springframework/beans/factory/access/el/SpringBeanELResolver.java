@@ -10,7 +10,7 @@ import javax.el.PropertyNotWritableException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import org.springframework.beans.factory.bean.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactory;
 
 public abstract class SpringBeanELResolver extends ELResolver {
 

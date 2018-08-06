@@ -3,9 +3,6 @@ package org.springframework.beans.factory;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.exception.NoSuchBeanDefinitionException;
 import org.springframework.beans.exception.NoUniqueBeanDefinitionException;
-import org.springframework.beans.factory.bean.factory.BeanFactory;
-import org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory;
-import org.springframework.beans.factory.bean.factory.ListableBeanFactory;
 import org.springframework.core.ResolvableType;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
@@ -20,7 +17,7 @@ public abstract class BeanFactoryUtils {
 
     //给定名称是否是工厂名称
     public static boolean isFactoryDereference(String name) {
-        return (name != null && name.startsWith(org.springframework.beans.factory.bean.factory.BeanFactory.FACTORY_BEAN_PREFIX));
+        return (name != null && name.startsWith(BeanFactory.FACTORY_BEAN_PREFIX));
     }
 
     //转换成Bean的名称
@@ -28,7 +25,7 @@ public abstract class BeanFactoryUtils {
         Assert.notNull(name, "'name' must not be null");
         String beanName = name;
         //如果Bean名称以工厂Bean前缀开头
-        while (beanName.startsWith(org.springframework.beans.factory.bean.factory.BeanFactory.FACTORY_BEAN_PREFIX)) {
+        while (beanName.startsWith(BeanFactory.FACTORY_BEAN_PREFIX)) {
             //截取工厂Bean前缀之后的内容
             beanName = beanName.substring(BeanFactory.FACTORY_BEAN_PREFIX.length());
         }
@@ -58,7 +55,7 @@ public abstract class BeanFactoryUtils {
      * @param lbf the bean factory
      * @return count of beans including those defined in ancestor factories
      */
-    public static int countBeansIncludingAncestors(org.springframework.beans.factory.bean.factory.ListableBeanFactory lbf) {
+    public static int countBeansIncludingAncestors(ListableBeanFactory lbf) {
         return beanNamesIncludingAncestors(lbf).length;
     }
 
@@ -69,7 +66,7 @@ public abstract class BeanFactoryUtils {
      * @return the array of matching bean names, or an empty array if none
      * @see #beanNamesForTypeIncludingAncestors
      */
-    public static String[] beanNamesIncludingAncestors(org.springframework.beans.factory.bean.factory.ListableBeanFactory lbf) {
+    public static String[] beanNamesIncludingAncestors(ListableBeanFactory lbf) {
         return beanNamesForTypeIncludingAncestors(lbf, Object.class);
     }
 
@@ -87,14 +84,14 @@ public abstract class BeanFactoryUtils {
      * @return the array of matching bean names, or an empty array if none
      * @since 4.2
      */
-    public static String[] beanNamesForTypeIncludingAncestors(org.springframework.beans.factory.bean.factory.ListableBeanFactory lbf, ResolvableType type) {
+    public static String[] beanNamesForTypeIncludingAncestors(ListableBeanFactory lbf, ResolvableType type) {
         Assert.notNull(lbf, "ListableBeanFactory must not be null");
         String[] result = lbf.getBeanNamesForType(type);
-        if (lbf instanceof org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory) {
-            org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory hbf = (org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory) lbf;
-            if (hbf.getParentBeanFactory() instanceof org.springframework.beans.factory.bean.factory.ListableBeanFactory) {
+        if (lbf instanceof HierarchicalBeanFactory) {
+            HierarchicalBeanFactory hbf = (HierarchicalBeanFactory) lbf;
+            if (hbf.getParentBeanFactory() instanceof ListableBeanFactory) {
                 String[] parentResult = beanNamesForTypeIncludingAncestors(
-                        (org.springframework.beans.factory.bean.factory.ListableBeanFactory) hbf.getParentBeanFactory(), type);
+                        (ListableBeanFactory) hbf.getParentBeanFactory(), type);
                 List<String> resultList = new ArrayList<String>();
                 resultList.addAll(Arrays.asList(result));
                 for (String beanName : parentResult) {
@@ -121,14 +118,14 @@ public abstract class BeanFactoryUtils {
      * @param type the type that beans must match (as a {@code Class})
      * @return the array of matching bean names, or an empty array if none
      */
-    public static String[] beanNamesForTypeIncludingAncestors(org.springframework.beans.factory.bean.factory.ListableBeanFactory lbf, Class<?> type) {
+    public static String[] beanNamesForTypeIncludingAncestors(ListableBeanFactory lbf, Class<?> type) {
         Assert.notNull(lbf, "ListableBeanFactory must not be null");
         String[] result = lbf.getBeanNamesForType(type);
-        if (lbf instanceof org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory) {
-            org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory hbf = (org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory) lbf;
-            if (hbf.getParentBeanFactory() instanceof org.springframework.beans.factory.bean.factory.ListableBeanFactory) {
+        if (lbf instanceof HierarchicalBeanFactory) {
+            HierarchicalBeanFactory hbf = (HierarchicalBeanFactory) lbf;
+            if (hbf.getParentBeanFactory() instanceof ListableBeanFactory) {
                 String[] parentResult = beanNamesForTypeIncludingAncestors(
-                        (org.springframework.beans.factory.bean.factory.ListableBeanFactory) hbf.getParentBeanFactory(), type);
+                        (ListableBeanFactory) hbf.getParentBeanFactory(), type);
                 List<String> resultList = new ArrayList<String>();
                 resultList.addAll(Arrays.asList(result));
                 for (String beanName : parentResult) {
@@ -164,15 +161,15 @@ public abstract class BeanFactoryUtils {
      * @return the array of matching bean names, or an empty array if none
      */
     public static String[] beanNamesForTypeIncludingAncestors(
-            org.springframework.beans.factory.bean.factory.ListableBeanFactory lbf, Class<?> type, boolean includeNonSingletons, boolean allowEagerInit) {
+            ListableBeanFactory lbf, Class<?> type, boolean includeNonSingletons, boolean allowEagerInit) {
 
         Assert.notNull(lbf, "ListableBeanFactory must not be null");
         String[] result = lbf.getBeanNamesForType(type, includeNonSingletons, allowEagerInit);
-        if (lbf instanceof org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory) {
-            org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory hbf = (org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory) lbf;
-            if (hbf.getParentBeanFactory() instanceof org.springframework.beans.factory.bean.factory.ListableBeanFactory) {
+        if (lbf instanceof HierarchicalBeanFactory) {
+            HierarchicalBeanFactory hbf = (HierarchicalBeanFactory) lbf;
+            if (hbf.getParentBeanFactory() instanceof ListableBeanFactory) {
                 String[] parentResult = beanNamesForTypeIncludingAncestors(
-                        (org.springframework.beans.factory.bean.factory.ListableBeanFactory) hbf.getParentBeanFactory(), type, includeNonSingletons, allowEagerInit);
+                        (ListableBeanFactory) hbf.getParentBeanFactory(), type, includeNonSingletons, allowEagerInit);
                 List<String> resultList = new ArrayList<String>();
                 resultList.addAll(Arrays.asList(result));
                 for (String beanName : parentResult) {
@@ -204,17 +201,17 @@ public abstract class BeanFactoryUtils {
      * @return the Map of matching bean instances, or an empty Map if none
      * @throws BeansException if a bean could not be created
      */
-    public static <T> Map<String, T> beansOfTypeIncludingAncestors(org.springframework.beans.factory.bean.factory.ListableBeanFactory lbf, Class<T> type)
+    public static <T> Map<String, T> beansOfTypeIncludingAncestors(ListableBeanFactory lbf, Class<T> type)
             throws BeansException {
 
         Assert.notNull(lbf, "ListableBeanFactory must not be null");
         Map<String, T> result = new LinkedHashMap<String, T>(4);
         result.putAll(lbf.getBeansOfType(type));
-        if (lbf instanceof org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory) {
-            org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory hbf = (org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory) lbf;
-            if (hbf.getParentBeanFactory() instanceof org.springframework.beans.factory.bean.factory.ListableBeanFactory) {
+        if (lbf instanceof HierarchicalBeanFactory) {
+            HierarchicalBeanFactory hbf = (HierarchicalBeanFactory) lbf;
+            if (hbf.getParentBeanFactory() instanceof ListableBeanFactory) {
                 Map<String, T> parentResult = beansOfTypeIncludingAncestors(
-                        (org.springframework.beans.factory.bean.factory.ListableBeanFactory) hbf.getParentBeanFactory(), type);
+                        (ListableBeanFactory) hbf.getParentBeanFactory(), type);
                 for (Map.Entry<String, T> entry : parentResult.entrySet()) {
                     String beanName = entry.getKey();
                     if (!result.containsKey(beanName) && !hbf.containsLocalBean(beanName)) {
@@ -254,17 +251,17 @@ public abstract class BeanFactoryUtils {
      * @throws BeansException if a bean could not be created
      */
     public static <T> Map<String, T> beansOfTypeIncludingAncestors(
-            org.springframework.beans.factory.bean.factory.ListableBeanFactory lbf, Class<T> type, boolean includeNonSingletons, boolean allowEagerInit)
+            ListableBeanFactory lbf, Class<T> type, boolean includeNonSingletons, boolean allowEagerInit)
             throws BeansException {
 
         Assert.notNull(lbf, "ListableBeanFactory must not be null");
         Map<String, T> result = new LinkedHashMap<String, T>(4);
         result.putAll(lbf.getBeansOfType(type, includeNonSingletons, allowEagerInit));
-        if (lbf instanceof org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory) {
-            org.springframework.beans.factory.bean.factory.HierarchicalBeanFactory hbf = (HierarchicalBeanFactory) lbf;
-            if (hbf.getParentBeanFactory() instanceof org.springframework.beans.factory.bean.factory.ListableBeanFactory) {
+        if (lbf instanceof HierarchicalBeanFactory) {
+            HierarchicalBeanFactory hbf = (HierarchicalBeanFactory) lbf;
+            if (hbf.getParentBeanFactory() instanceof ListableBeanFactory) {
                 Map<String, T> parentResult = beansOfTypeIncludingAncestors(
-                        (org.springframework.beans.factory.bean.factory.ListableBeanFactory) hbf.getParentBeanFactory(), type, includeNonSingletons, allowEagerInit);
+                        (ListableBeanFactory) hbf.getParentBeanFactory(), type, includeNonSingletons, allowEagerInit);
                 for (Map.Entry<String, T> entry : parentResult.entrySet()) {
                     String beanName = entry.getKey();
                     if (!result.containsKey(beanName) && !hbf.containsLocalBean(beanName)) {
@@ -300,7 +297,7 @@ public abstract class BeanFactoryUtils {
      * @throws NoUniqueBeanDefinitionException if more than one bean of the given type was found
      * @throws BeansException                  if the bean could not be created
      */
-    public static <T> T beanOfTypeIncludingAncestors(org.springframework.beans.factory.bean.factory.ListableBeanFactory lbf, Class<T> type)
+    public static <T> T beanOfTypeIncludingAncestors(ListableBeanFactory lbf, Class<T> type)
             throws BeansException {
 
         Map<String, T> beansOfType = beansOfTypeIncludingAncestors(lbf, type);
@@ -338,7 +335,7 @@ public abstract class BeanFactoryUtils {
      * @throws BeansException                  if the bean could not be created
      */
     public static <T> T beanOfTypeIncludingAncestors(
-            org.springframework.beans.factory.bean.factory.ListableBeanFactory lbf, Class<T> type, boolean includeNonSingletons, boolean allowEagerInit)
+            ListableBeanFactory lbf, Class<T> type, boolean includeNonSingletons, boolean allowEagerInit)
             throws BeansException {
 
         Map<String, T> beansOfType = beansOfTypeIncludingAncestors(lbf, type, includeNonSingletons, allowEagerInit);
@@ -362,7 +359,7 @@ public abstract class BeanFactoryUtils {
      * @throws NoUniqueBeanDefinitionException if more than one bean of the given type was found
      * @throws BeansException                  if the bean could not be created
      */
-    public static <T> T beanOfType(org.springframework.beans.factory.bean.factory.ListableBeanFactory lbf, Class<T> type) throws BeansException {
+    public static <T> T beanOfType(ListableBeanFactory lbf, Class<T> type) throws BeansException {
         Assert.notNull(lbf, "ListableBeanFactory must not be null");
         Map<String, T> beansOfType = lbf.getBeansOfType(type);
         return uniqueBean(type, beansOfType);

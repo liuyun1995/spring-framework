@@ -1,7 +1,7 @@
 package org.springframework.beans.factory.bean.factorybean;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.TypeConverter;
+import org.springframework.beans.property.type.TypeConverter;
 import org.springframework.core.ResolvableType;
 
 import java.util.LinkedHashSet;

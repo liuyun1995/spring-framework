@@ -24,8 +24,8 @@ import org.apache.commons.logging.LogFactory;
 
 import org.springframework.beans.exception.BeanInstantiationException;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.bean.factory.BeanFactory;
-import org.springframework.beans.factory.bean.factory.ConfigurableBeanFactory;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.ConfigurableBeanFactory;
 import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
 import org.springframework.cglib.core.ClassGenerator;
 import org.springframework.cglib.core.DefaultGeneratorStrategy;

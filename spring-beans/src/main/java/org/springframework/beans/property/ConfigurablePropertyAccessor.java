@@ -1,7 +1,7 @@
 package org.springframework.beans.property;
 
 import org.springframework.beans.PropertyAccessor;
-import org.springframework.beans.TypeConverter;
+import org.springframework.beans.property.type.TypeConverter;
 import org.springframework.core.convert.ConversionService;
 
 //可配置的属性获取器

@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.exception.BeansException;
-import org.springframework.beans.factory.bean.factory.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.bean.definition.BeanDefinition;
 import org.springframework.beans.property.PropertyValue;
 import org.springframework.beans.exception.BeanInitializationException;

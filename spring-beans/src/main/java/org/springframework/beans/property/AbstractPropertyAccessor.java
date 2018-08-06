@@ -1,15 +1,11 @@
 package org.springframework.beans.property;
 
-import org.springframework.beans.TypeConverterSupport;
+import org.springframework.beans.property.type.TypeConverterSupport;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.exception.NotWritablePropertyException;
 import org.springframework.beans.exception.NullValueInNestedPathException;
 import org.springframework.beans.exception.PropertyAccessException;
 import org.springframework.beans.exception.PropertyBatchUpdateException;
-import org.springframework.beans.property.ConfigurablePropertyAccessor;
-import org.springframework.beans.property.MutablePropertyValues;
-import org.springframework.beans.property.PropertyValue;
-import org.springframework.beans.property.PropertyValues;
 
 import java.util.Arrays;
 import java.util.LinkedList;

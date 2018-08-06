@@ -2,14 +2,14 @@ package org.springframework.beans.factory.bean.definition;
 
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.exception.BeansException;
-import org.springframework.beans.TypeConverter;
-import org.springframework.beans.factory.bean.factory.AbstractBeanFactory;
+import org.springframework.beans.property.type.TypeConverter;
+import org.springframework.beans.factory.AbstractBeanFactory;
 import org.springframework.beans.exception.BeanCreationException;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.bean.factorybean.FactoryBean;
 import org.springframework.beans.factory.config.*;
-import org.springframework.beans.factory.support.*;
+import org.springframework.beans.factory.support.merge.ManagedSet;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
@@ -59,9 +59,9 @@ class BeanDefinitionValueResolver {
 			String innerBeanName = "(inner bean)" + BeanFactoryUtils.GENERATED_BEAN_NAME_SEPARATOR
 					+ ObjectUtils.getIdentityHexString(bd);
 			return resolveInnerBean(argName, innerBeanName, bd);
-		} else if (value instanceof ManagedArray) {
+		} else if (value instanceof org.springframework.beans.factory.support.merge.ManagedArray) {
 			// May need to resolve contained runtime references.
-			ManagedArray array = (ManagedArray) value;
+			org.springframework.beans.factory.support.merge.ManagedArray array = (org.springframework.beans.factory.support.merge.ManagedArray) value;
 			Class<?> elementType = array.resolvedElementType;
 			if (elementType == null) {
 				String elementTypeName = array.getElementTypeName();
@@ -79,16 +79,16 @@ class BeanDefinitionValueResolver {
 				}
 			}
 			return resolveManagedArray(argName, (List<?>) value, elementType);
-		} else if (value instanceof ManagedList) {
+		} else if (value instanceof org.springframework.beans.factory.support.merge.ManagedList) {
 			// May need to resolve contained runtime references.
 			return resolveManagedList(argName, (List<?>) value);
 		} else if (value instanceof ManagedSet) {
 			// May need to resolve contained runtime references.
 			return resolveManagedSet(argName, (Set<?>) value);
-		} else if (value instanceof ManagedMap) {
+		} else if (value instanceof org.springframework.beans.factory.support.merge.ManagedMap) {
 			// May need to resolve contained runtime references.
 			return resolveManagedMap(argName, (Map<?, ?>) value);
-		} else if (value instanceof ManagedProperties) {
+		} else if (value instanceof org.springframework.beans.factory.support.merge.ManagedProperties) {
 			Properties original = (Properties) value;
 			Properties copy = new Properties();
 			for (Map.Entry<Object, Object> propEntry : original.entrySet()) {

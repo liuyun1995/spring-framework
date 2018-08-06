@@ -11,11 +11,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.property.PropertyValues;
-import org.springframework.beans.factory.bean.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
 import org.springframework.beans.exception.BeanInitializationException;
 import org.springframework.beans.factory.bean.definition.BeanDefinition;
-import org.springframework.beans.factory.bean.factory.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;
 import org.springframework.beans.factory.support.processor.MergedBeanDefinitionPostProcessor;
 import org.springframework.beans.factory.bean.definition.RootBeanDefinition;
