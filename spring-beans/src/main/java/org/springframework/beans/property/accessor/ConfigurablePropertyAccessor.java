@@ -1,6 +1,6 @@
-package org.springframework.beans.property;
+package org.springframework.beans.property.accessor;
 
-import org.springframework.beans.PropertyAccessor;
+import org.springframework.beans.property.PropertyEditorRegistry;
 import org.springframework.beans.property.type.TypeConverter;
 import org.springframework.core.convert.ConversionService;
 

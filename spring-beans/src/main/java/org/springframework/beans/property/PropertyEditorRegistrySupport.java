@@ -26,7 +26,8 @@ import java.util.TimeZone;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-import org.springframework.beans.PropertyAccessor;
+import org.springframework.beans.property.accessor.PropertyAccessor;
+import org.springframework.beans.property.accessor.PropertyAccessorUtils;
 import org.xml.sax.InputSource;
 
 import org.springframework.beans.property.editors.ByteArrayPropertyEditor;

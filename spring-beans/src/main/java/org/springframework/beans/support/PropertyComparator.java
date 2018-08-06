@@ -4,10 +4,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.beans.bean.BeanWrapperImpl;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.util.StringUtils;
@@ -19,18 +17,22 @@ public class PropertyComparator<T> implements Comparator<T> {
 	private final SortDefinition sortDefinition;                             //排序定义
 	private final BeanWrapperImpl beanWrapper = new BeanWrapperImpl(false);  //Bean包装类
 
+	//构造器1
 	public PropertyComparator(SortDefinition sortDefinition) {
 		this.sortDefinition = sortDefinition;
 	}
 
+	//构造器2
 	public PropertyComparator(String property, boolean ignoreCase, boolean ascending) {
 		this.sortDefinition = new MutableSortDefinition(property, ignoreCase, ascending);
 	}
 
+	//获取排序定义
 	public final SortDefinition getSortDefinition() {
 		return this.sortDefinition;
 	}
 
+	//比较方法
 	@Override
 	@SuppressWarnings("unchecked")
 	public int compare(T o1, T o2) {
@@ -57,6 +59,7 @@ public class PropertyComparator<T> implements Comparator<T> {
 		return (this.sortDefinition.isAscending() ? result : -result);
 	}
 
+	//获取属性值
 	private Object getPropertyValue(Object obj) {
 		try {
 			this.beanWrapper.setWrappedInstance(obj);
@@ -67,12 +70,14 @@ public class PropertyComparator<T> implements Comparator<T> {
 		}
 	}
 
+	//排序方法
 	public static void sort(List<?> source, SortDefinition sortDefinition) throws BeansException {
 		if (StringUtils.hasText(sortDefinition.getProperty())) {
 			Collections.sort(source, new PropertyComparator<Object>(sortDefinition));
 		}
 	}
 
+	//排序方法
 	public static void sort(Object[] source, SortDefinition sortDefinition) throws BeansException {
 		if (StringUtils.hasText(sortDefinition.getProperty())) {
 			Arrays.sort(source, new PropertyComparator<Object>(sortDefinition));

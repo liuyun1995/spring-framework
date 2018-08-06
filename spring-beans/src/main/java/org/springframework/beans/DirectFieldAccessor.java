@@ -2,7 +2,7 @@ package org.springframework.beans;
 
 import org.springframework.beans.exception.InvalidPropertyException;
 import org.springframework.beans.exception.NotWritablePropertyException;
-import org.springframework.beans.property.AbstractNestablePropertyAccessor;
+import org.springframework.beans.property.accessor.AbstractNestablePropertyAccessor;
 import org.springframework.beans.property.PropertyMatches;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.convert.TypeDescriptor;

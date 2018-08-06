@@ -1,4 +1,4 @@
-package org.springframework.beans.property;
+package org.springframework.beans.property.accessor;
 
 import java.beans.PropertyChangeEvent;
 import java.lang.reflect.Array;
@@ -25,6 +25,7 @@ import org.springframework.beans.exception.NotReadablePropertyException;
 import org.springframework.beans.exception.NotWritablePropertyException;
 import org.springframework.beans.exception.NullValueInNestedPathException;
 import org.springframework.beans.exception.TypeMismatchException;
+import org.springframework.beans.property.PropertyValue;
 import org.springframework.core.CollectionFactory;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.convert.ConversionException;
@@ -651,7 +652,7 @@ public abstract class AbstractNestablePropertyAccessor extends AbstractPropertyA
         if (pa == this) {
             return nestedPath;
         }
-        return nestedPath.substring(org.springframework.beans.property.PropertyAccessorUtils.getLastNestedPropertySeparatorIndex(nestedPath) + 1);
+        return nestedPath.substring(PropertyAccessorUtils.getLastNestedPropertySeparatorIndex(nestedPath) + 1);
     }
 
 

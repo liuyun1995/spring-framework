@@ -1,6 +1,6 @@
-package org.springframework.beans.property;
+package org.springframework.beans.property.accessor;
 
-import org.springframework.beans.PropertyAccessor;
+import org.springframework.beans.property.accessor.PropertyAccessor;
 
 //属性访问工具类
 public abstract class PropertyAccessorUtils {

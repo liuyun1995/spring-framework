@@ -14,7 +14,7 @@ import org.springframework.beans.GenericTypeAwarePropertyDescriptor;
 import org.springframework.beans.exception.InvalidPropertyException;
 import org.springframework.beans.exception.NotWritablePropertyException;
 import org.springframework.beans.exception.TypeMismatchException;
-import org.springframework.beans.property.AbstractNestablePropertyAccessor;
+import org.springframework.beans.property.accessor.AbstractNestablePropertyAccessor;
 import org.springframework.beans.property.PropertyMatches;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.convert.Property;

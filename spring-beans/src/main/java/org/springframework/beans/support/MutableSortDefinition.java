@@ -1,9 +1,9 @@
 package org.springframework.beans.support;
 
 import java.io.Serializable;
-
 import org.springframework.util.StringUtils;
 
+//易变的排序定义
 @SuppressWarnings("serial")
 public class MutableSortDefinition implements SortDefinition, Serializable {
 
@@ -12,24 +12,29 @@ public class MutableSortDefinition implements SortDefinition, Serializable {
     private boolean ascending = true;
     private boolean toggleAscendingOnProperty = false;
 
+    //构造器1
     public MutableSortDefinition() {}
 
+    //构造器2
     public MutableSortDefinition(SortDefinition source) {
         this.property = source.getProperty();
         this.ignoreCase = source.isIgnoreCase();
         this.ascending = source.isAscending();
     }
 
+    //构造器3
     public MutableSortDefinition(String property, boolean ignoreCase, boolean ascending) {
         this.property = property;
         this.ignoreCase = ignoreCase;
         this.ascending = ascending;
     }
 
+    //构造器4
     public MutableSortDefinition(boolean toggleAscendingOnSameProperty) {
         this.toggleAscendingOnProperty = toggleAscendingOnSameProperty;
     }
 
+    //设置属性
     public void setProperty(String property) {
         if (!StringUtils.hasLength(property)) {
             this.property = "";
@@ -42,6 +47,7 @@ public class MutableSortDefinition implements SortDefinition, Serializable {
         }
     }
 
+    //获取属性
     @Override
     public String getProperty() {
         return this.property;

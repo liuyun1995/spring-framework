@@ -13,7 +13,7 @@ import org.springframework.beans.bean.definition.*;
 import org.springframework.beans.bean.registry.BeanDefinitionRegistry;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.property.MutablePropertyValues;
-import org.springframework.beans.PropertyAccessor;
+import org.springframework.beans.property.accessor.PropertyAccessor;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.exception.CannotLoadBeanClassException;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;

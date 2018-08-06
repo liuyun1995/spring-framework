@@ -40,7 +40,7 @@ import org.springframework.beans.factory.support.processor.MergedBeanDefinitionP
 import org.springframework.beans.factory.support.strategy.CglibSubclassingInstantiationStrategy;
 import org.springframework.beans.factory.support.strategy.InstantiationStrategy;
 import org.springframework.beans.property.MutablePropertyValues;
-import org.springframework.beans.property.PropertyAccessorUtils;
+import org.springframework.beans.property.accessor.PropertyAccessorUtils;
 import org.springframework.beans.property.PropertyValue;
 import org.springframework.beans.property.PropertyValues;
 import org.springframework.beans.property.type.TypeConverter;

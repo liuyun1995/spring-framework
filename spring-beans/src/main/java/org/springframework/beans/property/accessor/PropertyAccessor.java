@@ -1,4 +1,4 @@
-package org.springframework.beans;
+package org.springframework.beans.property.accessor;
 
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.property.PropertyValue;

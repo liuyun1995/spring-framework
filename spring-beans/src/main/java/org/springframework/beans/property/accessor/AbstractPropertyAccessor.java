@@ -1,5 +1,8 @@
-package org.springframework.beans.property;
+package org.springframework.beans.property.accessor;
 
+import org.springframework.beans.property.MutablePropertyValues;
+import org.springframework.beans.property.PropertyValue;
+import org.springframework.beans.property.PropertyValues;
 import org.springframework.beans.property.type.TypeConverterSupport;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.exception.NotWritablePropertyException;

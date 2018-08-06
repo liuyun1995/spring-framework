@@ -1,7 +1,6 @@
 package org.springframework.beans.property;
 
 import org.springframework.beans.property.editors.PropertiesEditor;
-
 import java.beans.PropertyEditorSupport;
 import java.util.Properties;
 

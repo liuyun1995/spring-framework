@@ -6,9 +6,7 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.net.URI;
 import java.net.URL;
-
 import org.xml.sax.InputSource;
-
 import org.springframework.beans.property.PropertyEditorRegistrar;
 import org.springframework.beans.property.PropertyEditorRegistry;
 import org.springframework.beans.property.PropertyEditorRegistrySupport;

@@ -1,7 +1,7 @@
 package org.springframework.beans.bean;
 
 import org.springframework.beans.exception.InvalidPropertyException;
-import org.springframework.beans.property.ConfigurablePropertyAccessor;
+import org.springframework.beans.property.accessor.ConfigurablePropertyAccessor;
 
 import java.beans.PropertyDescriptor;
 

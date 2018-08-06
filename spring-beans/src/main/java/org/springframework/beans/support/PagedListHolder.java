@@ -1,7 +1,6 @@
 package org.springframework.beans.support;
 
 import org.springframework.util.Assert;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;

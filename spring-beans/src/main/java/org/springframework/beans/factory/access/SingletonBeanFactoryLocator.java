@@ -3,10 +3,8 @@ package org.springframework.beans.factory.access;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.exception.BootstrapException;
 import org.springframework.beans.exception.FatalBeanException;
@@ -25,9 +23,7 @@ import org.springframework.core.io.support.ResourcePatternUtils;
 public class SingletonBeanFactoryLocator implements BeanFactoryLocator {
 
     private static final String DEFAULT_RESOURCE_LOCATION = "classpath*:beanRefFactory.xml";
-
     protected static final Log logger = LogFactory.getLog(SingletonBeanFactoryLocator.class);
-
     private static final Map<String, BeanFactoryLocator> instances = new HashMap<String, BeanFactoryLocator>();
 
     //获取实例
