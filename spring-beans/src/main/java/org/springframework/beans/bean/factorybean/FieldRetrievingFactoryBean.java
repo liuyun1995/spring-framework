@@ -1,7 +1,6 @@
 package org.springframework.beans.bean.factorybean;
 
 import java.lang.reflect.Field;
-
 import org.springframework.beans.factory.support.autowire.BeanClassLoaderAware;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.support.autowire.BeanNameAware;
@@ -11,6 +10,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
+//字段检索工厂Bean
 public class FieldRetrievingFactoryBean
         implements FactoryBean<Object>, BeanNameAware, BeanClassLoaderAware, InitializingBean {
 

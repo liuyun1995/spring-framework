@@ -2,7 +2,6 @@ package org.springframework.beans.bean;
 
 import org.springframework.beans.exception.InvalidPropertyException;
 import org.springframework.beans.property.accessor.ConfigurablePropertyAccessor;
-
 import java.beans.PropertyDescriptor;
 
 //Bean包装器接口

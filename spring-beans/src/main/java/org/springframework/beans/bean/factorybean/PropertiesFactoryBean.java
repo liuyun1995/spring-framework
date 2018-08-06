@@ -2,7 +2,6 @@ package org.springframework.beans.bean.factorybean;
 
 import java.io.IOException;
 import java.util.Properties;
-
 import org.springframework.beans.bean.InitializingBean;
 import org.springframework.core.io.support.PropertiesLoaderSupport;
 

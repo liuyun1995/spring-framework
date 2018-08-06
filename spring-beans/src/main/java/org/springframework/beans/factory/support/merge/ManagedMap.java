@@ -2,19 +2,14 @@ package org.springframework.beans.factory.support.merge;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 import org.springframework.beans.bean.BeanMetadataElement;
 
-//管理的映射
 @SuppressWarnings("serial")
 public class ManagedMap<K, V> extends LinkedHashMap<K, V> implements Mergeable, BeanMetadataElement {
 
 	private Object source;
-
 	private String keyTypeName;
-
 	private String valueTypeName;
-
 	private boolean mergeEnabled;
 
 

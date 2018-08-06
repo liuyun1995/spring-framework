@@ -1,7 +1,6 @@
 package org.springframework.beans.bean.factorybean;
 
 import java.io.Serializable;
-
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ObjectFactory;

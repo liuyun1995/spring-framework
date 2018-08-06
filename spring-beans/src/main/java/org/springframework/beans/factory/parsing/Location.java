@@ -3,6 +3,7 @@ package org.springframework.beans.factory.parsing;
 import org.springframework.core.io.Resource;
 import org.springframework.util.Assert;
 
+//问题定位
 public class Location {
 
 	private final Resource resource;   //资源

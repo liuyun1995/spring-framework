@@ -1,6 +1,6 @@
 package org.springframework.beans.exception;
 
-import org.springframework.beans.factory.InjectionPoint;
+import org.springframework.beans.InjectionPoint;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 

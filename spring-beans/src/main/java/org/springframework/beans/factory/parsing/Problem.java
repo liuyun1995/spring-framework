@@ -5,11 +5,8 @@ import org.springframework.util.Assert;
 public class Problem {
 
 	private final String message;
-
 	private final Location location;
-
 	private final ParseState parseState;
-
 	private final Throwable rootCause;
 
 	public Problem(String message, Location location) {

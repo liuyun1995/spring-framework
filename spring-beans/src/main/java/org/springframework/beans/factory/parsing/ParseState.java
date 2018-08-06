@@ -6,7 +6,6 @@ import java.util.Stack;
 public final class ParseState {
 
 	private static final char TAB = '\t';
-
 	private final Stack<Entry> state;
 
 	public ParseState() {

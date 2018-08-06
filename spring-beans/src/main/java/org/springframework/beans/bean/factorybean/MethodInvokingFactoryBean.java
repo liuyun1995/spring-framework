@@ -1,6 +1,6 @@
 package org.springframework.beans.bean.factorybean;
 
-import org.springframework.beans.factory.config.MethodInvokingBean;
+import org.springframework.beans.bean.MethodInvokingBean;
 import org.springframework.beans.exception.FactoryBeanNotInitializedException;
 
 public class MethodInvokingFactoryBean extends MethodInvokingBean implements FactoryBean<Object> {

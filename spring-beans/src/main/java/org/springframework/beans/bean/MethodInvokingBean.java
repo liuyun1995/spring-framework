@@ -1,7 +1,6 @@
-package org.springframework.beans.factory.config;
+package org.springframework.beans.bean;
 
 import java.lang.reflect.InvocationTargetException;
-
 import org.springframework.beans.property.type.TypeConverter;
 import org.springframework.beans.factory.support.autowire.BeanClassLoaderAware;
 import org.springframework.beans.factory.BeanFactory;

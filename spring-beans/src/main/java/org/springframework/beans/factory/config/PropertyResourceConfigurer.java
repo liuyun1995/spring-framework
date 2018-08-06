@@ -3,7 +3,6 @@ package org.springframework.beans.factory.config;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Properties;
-
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.exception.BeanInitializationException;
@@ -13,6 +12,7 @@ import org.springframework.core.PriorityOrdered;
 import org.springframework.core.io.support.PropertiesLoaderSupport;
 import org.springframework.util.ObjectUtils;
 
+//属性资源配置器
 public abstract class PropertyResourceConfigurer extends PropertiesLoaderSupport
         implements BeanFactoryPostProcessor, PriorityOrdered {
 

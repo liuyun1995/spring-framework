@@ -14,10 +14,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.beans.CachedIntrospectionResults;
 import org.springframework.beans.GenericTypeAwarePropertyDescriptor;
 import org.springframework.beans.exception.BeanInstantiationException;
@@ -36,6 +34,7 @@ public abstract class BeanUtils {
 
     private static final Set<Class<?>> unknownEditorTypes = Collections.newSetFromMap(new ConcurrentReferenceHashMap<Class<?>, Boolean>(64));
 
+    //实例化
     public static <T> T instantiate(Class<T> clazz) throws org.springframework.beans.exception.BeanInstantiationException {
         Assert.notNull(clazz, "Class must not be null");
         if (clazz.isInterface()) {
@@ -50,7 +49,7 @@ public abstract class BeanUtils {
         }
     }
 
-
+    //实例化类型
     public static <T> T instantiateClass(Class<T> clazz) throws org.springframework.beans.exception.BeanInstantiationException {
         Assert.notNull(clazz, "Class must not be null");
         if (clazz.isInterface()) {
@@ -63,14 +62,14 @@ public abstract class BeanUtils {
         }
     }
 
-
+    //实例化类型
     @SuppressWarnings("unchecked")
     public static <T> T instantiateClass(Class<?> clazz, Class<T> assignableTo) throws org.springframework.beans.exception.BeanInstantiationException {
         Assert.isAssignable(assignableTo, clazz);
         return (T) instantiateClass(clazz);
     }
 
-
+    //实例化类型
     public static <T> T instantiateClass(Constructor<T> ctor, Object... args) throws org.springframework.beans.exception.BeanInstantiationException {
         Assert.notNull(ctor, "Constructor must not be null");
         try {
@@ -87,7 +86,7 @@ public abstract class BeanUtils {
         }
     }
 
-
+    //寻找方面
     public static Method findMethod(Class<?> clazz, String methodName, Class<?>... paramTypes) {
         try {
             return clazz.getMethod(methodName, paramTypes);
@@ -96,7 +95,7 @@ public abstract class BeanUtils {
         }
     }
 
-
+    //寻找声明方法
     public static Method findDeclaredMethod(Class<?> clazz, String methodName, Class<?>... paramTypes) {
         try {
             return clazz.getDeclaredMethod(methodName, paramTypes);
@@ -108,24 +107,7 @@ public abstract class BeanUtils {
         }
     }
 
-    /**
-     * Find a method with the given method name and minimal parameters (best case:
-     * none), declared on the given class or one of its superclasses. Prefers public
-     * methods, but will return a protected, package access, or private method too.
-     * <p>
-     * Checks {@code Class.getMethods} first, falling back to
-     * {@code findDeclaredMethodWithMinimalParameters}. This allows for finding
-     * public methods without issues even in environments with restricted Java
-     * security settings.
-     *
-     * @param clazz      the class to check
-     * @param methodName the name of the method to find
-     * @return the Method object, or {@code null} if not found
-     * @throws IllegalArgumentException if methods of the given name were found but could not be resolved
-     *                                  to a unique method with minimal parameters
-     * @see Class#getMethods
-     * @see #findDeclaredMethodWithMinimalParameters
-     */
+    //寻找最小参数方法
     public static Method findMethodWithMinimalParameters(Class<?> clazz, String methodName)
             throws IllegalArgumentException {
         Method targetMethod = findMethodWithMinimalParameters(clazz.getMethods(), methodName);
@@ -135,21 +117,7 @@ public abstract class BeanUtils {
         return targetMethod;
     }
 
-    /**
-     * Find a method with the given method name and minimal parameters (best case:
-     * none), declared on the given class or one of its superclasses. Will return a
-     * public, protected, package access, or private method.
-     * <p>
-     * Checks {@code Class.getDeclaredMethods}, cascading upwards to all
-     * superclasses.
-     *
-     * @param clazz      the class to check
-     * @param methodName the name of the method to find
-     * @return the Method object, or {@code null} if not found
-     * @throws IllegalArgumentException if methods of the given name were found but could not be resolved
-     *                                  to a unique method with minimal parameters
-     * @see Class#getDeclaredMethods
-     */
+    //寻找最小参数的声明方法
     public static Method findDeclaredMethodWithMinimalParameters(Class<?> clazz, String methodName)
             throws IllegalArgumentException {
         Method targetMethod = findMethodWithMinimalParameters(clazz.getDeclaredMethods(), methodName);
@@ -159,16 +127,7 @@ public abstract class BeanUtils {
         return targetMethod;
     }
 
-    /**
-     * Find a method with the given method name and minimal parameters (best case:
-     * none) in the given list of methods.
-     *
-     * @param methods    the methods to check
-     * @param methodName the name of the method to find
-     * @return the Method object, or {@code null} if not found
-     * @throws IllegalArgumentException if methods of the given name were found but could not be resolved
-     *                                  to a unique method with minimal parameters
-     */
+    //寻找最小参数的方法
     public static Method findMethodWithMinimalParameters(Method[] methods, String methodName)
             throws IllegalArgumentException {
         Method targetMethod = null;
@@ -199,31 +158,7 @@ public abstract class BeanUtils {
         return targetMethod;
     }
 
-    /**
-     * Parse a method signature in the form {@code methodName[([arg_list])]}, where
-     * {@code arg_list} is an optional, comma-separated list of fully-qualified type
-     * names, and attempts to resolve that signature against the supplied
-     * {@code Class}.
-     * <p>
-     * When not supplying an argument list ({@code methodName}) the method whose
-     * name matches and has the least number of parameters will be returned. When
-     * supplying an argument type list, only the method whose name and argument
-     * types match will be returned.
-     * <p>
-     * Note then that {@code methodName} and {@code methodName()} are
-     * <strong>not</strong> resolved in the same way. The signature
-     * {@code methodName} means the method called {@code methodName} with the least
-     * number of arguments, whereas {@code methodName()} means the method called
-     * {@code methodName} with exactly 0 arguments.
-     * <p>
-     * If no method can be found, then {@code null} is returned.
-     *
-     * @param signature the method signature as String representation
-     * @param clazz     the class to resolve the method signature against
-     * @return the resolved Method
-     * @see #findMethod
-     * @see #findMethodWithMinimalParameters
-     */
+    //解析方法签名
     public static Method resolveSignature(String signature, Class<?> clazz) {
         Assert.hasText(signature, "'signature' must not be empty");
         Assert.notNull(clazz, "Class must not be null");
@@ -255,13 +190,13 @@ public abstract class BeanUtils {
         }
     }
 
-
+    //获取属性描述符
     public static PropertyDescriptor[] getPropertyDescriptors(Class<?> clazz) throws org.springframework.beans.exception.BeansException {
         CachedIntrospectionResults cr = CachedIntrospectionResults.forClass(clazz);
         return cr.getPropertyDescriptors();
     }
 
-
+    //获取属性描述符
     public static PropertyDescriptor getPropertyDescriptor(Class<?> clazz, String propertyName) throws org.springframework.beans.exception.BeansException {
         CachedIntrospectionResults cr = CachedIntrospectionResults.forClass(clazz);
         return cr.getPropertyDescriptor(propertyName);
@@ -294,17 +229,7 @@ public abstract class BeanUtils {
         return null;
     }
 
-    /**
-     * Find a JavaBeans PropertyEditor following the 'Editor' suffix convention
-     * (e.g. "mypackage.MyDomainClass" -> "mypackage.MyDomainClassEditor").
-     * <p>
-     * Compatible to the standard JavaBeans convention as implemented by
-     * {@link java.beans.PropertyEditorManager} but isolated from the latter's
-     * registered default editors for primitive types.
-     *
-     * @param targetType the type to find an editor for
-     * @return the corresponding editor, or {@code null} if none found
-     */
+    //获取属性编辑器
     public static PropertyEditor findEditorByConvention(Class<?> targetType) {
         if (targetType == null || targetType.isArray() || unknownEditorTypes.contains(targetType)) {
             return null;
@@ -346,7 +271,7 @@ public abstract class BeanUtils {
         }
     }
 
-
+    //寻找属性类型
     public static Class<?> findPropertyType(String propertyName, Class<?>... beanClasses) {
         if (beanClasses != null) {
             for (Class<?> beanClass : beanClasses) {
@@ -359,13 +284,7 @@ public abstract class BeanUtils {
         return Object.class;
     }
 
-    /**
-     * Obtain a new MethodParameter object for the write method of the specified
-     * property.
-     *
-     * @param pd the PropertyDescriptor for the property
-     * @return a corresponding MethodParameter object
-     */
+    //获取写入方法参数
     public static MethodParameter getWriteMethodParameter(PropertyDescriptor pd) {
         if (pd instanceof GenericTypeAwarePropertyDescriptor) {
             return new MethodParameter(((GenericTypeAwarePropertyDescriptor) pd).getWriteMethodParameter());
@@ -374,42 +293,35 @@ public abstract class BeanUtils {
         }
     }
 
-
+    //是否是简单属性
     public static boolean isSimpleProperty(Class<?> clazz) {
         Assert.notNull(clazz, "Class must not be null");
         return isSimpleValueType(clazz) || (clazz.isArray() && isSimpleValueType(clazz.getComponentType()));
     }
 
-    /**
-     * Check if the given type represents a "simple" value type: a primitive, a
-     * String or other CharSequence, a Number, a Date, a URI, a URL, a Locale or a
-     * Class.
-     *
-     * @param clazz the type to check
-     * @return whether the given type represents a "simple" value type
-     */
+    //是否是简单值类型
     public static boolean isSimpleValueType(Class<?> clazz) {
         return (ClassUtils.isPrimitiveOrWrapper(clazz) || clazz.isEnum() || CharSequence.class.isAssignableFrom(clazz)
                 || Number.class.isAssignableFrom(clazz) || Date.class.isAssignableFrom(clazz) || URI.class == clazz
                 || URL.class == clazz || Locale.class == clazz || Class.class == clazz);
     }
 
-
+    //复制属性
     public static void copyProperties(Object source, Object target) throws org.springframework.beans.exception.BeansException {
         copyProperties(source, target, null, (String[]) null);
     }
 
-
+    //复制属性
     public static void copyProperties(Object source, Object target, Class<?> editable) throws org.springframework.beans.exception.BeansException {
         copyProperties(source, target, editable, (String[]) null);
     }
 
-
+    //复制属性
     public static void copyProperties(Object source, Object target, String... ignoreProperties) throws org.springframework.beans.exception.BeansException {
         copyProperties(source, target, null, ignoreProperties);
     }
 
-
+    //复制属性
     private static void copyProperties(Object source, Object target, Class<?> editable, String... ignoreProperties)
             throws BeansException {
         Assert.notNull(source, "Source must not be null");

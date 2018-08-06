@@ -27,6 +27,8 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.inject.Provider;
 
+import org.springframework.beans.InjectionPoint;
+import org.springframework.beans.SmartInitializingSingleton;
 import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.*;
@@ -45,7 +47,7 @@ import org.springframework.beans.bean.factorybean.SmartFactoryBean;
 import org.springframework.beans.bean.definition.BeanDefinition;
 import org.springframework.beans.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.config.DependencyDescriptor;
-import org.springframework.beans.factory.config.NamedBeanHolder;
+import org.springframework.beans.bean.NamedBeanHolder;
 import org.springframework.beans.factory.support.*;
 import org.springframework.beans.bean.definition.AbstractBeanDefinition;
 import org.springframework.beans.exception.BeanDefinitionValidationException;
@@ -647,8 +649,8 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 		// Trigger post-initialization callback for all applicable beans...
 		for (String beanName : beanNames) {
 			Object singletonInstance = getSingleton(beanName);
-			if (singletonInstance instanceof SmartInitializingSingleton) {
-				final SmartInitializingSingleton smartSingleton = (SmartInitializingSingleton) singletonInstance;
+			if (singletonInstance instanceof org.springframework.beans.SmartInitializingSingleton) {
+				final org.springframework.beans.SmartInitializingSingleton smartSingleton = (SmartInitializingSingleton) singletonInstance;
 				if (System.getSecurityManager() != null) {
 					AccessController.doPrivileged(new PrivilegedAction<Object>() {
 						@Override

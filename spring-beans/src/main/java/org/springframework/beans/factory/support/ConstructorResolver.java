@@ -25,7 +25,7 @@ import org.springframework.beans.exception.TypeMismatchException;
 import org.springframework.beans.factory.AbstractAutowireCapableBeanFactory;
 import org.springframework.beans.exception.BeanCreationException;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
-import org.springframework.beans.factory.InjectionPoint;
+import org.springframework.beans.InjectionPoint;
 import org.springframework.beans.exception.UnsatisfiedDependencyException;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.beans.factory.config.ConstructorArgumentValues.ValueHolder;

@@ -1,8 +1,7 @@
-package org.springframework.beans.factory.config;
+package org.springframework.beans.factory.support.processor;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Constructor;
-
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.support.processor.SmartInstantiationAwareBeanPostProcessor;
 import org.springframework.beans.property.PropertyValues;

@@ -1,4 +1,4 @@
-package org.springframework.beans.factory;
+package org.springframework.beans;
 
 //智能初始化单例
 public interface SmartInitializingSingleton {

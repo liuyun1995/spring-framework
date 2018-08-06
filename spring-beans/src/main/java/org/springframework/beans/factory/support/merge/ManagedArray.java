@@ -2,7 +2,6 @@ package org.springframework.beans.factory.support.merge;
 
 import org.springframework.util.Assert;
 
-//管理的数组
 @SuppressWarnings("serial")
 public class ManagedArray extends ManagedList<Object> {
 	

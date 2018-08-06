@@ -6,7 +6,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;

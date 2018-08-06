@@ -1,4 +1,4 @@
-package org.springframework.beans.factory.config;
+package org.springframework.beans.bean;
 
 import org.springframework.beans.bean.NamedBean;
 import org.springframework.util.Assert;

@@ -2,29 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b288235-cba1-495a-ae51-b900561cf091" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/DirectFieldAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/DirectFieldAccessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/annotation/AnnotationBeanUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/annotation/AnnotationBeanUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/annotation/AutowiredAnnotationBeanPostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/AutowiredAnnotationBeanPostProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/annotation/RequiredAnnotationBeanPostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/RequiredAnnotationBeanPostProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanWrapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanWrapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/PropertyPathFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/PropertyPathFactoryBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/AbstractAutowireCapableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/AbstractAutowireCapableBeanFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/access/BeanFactoryReference.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/access/BeanFactoryReference.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/access/SingletonBeanFactoryLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/access/SingletonBeanFactoryLocator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/PropertiesBeanDefinitionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/PropertiesBeanDefinitionReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/AbstractNestablePropertyAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/AbstractNestablePropertyAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/AbstractPropertyAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/AbstractPropertyAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/ConfigurablePropertyAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/ConfigurablePropertyAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/PropertyAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/PropertyAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/PropertyAccessorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/PropertyAccessorFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/PropertyAccessorUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/PropertyAccessorUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/PropertyEditorRegistrySupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/PropertyEditorRegistrySupport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/PropertyValuesEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/PropertyValuesEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/type/TypeConverterDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/type/TypeConverterDelegate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/ArgumentConvertingMethodInvoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/ArgumentConvertingMethodInvoker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/MutableSortDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/MutableSortDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/PagedListHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/PagedListHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/PropertyComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/PropertyComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/ResourceEditorRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/ResourceEditorRegistrar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionDefaults.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionDefaults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionValueResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionValueResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/RootBeanDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/RootBeanDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/AbstractFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/AbstractFactoryBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/FieldRetrievingFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/FieldRetrievingFactoryBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/ListFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/ListFactoryBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/MapFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/MapFactoryBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/MethodInvokingFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/MethodInvokingFactoryBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/ObjectFactoryCreatingFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/ObjectFactoryCreatingFactoryBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/PropertiesFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/PropertiesFactoryBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/DefaultListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/DefaultListableBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/exception/UnsatisfiedDependencyException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/exception/UnsatisfiedDependencyException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/AutowireCapableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/AutowireCapableBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/BeanFactoryUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/BeanFactoryUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/InjectionPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/InjectionPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/SmartInitializingSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/SmartInitializingSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/ConstructorArgumentValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/ConstructorArgumentValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/CustomEditorConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/CustomEditorConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/CustomScopeConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/CustomScopeConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/DependencyDescriptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/DependencyDescriptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/DeprecatedBeanWarner.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/DeprecatedBeanWarner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/InstantiationAwareBeanPostProcessorAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/InstantiationAwareBeanPostProcessorAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/MethodInvokingBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/MethodInvokingBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/NamedBeanHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/NamedBeanHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PlaceholderConfigurerSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PlaceholderConfigurerSupport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyOverrideConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyOverrideConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyPlaceholderConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyPlaceholderConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyResourceConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyResourceConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/CompositeComponentDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/CompositeComponentDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/FailFastProblemReporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/FailFastProblemReporter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/ParseState.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/ParseState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/Problem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/QualifierEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/QualifierEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/SourceExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/SourceExtractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/ConstructorResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/ConstructorResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/DisposableBeanAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/DisposableBeanAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/autowire/AutowireUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/autowire/AutowireUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/SmartInstantiationAwareBeanPostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/SmartInstantiationAwareBeanPostProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/BeansDtdResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/BeansDtdResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/DelegatingEntityResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/DelegatingEntityResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/PluggableSchemaResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/PluggableSchemaResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/ResourceEntityResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/ResourceEntityResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/SimpleConstructorNamespaceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/SimpleConstructorNamespaceHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/SimplePropertyNamespaceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/SimplePropertyNamespaceHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/UtilNamespaceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/UtilNamespaceHandler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/spring-mvc/target/" />
     <ignored path="$PROJECT_DIR$/spring-beans/target/" />
@@ -50,22 +86,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="152" />
+          <entry key="java" value="275" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="152" />
+          <entry key="JAVA" value="275" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="956" />
+          <entry key="java" value="1475" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="956" />
+          <entry key="JAVA" value="1475" />
         </counts>
       </usages-collector>
     </session>
@@ -73,10 +109,31 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/MutableSortDefinition.java">
+        <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/FactoryBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="51">
+              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/ObjectFactoryCreatingFactoryBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+              <folding>
+                <element signature="imports" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/PropertiesFactoryBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
               <folding>
                 <element signature="imports" />
               </folding>
@@ -85,13 +142,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/PropertyComparator.java">
+        <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/UtilNamespaceHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="79" column="10" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
-              <folding>
-                <element signature="imports" />
-              </folding>
+            <state relative-caret-position="142">
+              <caret line="160" column="17" selection-start-line="160" selection-start-column="17" selection-end-line="160" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -104,48 +158,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/autowire/AutowireCandidateResolver.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/autowire/AutowireCandidateQualifier.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/autowire/AutowireUtils.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/ManagedList.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedList.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedSet.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/bean/definition/BeanDefinitionDecorator.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/InstantiationAwareBeanPostProcessorAdapter.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/SmartInstantiationAwareBeanPostProcessor.java" />
         <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/annotation/AnnotationBeanUtils.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/PropertiesBeanDefinitionReader.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/BeanDefinitionReader.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/AbstractBeanDefinitionReader.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinition.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionBuilder.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/BeanDefinitionReaderUtils.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionRegistryPostProcessor.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/BeanDefinitionRegistryPostProcessor.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/SingletonBeanRegistry.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/SimpleBeanDefinitionRegistry.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/ConfigurableBeanFactory.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/strategy/CglibSubclassingInstantiationStrategy.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/BeanFactoryPostProcessor.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/MergedBeanDefinitionPostProcessor.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/LookupOverride.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/MethodReplacer.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/ReplaceOverride.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/autowire/SimpleAutowireCandidateResolver.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/SecurityContextProvider.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/SimpleSecurityContextProvider.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/MethodOverrides.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/annotation/CustomAutowireConfigurer.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/BeanExpressionResolver.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/PagedListHolder.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/ArgumentConvertingMethodInvoker.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/ResourceEditorRegistrar.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/AbstractNestablePropertyAccessor.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/AbstractPropertyAccessor.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/ConfigurablePropertyAccessor.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/PropertyValuesEditor.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/access/BeanFactoryReference.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/access/SingletonBeanFactoryLocator.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/MutableSortDefinition.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/PropertyComparator.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/AutowiredAnnotationBeanPostProcessor.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/RequiredAnnotationBeanPostProcessor.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedArray.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedList.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedMap.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedProperties.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedSet.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/autowire/AutowireUtils.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/InjectionPoint.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/InjectionPoint.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/SmartInitializingSingleton.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/BeanFactoryUtils.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanUtils.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanWrapperImpl.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanWrapper.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/AbstractFactoryBean.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/FieldRetrievingFactoryBean.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/ListFactoryBean.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/MapFactoryBean.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/MethodInvokingBean.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/MethodInvokingBean.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/CustomScopeConfigurer.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/CustomEditorConfigurer.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/ConstructorArgumentValues.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PlaceholderConfigurerSupport.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyOverrideConfigurer.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyPlaceholderConfigurer.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyResourceConfigurer.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/CompositeComponentDefinition.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/Location.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/QualifierEntry.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/SourceExtractor.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/DisposableBeanAdapter.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/DisposableBeanAdapter.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/DelegatingEntityResolver.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/PluggableSchemaResolver.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/ResourceEntityResolver.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/SimpleConstructorNamespaceHandler.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/SimplePropertyNamespaceHandler.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/BeansDtdResolver.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionDefaults.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionResource.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionValueResolver.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionVisitor.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/RootBeanDefinition.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/ObjectFactoryCreatingFactoryBean.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/PropertiesFactoryBean.java" />
+        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/UtilNamespaceHandler.java" />
       </list>
     </option>
   </component>
@@ -215,7 +278,28 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="beans" type="462c0819:PsiDirectoryNode" />
-              <item name="support" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-beans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="beans" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="factorybean" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-beans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="beans" type="462c0819:PsiDirectoryNode" />
+              <item name="factory" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -258,20 +342,20 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18884121" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.48554218" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3421687" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24964234" />
@@ -289,251 +373,255 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/DefaultListableBeanFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="65" column="13" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanWrapperImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanMetadataAttribute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanMetadataAttributeAccessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanMetadataElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanUtils.java">
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyOverrideConfigurer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/BeanInfoFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/src.zip!/java/beans/BeanInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/CachedIntrospectionResults.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/strategy/SimpleInstantiationStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/strategy/InstantiationStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="15" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/strategy/CglibSubclassingInstantiationStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-480">
-          <caret line="58" column="7" lean-forward="true" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/BeanPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/DestructionAwareBeanPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/InstantiationAwareBeanPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/MergedBeanDefinitionPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/SmartInstantiationAwareBeanPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/LookupOverride.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/MethodOverride.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/MethodReplacer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/autowire/SimpleAutowireCandidateResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/autowire/AutowireCandidateResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/ReplaceOverride.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="48" column="10" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
-          <folding>
-            <element signature="e#1284#1292#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/SecurityContextProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/SimpleSecurityContextProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/MethodOverrides.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="113" selection-start-line="10" selection-start-column="113" selection-end-line="10" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/BeanFactoryPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/CustomEditorConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/DeprecatedBeanWarner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/annotation/CustomAutowireConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/processor/BeanDefinitionRegistryPostProcessor.java">
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyResourceConfigurer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="84">
+          <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
+          <folding>
+            <element signature="imports" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/BeanExpressionResolver.java">
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/BeanComponentDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="24" column="66" lean-forward="true" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyPlaceholderConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/BeanReference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/BeanExpressionContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/Scope.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/TypedStringValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1504">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanMetadataElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/AbstractComponentDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/AliasDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/BeanEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/DefaultsDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/ConstructorArgumentEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/ComponentDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/CompositeComponentDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/EmptyReaderEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="11" lean-forward="true" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/ImportDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/Problem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/PropertyEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/QualifierEntry.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/SingletonBeanRegistry.java">
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/ReaderEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/ReaderContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="59" lean-forward="true" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/SourceExtractor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/DisposableBeanAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="41" column="53" selection-start-line="41" selection-start-column="53" selection-end-line="41" selection-end-column="53" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/DisposableBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/PagedListHolder.java">
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/DelegatingEntityResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/DocumentLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/NamespaceHandlerResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/DefaultNamespaceHandlerResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/PluggableSchemaResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/ResourceEntityResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
@@ -543,133 +631,165 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/ArgumentConvertingMethodInvoker.java">
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/SimpleConstructorNamespaceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        <state relative-caret-position="16">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/SortDefinition.java">
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/SimplePropertyNamespaceHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/BeansDtdResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionDecorator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionDefaults.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="53" column="13" lean-forward="true" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1046">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionValueResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-825">
+          <caret line="136" column="18" lean-forward="true" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/RootBeanDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2848">
+          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/GenericBeanDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-43">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/ChildBeanDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-961">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/FactoryBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/ResourceEditorRegistrar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="35" column="48" lean-forward="true" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/AbstractNestablePropertyAccessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/AbstractPropertyAccessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/ConfigurablePropertyAccessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/PropertyAccessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/PropertyAccessorFactory.java">
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/ObjectFactoryCreatingFactoryBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/accessor/PropertyAccessorUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/PropertyValuesEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/property/PropertyEditorRegistry.java">
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/PropertiesFactoryBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/access/BeanFactoryLocator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/access/BeanFactoryReference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/access/SingletonBeanFactoryLocator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2087">
-          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/MutableSortDefinition.java">
+    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/UtilNamespaceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/PropertyComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="79" column="10" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+        <state relative-caret-position="142">
+          <caret line="160" column="17" selection-start-line="160" selection-start-column="17" selection-end-line="160" selection-end-column="17" />
         </state>
       </provider>
     </entry>

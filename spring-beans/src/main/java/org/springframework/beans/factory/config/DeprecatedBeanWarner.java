@@ -2,7 +2,6 @@ package org.springframework.beans.factory.config;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ConfigurableListableBeanFactory;

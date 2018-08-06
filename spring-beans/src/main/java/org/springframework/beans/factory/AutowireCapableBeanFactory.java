@@ -3,7 +3,7 @@ package org.springframework.beans.factory;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.property.type.TypeConverter;
 import org.springframework.beans.factory.config.DependencyDescriptor;
-import org.springframework.beans.factory.config.NamedBeanHolder;
+import org.springframework.beans.bean.NamedBeanHolder;
 
 import java.util.Set;
 

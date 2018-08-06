@@ -2,6 +2,7 @@ package org.springframework.beans.factory.parsing;
 
 import org.springframework.util.StringUtils;
 
+//合格者实体
 public class QualifierEntry implements ParseState.Entry {
 
 	private String typeName;

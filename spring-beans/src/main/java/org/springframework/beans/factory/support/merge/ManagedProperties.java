@@ -1,10 +1,8 @@
 package org.springframework.beans.factory.support.merge;
 
 import java.util.Properties;
-
 import org.springframework.beans.bean.BeanMetadataElement;
 
-//管理的属性
 @SuppressWarnings("serial")
 public class ManagedProperties extends Properties implements Mergeable, BeanMetadataElement {
 

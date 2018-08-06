@@ -1,4 +1,4 @@
-package org.springframework.beans.annotation;
+package org.springframework.beans.factory.support.processor;
 
 import java.beans.PropertyDescriptor;
 import java.lang.annotation.Annotation;
@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-
+import org.springframework.beans.annotation.Required;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.property.PropertyValues;
 import org.springframework.beans.factory.BeanFactory;
@@ -16,8 +16,6 @@ import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
 import org.springframework.beans.exception.BeanInitializationException;
 import org.springframework.beans.bean.definition.BeanDefinition;
 import org.springframework.beans.factory.ConfigurableListableBeanFactory;
-import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;
-import org.springframework.beans.factory.support.processor.MergedBeanDefinitionPostProcessor;
 import org.springframework.beans.bean.definition.RootBeanDefinition;
 import org.springframework.core.Conventions;
 import org.springframework.core.Ordered;
@@ -47,8 +45,7 @@ public class RequiredAnnotationBeanPostProcessor extends InstantiationAwareBeanP
     /**
      * Cache for validated bean names, skipping re-validation for the same bean
      */
-    private final Set<String> validatedBeanNames =
-            Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>(64));
+    private final Set<String> validatedBeanNames = Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>(64));
 
 
     /**

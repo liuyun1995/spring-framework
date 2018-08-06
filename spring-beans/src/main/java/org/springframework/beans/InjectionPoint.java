@@ -1,8 +1,7 @@
-package org.springframework.beans.factory;
+package org.springframework.beans;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.util.Assert;
-
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Field;

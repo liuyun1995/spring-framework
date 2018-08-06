@@ -1,4 +1,4 @@
-package org.springframework.beans.factory.support;
+package org.springframework.beans.bean;
 
 import java.io.Closeable;
 import java.io.Serializable;
@@ -11,12 +11,8 @@ import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-import org.springframework.beans.bean.BeanUtils;
-import org.springframework.beans.bean.DisposableBean;
 import org.springframework.beans.factory.support.processor.BeanPostProcessor;
 import org.springframework.beans.factory.support.processor.DestructionAwareBeanPostProcessor;
 import org.springframework.beans.bean.definition.AbstractBeanDefinition;

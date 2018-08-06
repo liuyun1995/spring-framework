@@ -9,6 +9,7 @@ import org.springframework.beans.bean.definition.BeanDefinition;
 import org.springframework.beans.bean.definition.BeanDefinitionVisitor;
 import org.springframework.util.StringValueResolver;
 
+//占位符配置器助手
 public abstract class PlaceholderConfigurerSupport extends PropertyResourceConfigurer
         implements BeanNameAware, BeanFactoryAware {
 

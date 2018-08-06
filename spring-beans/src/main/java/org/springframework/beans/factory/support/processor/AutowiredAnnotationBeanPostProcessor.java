@@ -1,4 +1,4 @@
-package org.springframework.beans.annotation;
+package org.springframework.beans.factory.support.processor;
 
 import java.beans.PropertyDescriptor;
 import java.lang.annotation.Annotation;
@@ -17,10 +17,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
+import org.springframework.beans.annotation.Autowired;
+import org.springframework.beans.annotation.InjectionMetadata;
+import org.springframework.beans.annotation.Lookup;
+import org.springframework.beans.annotation.Value;
 import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.property.PropertyValues;
@@ -29,14 +31,12 @@ import org.springframework.beans.exception.BeanCreationException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.support.autowire.BeanFactoryAware;
 import org.springframework.beans.factory.BeanFactoryUtils;
-import org.springframework.beans.factory.InjectionPoint;
+import org.springframework.beans.InjectionPoint;
 import org.springframework.beans.exception.NoSuchBeanDefinitionException;
 import org.springframework.beans.exception.UnsatisfiedDependencyException;
 import org.springframework.beans.factory.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.DependencyDescriptor;
-import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;
 import org.springframework.beans.factory.support.LookupOverride;
-import org.springframework.beans.factory.support.processor.MergedBeanDefinitionPostProcessor;
 import org.springframework.beans.bean.definition.RootBeanDefinition;
 import org.springframework.core.BridgeMethodResolver;
 import org.springframework.core.MethodParameter;
@@ -54,8 +54,7 @@ public class AutowiredAnnotationBeanPostProcessor extends InstantiationAwareBean
 
     protected final Log logger = LogFactory.getLog(getClass());
 
-    private final Set<Class<? extends Annotation>> autowiredAnnotationTypes =
-            new LinkedHashSet<Class<? extends Annotation>>();
+    private final Set<Class<? extends Annotation>> autowiredAnnotationTypes = new LinkedHashSet<Class<? extends Annotation>>();
 
     private String requiredParameterName = "required";
 
@@ -65,11 +64,9 @@ public class AutowiredAnnotationBeanPostProcessor extends InstantiationAwareBean
 
     private ConfigurableListableBeanFactory beanFactory;
 
-    private final Set<String> lookupMethodsChecked =
-            Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>(256));
+    private final Set<String> lookupMethodsChecked = Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>(256));
 
-    private final Map<Class<?>, Constructor<?>[]> candidateConstructorsCache =
-            new ConcurrentHashMap<Class<?>, Constructor<?>[]>(256);
+    private final Map<Class<?>, Constructor<?>[]> candidateConstructorsCache = new ConcurrentHashMap<Class<?>, Constructor<?>[]>(256);
 
     private final Map<String, org.springframework.beans.annotation.InjectionMetadata> injectionMetadataCache =
             new ConcurrentHashMap<String, org.springframework.beans.annotation.InjectionMetadata>(256);

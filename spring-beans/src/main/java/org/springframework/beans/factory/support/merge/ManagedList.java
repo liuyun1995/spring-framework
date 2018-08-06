@@ -2,10 +2,8 @@ package org.springframework.beans.factory.support.merge;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.bean.BeanMetadataElement;
 
-//管理的集合
 @SuppressWarnings("serial")
 public class ManagedList<E> extends ArrayList<E> implements Mergeable, BeanMetadataElement {
 

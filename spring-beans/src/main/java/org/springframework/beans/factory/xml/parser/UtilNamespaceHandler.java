@@ -158,7 +158,7 @@ public class UtilNamespaceHandler extends NamespaceHandlerSupport {
 		}
 	}
 
-
+	//属性Bean定义解析器
 	private static class PropertiesBeanDefinitionParser extends AbstractSingleBeanDefinitionParser {
 
 		@Override

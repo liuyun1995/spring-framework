@@ -2,14 +2,13 @@ package org.springframework.beans.factory.config;
 
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.InjectionPoint;
+import org.springframework.beans.InjectionPoint;
 import org.springframework.beans.exception.NoUniqueBeanDefinitionException;
 import org.springframework.beans.factory.support.autowire.AutowireCandidateResolver;
 import org.springframework.core.GenericTypeResolver;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.core.ResolvableType;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;

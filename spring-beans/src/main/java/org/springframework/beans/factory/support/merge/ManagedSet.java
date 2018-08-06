@@ -2,19 +2,14 @@ package org.springframework.beans.factory.support.merge;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
-
 import org.springframework.beans.bean.BeanMetadataElement;
 
-//管理的Set
 @SuppressWarnings("serial")
 public class ManagedSet<E> extends LinkedHashSet<E> implements Mergeable, BeanMetadataElement {
 
 	private Object source;
-
 	private String elementTypeName;
-
 	private boolean mergeEnabled;
-
 
 	public ManagedSet() {}
 

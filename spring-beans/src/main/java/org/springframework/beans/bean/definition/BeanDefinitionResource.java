@@ -3,20 +3,22 @@ package org.springframework.beans.bean.definition;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-
 import org.springframework.core.io.AbstractResource;
 import org.springframework.util.Assert;
 
 //Bean定义资源
 class BeanDefinitionResource extends AbstractResource {
 
+	//Bean定义
 	private final BeanDefinition beanDefinition;
-	
+
+	//构造器
 	public BeanDefinitionResource(BeanDefinition beanDefinition) {
 		Assert.notNull(beanDefinition, "BeanDefinition must not be null");
 		this.beanDefinition = beanDefinition;
 	}
-	
+
+	//获取Bean定义
 	public final BeanDefinition getBeanDefinition() {
 		return this.beanDefinition;
 	}

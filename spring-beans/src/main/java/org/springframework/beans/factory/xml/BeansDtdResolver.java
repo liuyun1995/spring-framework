@@ -1,12 +1,10 @@
 package org.springframework.beans.factory.xml;
 
 import java.io.IOException;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
-
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 

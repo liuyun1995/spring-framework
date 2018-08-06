@@ -2,6 +2,7 @@ package org.springframework.beans.bean.definition;
 
 import org.springframework.beans.bean.BeanWrapper;
 import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.factory.support.merge.*;
 import org.springframework.beans.property.type.TypeConverter;
 import org.springframework.beans.factory.AbstractBeanFactory;
 import org.springframework.beans.exception.BeanCreationException;
@@ -9,11 +10,9 @@ import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.bean.factorybean.FactoryBean;
 import org.springframework.beans.factory.config.*;
-import org.springframework.beans.factory.support.merge.ManagedSet;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
-
 import java.lang.reflect.Array;
 import java.util.*;
 
@@ -34,34 +33,33 @@ class BeanDefinitionValueResolver {
 		this.typeConverter = typeConverter;
 	}
 
-
+	//解析值
 	public Object resolveValueIfNecessary(Object argName, Object value) {
-		// We must check each value to see whether it requires a runtime reference
-		// to another bean to be resolved.
+		//如果是RuntimeBeanReference实例
 		if (value instanceof RuntimeBeanReference) {
 			RuntimeBeanReference ref = (RuntimeBeanReference) value;
 			return resolveReference(argName, ref);
+		//如果是RuntimeBeanNameReference实例
 		} else if (value instanceof RuntimeBeanNameReference) {
 			String refName = ((RuntimeBeanNameReference) value).getBeanName();
 			refName = String.valueOf(doEvaluate(refName));
 			if (!this.beanFactory.containsBean(refName)) {
-				throw new BeanDefinitionStoreException(
-						"Invalid bean name '" + refName + "' in bean reference for " + argName);
+				throw new BeanDefinitionStoreException("Invalid bean name '" + refName + "' in bean reference for " + argName);
 			}
 			return refName;
+		//如果是BeanDefinitionHolder实例
 		} else if (value instanceof BeanDefinitionHolder) {
-			// Resolve BeanDefinitionHolder: contains BeanDefinition with name and aliases.
 			BeanDefinitionHolder bdHolder = (BeanDefinitionHolder) value;
 			return resolveInnerBean(argName, bdHolder.getBeanName(), bdHolder.getBeanDefinition());
+		//如果是BeanDefinition实例
 		} else if (value instanceof BeanDefinition) {
-			// Resolve plain BeanDefinition, without contained name: use dummy name.
 			BeanDefinition bd = (BeanDefinition) value;
 			String innerBeanName = "(inner bean)" + BeanFactoryUtils.GENERATED_BEAN_NAME_SEPARATOR
 					+ ObjectUtils.getIdentityHexString(bd);
 			return resolveInnerBean(argName, innerBeanName, bd);
-		} else if (value instanceof org.springframework.beans.factory.support.merge.ManagedArray) {
-			// May need to resolve contained runtime references.
-			org.springframework.beans.factory.support.merge.ManagedArray array = (org.springframework.beans.factory.support.merge.ManagedArray) value;
+		//如果是ManagedArray实例
+		} else if (value instanceof ManagedArray) {
+			ManagedArray array = (ManagedArray) value;
 			Class<?> elementType = array.resolvedElementType;
 			if (elementType == null) {
 				String elementTypeName = array.getElementTypeName();
@@ -79,16 +77,17 @@ class BeanDefinitionValueResolver {
 				}
 			}
 			return resolveManagedArray(argName, (List<?>) value, elementType);
-		} else if (value instanceof org.springframework.beans.factory.support.merge.ManagedList) {
-			// May need to resolve contained runtime references.
+		//如果是ManagedList实例
+		} else if (value instanceof ManagedList) {
 			return resolveManagedList(argName, (List<?>) value);
+		//如果是ManagedSet实例
 		} else if (value instanceof ManagedSet) {
-			// May need to resolve contained runtime references.
 			return resolveManagedSet(argName, (Set<?>) value);
-		} else if (value instanceof org.springframework.beans.factory.support.merge.ManagedMap) {
-			// May need to resolve contained runtime references.
+		//如果是ManagedMap实例
+		} else if (value instanceof ManagedMap) {
 			return resolveManagedMap(argName, (Map<?, ?>) value);
-		} else if (value instanceof org.springframework.beans.factory.support.merge.ManagedProperties) {
+		//如果是ManagedProperties实例
+		} else if (value instanceof ManagedProperties) {
 			Properties original = (Properties) value;
 			Properties copy = new Properties();
 			for (Map.Entry<Object, Object> propEntry : original.entrySet()) {
@@ -103,8 +102,8 @@ class BeanDefinitionValueResolver {
 				copy.put(propKey, propValue);
 			}
 			return copy;
+		//如果是TypedStringValue实例
 		} else if (value instanceof TypedStringValue) {
-			// Convert value to target type here.
 			TypedStringValue typedStringValue = (TypedStringValue) value;
 			Object valueObject = evaluate(typedStringValue);
 			try {
@@ -124,13 +123,7 @@ class BeanDefinitionValueResolver {
 		}
 	}
 
-	/**
-	 * Evaluate the given value as an expression, if necessary.
-	 * 
-	 * @param value
-	 *            the candidate value (may be an expression)
-	 * @return the resolved value
-	 */
+
 	protected Object evaluate(TypedStringValue value) {
 		Object result = doEvaluate(value.getValue());
 		if (!ObjectUtils.nullSafeEquals(result, value.getValue())) {
@@ -139,13 +132,6 @@ class BeanDefinitionValueResolver {
 		return result;
 	}
 
-	/**
-	 * Evaluate the given value as an expression, if necessary.
-	 * 
-	 * @param value
-	 *            the original value (may be an expression)
-	 * @return the resolved value if necessary, or the original value
-	 */
 	protected Object evaluate(Object value) {
 		if (value instanceof String) {
 			return doEvaluate((String) value);
@@ -167,13 +153,6 @@ class BeanDefinitionValueResolver {
 		}
 	}
 
-	/**
-	 * Evaluate the given String value as an expression, if necessary.
-	 * 
-	 * @param value
-	 *            the original value (may be an expression)
-	 * @return the resolved value if necessary, or the original String value
-	 */
 	private Object doEvaluate(String value) {
 		return this.beanFactory.evaluateBeanDefinitionString(value, this.beanDefinition);
 	}

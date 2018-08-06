@@ -2,15 +2,13 @@ package org.springframework.beans.factory.parsing;
 
 import java.util.LinkedList;
 import java.util.List;
-
 import org.springframework.util.Assert;
 
-//混合组件定义
+//联合组件定义
 public class CompositeComponentDefinition extends AbstractComponentDefinition {
 
-	private final String name;
-
-	private final Object source;
+	private final String name;       //组件名称
+	private final Object source;     //组件资源
 
 	private final List<ComponentDefinition> nestedComponents = new LinkedList<ComponentDefinition>();
 
