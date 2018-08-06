@@ -8,6 +8,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import org.springframework.beans.exception.BeansException;
+import org.springframework.beans.exception.BootstrapException;
 import org.springframework.beans.exception.FatalBeanException;
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.factory.BeanFactory;
@@ -104,7 +105,7 @@ public class SingletonBeanFactoryLocator implements BeanFactoryLocator {
                 } catch (BeansException ex) {
                     this.bfgInstancesByKey.remove(this.resourceLocation);
                     this.bfgInstancesByObj.remove(groupContext);
-                    throw new BootstrapException("Unable to initialize group definition. " +
+                    throw new org.springframework.beans.exception.BootstrapException("Unable to initialize group definition. " +
                             "Group resource name [" + this.resourceLocation + "], factory key [" + factoryKey + "]", ex);
                 }
             }

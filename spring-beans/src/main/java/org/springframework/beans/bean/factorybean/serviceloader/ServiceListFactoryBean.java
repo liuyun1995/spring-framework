@@ -1,4 +1,4 @@
-package org.springframework.beans.factory.serviceloader;
+package org.springframework.beans.bean.factorybean.serviceloader;
 
 import java.util.LinkedList;
 import java.util.List;
