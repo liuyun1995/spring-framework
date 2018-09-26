@@ -6,7 +6,6 @@ import java.lang.reflect.Method;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.security.PrivilegedExceptionAction;
-
 import org.springframework.beans.exception.BeanInstantiationException;
 import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.factory.BeanFactory;
@@ -18,6 +17,7 @@ import org.springframework.util.StringUtils;
 //简单Bean实例化策略
 public class SimpleInstantiationStrategy implements InstantiationStrategy {
 
+    //当前调用的工厂方法
     private static final ThreadLocal<Method> currentlyInvokedFactoryMethod = new ThreadLocal<Method>();
 
     //获取当前调用的工厂方法
@@ -25,7 +25,7 @@ public class SimpleInstantiationStrategy implements InstantiationStrategy {
         return currentlyInvokedFactoryMethod.get();
     }
 
-
+    //Bean的实例化
     @Override
     public Object instantiate(RootBeanDefinition bd, String beanName, BeanFactory owner) {
         // Don't override the class with CGLIB if no overrides.
@@ -34,7 +34,9 @@ public class SimpleInstantiationStrategy implements InstantiationStrategy {
             synchronized (bd.constructorArgumentLock) {
                 constructorToUse = (Constructor<?>) bd.resolvedConstructorOrFactoryMethod;
                 if (constructorToUse == null) {
+                    //获取配置的类型
                     final Class<?> clazz = bd.getBeanClass();
+                    //如果是接口，则抛出异常
                     if (clazz.isInterface()) {
                         throw new BeanInstantiationException(clazz, "Specified class is an interface");
                     }
@@ -47,6 +49,7 @@ public class SimpleInstantiationStrategy implements InstantiationStrategy {
                                 }
                             });
                         } else {
+                            //获取声明的构造器
                             constructorToUse = clazz.getDeclaredConstructor((Class[]) null);
                         }
                         bd.resolvedConstructorOrFactoryMethod = constructorToUse;
@@ -55,6 +58,7 @@ public class SimpleInstantiationStrategy implements InstantiationStrategy {
                     }
                 }
             }
+            //根据构造器生成实例
             return BeanUtils.instantiateClass(constructorToUse);
         } else {
             // Must generate CGLIB subclass.
@@ -105,12 +109,14 @@ public class SimpleInstantiationStrategy implements InstantiationStrategy {
                     }
                 });
             } else {
+                //设置可以访问
                 ReflectionUtils.makeAccessible(factoryMethod);
             }
 
             Method priorInvokedFactoryMethod = currentlyInvokedFactoryMethod.get();
             try {
                 currentlyInvokedFactoryMethod.set(factoryMethod);
+                //调用工厂方法生成Bean实例
                 return factoryMethod.invoke(factoryBean, args);
             } finally {
                 if (priorInvokedFactoryMethod != null) {

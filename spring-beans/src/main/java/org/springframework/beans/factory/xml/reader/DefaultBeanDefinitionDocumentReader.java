@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.xml.parser.BeanDefinitionParserDelegate;
@@ -13,7 +12,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import org.springframework.beans.exception.BeanDefinitionStoreException;
 import org.springframework.beans.bean.definition.BeanDefinitionHolder;
 import org.springframework.beans.factory.parsing.BeanComponentDefinition;
@@ -68,7 +66,7 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 		BeanDefinitionParserDelegate parent = this.delegate;
 		//新建Bean定义解析器，设置父类为当前Bean定义解析器
 		this.delegate = createDelegate(getReaderContext(), root, parent);
-		//判断节点名称空间是否是默认名称空间
+		//判断该节点标签是否是默认标签
 		if (this.delegate.isDefaultNamespace(root)) {
 			//获取节点的profile属性
 			String profileSpec = root.getAttribute(PROFILE_ATTRIBUTE);
@@ -118,16 +116,16 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 				if (node instanceof Element) {
 					Element ele = (Element) node;
 					if (delegate.isDefaultNamespace(ele)) {
-						//解析默认名称空间元素
+						//解析默认标签元素
 						parseDefaultElement(ele, delegate);
 					} else {
-						//解析外部名称空间元素
+						//解析自定义标签元素
 						delegate.parseCustomElement(ele);
 					}
 				}
 			}
 		} else {
-			//解析外部名称空间元素
+			//解析自定义标签元素
 			delegate.parseCustomElement(root);
 		}
 	}
@@ -161,6 +159,7 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 
 		//解析资源路径中的系统属性
 		location = getReaderContext().getEnvironment().resolveRequiredPlaceholders(location);
+
 		//新建已创建资源文件集合
 		Set<Resource> actualResources = new LinkedHashSet<Resource>(4);
 		//判断是绝对路径还是相对路径
@@ -174,14 +173,13 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 		//如果是绝对路径
 		if (absoluteLocation) {
 			try {
-				//获取Bean定义阅读器并加载配置文件
+				//获取Bean定义阅读器加载配置文件
 				int importCount = getReaderContext().getReader().loadBeanDefinitions(location, actualResources);
 				if (logger.isDebugEnabled()) {
 					logger.debug("Imported " + importCount + " bean definitions from URL location [" + location + "]");
 				}
 			} catch (BeanDefinitionStoreException ex) {
-				getReaderContext().error("Failed to import bean definitions from URL location [" + location + "]", ele,
-						ex);
+				getReaderContext().error("Failed to import bean definitions from URL location [" + location + "]", ele, ex);
 			}
 		//如果是相对路径
 		} else {
@@ -190,26 +188,28 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 				//根据相对路径获取资源
 				Resource relativeResource = getReaderContext().getResource().createRelative(location);
 				if (relativeResource.exists()) {
+					//获取Bean定义阅读器加载配置文件
 					importCount = getReaderContext().getReader().loadBeanDefinitions(relativeResource);
+					//将该资源标记为已创建
 					actualResources.add(relativeResource);
 				} else {
+					//获取基础路径
 					String baseLocation = getReaderContext().getResource().getURL().toString();
 					importCount = getReaderContext().getReader().loadBeanDefinitions(
 							StringUtils.applyRelativePath(baseLocation, location), actualResources);
 				}
 				if (logger.isDebugEnabled()) {
-					logger.debug(
-							"Imported " + importCount + " bean definitions from relative location [" + location + "]");
+					logger.debug("Imported " + importCount + " bean definitions from relative location [" + location + "]");
 				}
 			} catch (IOException ex) {
 				getReaderContext().error("Failed to resolve current resource location", ele, ex);
 			} catch (BeanDefinitionStoreException ex) {
-				getReaderContext().error("Failed to import bean definitions from relative location [" + location + "]",
-						ele, ex);
+				getReaderContext().error("Failed to import bean definitions from relative location [" + location + "]", ele, ex);
 			}
 		}
+		//将已创建资源集合转换为数组
 		Resource[] actResArray = actualResources.toArray(new Resource[actualResources.size()]);
-		//处理完之后发送事件消息
+		//每处理完一个资源就发送事件消息
 		getReaderContext().fireImportProcessed(location, actResArray, extractSource(ele));
 	}
 

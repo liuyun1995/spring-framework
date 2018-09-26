@@ -15,7 +15,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import org.springframework.beans.bean.BeanMetadataElement;
 import org.springframework.beans.bean.BeanWrapper;
 import org.springframework.beans.bean.BeanWrapperImpl;
@@ -44,15 +43,13 @@ import org.springframework.util.StringUtils;
 //构造器转换器
 class ConstructorResolver {
 
-    private static final NamedThreadLocal<InjectionPoint> currentInjectionPoint =
-            new NamedThreadLocal<InjectionPoint>("Current injection point");
+    private static final NamedThreadLocal<InjectionPoint> currentInjectionPoint = new NamedThreadLocal<InjectionPoint>("Current injection point");
 
     private final AbstractAutowireCapableBeanFactory beanFactory;
 
     public ConstructorResolver(AbstractAutowireCapableBeanFactory beanFactory) {
         this.beanFactory = beanFactory;
     }
-
 
     public BeanWrapper autowireConstructor(final String beanName, final RootBeanDefinition mbd,
                                            Constructor<?>[] chosenCtors, final Object[] explicitArgs) {

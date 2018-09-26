@@ -1,7 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b288235-cba1-495a-ae51-b900561cf091" name="Default Changelist" comment="" />
+    <list default="true" id="8b288235-cba1-495a-ae51-b900561cf091" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/CachedIntrospectionResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/CachedIntrospectionResults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/annotation/InitDestroyAnnotationBeanPostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/annotation/InitDestroyAnnotationBeanPostProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/RootBeanDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/RootBeanDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/serviceloader/AbstractServiceLoaderBasedFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/serviceloader/AbstractServiceLoaderBasedFactoryBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/ConfigurableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/ConfigurableBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/DefaultListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/DefaultListableBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/DefaultSingletonBeanRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/DefaultSingletonBeanRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/SimpleBeanDefinitionRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/registry/SimpleBeanDefinitionRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/AbstractAutowireCapableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/AbstractAutowireCapableBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/AbstractBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/AbstractBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/ConfigurableListableBeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/ConfigurableListableBeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/BeanDefinitionParserDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/BeanDefinitionParserDelegate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/DefaultBeanDefinitionDocumentReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/DefaultBeanDefinitionDocumentReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/XmlBeanDefinitionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/XmlBeanDefinitionReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/ConstructorResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/ConstructorResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/strategy/SimpleInstantiationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/strategy/SimpleInstantiationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-context/src/main/java/org/springframework/format/Formatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-context/src/main/java/org/springframework/format/Formatter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-context/src/main/java/org/springframework/stereotype/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-context/src/main/java/org/springframework/stereotype/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-context/src/main/java/org/springframework/stereotype/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-context/src/main/java/org/springframework/stereotype/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-context/src/main/java/org/springframework/stereotype/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-context/src/main/java/org/springframework/stereotype/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-context/src/main/java/org/springframework/stereotype/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-context/src/main/java/org/springframework/stereotype/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/AsyncHandlerInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/AsyncHandlerInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/DispatcherServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/DispatcherServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/FlashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/FlashMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/FrameworkServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/FrameworkServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/HandlerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/HandlerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/HandlerExceptionResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/HandlerExceptionResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/HandlerExecutionChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/HandlerExecutionChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/HandlerInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/HandlerInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/HttpServletBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/HttpServletBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/LocaleResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/LocaleResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/ModelAndView.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/ModelAndView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/ModelAndViewDefiningException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/ModelAndViewDefiningException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/NoHandlerFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/NoHandlerFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/ThemeResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/ThemeResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/ViewRendererServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/ViewRendererServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/AnnotationDrivenBeanDefinitionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/AnnotationDrivenBeanDefinitionParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/DefaultServletHandlerBeanDefinitionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/DefaultServletHandlerBeanDefinitionParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/InterceptorsBeanDefinitionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/InterceptorsBeanDefinitionParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/MvcNamespaceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/MvcNamespaceHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/MvcNamespaceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/MvcNamespaceUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ResourcesBeanDefinitionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ResourcesBeanDefinitionParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ScriptTemplateConfigurerBeanDefinitionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ScriptTemplateConfigurerBeanDefinitionParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ViewControllerBeanDefinitionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ViewControllerBeanDefinitionParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ViewResolversBeanDefinitionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ViewResolversBeanDefinitionParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/annotation/package-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/AbstractHandlerMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/AbstractHandlerMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/AbstractUrlHandlerMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/AbstractUrlHandlerMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/HandlerInterceptorAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/HandlerInterceptorAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/RequestMatchResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/RequestMatchResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/SimpleMappingExceptionResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/SimpleMappingExceptionResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/SimpleUrlHandlerMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/SimpleUrlHandlerMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/AbstractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/AbstractController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/AbstractUrlViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/AbstractUrlViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/ParameterizableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/ParameterizableViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/ServletForwardingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/ServletForwardingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/AbstractResourceResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/AbstractResourceResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/AbstractVersionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/AbstractVersionStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ContentVersionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ContentVersionStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/DefaultResourceResolverChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/DefaultResourceResolverChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/DefaultResourceTransformerChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/DefaultResourceTransformerChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/DefaultServletHttpRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/DefaultServletHttpRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/GzipResourceResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/GzipResourceResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/PathResourceResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/PathResourceResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceHttpRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceHttpRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceResolverChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceResolverChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceTransformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceTransformerChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceTransformerChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceTransformerSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceTransformerSupport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceUrlEncodingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceUrlEncodingFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/TransformedResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/TransformedResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionPathStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionPathStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionResourceResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionResourceResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionedResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionedResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/support/BindStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/support/BindStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/support/RequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/support/RequestContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/support/WebContentGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/support/WebContentGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/ArgumentAware.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/ArgumentAware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/Param.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/Param.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/ParamAware.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/ParamAware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/theme/AbstractThemeResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/theme/AbstractThemeResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/theme/CookieThemeResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/theme/CookieThemeResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/theme/ThemeChangeInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/theme/ThemeChangeInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/view/AbstractView.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/view/AbstractView.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/spring-mvc/target/" />
     <ignored path="$PROJECT_DIR$/spring-beans/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -18,46 +108,86 @@
     <session id="-1477001528">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="295" />
+          <entry key="java" value="455" />
+          <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="295" />
+          <entry key="JAVA" value="455" />
+          <entry key="XML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1598" />
+          <entry key="java" value="5860" />
+          <entry key="xml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1598" />
+          <entry key="JAVA" value="5860" />
+          <entry key="XML" value="11" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/access/BeanFactoryLocator.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ViewResolversBeanDefinitionParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            <state relative-caret-position="-175">
+              <caret line="23" column="15" lean-forward="true" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+              <folding>
+                <element signature="imports" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/DefaultServletHandlerBeanDefinitionParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="imports" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/AnnotationDrivenBeanDefinitionParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5050">
+              <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+              <folding>
+                <element signature="imports" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>externallyManagedInitMethods</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,57 +195,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedMap.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedProperties.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/merge/ManagedSet.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/autowire/AutowireUtils.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/InjectionPoint.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/InjectionPoint.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/SmartInitializingSingleton.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/BeanFactoryUtils.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanUtils.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanWrapperImpl.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/BeanWrapper.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/AbstractFactoryBean.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/FieldRetrievingFactoryBean.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/ListFactoryBean.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/MapFactoryBean.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/MethodInvokingBean.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/MethodInvokingBean.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/CustomScopeConfigurer.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/CustomEditorConfigurer.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/ConstructorArgumentValues.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PlaceholderConfigurerSupport.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyOverrideConfigurer.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyPlaceholderConfigurer.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/config/PropertyResourceConfigurer.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/CompositeComponentDefinition.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/Location.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/QualifierEntry.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/SourceExtractor.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/support/DisposableBeanAdapter.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/DisposableBeanAdapter.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/DelegatingEntityResolver.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/PluggableSchemaResolver.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/ResourceEntityResolver.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/SimpleConstructorNamespaceHandler.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/SimplePropertyNamespaceHandler.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/BeansDtdResolver.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionDefaults.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionResource.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionValueResolver.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionVisitor.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/RootBeanDefinition.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/ObjectFactoryCreatingFactoryBean.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/PropertiesFactoryBean.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/SortDefinition.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/PropertiesBeanDefinitionReader.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/XmlBeanDefinitionReader.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/AbstractBeanDefinitionParser.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/AbstractSimpleBeanDefinitionParser.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/AbstractSingleBeanDefinitionParser.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/BeanDefinitionParser.java" />
-        <option value="$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/UtilNamespaceHandler.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/AbstractController.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/AbstractUrlViewController.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/Controller.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/ParameterizableViewController.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/mvc/ServletForwardingController.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/AbstractHandlerMapping.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/AbstractUrlHandlerMapping.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/HandlerInterceptorAdapter.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/RequestMatchResult.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/SimpleMappingExceptionResolver.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/handler/SimpleUrlHandlerMapping.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/MvcNamespaceHandler.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/MvcNamespaceUtils.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ResourcesBeanDefinitionParser.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ScriptTemplateConfigurerBeanDefinitionParser.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ViewControllerBeanDefinitionParser.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/AbstractResourceResolver.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/AbstractVersionStrategy.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ContentVersionStrategy.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/DefaultResourceTransformerChain.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/DefaultResourceResolverChain.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/DefaultServletHttpRequestHandler.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/GzipResourceResolver.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceResolver.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceResolverChain.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceTransformer.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceTransformerChain.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceTransformerSupport.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionedResource.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionPathStrategy.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionResourceResolver.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionStrategy.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/TransformedResource.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/PathResourceResolver.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceUrlEncodingFilter.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceHttpRequestHandler.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/support/BindStatus.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/support/RequestContext.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/support/WebContentGenerator.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/ArgumentAware.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/Param.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/ParamAware.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/theme/AbstractThemeResolver.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/theme/CookieThemeResolver.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/theme/ThemeChangeInterceptor.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/AsyncHandlerInterceptor.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/LocaleResolver.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/InterceptorsBeanDefinitionParser.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ViewResolversBeanDefinitionParser.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/DefaultServletHandlerBeanDefinitionParser.java" />
+        <option value="$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/AnnotationDrivenBeanDefinitionParser.java" />
       </list>
     </option>
   </component>
@@ -135,6 +265,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -145,70 +276,40 @@
             <path>
               <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-beans" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-mvc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-beans" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-mvc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-beans" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-beans" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-mvc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-beans" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-mvc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="beans" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-beans" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="beans" type="462c0819:PsiDirectoryNode" />
-              <item name="factory" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-beans" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="beans" type="462c0819:PsiDirectoryNode" />
-              <item name="factory" type="462c0819:PsiDirectoryNode" />
-              <item name="access" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
         <option name="show-excluded-files" value="false" />
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -237,13 +338,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31616595" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28826895" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Tail" />
+      <window_info anchor="bottom" id="MyBatis Sql Log" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -254,9 +356,10 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3421687" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="right" id="PlantUML" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24964234" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24964234" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.31402004" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.3297568" />
@@ -270,453 +373,441 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/ImportDefinition.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ScriptTemplateConfigurerBeanDefinitionParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ViewControllerBeanDefinitionParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-963">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/AbstractResourceResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/AbstractVersionStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/AppCacheManifestTransformer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2176">
+          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ContentVersionStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding>
+            <element signature="imports" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/Problem.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/DefaultResourceTransformerChain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        <state relative-caret-position="374">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/PropertyEntry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/QualifierEntry.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/DefaultResourceResolverChain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/ReaderEventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/ReaderContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="59" lean-forward="true" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/SourceExtractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/Location.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/DisposableBeanAdapter.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/DefaultServletHttpRequestHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="41" column="53" selection-start-line="41" selection-start-column="53" selection-end-line="41" selection-end-column="53" />
+        <state relative-caret-position="567">
+          <caret line="83" column="9" lean-forward="true" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/DisposableBean.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/GzipResourceResolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/DelegatingEntityResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        <state relative-caret-position="-1001">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/DocumentLoader.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/FixedVersionStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/NamespaceHandlerResolver.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceResolverChain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/DefaultNamespaceHandlerResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/PluggableSchemaResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="170">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/ResourceEntityResolver.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceTransformer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="153">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceTransformerChain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/SimpleConstructorNamespaceHandler.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceTransformerSupport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="499">
+          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/SimplePropertyNamespaceHandler.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceUrlProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+        <state relative-caret-position="-1194">
+          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/BeansDtdResolver.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionedResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinition.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionPathStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionResourceResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-658">
+          <caret line="183" column="18" selection-start-line="183" selection-start-column="18" selection-end-line="183" selection-end-column="18" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionDecorator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionDefaults.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="13" lean-forward="true" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1046">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/merge/ManagedArray.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/VersionStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionValueResolver.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/TransformedResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+        <state relative-caret-position="476">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionResource.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/PathResourceResolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        <state relative-caret-position="-1279">
+          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/BeanDefinitionVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-825">
-          <caret line="136" column="18" lean-forward="true" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/RootBeanDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2848">
-          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/GenericBeanDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43">
-          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/definition/ChildBeanDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-961">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/FactoryBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/ObjectFactoryCreatingFactoryBean.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceUrlEncodingFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/bean/factorybean/PropertiesFactoryBean.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/resource/ResourceHttpRequestHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4906">
+          <caret line="230" column="13" lean-forward="true" selection-start-line="230" selection-start-column="13" selection-end-line="230" selection-end-column="13" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/support/BindStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3604">
+          <caret line="222" column="5" selection-start-line="222" selection-start-column="5" selection-end-line="222" selection-end-column="5" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/support/RequestContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="946">
+          <caret line="387" column="7" lean-forward="true" selection-start-line="387" selection-start-column="7" selection-end-line="387" selection-end-column="7" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/support/WebContentGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1209">
+          <caret line="490" column="37" selection-start-line="490" selection-start-column="37" selection-end-line="490" selection-end-column="37" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/ArgumentAware.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/ArgumentTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/BindTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="45" column="3" lean-forward="true" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/EvalTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="47" column="27" lean-forward="true" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/ParamAware.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+          <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/ArgumentConvertingMethodInvoker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/MutableSortDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/PagedListHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/PropertyComparator.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/Param.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/form/ButtonTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1175">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/form/FormTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1312">
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/tags/MessageTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2488">
+          <caret line="58" column="37" lean-forward="true" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/theme/AbstractThemeResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/theme/CookieThemeResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-439">
+          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/ResourceEditorRegistrar.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/theme/ThemeChangeInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        <state relative-caret-position="405">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/support/SortDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/wiring/BeanWiringInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-183">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/AliasDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/BeanDefinitionReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="25" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/PropertiesBeanDefinitionReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3016">
-          <caret line="40" column="23" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/reader/XmlBeanDefinitionReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/AbstractSimpleBeanDefinitionParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/AbstractSingleBeanDefinitionParser.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/AsyncHandlerInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/BeanDefinitionParser.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/HandlerMapping.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        <state relative-caret-position="391">
+          <caret line="23" column="71" lean-forward="true" selection-start-line="23" selection-start-column="71" selection-end-line="23" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/UtilNamespaceHandler.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/src.zip!/java/util/Locale.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2482">
-          <caret line="160" lean-forward="true" selection-start-line="160" selection-end-line="160" />
+        <state relative-caret-position="-4859">
+          <caret line="483" column="25" selection-start-line="483" selection-start-column="19" selection-end-line="483" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/ViewResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/LocaleResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/InterceptorsBeanDefinitionParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-210">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/xml/parser/AbstractBeanDefinitionParser.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/CorsBeanDefinitionParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1364">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        <state relative-caret-position="233">
+          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/ViewResolversBeanDefinitionParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-175">
+          <caret line="23" column="15" lean-forward="true" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/parsing/AbstractComponentDefinition.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/DefaultServletHandlerBeanDefinitionParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="30" column="36" lean-forward="true" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+        <state relative-caret-position="102">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-beans/src/main/java/org/springframework/beans/factory/access/BeanFactoryLocator.java">
+    <entry file="file://$PROJECT_DIR$/spring-mvc/src/main/java/org/springframework/web/servlet/config/AnnotationDrivenBeanDefinitionParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        <state relative-caret-position="-5050">
+          <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+          <folding>
+            <element signature="imports" />
+          </folding>
         </state>
       </provider>
     </entry>

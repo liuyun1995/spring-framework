@@ -2,13 +2,12 @@ package org.springframework.web.servlet.resource;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
+//抽象版本策略器
 public abstract class AbstractVersionStrategy implements VersionStrategy {
 
     protected final Log logger = LogFactory.getLog(getClass());
@@ -24,26 +23,25 @@ public abstract class AbstractVersionStrategy implements VersionStrategy {
         return this.pathStrategy;
     }
 
+    //获取版本
     @Override
     public String extractVersion(String requestPath) {
         return this.pathStrategy.extractVersion(requestPath);
     }
 
+    //移除版本
     @Override
     public String removeVersion(String requestPath, String version) {
         return this.pathStrategy.removeVersion(requestPath, version);
     }
 
+    //添加版本
     @Override
     public String addVersion(String requestPath, String version) {
         return this.pathStrategy.addVersion(requestPath, version);
     }
 
-
-    /**
-     * A prefix-based {@code VersionPathStrategy},
-     * e.g. {@code "{version}/path/foo.js"}.
-     */
+    //前缀版本路径策略器
     protected static class PrefixVersionPathStrategy implements VersionPathStrategy {
 
         private final String prefix;
@@ -75,10 +73,7 @@ public abstract class AbstractVersionStrategy implements VersionStrategy {
     }
 
 
-    /**
-     * File name-based {@code VersionPathStrategy},
-     * e.g. {@code "path/foo-{version}.css"}.
-     */
+    //文件名版本路径策略器
     protected static class FileNameVersionPathStrategy implements VersionPathStrategy {
 
         private static final Pattern pattern = Pattern.compile("-(\\S*)\\.");

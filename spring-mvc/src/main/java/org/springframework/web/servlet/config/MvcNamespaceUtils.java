@@ -13,17 +13,10 @@ import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 import org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter;
 import org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter;
 import org.springframework.web.util.UrlPathHelper;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * Convenience methods for use in MVC namespace BeanDefinitionParsers.
- *
- * @author Rossen Stoyanchev
- * @author Brian Clozel
- * @since 3.1
- */
+//MVC名称空间工具类
 abstract class MvcNamespaceUtils {
 
 	private static final String BEAN_NAME_URL_HANDLER_MAPPING_BEAN_NAME =

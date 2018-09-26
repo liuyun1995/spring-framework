@@ -1,7 +1,6 @@
 package org.springframework.beans.bean.factorybean.serviceloader;
 
 import java.util.ServiceLoader;
-
 import org.springframework.beans.support.autowire.BeanClassLoaderAware;
 import org.springframework.beans.bean.factorybean.AbstractFactoryBean;
 import org.springframework.util.Assert;
@@ -11,7 +10,6 @@ public abstract class AbstractServiceLoaderBasedFactoryBean extends AbstractFact
 		implements BeanClassLoaderAware {
 
 	private Class<?> serviceType;
-
 	private ClassLoader beanClassLoader = ClassUtils.getDefaultClassLoader();
 
 	public void setServiceType(Class<?> serviceType) {

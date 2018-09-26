@@ -1,9 +1,7 @@
 package org.springframework.web.servlet.config;
 
 import java.util.Map;
-
 import org.w3c.dom.Element;
-
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.RuntimeBeanReference;
 import org.springframework.beans.factory.parsing.BeanComponentDefinition;

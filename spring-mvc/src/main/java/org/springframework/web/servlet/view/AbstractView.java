@@ -13,7 +13,6 @@ import java.util.StringTokenizer;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.http.MediaType;
 import org.springframework.util.CollectionUtils;
@@ -30,7 +29,6 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 
 	/** Initial size for the temporary output byte array (if any) */
 	private static final int OUTPUT_BYTE_ARRAY_INITIAL_SIZE = 4096;
-
 
 	private String contentType = DEFAULT_CONTENT_TYPE;
 

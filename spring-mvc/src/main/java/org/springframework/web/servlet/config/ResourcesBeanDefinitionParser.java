@@ -1,27 +1,9 @@
-/*
- * Copyright 2002-2016 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.config;
 
 import java.util.Arrays;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
 import org.w3c.dom.Element;
-
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
@@ -55,18 +37,7 @@ import org.springframework.web.servlet.resource.ResourceUrlProviderExposingInter
 import org.springframework.web.servlet.resource.VersionResourceResolver;
 import org.springframework.web.servlet.resource.WebJarsResourceResolver;
 
-/**
- * {@link org.springframework.beans.factory.xml.BeanDefinitionParser} that parses a
- * {@code resources} element to register a {@link ResourceHttpRequestHandler} and
- * register a {@link SimpleUrlHandlerMapping} for mapping resource requests,
- * and a {@link HttpRequestHandlerAdapter}. Will also create a resource handling
- * chain with {@link ResourceResolver}s and {@link ResourceTransformer}s.
- *
- * @author Keith Donald
- * @author Jeremy Grelle
- * @author Brian Clozel
- * @since 3.0.4
- */
+//Bean定义解析器
 class ResourcesBeanDefinitionParser implements BeanDefinitionParser {
 
 	private static final String RESOURCE_CHAIN_CACHE = "spring-resource-chain-cache";
@@ -85,6 +56,7 @@ class ResourcesBeanDefinitionParser implements BeanDefinitionParser {
 			"org.webjars.WebJarAssetLocator", ResourcesBeanDefinitionParser.class.getClassLoader());
 
 
+	//解析方法
 	@Override
 	public BeanDefinition parse(Element element, ParserContext parserContext) {
 		Object source = parserContext.extractSource(element);

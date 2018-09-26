@@ -29,9 +29,9 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 	final Object postProcessingLock = new Object();        //后置处理过程锁
 	boolean postProcessed = false;                         //是否执行后置加工
 	volatile Boolean beforeInstantiationResolved;          //是否在实例化之前解析
-	private Set<Member> externallyManagedConfigMembers;    //额外管理的配置成员
-	private Set<String> externallyManagedInitMethods;      //额外管理的初始化方法
-	private Set<String> externallyManagedDestroyMethods;   //额外管理的销毁方法
+	private Set<Member> externallyManagedConfigMembers;    //额外配置成员
+	private Set<String> externallyManagedInitMethods;      //额外初始化方法
+	private Set<String> externallyManagedDestroyMethods;   //额外销毁方法
 
 	//构造器1
 	public RootBeanDefinition() {
@@ -176,7 +176,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
-	//注册额外管理的初始化方法
+	//注册额外初始化方法
 	public void registerExternallyManagedInitMethod(String initMethod) {
 		synchronized (this.postProcessingLock) {
 			if (this.externallyManagedInitMethods == null) {
@@ -186,7 +186,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
-	//是否是额外管理的初始化方法
+	//是否是额外初始化方法
 	public boolean isExternallyManagedInitMethod(String initMethod) {
 		synchronized (this.postProcessingLock) {
 			return (this.externallyManagedInitMethods != null &&
@@ -194,7 +194,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
-	//注册额外管理的销毁方法
+	//注册额外销毁方法
 	public void registerExternallyManagedDestroyMethod(String destroyMethod) {
 		synchronized (this.postProcessingLock) {
 			if (this.externallyManagedDestroyMethods == null) {
@@ -204,7 +204,7 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 		}
 	}
 
-	//是否是额外管理的销毁方法
+	//是否是额外销毁方法
 	public boolean isExternallyManagedDestroyMethod(String destroyMethod) {
 		synchronized (this.postProcessingLock) {
 			return (this.externallyManagedDestroyMethods != null &&

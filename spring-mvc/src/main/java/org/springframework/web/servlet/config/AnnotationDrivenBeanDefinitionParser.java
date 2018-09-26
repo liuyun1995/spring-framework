@@ -1,26 +1,8 @@
-/*
- * Copyright 2002-2017 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.config;
 
 import java.util.List;
 import java.util.Properties;
-
 import org.w3c.dom.Element;
-
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -82,71 +64,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import org.springframework.web.servlet.mvc.method.annotation.ServletWebArgumentResolverAdapter;
 import org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver;
 
-/**
- * A {@link BeanDefinitionParser} that provides the configuration for the
- * {@code <annotation-driven/>} MVC namespace element.
- *
- * <p>This class registers the following {@link HandlerMapping}s:</p>
- * <ul>
- * <li>{@link RequestMappingHandlerMapping}
- * ordered at 0 for mapping requests to annotated controller methods.
- * <li>{@link BeanNameUrlHandlerMapping}
- * ordered at 2 to map URL paths to controller bean names.
- * </ul>
- *
- * <p><strong>Note:</strong> Additional HandlerMappings may be registered
- * as a result of using the {@code <view-controller>} or the
- * {@code <resources>} MVC namespace elements.
- *
- * <p>This class registers the following {@link HandlerAdapter}s:
- * <ul>
- * <li>{@link RequestMappingHandlerAdapter}
- * for processing requests with annotated controller methods.
- * <li>{@link HttpRequestHandlerAdapter}
- * for processing requests with {@link HttpRequestHandler}s.
- * <li>{@link SimpleControllerHandlerAdapter}
- * for processing requests with interface-based {@link Controller}s.
- * </ul>
- *
- * <p>This class registers the following {@link HandlerExceptionResolver}s:
- * <ul>
- * <li>{@link ExceptionHandlerExceptionResolver} for handling exceptions
- * through @{@link ExceptionHandler} methods.
- * <li>{@link ResponseStatusExceptionResolver} for exceptions annotated
- * with @{@link ResponseStatus}.
- * <li>{@link DefaultHandlerExceptionResolver} for resolving known Spring
- * exception types
- * </ul>
- *
- * <p>This class registers an {@link org.springframework.util.AntPathMatcher}
- * and a {@link org.springframework.web.util.UrlPathHelper} to be used by:
- * <ul>
- * <li>the {@link RequestMappingHandlerMapping},
- * <li>the {@link HandlerMapping} for ViewControllers
- * <li>and the {@link HandlerMapping} for serving resources
- * </ul>
- * Note that those beans can be configured by using the {@code path-matching} MVC namespace element.
- *
- * <p>Both the {@link RequestMappingHandlerAdapter} and the
- * {@link ExceptionHandlerExceptionResolver} are configured with instances of
- * the following by default:
- * <ul>
- * <li>A {@link ContentNegotiationManager}
- * <li>A {@link DefaultFormattingConversionService}
- * <li>A {@link org.springframework.validation.beanvalidation.LocalValidatorFactoryBean}
- * if a JSR-303 implementation is available on the classpath
- * <li>A range of {@link HttpMessageConverter}s depending on what 3rd party
- * libraries are available on the classpath.
- * </ul>
- *
- * @author Keith Donald
- * @author Juergen Hoeller
- * @author Arjen Poutsma
- * @author Rossen Stoyanchev
- * @author Brian Clozel
- * @author Agim Emruli
- * @since 3.0
- */
+//注解驱动Bean定义解析器
 class AnnotationDrivenBeanDefinitionParser implements BeanDefinitionParser {
 
 	public static final String HANDLER_MAPPING_BEAN_NAME = RequestMappingHandlerMapping.class.getName();

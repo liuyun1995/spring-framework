@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2017 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.resource;
 
 import java.io.File;
@@ -29,59 +13,26 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.core.io.AbstractResource;
 import org.springframework.core.io.Resource;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.StringUtils;
 
-/**
- * Resolves request paths containing a version string that can be used as part
- * of an HTTP caching strategy in which a resource is cached with a date in the
- * distant future (e.g. 1 year) and cached until the version, and therefore the
- * URL, is changed.
- *
- * <p>Different versioning strategies exist, and this resolver must be configured
- * with one or more such strategies along with path mappings to indicate which
- * strategy applies to which resources.
- *
- * <p>{@code ContentVersionStrategy} is a good default choice except in cases
- * where it cannot be used. Most notably the {@code ContentVersionStrategy}
- * cannot be combined with JavaScript module loaders. For such cases the
- * {@code FixedVersionStrategy} is a better choice.
- *
- * <p>Note that using this resolver to serve CSS files means that the
- * {@link CssLinkResourceTransformer} should also be used in order to modify
- * links within CSS files to also contain the appropriate versions generated
- * by this resolver.
- *
- * @author Brian Clozel
- * @author Rossen Stoyanchev
- * @since 4.1
- * @see VersionStrategy
- */
+//版本资源解析器
 public class VersionResourceResolver extends AbstractResourceResolver {
 
 	private AntPathMatcher pathMatcher = new AntPathMatcher();
 
-	/** Map from path pattern -> VersionStrategy */
+	//版本策略映射
 	private final Map<String, VersionStrategy> versionStrategyMap = new LinkedHashMap<String, VersionStrategy>();
 
-
-	/**
-	 * Set a Map with URL paths as keys and {@code VersionStrategy} as values.
-	 * <p>Supports direct URL matches and Ant-style pattern matches. For syntax
-	 * details, see the {@link org.springframework.util.AntPathMatcher} javadoc.
-	 * @param map map with URLs as keys and version strategies as values
-	 */
+	//设置策略映射
 	public void setStrategyMap(Map<String, VersionStrategy> map) {
 		this.versionStrategyMap.clear();
 		this.versionStrategyMap.putAll(map);
 	}
 
-	/**
-	 * Return the map with version strategies keyed by path pattern.
-	 */
+	//获取策略映射
 	public Map<String, VersionStrategy> getStrategyMap() {
 		return this.versionStrategyMap;
 	}
@@ -134,15 +85,7 @@ public class VersionResourceResolver extends AbstractResourceResolver {
 		return addVersionStrategy(new FixedVersionStrategy(version), prefixedPatterns.toArray(new String[0]));
 	}
 
-	/**
-	 * Register a custom VersionStrategy to apply to resource URLs that match the
-	 * given path patterns.
-	 * @param strategy the custom strategy
-	 * @param pathPatterns one or more resource URL path patterns,
-	 * relative to the pattern configured with the resource handler
-	 * @return the current instance for chained method invocation
-	 * @see VersionStrategy
-	 */
+	//添加版本策略
 	public VersionResourceResolver addVersionStrategy(VersionStrategy strategy, String... pathPatterns) {
 		for (String pattern : pathPatterns) {
 			getStrategyMap().put(pattern, strategy);
@@ -220,10 +163,7 @@ public class VersionResourceResolver extends AbstractResourceResolver {
 		return baseUrl;
 	}
 
-	/**
-	 * Find a {@code VersionStrategy} for the request path of the requested resource.
-	 * @return an instance of a {@code VersionStrategy} or null if none matches that request path
-	 */
+	//根据路径获取策略
 	protected VersionStrategy getStrategyForPath(String requestPath) {
 		String path = "/".concat(requestPath);
 		List<String> matchingPatterns = new ArrayList<String>();

@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.core.Ordered;
@@ -48,46 +47,28 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
     private CorsProcessor corsProcessor = new DefaultCorsProcessor();
 
 
-    /**
-     * Specify the order value for this HandlerMapping bean.
-     * <p>Default value is {@code Integer.MAX_VALUE}, meaning that it's non-ordered.
-     *
-     * @see org.springframework.core.Ordered#getOrder()
-     */
+    //设置序号
     public final void setOrder(int order) {
         this.order = order;
     }
 
+    //获取序号
     @Override
     public final int getOrder() {
         return this.order;
     }
 
-    /**
-     * Set the default handler for this handler mapping.
-     * This handler will be returned if no specific mapping was found.
-     * <p>Default is {@code null}, indicating no default handler.
-     */
+    //设置默认处理器
     public void setDefaultHandler(Object defaultHandler) {
         this.defaultHandler = defaultHandler;
     }
 
-    /**
-     * Return the default handler for this handler mapping,
-     * or {@code null} if none.
-     */
+    //获取默认处理器
     public Object getDefaultHandler() {
         return this.defaultHandler;
     }
 
-    /**
-     * Set if URL lookup should always use the full path within the current servlet
-     * context. Else, the path within the current servlet mapping is used if applicable
-     * (that is, in the case of a ".../*" servlet mapping in web.xml).
-     * <p>Default is "false".
-     *
-     * @see org.springframework.web.util.UrlPathHelper#setAlwaysUseFullPath
-     */
+    //设置总是使用全路径
     public void setAlwaysUseFullPath(boolean alwaysUseFullPath) {
         this.urlPathHelper.setAlwaysUseFullPath(alwaysUseFullPath);
         this.globalCorsConfigSource.setAlwaysUseFullPath(alwaysUseFullPath);

@@ -28,6 +28,7 @@ import org.springframework.util.ConcurrentReferenceHashMap;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
+//Bean工具类
 public abstract class BeanUtils {
 
     private static final Log logger = LogFactory.getLog(BeanUtils.class);
@@ -73,20 +74,22 @@ public abstract class BeanUtils {
     public static <T> T instantiateClass(Constructor<T> ctor, Object... args) throws org.springframework.beans.exception.BeanInstantiationException {
         Assert.notNull(ctor, "Constructor must not be null");
         try {
+            //设置可以访问
             ReflectionUtils.makeAccessible(ctor);
+            //调用构造器生成实例
             return ctor.newInstance(args);
         } catch (InstantiationException ex) {
-            throw new org.springframework.beans.exception.BeanInstantiationException(ctor, "Is it an abstract class?", ex);
+            throw new BeanInstantiationException(ctor, "Is it an abstract class?", ex);
         } catch (IllegalAccessException ex) {
-            throw new org.springframework.beans.exception.BeanInstantiationException(ctor, "Is the constructor accessible?", ex);
+            throw new BeanInstantiationException(ctor, "Is the constructor accessible?", ex);
         } catch (IllegalArgumentException ex) {
-            throw new org.springframework.beans.exception.BeanInstantiationException(ctor, "Illegal arguments for constructor", ex);
+            throw new BeanInstantiationException(ctor, "Illegal arguments for constructor", ex);
         } catch (InvocationTargetException ex) {
             throw new BeanInstantiationException(ctor, "Constructor threw exception", ex.getTargetException());
         }
     }
 
-    //寻找方面
+    //寻找方法
     public static Method findMethod(Class<?> clazz, String methodName, Class<?>... paramTypes) {
         try {
             return clazz.getMethod(methodName, paramTypes);
@@ -242,7 +245,6 @@ public abstract class BeanUtils {
                     return null;
                 }
             } catch (Throwable ex) {
-                // e.g. AccessControlException on Google App Engine
                 if (logger.isDebugEnabled()) {
                     logger.debug("Could not access system ClassLoader: " + ex);
                 }

@@ -1,9 +1,7 @@
 package org.springframework.web.servlet.config;
 
 import java.util.List;
-
 import org.w3c.dom.Element;
-
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.RuntimeBeanReference;
 import org.springframework.beans.factory.parsing.BeanComponentDefinition;
@@ -15,13 +13,7 @@ import org.springframework.beans.factory.xml.ParserContext;
 import org.springframework.util.xml.DomUtils;
 import org.springframework.web.servlet.handler.MappedInterceptor;
 
-/**
- * {@link org.springframework.beans.factory.xml.BeanDefinitionParser} that parses a
- * {@code interceptors} element to register a set of {@link MappedInterceptor} definitions.
- *
- * @author Keith Donald
- * @since 3.0
- */
+//拦截器Bean定义解析
 class InterceptorsBeanDefinitionParser implements BeanDefinitionParser {
 
 	@Override

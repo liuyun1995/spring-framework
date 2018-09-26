@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2017 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.handler;
 
 import java.util.ArrayList;
@@ -24,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.BeansException;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
@@ -145,19 +128,7 @@ public abstract class AbstractUrlHandlerMapping extends AbstractHandlerMapping i
 		return handler;
 	}
 
-	/**
-	 * Look up a handler instance for the given URL path.
-	 * <p>Supports direct matches, e.g. a registered "/test" matches "/test",
-	 * and various Ant-style pattern matches, e.g. a registered "/t*" matches
-	 * both "/test" and "/team". For details, see the AntPathMatcher class.
-	 * <p>Looks for the most exact pattern, where most exact is defined as
-	 * the longest path pattern.
-	 * @param urlPath URL the bean is mapped to
-	 * @param request current HTTP request (to expose the path within the mapping to)
-	 * @return the associated handler instance, or {@code null} if not found
-	 * @see #exposePathWithinMapping
-	 * @see org.springframework.util.AntPathMatcher
-	 */
+	//寻找处理器
 	protected Object lookupHandler(String urlPath, HttpServletRequest request) throws Exception {
 		// Direct match?
 		Object handler = this.handlerMap.get(urlPath);
@@ -300,13 +271,7 @@ public abstract class AbstractUrlHandlerMapping extends AbstractHandlerMapping i
 		return null;
 	}
 
-	/**
-	 * Register the specified handler for the given URL paths.
-	 * @param urlPaths the URLs that the bean should be mapped to
-	 * @param beanName the name of the handler bean
-	 * @throws BeansException if the handler couldn't be registered
-	 * @throws IllegalStateException if there is a conflicting handler registered
-	 */
+	//注册处理器
 	protected void registerHandler(String[] urlPaths, String beanName) throws BeansException, IllegalStateException {
 		Assert.notNull(urlPaths, "URL path array must not be null");
 		for (String urlPath : urlPaths) {
@@ -314,14 +279,7 @@ public abstract class AbstractUrlHandlerMapping extends AbstractHandlerMapping i
 		}
 	}
 
-	/**
-	 * Register the specified handler for the given URL path.
-	 * @param urlPath the URL the bean should be mapped to
-	 * @param handler the handler instance or handler bean name String
-	 * (a bean name will automatically be resolved into the corresponding handler bean)
-	 * @throws BeansException if the handler couldn't be registered
-	 * @throws IllegalStateException if there is a conflicting handler registered
-	 */
+	//注册处理器
 	protected void registerHandler(String urlPath, Object handler) throws BeansException, IllegalStateException {
 		Assert.notNull(urlPath, "URL path must not be null");
 		Assert.notNull(handler, "Handler object must not be null");
@@ -365,17 +323,12 @@ public abstract class AbstractUrlHandlerMapping extends AbstractHandlerMapping i
 		}
 	}
 
+	//获取处理器描述符
 	private String getHandlerDescription(Object handler) {
 		return "handler " + (handler instanceof String ? "'" + handler + "'" : "of type [" + handler.getClass() + "]");
 	}
 
-
-	/**
-	 * Return the registered handlers as an unmodifiable Map, with the registered path
-	 * as key and the handler object (or handler bean name in case of a lazy-init handler)
-	 * as value.
-	 * @see #getDefaultHandler()
-	 */
+	//获取处理器映射
 	public final Map<String, Object> getHandlerMap() {
 		return Collections.unmodifiableMap(this.handlerMap);
 	}

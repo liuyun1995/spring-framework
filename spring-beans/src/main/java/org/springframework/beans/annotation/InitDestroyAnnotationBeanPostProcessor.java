@@ -13,10 +13,8 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.exception.BeanCreationException;
 import org.springframework.beans.support.processor.DestructionAwareBeanPostProcessor;
@@ -32,15 +30,10 @@ public class InitDestroyAnnotationBeanPostProcessor
         implements DestructionAwareBeanPostProcessor, MergedBeanDefinitionPostProcessor, PriorityOrdered, Serializable {
 
     protected transient Log logger = LogFactory.getLog(getClass());
-
     private Class<? extends Annotation> initAnnotationType;
-
     private Class<? extends Annotation> destroyAnnotationType;
-
     private int order = Ordered.LOWEST_PRECEDENCE;
-
-    private transient final Map<Class<?>, LifecycleMetadata> lifecycleMetadataCache =
-            new ConcurrentHashMap<Class<?>, LifecycleMetadata>(256);
+    private transient final Map<Class<?>, LifecycleMetadata> lifecycleMetadataCache = new ConcurrentHashMap<Class<?>, LifecycleMetadata>(256);
 
 
     public void setInitAnnotationType(Class<? extends Annotation> initAnnotationType) {
@@ -129,10 +122,11 @@ public class InitDestroyAnnotationBeanPostProcessor
         return metadata;
     }
 
+    //构建生命周期元数据
     private LifecycleMetadata buildLifecycleMetadata(final Class<?> clazz) {
         final boolean debug = logger.isDebugEnabled();
-        LinkedList<LifecycleElement> initMethods = new LinkedList<LifecycleElement>();
-        LinkedList<LifecycleElement> destroyMethods = new LinkedList<LifecycleElement>();
+        LinkedList<LifecycleElement> initMethods = new LinkedList<LifecycleElement>();     //初始化方法集合
+        LinkedList<LifecycleElement> destroyMethods = new LinkedList<LifecycleElement>();  //销毁方法集合
         Class<?> targetClass = clazz;
 
         do {
@@ -184,39 +178,44 @@ public class InitDestroyAnnotationBeanPostProcessor
         this.logger = LogFactory.getLog(getClass());
     }
 
+    //生命周期元数据
     private class LifecycleMetadata {
 
-        private final Class<?> targetClass;
+        private final Class<?> targetClass;                              //目标类型
+        private final Collection<LifecycleElement> initMethods;          //初始化方法集合
+        private final Collection<LifecycleElement> destroyMethods;       //销毁方法集合
+        private volatile Set<LifecycleElement> checkedInitMethods;       //受检查的初始方法
+        private volatile Set<LifecycleElement> checkedDestroyMethods;    //受检查的销毁方法
 
-        private final Collection<LifecycleElement> initMethods;
-
-        private final Collection<LifecycleElement> destroyMethods;
-
-        private volatile Set<LifecycleElement> checkedInitMethods;
-
-        private volatile Set<LifecycleElement> checkedDestroyMethods;
-
+        //构造器
         public LifecycleMetadata(Class<?> targetClass, Collection<LifecycleElement> initMethods,
                                  Collection<LifecycleElement> destroyMethods) {
-
             this.targetClass = targetClass;
             this.initMethods = initMethods;
             this.destroyMethods = destroyMethods;
         }
 
+        //检查配置成员
         public void checkConfigMembers(RootBeanDefinition beanDefinition) {
             Set<LifecycleElement> checkedInitMethods = new LinkedHashSet<LifecycleElement>(this.initMethods.size());
+            //遍历初始化方法
             for (LifecycleElement element : this.initMethods) {
+                //获取方法标识符
                 String methodIdentifier = element.getIdentifier();
+                //如果不是额外初始化方法
                 if (!beanDefinition.isExternallyManagedInitMethod(methodIdentifier)) {
+                    //注册额外初始化方法
                     beanDefinition.registerExternallyManagedInitMethod(methodIdentifier);
+                    //将该方法标记为检查
                     checkedInitMethods.add(element);
                     if (logger.isDebugEnabled()) {
                         logger.debug("Registered init method on class [" + this.targetClass.getName() + "]: " + element);
                     }
                 }
             }
+
             Set<LifecycleElement> checkedDestroyMethods = new LinkedHashSet<LifecycleElement>(this.destroyMethods.size());
+            //遍历销毁方法
             for (LifecycleElement element : this.destroyMethods) {
                 String methodIdentifier = element.getIdentifier();
                 if (!beanDefinition.isExternallyManagedDestroyMethod(methodIdentifier)) {
@@ -231,6 +230,7 @@ public class InitDestroyAnnotationBeanPostProcessor
             this.checkedDestroyMethods = checkedDestroyMethods;
         }
 
+        //调用初始化方法
         public void invokeInitMethods(Object target, String beanName) throws Throwable {
             Collection<LifecycleElement> initMethodsToIterate =
                     (this.checkedInitMethods != null ? this.checkedInitMethods : this.initMethods);
@@ -245,6 +245,7 @@ public class InitDestroyAnnotationBeanPostProcessor
             }
         }
 
+        //调用销毁方法
         public void invokeDestroyMethods(Object target, String beanName) throws Throwable {
             Collection<LifecycleElement> destroyMethodsToUse =
                     (this.checkedDestroyMethods != null ? this.checkedDestroyMethods : this.destroyMethods);
@@ -266,29 +267,32 @@ public class InitDestroyAnnotationBeanPostProcessor
         }
     }
 
+    //生命周期元素
     private static class LifecycleElement {
 
-        private final Method method;
+        private final Method method;       //方法
+        private final String identifier;   //方法标识符
 
-        private final String identifier;
-
+        //构造器
         public LifecycleElement(Method method) {
             if (method.getParameterTypes().length != 0) {
                 throw new IllegalStateException("Lifecycle method annotation requires a no-arg method: " + method);
             }
             this.method = method;
-            this.identifier = (Modifier.isPrivate(method.getModifiers()) ?
-                    ClassUtils.getQualifiedMethodName(method) : method.getName());
+            this.identifier = (Modifier.isPrivate(method.getModifiers()) ? ClassUtils.getQualifiedMethodName(method) : method.getName());
         }
 
+        //获取方法
         public Method getMethod() {
             return this.method;
         }
 
+        //获取标识符
         public String getIdentifier() {
             return this.identifier;
         }
 
+        //调用方法
         public void invoke(Object target) throws Throwable {
             ReflectionUtils.makeAccessible(this.method);
             this.method.invoke(target, (Object[]) null);

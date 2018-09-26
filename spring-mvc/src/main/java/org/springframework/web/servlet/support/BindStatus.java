@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2014 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.support;
 
 import org.springframework.beans.BeanWrapper;
@@ -24,27 +8,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.util.HtmlUtils;
-
 import java.beans.PropertyEditor;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Simple adapter to expose the bind status of a field or object.
- * Set as a variable both by the JSP bind tag and Velocity/FreeMarker macros.
- *
- * <p>Obviously, object status representations (i.e. errors at the object level
- * rather than the field level) do not have an expression and a value but only
- * error codes and messages. For simplicity's sake and to be able to use the same
- * tags and macros, the same status class is used for both scenarios.
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @author Darren Davison
- * @see RequestContext#getBindStatus
- * @see org.springframework.web.servlet.tags.BindTag
- * @see org.springframework.web.servlet.view.AbstractTemplateView#setExposeSpringMacroHelpers
- */
+//绑定状态
 public class BindStatus {
 
     private final RequestContext requestContext;
@@ -73,16 +41,7 @@ public class BindStatus {
 
     private String[] errorMessages;
 
-
-    /**
-     * Create a new BindStatus instance, representing a field or object status.
-     *
-     * @param requestContext the current RequestContext
-     * @param path           the bean and property path for which values and errors
-     *                       will be resolved (e.g. "customer.address.street")
-     * @param htmlEscape     whether to HTML-escape error messages and string values
-     * @throws IllegalStateException if no corresponding Errors object found
-     */
+    //构造器
     public BindStatus(RequestContext requestContext, String path, boolean htmlEscape)
             throws IllegalStateException {
 
@@ -153,9 +112,7 @@ public class BindStatus {
         }
     }
 
-    /**
-     * Extract the error codes from the ObjectError list.
-     */
+    //初始化错误码
     private void initErrorCodes() {
         this.errorCodes = new String[this.objectErrors.size()];
         for (int i = 0; i < this.objectErrors.size(); i++) {
@@ -164,9 +121,7 @@ public class BindStatus {
         }
     }
 
-    /**
-     * Extract the error messages from the ObjectError list.
-     */
+    //初始化错误消息
     private void initErrorMessages() throws NoSuchMessageException {
         if (this.errorMessages == null) {
             this.errorMessages = new String[this.objectErrors.size()];
@@ -177,49 +132,27 @@ public class BindStatus {
         }
     }
 
-
-    /**
-     * Return the bean and property path for which values and errors
-     * will be resolved (e.g. "customer.address.street").
-     */
+    //获取路径
     public String getPath() {
         return this.path;
     }
 
-    /**
-     * Return a bind expression that can be used in HTML forms as input name
-     * for the respective field, or {@code null} if not field-specific.
-     * <p>Returns a bind path appropriate for resubmission, e.g. "address.street".
-     * Note that the complete bind path as required by the bind tag is
-     * "customer.address.street", if bound to a "customer" bean.
-     */
+    //获取表达式
     public String getExpression() {
         return this.expression;
     }
 
-    /**
-     * Return the current value of the field, i.e. either the property value
-     * or a rejected update, or {@code null} if not field-specific.
-     * <p>This value will be an HTML-escaped String if the original value
-     * already was a String.
-     */
+    //获取值
     public Object getValue() {
         return this.value;
     }
 
-    /**
-     * Get the '{@code Class}' type of the field. Favor this instead of
-     * '{@code getValue().getClass()}' since '{@code getValue()}' may
-     * return '{@code null}'.
-     */
+    //获取值类型
     public Class<?> getValueType() {
         return this.valueType;
     }
 
-    /**
-     * Return the actual value of the field, i.e. the raw property value,
-     * or {@code null} if not available.
-     */
+    //获取实际值
     public Object getActualValue() {
         return this.actualValue;
     }
@@ -241,89 +174,53 @@ public class BindStatus {
         return "";
     }
 
-    /**
-     * Return if this status represents a field or object error.
-     */
+    //是否错误
     public boolean isError() {
         return (this.errorCodes != null && this.errorCodes.length > 0);
     }
 
-    /**
-     * Return the error codes for the field or object, if any.
-     * Returns an empty array instead of null if none.
-     */
+    //获取所有错误码
     public String[] getErrorCodes() {
         return this.errorCodes;
     }
 
-    /**
-     * Return the first error codes for the field or object, if any.
-     */
+    //获取第一个错误码
     public String getErrorCode() {
         return (this.errorCodes.length > 0 ? this.errorCodes[0] : "");
     }
 
-    /**
-     * Return the resolved error messages for the field or object,
-     * if any. Returns an empty array instead of null if none.
-     */
+    //获取错误消息
     public String[] getErrorMessages() {
         initErrorMessages();
         return this.errorMessages;
     }
 
-    /**
-     * Return the first error message for the field or object, if any.
-     */
+    //获取第一个错误消息
     public String getErrorMessage() {
         initErrorMessages();
         return (this.errorMessages.length > 0 ? this.errorMessages[0] : "");
     }
 
-    /**
-     * Return an error message string, concatenating all messages
-     * separated by the given delimiter.
-     *
-     * @param delimiter separator string, e.g. ", " or "<br>"
-     * @return the error message string
-     */
+    //获取错误消息
     public String getErrorMessagesAsString(String delimiter) {
         initErrorMessages();
         return StringUtils.arrayToDelimitedString(this.errorMessages, delimiter);
     }
 
-    /**
-     * Return the Errors instance (typically a BindingResult) that this
-     * bind status is currently associated with.
-     *
-     * @return the current Errors instance, or {@code null} if none
-     * @see org.springframework.validation.BindingResult
-     */
+    //获取错误
     public Errors getErrors() {
         return this.errors;
     }
 
-    /**
-     * Return the PropertyEditor for the property that this bind status
-     * is currently bound to.
-     *
-     * @return the current PropertyEditor, or {@code null} if none
-     */
+    //获取属性编辑器
     public PropertyEditor getEditor() {
         return this.editor;
     }
 
-    /**
-     * Find a PropertyEditor for the given value class, associated with
-     * the property that this bound status is currently bound to.
-     *
-     * @param valueClass the value class that an editor is needed for
-     * @return the associated PropertyEditor, or {@code null} if none
-     */
+    //寻找属性编辑器
     public PropertyEditor findEditor(Class<?> valueClass) {
         return (this.bindingResult != null ? this.bindingResult.findEditor(this.expression, valueClass) : null);
     }
-
 
     @Override
     public String toString() {

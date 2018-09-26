@@ -26,12 +26,12 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.inject.Provider;
-
 import org.springframework.beans.InjectionPoint;
 import org.springframework.beans.SmartInitializingSingleton;
 import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.exception.BeansException;
 import org.springframework.beans.factory.*;
+import org.springframework.beans.factory.AbstractAutowireCapableBeanFactory;
 import org.springframework.beans.factory.AbstractBeanFactory;
 import org.springframework.beans.support.autowire.SimpleAutowireCandidateResolver;
 import org.springframework.beans.property.type.TypeConverter;
@@ -66,7 +66,7 @@ import org.springframework.util.StringUtils;
 
 //默认可列举Bean工厂
 @SuppressWarnings("serial")
-public class DefaultListableBeanFactory extends org.springframework.beans.factory.AbstractAutowireCapableBeanFactory
+public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory
 		implements ConfigurableListableBeanFactory, BeanDefinitionRegistry, Serializable {
 
 	private static Class<?> javaUtilOptionalClass = null;
@@ -239,7 +239,7 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	//获取Bean对象
 	@Override
 	public <T> T getBean(Class<T> requiredType, Object... args) throws BeansException {
-		//获取命名Bean持有期
+		//获取命名Bean持有器
 		NamedBeanHolder<T> namedBean = resolveNamedBean(requiredType, args);
 		//命名Bean不为空则返回Bean实例
 		if (namedBean != null) {
@@ -282,19 +282,19 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 		}
 	}
 
-	//获取Bean定义名称
+	//根据类型获取Bean名称
 	@Override
 	public String[] getBeanNamesForType(ResolvableType type) {
 		return doGetBeanNamesForType(type, true, true);
 	}
 
-	//获取Bean定义名称
+	//根据类型获取Bean名称
 	@Override
 	public String[] getBeanNamesForType(Class<?> type) {
 		return getBeanNamesForType(type, true, true);
 	}
 
-	//获取Bean定义名称
+	//根据类型获取Bean名称
 	@Override
 	public String[] getBeanNamesForType(Class<?> type, boolean includeNonSingletons, boolean allowEagerInit) {
 		//配置信息未被冻结，或传入类型为空，或不允许提前初始化
@@ -316,31 +316,35 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 		return resolvedBeanNames;
 	}
 
-	//核心获取Bean定义名称
+	//根据类型获取Bean名称(核心方法)
 	private String[] doGetBeanNamesForType(ResolvableType type, boolean includeNonSingletons, boolean allowEagerInit) {
 		List<String> result = new ArrayList<String>();
-		//遍历Bean名称集合
+		//遍历Bean定义名称集合
 		for (String beanName : this.beanDefinitionNames) {
 			//如果Bean名称不是别名
 			if (!isAlias(beanName)) {
 				try {
+					//获取根级Bean定义
 					RootBeanDefinition mbd = getMergedLocalBeanDefinition(beanName);
-					// Only check bean definition if it is complete.
-					if (!mbd.isAbstract() && (allowEagerInit
-							|| ((mbd.hasBeanClass() || !mbd.isLazyInit() || isAllowEagerClassLoading()))
+
+					if (!mbd.isAbstract() && (allowEagerInit || ((mbd.hasBeanClass() || !mbd.isLazyInit() || isAllowEagerClassLoading()))
 									&& !requiresEagerInitForType(mbd.getFactoryBeanName()))) {
-						// In case of FactoryBean, match object created by FactoryBean.
+						//是否是工厂Bean
 						boolean isFactoryBean = isFactoryBean(beanName, mbd);
+						//获取Bean定义持有器
 						BeanDefinitionHolder dbd = mbd.getDecoratedDefinition();
-						boolean matchFound = (allowEagerInit || !isFactoryBean || (dbd != null && !mbd.isLazyInit())
-								|| containsSingleton(beanName))
+						//进行类型匹配
+						boolean matchFound = (allowEagerInit || !isFactoryBean || (dbd != null && !mbd.isLazyInit()) || containsSingleton(beanName))
 								&& (includeNonSingletons || (dbd != null ? mbd.isSingleton() : isSingleton(beanName)))
 								&& isTypeMatch(beanName, type);
+						//若未找到匹配类型，并且是工厂Bean
 						if (!matchFound && isFactoryBean) {
-							// In case of FactoryBean, try to match FactoryBean instance itself next.
+							//添加工厂Bean前缀
 							beanName = FACTORY_BEAN_PREFIX + beanName;
+							//再次进行类型匹配
 							matchFound = (includeNonSingletons || mbd.isSingleton()) && isTypeMatch(beanName, type);
 						}
+						//如果匹配成功，则添加到结果中
 						if (matchFound) {
 							result.add(beanName);
 						}
@@ -349,7 +353,6 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 					if (allowEagerInit) {
 						throw ex;
 					}
-					// Probably contains a placeholder: let's ignore it for type matching purposes.
 					if (this.logger.isDebugEnabled()) {
 						this.logger.debug("Ignoring bean class loading failure for bean '" + beanName + "'", ex);
 					}
@@ -358,7 +361,6 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 					if (allowEagerInit) {
 						throw ex;
 					}
-					// Probably contains a placeholder: let's ignore it for type matching purposes.
 					if (this.logger.isDebugEnabled()) {
 						this.logger.debug("Ignoring unresolvable metadata in bean definition '" + beanName + "'", ex);
 					}
@@ -367,25 +369,24 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 			}
 		}
 
-		//手动注册单例Bean名称
+		//遍历手动注册Bean名称
 		for (String beanName : this.manualSingletonNames) {
 			try {
-				// In case of FactoryBean, match object created by FactoryBean.
+				//如果是工厂Bean
 				if (isFactoryBean(beanName)) {
+					//先进行类型匹配，若匹配则添加到结果集中
 					if ((includeNonSingletons || isSingleton(beanName)) && isTypeMatch(beanName, type)) {
 						result.add(beanName);
-						// Match found for this bean: do not match FactoryBean itself anymore.
 						continue;
 					}
-					// In case of FactoryBean, try to match FactoryBean itself next.
+					//否则，添加上工厂Bean前缀
 					beanName = FACTORY_BEAN_PREFIX + beanName;
 				}
-				// Match raw bean instance (might be raw FactoryBean).
+				//如果类型匹配则添加到结果集中
 				if (isTypeMatch(beanName, type)) {
 					result.add(beanName);
 				}
 			} catch (NoSuchBeanDefinitionException ex) {
-				// Shouldn't happen - probably a result of circular reference resolution...
 				if (logger.isDebugEnabled()) {
 					logger.debug("Failed to check manually registered singleton with name '" + beanName + "'", ex);
 				}
@@ -397,6 +398,7 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 
 	//是否提前对类型初始化
 	private boolean requiresEagerInitForType(String factoryBeanName) {
+		//如果是工厂Bean，并且不包含在单例中，则提前进行类型初始化
 		return (factoryBeanName != null && isFactoryBean(factoryBeanName) && !containsSingleton(factoryBeanName));
 	}
 
@@ -428,8 +430,6 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 									"Ignoring match to currently created bean '" + beanName + "': " + ex.getMessage());
 						}
 						onSuppressedException(ex);
-						// Ignore: indicates a circular reference when autowiring constructors.
-						// We want to find matches other than the currently created bean itself.
 						continue;
 					}
 				}
@@ -439,17 +439,22 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 		return result;
 	}
 
-	//获取Bean名称
+	//根据注解获取Bean名称
 	@Override
 	public String[] getBeanNamesForAnnotation(Class<? extends Annotation> annotationType) {
 		List<String> results = new ArrayList<String>();
+		//遍历Bean定义名称
 		for (String beanName : this.beanDefinitionNames) {
+			//根据名称获取Bean定义
 			BeanDefinition beanDefinition = getBeanDefinition(beanName);
+			//如果Bean不是抽象的，并且该Bean上存在对应注解
 			if (!beanDefinition.isAbstract() && findAnnotationOnBean(beanName, annotationType) != null) {
 				results.add(beanName);
 			}
 		}
+		//遍历手动注册Bean定义名称
 		for (String beanName : this.manualSingletonNames) {
+			//如果结果集中未包含该Bean名称，且存在对应注解
 			if (!results.contains(beanName) && findAnnotationOnBean(beanName, annotationType) != null) {
 				results.add(beanName);
 			}
@@ -457,11 +462,13 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 		return results.toArray(new String[results.size()]);
 	}
 
-	//获取Bean名称
+	//根据注解获取Bean名称
 	@Override
 	public Map<String, Object> getBeansWithAnnotation(Class<? extends Annotation> annotationType) {
+		//根据注解获取Bean名称
 		String[] beanNames = getBeanNamesForAnnotation(annotationType);
 		Map<String, Object> results = new LinkedHashMap<String, Object>(beanNames.length);
+		//遍历Bean名称数组
 		for (String beanName : beanNames) {
 			results.put(beanName, getBean(beanName));
 		}
@@ -473,15 +480,19 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	public <A extends Annotation> A findAnnotationOnBean(String beanName, Class<A> annotationType)
 			throws NoSuchBeanDefinitionException {
 		A ann = null;
+		//根据Bean名称获取Bean类型
 		Class<?> beanType = getType(beanName);
+		//若类型不为空，则获取Bean类型的注解
 		if (beanType != null) {
 			ann = AnnotationUtils.findAnnotation(beanType, annotationType);
 		}
+		//若未获取到注解，则通过Bean定义来获取Bean类型，再获取注解
 		if (ann == null && containsBeanDefinition(beanName)) {
 			BeanDefinition bd = getMergedBeanDefinition(beanName);
 			if (bd instanceof AbstractBeanDefinition) {
 				AbstractBeanDefinition abd = (AbstractBeanDefinition) bd;
 				if (abd.hasBeanClass()) {
+					//通过Bean定义获取Bean类型，然后获取注解
 					ann = AnnotationUtils.findAnnotation(abd.getBeanClass(), annotationType);
 				}
 			}
@@ -498,10 +509,12 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	public void registerResolvableDependency(Class<?> dependencyType, Object autowiredValue) {
 		Assert.notNull(dependencyType, "Dependency type must not be null");
 		if (autowiredValue != null) {
+			//若不是ObjectFactory实例，或者不是依赖类型的实例，则抛出异常
 			if (!(autowiredValue instanceof ObjectFactory || dependencyType.isInstance(autowiredValue))) {
 				throw new IllegalArgumentException("Value [" + autowiredValue
 						+ "] does not implement specified dependency type [" + dependencyType.getName() + "]");
 			}
+			//建立依赖类型和装配对象的映射关系
 			this.resolvableDependencies.put(dependencyType, autowiredValue);
 		}
 	}
@@ -516,21 +529,25 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	//是否是自动装配候选者
 	protected boolean isAutowireCandidate(String beanName, DependencyDescriptor descriptor,
 			AutowireCandidateResolver resolver) throws NoSuchBeanDefinitionException {
+		//获取Bean定义名称
 		String beanDefinitionName = BeanFactoryUtils.transformedBeanName(beanName);
+		//判断是否存在该Bean定义
 		if (containsBeanDefinition(beanDefinitionName)) {
-			return isAutowireCandidate(beanName, getMergedLocalBeanDefinition(beanDefinitionName), descriptor,
-					resolver);
+			return isAutowireCandidate(beanName, getMergedLocalBeanDefinition(beanDefinitionName), descriptor, resolver);
+		//判断是否存在该单例
 		} else if (containsSingleton(beanName)) {
 			return isAutowireCandidate(beanName, new RootBeanDefinition(getType(beanName)), descriptor, resolver);
 		}
 
+		//获取父类Bean工厂
 		BeanFactory parent = getParentBeanFactory();
+		//如果是DefaultListableBeanFactory实例
 		if (parent instanceof DefaultListableBeanFactory) {
-			// No bean definition found in this factory -> delegate to parent.
 			return ((DefaultListableBeanFactory) parent).isAutowireCandidate(beanName, descriptor, resolver);
+		//如果是ConfigurableListableBeanFactory实例
 		} else if (parent instanceof ConfigurableListableBeanFactory) {
-			// If no DefaultListableBeanFactory, can't pass the resolver along.
 			return ((ConfigurableListableBeanFactory) parent).isAutowireCandidate(beanName, descriptor);
+		//否则返回true
 		} else {
 			return true;
 		}
@@ -539,7 +556,9 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	//是否是自动装配候选者
 	protected boolean isAutowireCandidate(String beanName, RootBeanDefinition mbd, DependencyDescriptor descriptor,
 										  AutowireCandidateResolver resolver) {
+		//获取Bean定义名称
 		String beanDefinitionName = BeanFactoryUtils.transformedBeanName(beanName);
+		//解析Bean类型
 		resolveBeanClass(mbd, beanDefinitionName);
 		if (mbd.isFactoryMethodUnique) {
 			boolean resolve;
@@ -603,26 +622,26 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	 */
 	@Override
 	protected boolean isBeanEligibleForMetadataCaching(String beanName) {
+		//配置信息冻结，或者
 		return (this.configurationFrozen || super.isBeanEligibleForMetadataCaching(beanName));
 	}
 
-	//提前实例化单例Bean
+	//提前实例化所有单例
 	@Override
 	public void preInstantiateSingletons() throws BeansException {
 		if (this.logger.isDebugEnabled()) {
 			this.logger.debug("Pre-instantiating singletons in " + this);
 		}
 
-		// Iterate over a copy to allow for init methods which in turn register new bean
-		// definitions.
-		// While this may not be part of the regular factory bootstrap, it does
-		// otherwise work fine.
 		List<String> beanNames = new ArrayList<String>(this.beanDefinitionNames);
 
-		// Trigger initialization of all non-lazy singleton beans...
+		//遍历Bean名称
 		for (String beanName : beanNames) {
+			//获取根级Bean定义
 			RootBeanDefinition bd = getMergedLocalBeanDefinition(beanName);
+			//如果不是抽象类，并且是单例，并且不是懒加载
 			if (!bd.isAbstract() && bd.isSingleton() && !bd.isLazyInit()) {
+				//如果是工厂Bean，则判断是否要提前初始化
 				if (isFactoryBean(beanName)) {
 					final FactoryBean<?> factory = (FactoryBean<?>) getBean(FACTORY_BEAN_PREFIX + beanName);
 					boolean isEagerInit;
@@ -637,20 +656,22 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 						isEagerInit = (factory instanceof SmartFactoryBean
 								&& ((SmartFactoryBean<?>) factory).isEagerInit());
 					}
+					//确定要提前初始化，才去获取Bean对象
 					if (isEagerInit) {
 						getBean(beanName);
 					}
+				//否则，就直接初始化
 				} else {
 					getBean(beanName);
 				}
 			}
 		}
 
-		// Trigger post-initialization callback for all applicable beans...
 		for (String beanName : beanNames) {
 			Object singletonInstance = getSingleton(beanName);
-			if (singletonInstance instanceof org.springframework.beans.SmartInitializingSingleton) {
-				final org.springframework.beans.SmartInitializingSingleton smartSingleton = (SmartInitializingSingleton) singletonInstance;
+			//如果是SmartInitializingSingleton实例，则调用afterSingletonsInstantiated方法
+			if (singletonInstance instanceof SmartInitializingSingleton) {
+				final SmartInitializingSingleton smartSingleton = (SmartInitializingSingleton) singletonInstance;
 				if (System.getSecurityManager() != null) {
 					AccessController.doPrivileged(new PrivilegedAction<Object>() {
 						@Override
@@ -677,14 +698,12 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 
 		Assert.hasText(beanName, "Bean name must not be empty");
 		Assert.notNull(beanDefinition, "BeanDefinition must not be null");
-
+		//若是AbstractBeanDefinition，则进行验证
 		if (beanDefinition instanceof AbstractBeanDefinition) {
 			try {
-				//对Bean定义进行验证
 				((AbstractBeanDefinition) beanDefinition).validate();
 			} catch (BeanDefinitionValidationException ex) {
-				throw new BeanDefinitionStoreException(beanDefinition.getResourceDescription(), beanName,
-						"Validation of bean definition failed", ex);
+				throw new BeanDefinitionStoreException(beanDefinition.getResourceDescription(), beanName, "Validation of bean definition failed", ex);
 			}
 		}
 
@@ -724,9 +743,8 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 			this.beanDefinitionMap.put(beanName, beanDefinition);
 		//若缓存不存在Bean定义
 		} else {
-			//是否已经有创建好的Bean
+			//无法再修改启动时的集合元素，因此直接替换集合
 			if (hasBeanCreationStarted()) {
-				// Cannot modify startup-time collection elements anymore (for stable iteration)
 				synchronized (this.beanDefinitionMap) {
 					//将Bean定义放入缓存中
 					this.beanDefinitionMap.put(beanName, beanDefinition);
@@ -741,6 +759,7 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 						this.manualSingletonNames = updatedSingletons;
 					}
 				}
+			//否则，表明仍处于启动注册阶段，可以直接修改集合内容
 			} else {
 				this.beanDefinitionMap.put(beanName, beanDefinition);
 				this.beanDefinitionNames.add(beanName);
@@ -768,18 +787,16 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 		}
 
 		if (hasBeanCreationStarted()) {
-			// Cannot modify startup-time collection elements anymore (for stable iteration)
 			synchronized (this.beanDefinitionMap) {
 				List<String> updatedDefinitions = new ArrayList<String>(this.beanDefinitionNames);
 				updatedDefinitions.remove(beanName);
 				this.beanDefinitionNames = updatedDefinitions;
 			}
 		} else {
-			//仍处于启动注册阶段
 			this.beanDefinitionNames.remove(beanName);
 		}
 		this.frozenBeanDefinitionNames = null;
-
+		//重置Bean定义
 		resetBeanDefinition(beanName);
 	}
 
@@ -790,7 +807,6 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 		//销毁该Bean单例
 		destroySingleton(beanName);
 
-		// Reset all bean definitions that have the given bean as parent (recursively).
 		for (String bdName : this.beanDefinitionNames) {
 			if (!beanName.equals(bdName)) {
 				BeanDefinition bd = this.beanDefinitionMap.get(bdName);
@@ -811,9 +827,8 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	@Override
 	public void registerSingleton(String beanName, Object singletonObject) throws IllegalStateException {
 		super.registerSingleton(beanName, singletonObject);
-
+		//无法再修改启动时的集合元素，因此直接替换集合
 		if (hasBeanCreationStarted()) {
-			//无法再修改启动时的集合元素，因此直接替换集合
 			synchronized (this.beanDefinitionMap) {
 				if (!this.beanDefinitionMap.containsKey(beanName)) {
 					Set<String> updatedSingletons = new LinkedHashSet<String>(this.manualSingletonNames.size() + 1);
@@ -822,8 +837,8 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 					this.manualSingletonNames = updatedSingletons;
 				}
 			}
+		//否则，表明仍处于启动注册阶段，可以直接修改集合内容
 		} else {
-			//仍处于启动注册阶段
 			if (!this.beanDefinitionMap.containsKey(beanName)) {
 				this.manualSingletonNames.add(beanName);
 			}
@@ -861,10 +876,12 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	//解析命名Bean
 	@Override
 	public <T> NamedBeanHolder<T> resolveNamedBean(Class<T> requiredType) throws BeansException {
+		//获取命名Bean持有器
 		NamedBeanHolder<T> namedBean = resolveNamedBean(requiredType, (Object[]) null);
 		if (namedBean != null) {
 			return namedBean;
 		}
+		//获取父类Bean工厂，调用Bean工厂方法解析命名Bean
 		BeanFactory parent = getParentBeanFactory();
 		if (parent instanceof AutowireCapableBeanFactory) {
 			return ((AutowireCapableBeanFactory) parent).resolveNamedBean(requiredType);
@@ -876,31 +893,34 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	@SuppressWarnings("unchecked")
 	private <T> NamedBeanHolder<T> resolveNamedBean(Class<T> requiredType, Object... args) throws BeansException {
 		Assert.notNull(requiredType, "Required type must not be null");
-		//根据类型获取候选Bean名称
+		//根据类型获取候选者名称
 		String[] candidateNames = getBeanNamesForType(requiredType);
-
+		//确定符合资格的候选者
 		if (candidateNames.length > 1) {
 			List<String> autowireCandidates = new ArrayList<String>(candidateNames.length);
-			//遍历多个候选Bean名称
 			for (String beanName : candidateNames) {
+				//不存在Bean定义，或者存在Bean定义但是自动装配候选者
 				if (!containsBeanDefinition(beanName) || getBeanDefinition(beanName).isAutowireCandidate()) {
+					//符合以上两个条件就加入候选者集合
 					autowireCandidates.add(beanName);
 				}
 			}
+			//如果候选者集合不为空，则将其转换为数组
 			if (!autowireCandidates.isEmpty()) {
 				candidateNames = autowireCandidates.toArray(new String[autowireCandidates.size()]);
 			}
 		}
-		//若候选Bean名称唯一
+
+		//若候选者数量等于1
 		if (candidateNames.length == 1) {
 			//获取Bean名称
 			String beanName = candidateNames[0];
 			//直接获取Bean，并返回命名Bean持有器
 			return new NamedBeanHolder<T>(beanName, getBean(beanName, requiredType, args));
-		//若候选Bean名称不唯一
+		//若候选者数量大于1
 		} else if (candidateNames.length > 1) {
 			Map<String, Object> candidates = new LinkedHashMap<String, Object>(candidateNames.length);
-			//遍历候选Bean名称数组
+			//遍历所有候选者名称，并生成名称对象映射集合
 			for (String beanName : candidateNames) {
 				if (containsSingleton(beanName)) {
 					candidates.put(beanName, getBean(beanName, requiredType, args));
@@ -908,23 +928,26 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 					candidates.put(beanName, getType(beanName));
 				}
 			}
-			//确定主要候选者
+			//首选去确定主要候选者
 			String candidateName = determinePrimaryCandidate(candidates, requiredType);
-			//若主要候选者为空，则按最高优先级获取候选者
+			//若主要候选者为空，则获取最高优先级的候选者
 			if (candidateName == null) {
 				candidateName = determineHighestPriorityCandidate(candidates, requiredType);
 			}
+			//若候选者名称不为空
 			if (candidateName != null) {
-				//获取候选Bean名称获取对应实例
+				//根据候选者名称获取候选者实例
 				Object beanInstance = candidates.get(candidateName);
+				//如果是Class类型，则去获取对应Bean实例
 				if (beanInstance instanceof Class) {
 					beanInstance = getBean(candidateName, requiredType, args);
 				}
+				//最后返回命名Bean持有器
 				return new NamedBeanHolder<T>(candidateName, (T) beanInstance);
 			}
+			//否则抛出候选者不唯一异常
 			throw new NoUniqueBeanDefinitionException(requiredType, candidates.keySet());
 		}
-
 		return null;
 	}
 
@@ -955,20 +978,20 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	public Object doResolveDependency(DependencyDescriptor descriptor, String beanName, Set<String> autowiredBeanNames,
 			TypeConverter typeConverter) throws BeansException {
 
+		//设置切入点
 		InjectionPoint previousInjectionPoint = ConstructorResolver.setCurrentInjectionPoint(descriptor);
 		try {
 			Object shortcut = descriptor.resolveShortcut(this);
 			if (shortcut != null) {
 				return shortcut;
 			}
-
+			//获取依赖类型
 			Class<?> type = descriptor.getDependencyType();
 			Object value = getAutowireCandidateResolver().getSuggestedValue(descriptor);
 			if (value != null) {
 				if (value instanceof String) {
 					String strVal = resolveEmbeddedValue((String) value);
-					BeanDefinition bd = (beanName != null && containsBean(beanName) ? getMergedBeanDefinition(beanName)
-							: null);
+					BeanDefinition bd = (beanName != null && containsBean(beanName) ? getMergedBeanDefinition(beanName) : null);
 					value = evaluateBeanDefinitionString(strVal, bd);
 				}
 				TypeConverter converter = (typeConverter != null ? typeConverter : getTypeConverter());
@@ -1126,7 +1149,7 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 		return new FactoryAwareOrderSourceProvider(instancesToBeanNames);
 	}
 
-	//发现自动转配候选者
+	//寻找自动装配候选者
 	protected Map<String, Object> findAutowireCandidates(String beanName, Class<?> requiredType,
 			DependencyDescriptor descriptor) {
 
@@ -1208,10 +1231,15 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	//确定主要候选者
 	protected String determinePrimaryCandidate(Map<String, Object> candidates, Class<?> requiredType) {
 		String primaryBeanName = null;
+		//遍历候选者映射集合
 		for (Map.Entry<String, Object> entry : candidates.entrySet()) {
+			//获取候选者名称
 			String candidateBeanName = entry.getKey();
+			//获取候选Bean实例
 			Object beanInstance = entry.getValue();
+			//判断当前Bean是否是主要Bean
 			if (isPrimary(candidateBeanName, beanInstance)) {
+				//判断上下两个候选者是否都是主要Bean，如果都是的话就报错
 				if (primaryBeanName != null) {
 					boolean candidateLocal = containsBeanDefinition(candidateBeanName);
 					boolean primaryLocal = containsBeanDefinition(primaryBeanName);
@@ -1226,6 +1254,7 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 				}
 			}
 		}
+		//最后返回主要Bean名称
 		return primaryBeanName;
 	}
 
@@ -1233,34 +1262,46 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	protected String determineHighestPriorityCandidate(Map<String, Object> candidates, Class<?> requiredType) {
 		String highestPriorityBeanName = null;
 		Integer highestPriority = null;
+		//遍历候选者映射集合
 		for (Map.Entry<String, Object> entry : candidates.entrySet()) {
+			//获取候选者名称
 			String candidateBeanName = entry.getKey();
+			//获取候选者实例
 			Object beanInstance = entry.getValue();
+			//获取候选者的优先级
 			Integer candidatePriority = getPriority(beanInstance);
 			if (candidatePriority != null) {
+				//若存在最高优先级Bean
 				if (highestPriorityBeanName != null) {
+					//如果当前优先级等于最高优先级则报错
 					if (candidatePriority.equals(highestPriority)) {
 						throw new NoUniqueBeanDefinitionException(requiredType, candidates.size(),
 								"Multiple beans found with the same priority ('" + highestPriority
 										+ "') among candidates: " + candidates.keySet());
+					//若当前优先级小于最高优先级，则设置最高优先级Bean
 					} else if (candidatePriority < highestPriority) {
 						highestPriorityBeanName = candidateBeanName;
 						highestPriority = candidatePriority;
 					}
+				//否则，直接设置当前Bean为最高优先级Bean
 				} else {
 					highestPriorityBeanName = candidateBeanName;
 					highestPriority = candidatePriority;
 				}
 			}
 		}
+		//最后返回最高优先级Bean
 		return highestPriorityBeanName;
 	}
 
 	//是否是主要的Bean
 	protected boolean isPrimary(String beanName, Object beanInstance) {
+		//若存在Bean定义
 		if (containsBeanDefinition(beanName)) {
+			//获取根级Bean定义，然后判断是否是主要Bean
 			return getMergedLocalBeanDefinition(beanName).isPrimary();
 		}
+		//否则，获取父类Bean工厂
 		BeanFactory parent = getParentBeanFactory();
 		return (parent instanceof DefaultListableBeanFactory
 				&& ((DefaultListableBeanFactory) parent).isPrimary(beanName, beanInstance));
@@ -1268,7 +1309,9 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 
 	//获取优先级
 	protected Integer getPriority(Object beanInstance) {
+		//获取依赖比较器
 		Comparator<Object> comparator = getDependencyComparator();
+		//如果是顺序比较器，则调用方法获取优先级
 		if (comparator instanceof OrderComparator) {
 			return ((OrderComparator) comparator).getPriority(beanInstance);
 		}
@@ -1294,9 +1337,7 @@ public class DefaultListableBeanFactory extends org.springframework.beans.factor
 	 */
 	private void raiseNoMatchingBeanFound(Class<?> type, ResolvableType resolvableType, DependencyDescriptor descriptor)
 			throws BeansException {
-
 		checkBeanNotOfRequiredType(type, descriptor);
-
 		throw new NoSuchBeanDefinitionException(resolvableType,
 				"expected at least 1 bean which qualifies as autowire candidate. " + "Dependency annotations: "
 						+ ObjectUtils.nullSafeToString(descriptor.getAnnotations()));

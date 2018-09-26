@@ -249,10 +249,10 @@ public class BeanDefinitionParserDelegate {
             String[] nameArr = StringUtils.tokenizeToStringArray(nameAttr, MULTI_VALUE_ATTRIBUTE_DELIMITERS);
             aliases.addAll(Arrays.asList(nameArr));
         }
-        //将id属性设置为Bean名称
+        //设置Bean的名称
         String beanName = id;
 
-        //若为设置id属性，并且别名数组不为空，则获取第一个别名作为Bean名称
+        //若未设置id属性，并且别名数组不为空，则获取第一个别名作为Bean名称
         if (!StringUtils.hasText(beanName) && !aliases.isEmpty()) {
             beanName = aliases.remove(0);
             if (logger.isDebugEnabled()) {
@@ -328,7 +328,7 @@ public class BeanDefinitionParserDelegate {
         //设置解析状态
         this.parseState.push(new BeanEntry(beanName));
 
-        //获取类路径
+        //获取类的全限定名
         String className = null;
         if (ele.hasAttribute(CLASS_ATTRIBUTE)) {
             className = ele.getAttribute(CLASS_ATTRIBUTE).trim();

@@ -1,8 +1,8 @@
 package org.springframework.web.servlet.config;
 
-import org.springframework.beans.factory.xml.NamespaceHandler;
 import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 
+//MVC名称空间处理器
 public class MvcNamespaceHandler extends NamespaceHandlerSupport {
 
 	@Override

@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2015 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet;
 
 import java.io.IOException;
@@ -22,26 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.web.util.NestedServletException;
 
-/**
- * ViewRendererServlet is a bridge servlet, mainly for the Portlet MVC support.
- *
- * <p>For usage with Portlets, this Servlet is necessary to force the portlet container
- * to convert the PortletRequest to a ServletRequest, which it has to do when
- * including a resource via the PortletRequestDispatcher. This allows for reuse
- * of the entire Servlet-based View support even in a Portlet environment.
- *
- * <p>The actual mapping of the bridge servlet is configurable in the DispatcherPortlet,
- * via a "viewRendererUrl" property. The default is "/WEB-INF/servlet/view", which is
- * just available for internal resource dispatching.
- *
- * @author William G. Thompson, Jr.
- * @author John A. Lewis
- * @author Juergen Hoeller
- * @since 2.0
- */
+//视图渲染Servlet
 @SuppressWarnings("serial")
 public class ViewRendererServlet extends HttpServlet {
 

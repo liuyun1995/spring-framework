@@ -86,9 +86,7 @@ import org.springframework.web.util.WebUtils;
 public class ServletForwardingController extends AbstractController implements BeanNameAware {
 
 	private String servletName;
-
 	private String beanName;
-
 
 	public ServletForwardingController() {
 		super(false);

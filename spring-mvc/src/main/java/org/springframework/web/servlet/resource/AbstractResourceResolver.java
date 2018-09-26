@@ -2,23 +2,16 @@ package org.springframework.web.servlet.resource;
 
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.core.io.Resource;
 
-/**
- * Base class for {@link org.springframework.web.servlet.resource.ResourceResolver}
- * implementations. Provides consistent logging.
- *
- * @author Rossen Stoyanchev
- * @since 4.1
- */
+//抽象资源解析器
 public abstract class AbstractResourceResolver implements ResourceResolver {
 
     protected final Log logger = LogFactory.getLog(getClass());
 
+    //解析资源
     @Override
     public Resource resolveResource(HttpServletRequest request, String requestPath,
                                     List<? extends Resource> locations, ResourceResolverChain chain) {
@@ -29,6 +22,7 @@ public abstract class AbstractResourceResolver implements ResourceResolver {
         return resolveResourceInternal(request, requestPath, locations, chain);
     }
 
+    //解析URL路径
     @Override
     public String resolveUrlPath(String resourceUrlPath, List<? extends Resource> locations,
                                  ResourceResolverChain chain) {

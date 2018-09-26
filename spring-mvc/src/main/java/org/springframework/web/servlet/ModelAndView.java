@@ -1,101 +1,30 @@
-/*
- * Copyright 2002-2017 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet;
 
 import java.util.Map;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.CollectionUtils;
 
-/**
- * Holder for both Model and View in the web MVC framework.
- * Note that these are entirely distinct. This class merely holds
- * both to make it possible for a controller to return both model
- * and view in a single return value.
- *
- * <p>Represents a model and view returned by a handler, to be resolved
- * by a DispatcherServlet. The view can take the form of a String
- * view name which will need to be resolved by a ViewResolver object;
- * alternatively a View object can be specified directly. The model
- * is a Map, allowing the use of multiple objects keyed by name.
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @author Rob Harrop
- * @author Rossen Stoyanchev
- * @see DispatcherServlet
- * @see ViewResolver
- * @see HandlerAdapter#handle
- * @see org.springframework.web.servlet.mvc.Controller#handleRequest
- */
+//视图模型
 public class ModelAndView {
 
-	/** View instance or view name String */
-	private Object view;
-
-	/** Model Map */
-	private ModelMap model;
-
-	/** Optional HTTP status for the response */
-	private HttpStatus status;
+	private Object view;        //视图对象
+	private ModelMap model;     //数据模型
+	private HttpStatus status;  //http状态
 
 	/** Indicates whether or not this instance has been cleared with a call to {@link #clear()} */
 	private boolean cleared = false;
 
+	public ModelAndView() {}
 
-	/**
-	 * Default constructor for bean-style usage: populating bean
-	 * properties instead of passing in constructor arguments.
-	 * @see #setView(View)
-	 * @see #setViewName(String)
-	 */
-	public ModelAndView() {
-	}
-
-	/**
-	 * Convenient constructor when there is no model data to expose.
-	 * Can also be used in conjunction with {@code addObject}.
-	 * @param viewName name of the View to render, to be resolved
-	 * by the DispatcherServlet's ViewResolver
-	 * @see #addObject
-	 */
 	public ModelAndView(String viewName) {
 		this.view = viewName;
 	}
 
-	/**
-	 * Convenient constructor when there is no model data to expose.
-	 * Can also be used in conjunction with {@code addObject}.
-	 * @param view View object to render
-	 * @see #addObject
-	 */
 	public ModelAndView(View view) {
 		this.view = view;
 	}
 
-	/**
-	 * Create a new ModelAndView given a view name and a model.
-	 * @param viewName name of the View to render, to be resolved
-	 * by the DispatcherServlet's ViewResolver
-	 * @param model Map of model names (Strings) to model objects
-	 * (Objects). Model entries may not be {@code null}, but the
-	 * model Map may be {@code null} if there is no model data.
-	 */
 	public ModelAndView(String viewName, Map<String, ?> model) {
 		this.view = viewName;
 		if (model != null) {
@@ -103,16 +32,6 @@ public class ModelAndView {
 		}
 	}
 
-	/**
-	 * Create a new ModelAndView given a View object and a model.
-	 * <emphasis>Note: the supplied model data is copied into the internal
-	 * storage of this class. You should not consider to modify the supplied
-	 * Map after supplying it to this class</emphasis>
-	 * @param view View object to render
-	 * @param model Map of model names (Strings) to model objects
-	 * (Objects). Model entries may not be {@code null}, but the
-	 * model Map may be {@code null} if there is no model data.
-	 */
 	public ModelAndView(View view, Map<String, ?> model) {
 		this.view = view;
 		if (model != null) {
@@ -120,30 +39,11 @@ public class ModelAndView {
 		}
 	}
 
-	/**
-	 * Create a new ModelAndView given a view name and HTTP status.
-	 * @param viewName name of the View to render, to be resolved
-	 * by the DispatcherServlet's ViewResolver
-	 * @param status an HTTP status code to use for the response
-	 * (to be set just prior to View rendering)
-	 * @since 4.3.8
-	 */
 	public ModelAndView(String viewName, HttpStatus status) {
 		this.view = viewName;
 		this.status = status;
 	}
 
-	/**
-	 * Create a new ModelAndView given a view name, model, and HTTP status.
-	 * @param viewName name of the View to render, to be resolved
-	 * by the DispatcherServlet's ViewResolver
-	 * @param model Map of model names (Strings) to model objects
-	 * (Objects). Model entries may not be {@code null}, but the
-	 * model Map may be {@code null} if there is no model data.
-	 * @param status an HTTP status code to use for the response
-	 * (to be set just prior to View rendering)
-	 * @since 4.3
-	 */
 	public ModelAndView(String viewName, Map<String, ?> model, HttpStatus status) {
 		this.view = viewName;
 		if (model != null) {
@@ -152,24 +52,11 @@ public class ModelAndView {
 		this.status = status;
 	}
 
-	/**
-	 * Convenient constructor to take a single model object.
-	 * @param viewName name of the View to render, to be resolved
-	 * by the DispatcherServlet's ViewResolver
-	 * @param modelName name of the single entry in the model
-	 * @param modelObject the single model object
-	 */
 	public ModelAndView(String viewName, String modelName, Object modelObject) {
 		this.view = viewName;
 		addObject(modelName, modelObject);
 	}
 
-	/**
-	 * Convenient constructor to take a single model object.
-	 * @param view View object to render
-	 * @param modelName name of the single entry in the model
-	 * @param modelObject the single model object
-	 */
 	public ModelAndView(View view, String modelName, Object modelObject) {
 		this.view = view;
 		addObject(modelName, modelObject);

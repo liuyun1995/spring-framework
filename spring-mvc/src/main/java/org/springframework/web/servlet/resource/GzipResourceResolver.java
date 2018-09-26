@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2017 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.resource;
 
 import java.io.File;
@@ -23,22 +7,10 @@ import java.net.URI;
 import java.net.URL;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.core.io.AbstractResource;
 import org.springframework.core.io.Resource;
 
-/**
- * A {@code ResourceResolver} that delegates to the chain to locate a resource
- * and then attempts to find a variation with the ".gz" extension.
- *
- * <p>The resolver gets involved only if the "Accept-Encoding" request header
- * contains the value "gzip" indicating the client accepts gzipped responses.
- *
- * @author Jeremy Grelle
- * @author Rossen Stoyanchev
- * @author Sam Brannen
- * @since 4.1
- */
+//GZip资源处理器
 public class GzipResourceResolver extends AbstractResourceResolver {
 
 	@Override

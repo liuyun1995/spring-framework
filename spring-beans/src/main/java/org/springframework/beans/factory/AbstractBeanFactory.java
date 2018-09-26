@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.springframework.beans.bean.BeanUtils;
 import org.springframework.beans.bean.BeanWrapper;
 import org.springframework.beans.bean.registry.ConfigurableBeanFactory;
@@ -113,7 +112,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
     //合并的Bean定义
     private final Map<String, RootBeanDefinition> mergedBeanDefinitions = new ConcurrentHashMap<String, RootBeanDefinition>(256);
 
-    //已被创建的Bean名称
+    //已经创建的Bean名称
     private final Set<String> alreadyCreated = Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>(256));
 
     //正在创建的Bean名称

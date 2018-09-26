@@ -3,31 +3,20 @@ package org.springframework.web.servlet.mvc;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.WebContentGenerator;
 import org.springframework.web.util.WebUtils;
 
+//抽象控制器
 public abstract class AbstractController extends WebContentGenerator implements Controller {
 
 	private boolean synchronizeOnSession = false;
 
-	/**
-	 * Create a new AbstractController which supports
-	 * HTTP methods GET, HEAD and POST by default.
-	 */
 	public AbstractController() {
 		this(true);
 	}
 
-	/**
-	 * Create a new AbstractController.
-	 * @param restrictDefaultSupportedMethods {@code true} if this
-	 * controller should support HTTP methods GET, HEAD and POST by default,
-	 * or {@code false} if it should be unrestricted
-	 * @since 4.3
-	 */
 	public AbstractController(boolean restrictDefaultSupportedMethods) {
 		super(restrictDefaultSupportedMethods);
 	}

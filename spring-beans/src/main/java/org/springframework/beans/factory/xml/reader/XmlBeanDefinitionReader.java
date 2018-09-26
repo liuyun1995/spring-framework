@@ -291,7 +291,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 	//注册Bean定义
 	public int registerBeanDefinitions(Document doc, Resource resource) throws BeanDefinitionStoreException {
 		//创建Bean定义文档解析器
-		org.springframework.beans.factory.xml.reader.BeanDefinitionDocumentReader documentReader = createBeanDefinitionDocumentReader();
+		BeanDefinitionDocumentReader documentReader = createBeanDefinitionDocumentReader();
 		//获取已注册的Bean定义数量
 		int countBefore = getRegistry().getBeanDefinitionCount();
 		//注册Bean定义
