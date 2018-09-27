@@ -16,7 +16,7 @@
 
 package org.springframework.transaction.support;
 
-import org.springframework.transaction.TransactionException;
+import org.springframework.transaction.exception.TransactionException;
 
 /**
  * Interface specifying basic transaction execution operations.

@@ -8,9 +8,9 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
-import org.springframework.transaction.TransactionException;
+import org.springframework.transaction.exception.TransactionException;
 import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.TransactionSystemException;
+import org.springframework.transaction.exception.TransactionSystemException;
 
 /**
  * Template class that simplifies programmatic transaction demarcation and

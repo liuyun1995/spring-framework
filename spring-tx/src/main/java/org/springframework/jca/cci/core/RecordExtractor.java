@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import javax.resource.ResourceException;
 import javax.resource.cci.Record;
 
-import org.springframework.dao.DataAccessException;
+import org.springframework.dao.exception.DataAccessException;
 
 /**
  * Callback interface for extracting a result object from a CCI Record instance.

@@ -20,7 +20,7 @@ import javax.transaction.Status;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
-import org.springframework.transaction.TransactionSystemException;
+import org.springframework.transaction.exception.TransactionSystemException;
 import org.springframework.transaction.support.SmartTransactionObject;
 import org.springframework.transaction.support.TransactionSynchronizationUtils;
 

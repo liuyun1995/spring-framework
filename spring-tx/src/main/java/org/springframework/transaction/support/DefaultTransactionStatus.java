@@ -16,7 +16,7 @@
 
 package org.springframework.transaction.support;
 
-import org.springframework.transaction.NestedTransactionNotSupportedException;
+import org.springframework.transaction.exception.NestedTransactionNotSupportedException;
 import org.springframework.transaction.SavepointManager;
 
 /**

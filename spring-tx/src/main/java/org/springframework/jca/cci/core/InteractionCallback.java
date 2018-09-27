@@ -21,7 +21,7 @@ import javax.resource.ResourceException;
 import javax.resource.cci.ConnectionFactory;
 import javax.resource.cci.Interaction;
 
-import org.springframework.dao.DataAccessException;
+import org.springframework.dao.exception.DataAccessException;
 
 /**
  * Generic callback interface for code that operates on a CCI Interaction.

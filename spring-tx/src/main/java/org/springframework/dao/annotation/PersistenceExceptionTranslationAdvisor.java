@@ -24,6 +24,7 @@ import org.springframework.aop.Pointcut;
 import org.springframework.aop.support.AbstractPointcutAdvisor;
 import org.springframework.aop.support.annotation.AnnotationMatchingPointcut;
 import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.dao.exception.DataAccessException;
 import org.springframework.dao.support.PersistenceExceptionTranslationInterceptor;
 import org.springframework.dao.support.PersistenceExceptionTranslator;
 
@@ -35,7 +36,7 @@ import org.springframework.dao.support.PersistenceExceptionTranslator;
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @since 2.0
- * @see org.springframework.dao.DataAccessException
+ * @see DataAccessException
  * @see org.springframework.dao.support.PersistenceExceptionTranslator
  */
 @SuppressWarnings("serial")

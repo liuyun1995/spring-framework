@@ -18,7 +18,7 @@ package org.springframework.transaction.support;
 
 import java.util.Date;
 
-import org.springframework.transaction.TransactionTimedOutException;
+import org.springframework.transaction.exception.TransactionTimedOutException;
 
 /**
  * Convenient base class for resource holders.

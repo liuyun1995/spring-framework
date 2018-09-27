@@ -26,12 +26,12 @@ import com.ibm.wsspi.uow.UOWException;
 import com.ibm.wsspi.uow.UOWManager;
 import com.ibm.wsspi.uow.UOWManagerFactory;
 
-import org.springframework.transaction.IllegalTransactionStateException;
-import org.springframework.transaction.InvalidTimeoutException;
-import org.springframework.transaction.NestedTransactionNotSupportedException;
+import org.springframework.transaction.exception.IllegalTransactionStateException;
+import org.springframework.transaction.exception.InvalidTimeoutException;
+import org.springframework.transaction.exception.NestedTransactionNotSupportedException;
 import org.springframework.transaction.TransactionDefinition;
-import org.springframework.transaction.TransactionException;
-import org.springframework.transaction.TransactionSystemException;
+import org.springframework.transaction.exception.TransactionException;
+import org.springframework.transaction.exception.TransactionSystemException;
 import org.springframework.transaction.support.CallbackPreferringPlatformTransactionManager;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.transaction.support.DefaultTransactionStatus;

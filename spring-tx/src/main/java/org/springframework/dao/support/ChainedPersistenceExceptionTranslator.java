@@ -19,7 +19,7 @@ package org.springframework.dao.support;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.dao.DataAccessException;
+import org.springframework.dao.exception.DataAccessException;
 import org.springframework.util.Assert;
 
 /**

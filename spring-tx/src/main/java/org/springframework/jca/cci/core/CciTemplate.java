@@ -33,8 +33,8 @@ import javax.resource.cci.ResultSet;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import org.springframework.dao.DataAccessException;
-import org.springframework.dao.DataAccessResourceFailureException;
+import org.springframework.dao.exception.DataAccessException;
+import org.springframework.dao.exception.DataAccessResourceFailureException;
 import org.springframework.jca.cci.CannotCreateRecordException;
 import org.springframework.jca.cci.CciOperationNotSupportedException;
 import org.springframework.jca.cci.InvalidResultSetAccessException;

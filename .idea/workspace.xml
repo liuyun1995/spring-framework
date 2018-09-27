@@ -2,91 +2,127 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b288235-cba1-495a-ae51-b900561cf091" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/aop/Advice.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/aop/Advice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/aop/AspectException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/aop/AspectException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/ConstructorInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/ConstructorInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/ConstructorInvocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/ConstructorInvocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/Interceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/Interceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/Invocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/Invocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/Joinpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/Joinpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/MethodInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/MethodInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/MethodInvocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/MethodInvocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/Advisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/Advisor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/AfterAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/AfterAdvice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/AopInvocationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/AopInvocationException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/BeforeAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/BeforeAdvice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/ClassFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/ClassFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/IntroductionAdvisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/IntroductionAdvisor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/IntroductionInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/IntroductionInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/MethodBeforeAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/MethodBeforeAdvice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/MethodMatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/MethodMatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/Pointcut.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/Pointcut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/PointcutAdvisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/PointcutAdvisor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/ProxyMethodInvocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/ProxyMethodInvocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/TargetClassAware.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/TargetClassAware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/TargetSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/TargetSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/aspectj/AspectInstanceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/aspectj/AspectInstanceFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/aspectj/autoproxy/AspectJAwareAdvisorAutoProxyCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/aspectj/autoproxy/AspectJAwareAdvisorAutoProxyCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AdviceEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AdviceEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AdvisorComponentDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AdvisorComponentDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AdvisorEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AdvisorEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AopConfigUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AopConfigUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AopNamespaceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AopNamespaceHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AopNamespaceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AopNamespaceUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AspectComponentDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AspectComponentDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AspectEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AspectEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/ConfigBeanDefinitionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/ConfigBeanDefinitionParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/MethodLocatingFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/MethodLocatingFactoryBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/PointcutComponentDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/PointcutComponentDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/PointcutEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/PointcutEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AbstractAdvisingBeanPostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AbstractAdvisingBeanPostProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AbstractSingletonProxyFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AbstractSingletonProxyFactoryBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/Advised.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/Advised.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AdvisedSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AdvisedSupport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AopConfigException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AopConfigException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AopContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AopContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AopProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AopProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AopProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AopProxyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AopProxyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AopProxyUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/CglibAopProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/CglibAopProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAdvisorChainFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAdvisorChainFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAopProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAopProxyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/JdkDynamicAopProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/JdkDynamicAopProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ObjenesisCglibAopProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ObjenesisCglibAopProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyCreatorSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyCreatorSupport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyFactoryBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyProcessorSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyProcessorSupport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AdvisorAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AdvisorAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AdvisorAdapterRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AdvisorAdapterRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AfterReturningAdviceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AfterReturningAdviceAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AfterReturningAdviceInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AfterReturningAdviceInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/DefaultAdvisorAdapterRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/DefaultAdvisorAdapterRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/MethodBeforeAdviceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/MethodBeforeAdviceAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/MethodBeforeAdviceInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/MethodBeforeAdviceInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/ThrowsAdviceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/ThrowsAdviceAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/ThrowsAdviceInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/ThrowsAdviceInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAdvisorAutoProxyCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAdvisorAutoProxyCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAutoProxyCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAutoProxyCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/BeanNameAutoProxyCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/BeanNameAutoProxyCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/ProxyCreationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/ProxyCreationContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/TargetSourceCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/TargetSourceCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/target/AbstractBeanFactoryBasedTargetSourceCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/target/AbstractBeanFactoryBasedTargetSourceCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/target/LazyInitTargetSourceCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/target/LazyInitTargetSourceCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/target/QuickTargetSourceCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/target/QuickTargetSourceCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/interceptor/AbstractMonitoringInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/interceptor/AbstractMonitoringInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/interceptor/AbstractTraceInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/interceptor/AbstractTraceInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/interceptor/SimpleTraceInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/interceptor/SimpleTraceInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/scope/DefaultScopedObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/scope/DefaultScopedObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/scope/ScopedProxyFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/scope/ScopedProxyFactoryBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/scope/ScopedProxyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/scope/ScopedProxyUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/support/AbstractExpressionPointcut.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/support/AbstractExpressionPointcut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/target/AbstractLazyCreationTargetSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/target/AbstractLazyCreationTargetSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/target/CommonsPool2TargetSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/target/CommonsPool2TargetSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/target/LazyInitTargetSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/target/LazyInitTargetSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/target/PoolingConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/target/PoolingConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/target/dynamic/AbstractRefreshableTargetSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/target/dynamic/AbstractRefreshableTargetSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/CannotAcquireLockException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/CannotSerializeTransactionException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/CleanupFailureDataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/ConcurrencyFailureException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/DataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/DataAccessResourceFailureException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/DataIntegrityViolationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/DataRetrievalFailureException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/DeadlockLoserDataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/DuplicateKeyException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/EmptyResultDataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/IncorrectResultSizeDataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/IncorrectUpdateSemanticsDataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/InvalidDataAccessApiUsageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/InvalidDataAccessResourceUsageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/NonTransientDataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/NonTransientDataAccessResourceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/OptimisticLockingFailureException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/PermissionDeniedDataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/PessimisticLockingFailureException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/QueryTimeoutException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/RecoverableDataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/TransientDataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/TransientDataAccessResourceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/TypeMismatchDataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/UncategorizedDataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/IllegalTransactionStateException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/InvalidIsolationLevelException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/InvalidTimeoutException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/NestedTransactionNotSupportedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/NoTransactionException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/TransactionSuspensionNotSupportedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/TransactionSystemException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/TransactionTimedOutException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/TransactionUsageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/UnexpectedRollbackException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/CannotAcquireLockException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/CannotSerializeTransactionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/CleanupFailureDataAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/ConcurrencyFailureException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/DataAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/DataAccessResourceFailureException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/DataIntegrityViolationException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/DataRetrievalFailureException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/DeadlockLoserDataAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/DuplicateKeyException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/EmptyResultDataAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/IncorrectResultSizeDataAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/IncorrectUpdateSemanticsDataAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/InvalidDataAccessApiUsageException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/InvalidDataAccessResourceUsageException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/NonTransientDataAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/NonTransientDataAccessResourceException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/OptimisticLockingFailureException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/PermissionDeniedDataAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/PessimisticLockingFailureException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/QueryTimeoutException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/RecoverableDataAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/TransientDataAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/TransientDataAccessResourceException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/TypeMismatchDataAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/UncategorizedDataAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/annotation/PersistenceExceptionTranslationAdvisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/annotation/PersistenceExceptionTranslationAdvisor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/annotation/PersistenceExceptionTranslationPostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/annotation/PersistenceExceptionTranslationPostProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/ChainedPersistenceExceptionTranslator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/ChainedPersistenceExceptionTranslator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/DaoSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/DaoSupport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/DataAccessUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/DataAccessUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/PersistenceExceptionTranslationInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/PersistenceExceptionTranslationInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/PersistenceExceptionTranslator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/PersistenceExceptionTranslator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/CannotCreateRecordException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/CannotCreateRecordException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/CannotGetCciConnectionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/CannotGetCciConnectionException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/CciOperationNotSupportedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/CciOperationNotSupportedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/InvalidResultSetAccessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/InvalidResultSetAccessException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/RecordTypeNotSupportedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/RecordTypeNotSupportedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/connection/CciLocalTransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/connection/CciLocalTransactionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/core/CciOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/core/CciOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/core/CciTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/core/CciTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/core/ConnectionCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/core/ConnectionCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/core/InteractionCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/core/InteractionCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/core/RecordCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/core/RecordCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/core/RecordExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/core/RecordExtractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/object/MappingCommAreaOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/object/MappingCommAreaOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/object/MappingRecordOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/object/MappingRecordOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/object/SimpleRecordOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/cci/object/SimpleRecordOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/context/BootstrapContextAware.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/context/BootstrapContextAware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/CannotCreateTransactionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/CannotCreateTransactionException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/HeuristicCompletionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/HeuristicCompletionException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/IllegalTransactionStateException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/InvalidIsolationLevelException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/InvalidTimeoutException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/NestedTransactionNotSupportedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/NoTransactionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/PlatformTransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/PlatformTransactionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/SavepointManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/SavepointManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/TransactionException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionSuspensionNotSupportedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionSystemException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionTimedOutException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionUsageException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/UnexpectedRollbackException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/DefaultTransactionAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/DefaultTransactionAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAspectSupport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAttributeEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAttributeEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAttributeSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAttributeSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionProxyFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionProxyFactoryBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionalProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionalProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/jta/JtaTransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/jta/JtaTransactionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/jta/JtaTransactionObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/jta/JtaTransactionObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/jta/WebLogicJtaTransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/jta/WebLogicJtaTransactionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/jta/WebSphereUowTransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/jta/WebSphereUowTransactionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/AbstractPlatformTransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/AbstractPlatformTransactionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/AbstractTransactionStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/AbstractTransactionStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/CallbackPreferringPlatformTransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/CallbackPreferringPlatformTransactionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/DefaultTransactionStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/DefaultTransactionStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/ResourceHolderSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/ResourceHolderSupport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/TransactionOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/TransactionOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/TransactionTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/support/TransactionTemplate.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/spring-mvc/target/" />
     <ignored path="$PROJECT_DIR$/spring-beans/target/" />
@@ -116,25 +152,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="574" />
+          <entry key="java" value="652" />
           <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="574" />
+          <entry key="JAVA" value="652" />
           <entry key="XML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="7013" />
+          <entry key="java" value="7218" />
           <entry key="xml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7013" />
+          <entry key="JAVA" value="7218" />
           <entry key="XML" value="11" />
         </counts>
       </usages-collector>
@@ -143,22 +179,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/MethodBeforeAdviceAdapter.java">
+        <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/DaoSupport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-              <folding>
-                <element signature="imports" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/MethodBeforeAdviceInterceptor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+            <state relative-caret-position="204">
+              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding>
                 <element signature="imports" />
               </folding>
@@ -167,10 +191,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/ThrowsAdviceAdapter.java">
+        <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/PersistenceExceptionTranslationInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="-1456">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="imports" />
               </folding>
@@ -191,57 +215,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ObjenesisCglibAopProxy.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AopProxyFactory.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AdvisedSupport.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AopProxyUtils.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AdvisorAdapter.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AspectComponentDefinition.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/aop/AspectException.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AspectEntry.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AdviceEntry.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/aspectj/AspectInstanceFactory.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/PointcutEntry.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/ConfigBeanDefinitionParser.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AopConfigUtils.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AdvisorEntry.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/aspectj/autoproxy/AspectJAwareAdvisorAutoProxyCreator.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAdvisorAutoProxyCreator.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAutoProxyCreator.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/Advisor.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/Joinpoint.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/Invocation.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/Interceptor.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/ConstructorInvocation.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/ConstructorInterceptor.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/MethodInvocation.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AdvisorComponentDefinition.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AopNamespaceHandler.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AopNamespaceUtils.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/PointcutComponentDefinition.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/MethodLocatingFactoryBean.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/Advised.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAdvisorChainFactory.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAopProxyFactory.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyConfig.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyProcessorSupport.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyCreatorSupport.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AbstractAdvisingBeanPostProcessor.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AbstractSingletonProxyFactoryBean.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/BeanNameAutoProxyCreator.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/TargetSourceCreator.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/ProxyCreationContext.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/target/LazyInitTargetSourceCreator.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/target/QuickTargetSourceCreator.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/target/AbstractBeanFactoryBasedTargetSourceCreator.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AdvisorAdapterRegistry.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/ThrowsAdviceInterceptor.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AfterReturningAdviceAdapter.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/DefaultAdvisorAdapterRegistry.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AfterReturningAdviceInterceptor.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/MethodBeforeAdviceAdapter.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/MethodBeforeAdviceInterceptor.java" />
-        <option value="$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/ThrowsAdviceAdapter.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/CannotSerializeTransactionException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/CleanupFailureDataAccessException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/ConcurrencyFailureException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/DataAccessException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/DataAccessResourceFailureException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/DataIntegrityViolationException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/DataRetrievalFailureException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/DeadlockLoserDataAccessException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/DuplicateKeyException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/EmptyResultDataAccessException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/IncorrectResultSizeDataAccessException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/IncorrectUpdateSemanticsDataAccessException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/InvalidDataAccessApiUsageException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/InvalidDataAccessResourceUsageException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/NonTransientDataAccessException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/NonTransientDataAccessResourceException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/OptimisticLockingFailureException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/PermissionDeniedDataAccessException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/PessimisticLockingFailureException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/QueryTimeoutException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/RecoverableDataAccessException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/TransientDataAccessException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/TransientDataAccessResourceException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/TypeMismatchDataAccessException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/UncategorizedDataAccessException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/UncategorizedDataAccessException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionDefinition.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionStatus.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionSuspensionNotSupportedException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionSystemException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionTimedOutException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionUsageException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/UnexpectedRollbackException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/SavepointManager.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/PlatformTransactionManager.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/NoTransactionException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/NestedTransactionNotSupportedException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/InvalidTimeoutException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/InvalidIsolationLevelException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/IllegalTransactionStateException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/HeuristicCompletionException.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionalProxy.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAttribute.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/DefaultTransactionAttribute.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAttributeEditor.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAttributeSource.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionInterceptor.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionProxyFactoryBean.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/context/BootstrapContextAware.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/DaoSupport.java" />
+        <option value="$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/PersistenceExceptionTranslationInterceptor.java" />
       </list>
     </option>
   </component>
@@ -273,70 +297,58 @@
             <path>
               <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-aop" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-tx" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-aop" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-tx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-aop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-aop" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-tx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-aop" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-tx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-aop" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-tx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="aop" type="462c0819:PsiDirectoryNode" />
+              <item name="springframework" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-aop" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-tx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="aop" type="462c0819:PsiDirectoryNode" />
-              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="springframework" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spring-framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="spring-framework" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-aop" type="462c0819:PsiDirectoryNode" />
+              <item name="spring-tx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="aop" type="462c0819:PsiDirectoryNode" />
-              <item name="framework" type="462c0819:PsiDirectoryNode" />
-              <item name="adapter" type="462c0819:PsiDirectoryNode" />
+              <item name="springframework" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="support" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -379,7 +391,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26323318" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21816881" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -413,450 +425,375 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AspectComponentDefinition.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/InvalidDataAccessApiUsageException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AdviceEntry.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/InvalidDataAccessResourceUsageException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/aspectj/AspectInstanceFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/aspectj/annotation/LazySingletonAspectInstanceFactoryDecorator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="30" column="80" selection-start-line="30" selection-start-column="80" selection-end-line="30" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/aspectj/annotation/MetadataAwareAspectInstanceFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/ConfigBeanDefinitionParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3689">
-          <caret line="246" column="7" lean-forward="true" selection-start-line="246" selection-start-column="7" selection-end-line="246" selection-end-column="7" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AopConfigUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="84" column="13" lean-forward="true" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AdvisorEntry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/Advisor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAutoProxyCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="451" column="6" lean-forward="true" selection-start-line="451" selection-start-column="6" selection-end-line="451" selection-end-column="6" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AbstractAdvisorAutoProxyCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="70" lean-forward="true" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/Joinpoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/Interceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/Invocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/ConstructorInvocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/ConstructorInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/MethodInvocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="6" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/aopalliance/intercept/MethodInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/aspectj/autoproxy/AspectJAwareAdvisorAutoProxyCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="26" column="3" lean-forward="true" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AdvisorComponentDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-521">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AopNamespaceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/AopNamespaceUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-325">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/PointcutEntry.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/NonTransientDataAccessException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/PointcutComponentDefinition.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/NonTransientDataAccessResourceException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/config/MethodLocatingFactoryBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-419">
-          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/Advised.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AdvisorChainFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAopProxyFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyProcessorSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-232">
-          <caret line="57" column="7" lean-forward="true" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/ProxyCreatorSupport.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/OptimisticLockingFailureException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/DefaultAdvisorChainFactory.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/PermissionDeniedDataAccessException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-266">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AbstractAdvisingBeanPostProcessor.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/PessimisticLockingFailureException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/AbstractSingletonProxyFactoryBean.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/QueryTimeoutException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2244">
-          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/AutoProxyUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="73" column="13" selection-start-line="73" selection-start-column="7" selection-end-line="73" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/BeanNameAutoProxyCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/TargetSourceCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/ProxyCreationContext.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/RecoverableDataAccessException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/target/LazyInitTargetSourceCreator.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/TransientDataAccessException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/target/QuickTargetSourceCreator.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/TransientDataAccessResourceException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/autoproxy/target/AbstractBeanFactoryBasedTargetSourceCreator.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/TypeMismatchDataAccessException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="149" column="21" selection-start-line="149" selection-start-column="21" selection-end-line="149" selection-end-column="21" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/ThrowsAdviceInterceptor.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/UncategorizedDataAccessException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-759">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-          <folding>
-            <element signature="imports" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AdvisorAdapterRegistry.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/CannotAcquireLockException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/CannotSerializeTransactionException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/CleanupFailureDataAccessException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/ConcurrencyFailureException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/DataAccessException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/DataAccessResourceFailureException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/DataIntegrityViolationException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/DataRetrievalFailureException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/DeadlockLoserDataAccessException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/exception/DuplicateKeyException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/TransactionStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/SavepointManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/PlatformTransactionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/CannotCreateTransactionException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/HeuristicCompletionException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/IllegalTransactionStateException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/InvalidIsolationLevelException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/InvalidTimeoutException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/NestedTransactionNotSupportedException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/NoTransactionException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/TransactionException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/TransactionSuspensionNotSupportedException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/TransactionSystemException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/TransactionTimedOutException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/TransactionUsageException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/exception/UnexpectedRollbackException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionalProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAttribute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/DefaultTransactionAttribute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAttributeEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AfterReturningAdviceAdapter.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionAttributeSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/transaction/interceptor/TransactionProxyFactoryBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-929">
+          <caret line="102" column="18" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/context/BootstrapContextAwareProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/jca/context/BootstrapContextAware.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/DefaultAdvisorAdapterRegistry.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/DaoSupport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-140">
-          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        <state relative-caret-position="204">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
             <element signature="imports" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/AfterReturningAdviceInterceptor.java">
+    <entry file="file://$PROJECT_DIR$/spring-tx/src/main/java/org/springframework/dao/support/PersistenceExceptionTranslationInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" column="12" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/GlobalAdvisorAdapterRegistry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/MethodBeforeAdviceAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/MethodBeforeAdviceInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding>
-            <element signature="imports" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-aop/src/main/java/org/springframework/aop/framework/adapter/ThrowsAdviceAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="-1456">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="imports" />
           </folding>

@@ -20,7 +20,7 @@ import javax.resource.ResourceException;
 import javax.resource.cci.Record;
 import javax.resource.cci.RecordFactory;
 
-import org.springframework.dao.DataAccessException;
+import org.springframework.dao.exception.DataAccessException;
 
 /**
  * Callback interface for creating a CCI Record instance,

@@ -23,10 +23,10 @@ import javax.resource.cci.ConnectionFactory;
 import javax.resource.spi.LocalTransactionException;
 
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.transaction.CannotCreateTransactionException;
+import org.springframework.transaction.exception.CannotCreateTransactionException;
 import org.springframework.transaction.TransactionDefinition;
-import org.springframework.transaction.TransactionException;
-import org.springframework.transaction.TransactionSystemException;
+import org.springframework.transaction.exception.TransactionException;
+import org.springframework.transaction.exception.TransactionSystemException;
 import org.springframework.transaction.support.AbstractPlatformTransactionManager;
 import org.springframework.transaction.support.DefaultTransactionStatus;
 import org.springframework.transaction.support.ResourceTransactionManager;

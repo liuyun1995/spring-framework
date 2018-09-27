@@ -21,6 +21,7 @@ import java.lang.annotation.Annotation;
 import org.springframework.aop.framework.autoproxy.AbstractBeanFactoryAwareAdvisingPostProcessor;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.dao.exception.DataAccessException;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.Assert;
 
@@ -32,7 +33,7 @@ import org.springframework.util.Assert;
  * implements all of the target's interfaces).
  *
  * <p>Translates native resource exceptions to Spring's
- * {@link org.springframework.dao.DataAccessException DataAccessException} hierarchy.
+ * {@link DataAccessException DataAccessException} hierarchy.
  * Autodetects beans that implement the
  * {@link org.springframework.dao.support.PersistenceExceptionTranslator
  * PersistenceExceptionTranslator} interface, which are subsequently asked to translate
@@ -52,7 +53,7 @@ import org.springframework.util.Assert;
  * @since 2.0
  * @see PersistenceExceptionTranslationAdvisor
  * @see org.springframework.stereotype.Repository
- * @see org.springframework.dao.DataAccessException
+ * @see DataAccessException
  * @see org.springframework.dao.support.PersistenceExceptionTranslator
  */
 @SuppressWarnings("serial")

@@ -16,11 +16,11 @@
 
 package org.springframework.transaction.support;
 
-import org.springframework.transaction.NestedTransactionNotSupportedException;
+import org.springframework.transaction.exception.NestedTransactionNotSupportedException;
 import org.springframework.transaction.SavepointManager;
-import org.springframework.transaction.TransactionException;
+import org.springframework.transaction.exception.TransactionException;
 import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.TransactionUsageException;
+import org.springframework.transaction.exception.TransactionUsageException;
 
 /**
  * Abstract base implementation of the
@@ -137,7 +137,7 @@ public abstract class AbstractTransactionStatus implements TransactionStatus {
 
 	/**
 	 * Create a savepoint and hold it for the transaction.
-	 * @throws org.springframework.transaction.NestedTransactionNotSupportedException
+	 * @throws NestedTransactionNotSupportedException
 	 * if the underlying transaction does not support savepoints
 	 */
 	public void createAndHoldSavepoint() throws TransactionException {
@@ -189,7 +189,7 @@ public abstract class AbstractTransactionStatus implements TransactionStatus {
 	/**
 	 * This implementation delegates to a SavepointManager for the
 	 * underlying transaction, if possible.
-	 * @throws org.springframework.transaction.NestedTransactionNotSupportedException
+	 * @throws NestedTransactionNotSupportedException
 	 * @see #getSavepointManager()
 	 * @see org.springframework.transaction.SavepointManager
 	 */
@@ -212,7 +212,7 @@ public abstract class AbstractTransactionStatus implements TransactionStatus {
 	/**
 	 * Return a SavepointManager for the underlying transaction, if possible.
 	 * <p>Default implementation always throws a NestedTransactionNotSupportedException.
-	 * @throws org.springframework.transaction.NestedTransactionNotSupportedException
+	 * @throws NestedTransactionNotSupportedException
 	 * if the underlying transaction does not support savepoints
 	 */
 	protected SavepointManager getSavepointManager() {

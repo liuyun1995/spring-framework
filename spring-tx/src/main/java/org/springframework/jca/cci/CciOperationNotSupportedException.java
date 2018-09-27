@@ -18,7 +18,7 @@ package org.springframework.jca.cci;
 
 import javax.resource.ResourceException;
 
-import org.springframework.dao.InvalidDataAccessResourceUsageException;
+import org.springframework.dao.exception.InvalidDataAccessResourceUsageException;
 
 /**
  * Exception thrown when the connector doesn't support a specific CCI operation.

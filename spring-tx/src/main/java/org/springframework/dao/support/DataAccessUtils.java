@@ -18,10 +18,10 @@ package org.springframework.dao.support;
 
 import java.util.Collection;
 
-import org.springframework.dao.DataAccessException;
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.dao.IncorrectResultSizeDataAccessException;
-import org.springframework.dao.TypeMismatchDataAccessException;
+import org.springframework.dao.exception.DataAccessException;
+import org.springframework.dao.exception.EmptyResultDataAccessException;
+import org.springframework.dao.exception.IncorrectResultSizeDataAccessException;
+import org.springframework.dao.exception.TypeMismatchDataAccessException;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.NumberUtils;

@@ -9,15 +9,16 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import org.springframework.core.Constants;
-import org.springframework.transaction.IllegalTransactionStateException;
-import org.springframework.transaction.InvalidTimeoutException;
-import org.springframework.transaction.NestedTransactionNotSupportedException;
+import org.springframework.transaction.exception.IllegalTransactionStateException;
+import org.springframework.transaction.exception.InvalidTimeoutException;
+import org.springframework.transaction.exception.NestedTransactionNotSupportedException;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
-import org.springframework.transaction.TransactionException;
+import org.springframework.transaction.exception.TransactionException;
 import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.TransactionSuspensionNotSupportedException;
-import org.springframework.transaction.UnexpectedRollbackException;
+import org.springframework.transaction.exception.TransactionSuspensionNotSupportedException;
+import org.springframework.transaction.exception.UnexpectedRollbackException;
+import org.springframework.transaction.exception.CannotCreateTransactionException;
 
 /**
  * Abstract base class that implements Spring's standard transaction workflow,
@@ -268,7 +269,7 @@ public abstract class AbstractPlatformTransactionManager implements PlatformTran
 	 * boundary. This allows, for example, to continue unit tests even after an
 	 * operation failed and the transaction will never be completed. All transaction
 	 * managers will only fail earlier if this flag has explicitly been set to "true".
-	 * @see org.springframework.transaction.UnexpectedRollbackException
+	 * @see UnexpectedRollbackException
 	 */
 	public final void setFailEarlyOnGlobalRollbackOnly(boolean failEarlyOnGlobalRollbackOnly) {
 		this.failEarlyOnGlobalRollbackOnly = failEarlyOnGlobalRollbackOnly;
@@ -1027,7 +1028,7 @@ public abstract class AbstractPlatformTransactionManager implements PlatformTran
 	 * look for an existing transaction and store corresponding state in the
 	 * returned transaction object.
 	 * @return the current transaction object
-	 * @throws org.springframework.transaction.CannotCreateTransactionException
+	 * @throws CannotCreateTransactionException
 	 * if transaction support is not available
 	 * @throws TransactionException in case of lookup or system errors
 	 * @see #doBegin
@@ -1104,7 +1105,7 @@ public abstract class AbstractPlatformTransactionManager implements PlatformTran
 	 * @param transaction transaction object returned by {@code doGetTransaction}
 	 * @return an object that holds suspended resources
 	 * (will be kept unexamined for passing it into doResume)
-	 * @throws org.springframework.transaction.TransactionSuspensionNotSupportedException
+	 * @throws TransactionSuspensionNotSupportedException
 	 * if suspending is not supported by the transaction manager implementation
 	 * @throws TransactionException in case of system errors
 	 * @see #doResume
@@ -1122,7 +1123,7 @@ public abstract class AbstractPlatformTransactionManager implements PlatformTran
 	 * @param transaction transaction object returned by {@code doGetTransaction}
 	 * @param suspendedResources the object that holds suspended resources,
 	 * as returned by doSuspend
-	 * @throws org.springframework.transaction.TransactionSuspensionNotSupportedException
+	 * @throws TransactionSuspensionNotSupportedException
 	 * if resuming is not supported by the transaction manager implementation
 	 * @throws TransactionException in case of system errors
 	 * @see #doSuspend
@@ -1157,7 +1158,7 @@ public abstract class AbstractPlatformTransactionManager implements PlatformTran
 	 * @see DefaultTransactionStatus#isGlobalRollbackOnly()
 	 * @see DefaultTransactionStatus#isLocalRollbackOnly()
 	 * @see org.springframework.transaction.TransactionStatus#setRollbackOnly()
-	 * @see org.springframework.transaction.UnexpectedRollbackException
+	 * @see UnexpectedRollbackException
 	 * @see javax.transaction.UserTransaction#commit()
 	 * @see javax.transaction.RollbackException
 	 */

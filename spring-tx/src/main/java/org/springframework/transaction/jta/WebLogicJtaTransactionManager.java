@@ -27,7 +27,7 @@ import javax.transaction.TransactionManager;
 import javax.transaction.UserTransaction;
 
 import org.springframework.transaction.TransactionDefinition;
-import org.springframework.transaction.TransactionSystemException;
+import org.springframework.transaction.exception.TransactionSystemException;
 
 /**
  * Special {@link JtaTransactionManager} variant for BEA WebLogic (9.0 and higher).

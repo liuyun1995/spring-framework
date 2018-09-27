@@ -20,7 +20,7 @@ import javax.resource.cci.ConnectionFactory;
 import javax.resource.cci.InteractionSpec;
 import javax.resource.cci.Record;
 
-import org.springframework.dao.DataAccessException;
+import org.springframework.dao.exception.DataAccessException;
 
 /**
  * EIS operation object that accepts a passed-in CCI input Record

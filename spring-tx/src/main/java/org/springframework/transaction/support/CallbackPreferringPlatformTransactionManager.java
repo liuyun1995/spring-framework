@@ -18,7 +18,7 @@ package org.springframework.transaction.support;
 
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
-import org.springframework.transaction.TransactionException;
+import org.springframework.transaction.exception.TransactionException;
 
 /**
  * Extension of the {@link org.springframework.transaction.PlatformTransactionManager}

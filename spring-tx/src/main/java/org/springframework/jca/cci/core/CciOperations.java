@@ -19,7 +19,7 @@ package org.springframework.jca.cci.core;
 import javax.resource.cci.InteractionSpec;
 import javax.resource.cci.Record;
 
-import org.springframework.dao.DataAccessException;
+import org.springframework.dao.exception.DataAccessException;
 
 /**
  * Interface that specifies a basic set of CCI operations on an EIS.

@@ -22,8 +22,8 @@ import javax.resource.cci.InteractionSpec;
 import javax.resource.cci.Record;
 import javax.resource.cci.RecordFactory;
 
-import org.springframework.dao.DataAccessException;
-import org.springframework.dao.DataRetrievalFailureException;
+import org.springframework.dao.exception.DataAccessException;
+import org.springframework.dao.exception.DataRetrievalFailureException;
 import org.springframework.jca.cci.core.support.CommAreaRecord;
 
 /**
