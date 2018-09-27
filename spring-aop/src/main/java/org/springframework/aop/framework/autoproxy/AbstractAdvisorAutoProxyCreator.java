@@ -6,7 +6,6 @@ import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.core.annotation.AnnotationAwareOrderComparator;
-
 import java.util.List;
 
 @SuppressWarnings("serial")
@@ -14,6 +13,7 @@ public abstract class AbstractAdvisorAutoProxyCreator extends AbstractAutoProxyC
 
     private BeanFactoryAdvisorRetrievalHelper advisorRetrievalHelper;
 
+    //设置Bean工厂
     @Override
     public void setBeanFactory(BeanFactory beanFactory) {
         super.setBeanFactory(beanFactory);
@@ -24,6 +24,7 @@ public abstract class AbstractAdvisorAutoProxyCreator extends AbstractAutoProxyC
         initBeanFactory((ConfigurableListableBeanFactory) beanFactory);
     }
 
+    //初始化Bean工厂
     protected void initBeanFactory(ConfigurableListableBeanFactory beanFactory) {
         this.advisorRetrievalHelper = new BeanFactoryAdvisorRetrievalHelperAdapter(beanFactory);
     }

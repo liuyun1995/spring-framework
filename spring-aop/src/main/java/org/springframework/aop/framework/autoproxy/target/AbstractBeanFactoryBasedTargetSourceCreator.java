@@ -3,10 +3,8 @@ package org.springframework.aop.framework.autoproxy.target;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.aop.TargetSource;
 import org.springframework.aop.framework.AopInfrastructureBean;
 import org.springframework.aop.framework.autoproxy.TargetSourceCreator;
@@ -52,6 +50,7 @@ public abstract class AbstractBeanFactoryBasedTargetSourceCreator
 	// Implementation of the TargetSourceCreator interface
 	//---------------------------------------------------------------------
 
+	//获取目标源
 	@Override
 	public final TargetSource getTargetSource(Class<?> beanClass, String beanName) {
 		AbstractBeanFactoryBasedTargetSource targetSource =
@@ -122,10 +121,7 @@ public abstract class AbstractBeanFactoryBasedTargetSourceCreator
 		return internalBeanFactory;
 	}
 
-	/**
-	 * Destroys the internal BeanFactory on shutdown of the TargetSourceCreator.
-	 * @see #getInternalBeanFactoryForBean
-	 */
+	//销毁方法
 	@Override
 	public void destroy() {
 		synchronized (this.internalBeanFactories) {

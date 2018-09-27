@@ -10,9 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.aopalliance.aop.Advice;
-
 import org.springframework.aop.Advisor;
 import org.springframework.aop.DynamicIntroductionAdvice;
 import org.springframework.aop.IntroductionAdvisor;
@@ -28,9 +26,6 @@ import org.springframework.util.CollectionUtils;
 
 public class AdvisedSupport extends ProxyConfig implements Advised {
 
-    /**
-     * use serialVersionUID from Spring 2.0 for interoperability
-     */
     private static final long serialVersionUID = 2651364800145442165L;
 
     public static final TargetSource EMPTY_TARGET_SOURCE = EmptyTargetSource.INSTANCE;

@@ -13,7 +13,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.aopalliance.aop.Advice;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.aop.Advisor;
 import org.springframework.aop.Pointcut;
 import org.springframework.aop.TargetSource;
@@ -155,20 +154,18 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
         this.applyCommonInterceptorsFirst = applyCommonInterceptorsFirst;
     }
 
+    //设置Bean工厂
     @Override
     public void setBeanFactory(BeanFactory beanFactory) {
         this.beanFactory = beanFactory;
     }
 
-    /**
-     * Return the owning {@link BeanFactory}.
-     * May be {@code null}, as this post-processor doesn't need to belong to a bean factory.
-     */
+    //获取Bean工厂
     protected BeanFactory getBeanFactory() {
         return this.beanFactory;
     }
 
-
+    //判断Bean类型
     @Override
     public Class<?> predictBeanType(Class<?> beanClass, String beanName) {
         if (this.proxyTypes.isEmpty()) {
@@ -257,19 +254,7 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
         return bean;
     }
 
-
-    /**
-     * Build a cache key for the given bean class and bean name.
-     * <p>Note: As of 4.2.3, this implementation does not return a concatenated
-     * class/name String anymore but rather the most efficient cache key possible:
-     * a plain bean name, prepended with {@link BeanFactory#FACTORY_BEAN_PREFIX}
-     * in case of a {@code FactoryBean}; or if no bean name specified, then the
-     * given bean {@code Class} as-is.
-     *
-     * @param beanClass the bean class
-     * @param beanName  the bean name
-     * @return the cache key for the given class and name
-     */
+    //获取缓存key
     protected Object getCacheKey(Class<?> beanClass, String beanName) {
         if (StringUtils.hasLength(beanName)) {
             return (FactoryBean.class.isAssignableFrom(beanClass) ?
@@ -351,17 +336,7 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
         return false;
     }
 
-    /**
-     * Create a target source for bean instances. Uses any TargetSourceCreators if set.
-     * Returns {@code null} if no custom TargetSource should be used.
-     * <p>This implementation uses the "customTargetSourceCreators" property.
-     * Subclasses can override this method to use a different mechanism.
-     *
-     * @param beanClass the class of the bean to create a TargetSource for
-     * @param beanName  the name of the bean
-     * @return a TargetSource for this bean
-     * @see #setCustomTargetSourceCreators
-     */
+    //获取额外的目标源
     protected TargetSource getCustomTargetSource(Class<?> beanClass, String beanName) {
         // We can't create fancy target sources for directly registered singletons.
         if (this.customTargetSourceCreators != null &&
@@ -378,23 +353,10 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
                 }
             }
         }
-
-        // No custom TargetSource found.
         return null;
     }
 
-    /**
-     * Create an AOP proxy for the given bean.
-     *
-     * @param beanClass            the class of the bean
-     * @param beanName             the name of the bean
-     * @param specificInterceptors the set of interceptors that is
-     *                             specific to this bean (may be empty, but not null)
-     * @param targetSource         the TargetSource for the proxy,
-     *                             already pre-configured to access the bean
-     * @return the AOP proxy for the bean
-     * @see #buildAdvisors
-     */
+    //创建代理对象
     protected Object createProxy(
             Class<?> beanClass, String beanName, Object[] specificInterceptors, TargetSource targetSource) {
 
@@ -426,16 +388,7 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
         return proxyFactory.getProxy(getProxyClassLoader());
     }
 
-    /**
-     * Determine whether the given bean should be proxied with its target class rather than its interfaces.
-     * <p>Checks the {@link AutoProxyUtils#PRESERVE_TARGET_CLASS_ATTRIBUTE "preserveTargetClass" attribute}
-     * of the corresponding bean definition.
-     *
-     * @param beanClass the class of the bean
-     * @param beanName  the name of the bean
-     * @return whether the given bean should be proxied with its target class
-     * @see AutoProxyUtils#shouldProxyTargetClass
-     */
+    //是否需要代理目标类
     protected boolean shouldProxyTargetClass(Class<?> beanClass, String beanName) {
         return (this.beanFactory instanceof ConfigurableListableBeanFactory &&
                 AutoProxyUtils.shouldProxyTargetClass((ConfigurableListableBeanFactory) this.beanFactory, beanName));

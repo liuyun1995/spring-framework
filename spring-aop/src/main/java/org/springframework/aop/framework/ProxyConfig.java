@@ -1,7 +1,6 @@
 package org.springframework.aop.framework;
 
 import org.springframework.util.Assert;
-
 import java.io.Serializable;
 
 //代理配置
@@ -20,26 +19,12 @@ public class ProxyConfig implements Serializable {
 
 	private boolean frozen = false;
 
-
-	/**
-	 * Set whether to proxy the target class directly, instead of just proxying
-	 * specific interfaces. Default is "false".
-	 * <p>Set this to "true" to force proxying for the TargetSource's exposed
-	 * target class. If that target class is an interface, a JDK proxy will be
-	 * created for the given interface. If that target class is any other class,
-	 * a CGLIB proxy will be created for the given class.
-	 * <p>Note: Depending on the configuration of the concrete proxy factory,
-	 * the proxy-target-class behavior will also be applied if no interfaces
-	 * have been specified (and no interface autodetection is activated).
-	 * @see org.springframework.aop.TargetSource#getTargetClass()
-	 */
+	//设置是否代理目标类
 	public void setProxyTargetClass(boolean proxyTargetClass) {
 		this.proxyTargetClass = proxyTargetClass;
 	}
 
-	/**
-	 * Return whether to proxy the target class directly as well as any interfaces.
-	 */
+	//是否要代理目标类
 	public boolean isProxyTargetClass() {
 		return this.proxyTargetClass;
 	}
@@ -122,11 +107,7 @@ public class ProxyConfig implements Serializable {
 		return this.frozen;
 	}
 
-
-	/**
-	 * Copy configuration from the other config object.
-	 * @param other object to copy configuration from
-	 */
+	//复制配置信息
 	public void copyFrom(ProxyConfig other) {
 		Assert.notNull(other, "Other ProxyConfig object must not be null");
 		this.proxyTargetClass = other.proxyTargetClass;

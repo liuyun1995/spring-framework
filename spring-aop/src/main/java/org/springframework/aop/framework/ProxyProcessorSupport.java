@@ -1,7 +1,6 @@
 package org.springframework.aop.framework;
 
 import java.io.Closeable;
-
 import org.springframework.beans.factory.Aware;
 import org.springframework.beans.factory.BeanClassLoaderAware;
 import org.springframework.beans.factory.DisposableBean;
@@ -14,29 +13,32 @@ import org.springframework.util.ObjectUtils;
 public class ProxyProcessorSupport extends ProxyConfig implements Ordered, BeanClassLoaderAware, AopInfrastructureBean {
 
     private int order = Ordered.LOWEST_PRECEDENCE;
-
     private ClassLoader proxyClassLoader = ClassUtils.getDefaultClassLoader();
-
     private boolean classLoaderConfigured = false;
 
+    //设置序号
     public void setOrder(int order) {
         this.order = order;
     }
 
+    //获取序号
     @Override
     public int getOrder() {
         return this.order;
     }
 
+    //设置代理类加载器
     public void setProxyClassLoader(ClassLoader classLoader) {
         this.proxyClassLoader = classLoader;
         this.classLoaderConfigured = (classLoader != null);
     }
 
+    //获取代理类加载器
     protected ClassLoader getProxyClassLoader() {
         return this.proxyClassLoader;
     }
 
+    //设置Bean类加载器
     @Override
     public void setBeanClassLoader(ClassLoader classLoader) {
         if (!this.classLoaderConfigured) {

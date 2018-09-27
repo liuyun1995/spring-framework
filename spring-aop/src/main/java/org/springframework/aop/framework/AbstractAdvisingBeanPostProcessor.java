@@ -2,7 +2,6 @@ package org.springframework.aop.framework;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.springframework.aop.Advisor;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 public abstract class AbstractAdvisingBeanPostProcessor extends ProxyProcessorSupport implements BeanPostProcessor {
 
     protected Advisor advisor;
-
     protected boolean beforeExistingAdvisors = false;
 
     private final Map<Class<?>, Boolean> eligibleBeans = new ConcurrentHashMap<Class<?>, Boolean>(256);

@@ -5,6 +5,7 @@ import org.springframework.aop.target.CommonsPool2TargetSource;
 import org.springframework.aop.target.PrototypeTargetSource;
 import org.springframework.aop.target.ThreadLocalTargetSource;
 
+//快速目标源创建者
 public class QuickTargetSourceCreator extends AbstractBeanFactoryBasedTargetSourceCreator {
 
     public static final String PREFIX_COMMONS_POOL = ":";

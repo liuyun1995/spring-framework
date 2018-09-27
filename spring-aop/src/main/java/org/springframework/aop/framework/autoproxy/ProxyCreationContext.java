@@ -2,6 +2,7 @@ package org.springframework.aop.framework.autoproxy;
 
 import org.springframework.core.NamedThreadLocal;
 
+//代理创建上下文
 public class ProxyCreationContext {
 
     private static final ThreadLocal<String> currentProxiedBeanName = new NamedThreadLocal<String>("Name of currently proxied bean");

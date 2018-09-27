@@ -14,13 +14,10 @@ import org.springframework.util.ClassUtils;
 public abstract class AbstractSingletonProxyFactoryBean extends ProxyConfig
 		implements FactoryBean<Object>, BeanClassLoaderAware, InitializingBean {
 
-	private Object target;
-
-	private Class<?>[] proxyInterfaces;
-
-	private Object[] preInterceptors;
-
-	private Object[] postInterceptors;
+	private Object target;                 //目标代理对象
+	private Class<?>[] proxyInterfaces;    //代理接口类
+	private Object[] preInterceptors;      //前置拦截器
+	private Object[] postInterceptors;     //后置拦截器
 
 	/** Default is global AdvisorAdapterRegistry */
 	private AdvisorAdapterRegistry advisorAdapterRegistry = GlobalAdvisorAdapterRegistry.getInstance();

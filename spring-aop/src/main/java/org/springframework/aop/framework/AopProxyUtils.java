@@ -8,12 +8,12 @@ import org.springframework.aop.target.SingletonTargetSource;
 import org.springframework.core.DecoratingProxy;
 import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
-
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
 
+//AOP代理工具类
 public abstract class AopProxyUtils {
 
 	public static Object getSingletonTarget(Object candidate) {

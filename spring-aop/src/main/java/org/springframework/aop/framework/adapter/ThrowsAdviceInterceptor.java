@@ -4,15 +4,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.aop.AfterAdvice;
 import org.springframework.util.Assert;
 
+//异常通知拦截器
 public class ThrowsAdviceInterceptor implements MethodInterceptor, AfterAdvice {
 
     private static final String AFTER_THROWING = "afterThrowing";

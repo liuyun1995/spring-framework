@@ -13,7 +13,6 @@ import org.aopalliance.aop.Advice;
 import org.aopalliance.intercept.Interceptor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.aop.Advisor;
 import org.springframework.aop.TargetSource;
 import org.springframework.aop.framework.adapter.AdvisorAdapterRegistry;
@@ -32,6 +31,7 @@ import org.springframework.core.annotation.AnnotationAwareOrderComparator;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 
+//代理工厂Bean
 @SuppressWarnings("serial")
 public class ProxyFactoryBean extends ProxyCreatorSupport
         implements FactoryBean<Object>, BeanClassLoaderAware, BeanFactoryAware {
@@ -69,15 +69,7 @@ public class ProxyFactoryBean extends ProxyCreatorSupport
     private Object singletonInstance;
 
 
-    /**
-     * Set the names of the interfaces we're proxying. If no interface
-     * is given, a CGLIB for the actual class will be created.
-     * <p>This is essentially equivalent to the "setInterfaces" method,
-     * but mirrors TransactionProxyFactoryBean's "setProxyInterfaces".
-     *
-     * @see #setInterfaces
-     * @see AbstractSingletonProxyFactoryBean#setProxyInterfaces
-     */
+    //设置代理接口
     public void setProxyInterfaces(Class<?>[] proxyInterfaces) throws ClassNotFoundException {
         setInterfaces(proxyInterfaces);
     }
@@ -167,6 +159,7 @@ public class ProxyFactoryBean extends ProxyCreatorSupport
         this.classLoaderConfigured = (classLoader != null);
     }
 
+    //设置Bean加载器
     @Override
     public void setBeanClassLoader(ClassLoader classLoader) {
         if (!this.classLoaderConfigured) {
@@ -174,21 +167,14 @@ public class ProxyFactoryBean extends ProxyCreatorSupport
         }
     }
 
+    //设置Bean工厂
     @Override
     public void setBeanFactory(BeanFactory beanFactory) {
         this.beanFactory = beanFactory;
         checkInterceptorNames();
     }
 
-
-    /**
-     * Return a proxy. Invoked when clients obtain beans from this factory bean.
-     * Create an instance of the AOP proxy to be returned by this factory.
-     * The instance will be cached for a singleton, and create on each call to
-     * {@code getObject()} for a proxy.
-     *
-     * @return a fresh AOP proxy reflecting the current state of this factory
-     */
+    //获取代理对象
     @Override
     public Object getObject() throws BeansException {
         initializeAdvisorChain();
@@ -203,13 +189,7 @@ public class ProxyFactoryBean extends ProxyCreatorSupport
         }
     }
 
-    /**
-     * Return the type of the proxy. Will check the singleton instance if
-     * already created, else fall back to the proxy interface (in case of just
-     * a single one), the target bean type, or the TargetSource's target class.
-     *
-     * @see org.springframework.aop.TargetSource#getTargetClass
-     */
+    //获取代理对象类型
     @Override
     public Class<?> getObjectType() {
         synchronized (this) {

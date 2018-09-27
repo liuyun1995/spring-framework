@@ -21,6 +21,7 @@ import org.springframework.util.Assert;
 @SuppressWarnings("serial")
 public class DefaultScopedObject implements ScopedObject, Serializable {
 
+	//可配置的Bean工厂
 	private final ConfigurableBeanFactory beanFactory;
 
 	private final String targetBeanName;
