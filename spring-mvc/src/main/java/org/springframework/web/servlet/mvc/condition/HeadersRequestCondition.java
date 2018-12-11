@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2017 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.mvc.condition;
 
 import java.util.Collection;
@@ -21,7 +5,6 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.cors.CorsUtils;
@@ -42,26 +25,19 @@ public final class HeadersRequestCondition extends AbstractRequestCondition<Head
 
 	private final static HeadersRequestCondition PRE_FLIGHT_MATCH = new HeadersRequestCondition();
 
-
 	private final Set<HeaderExpression> expressions;
 
-
-	/**
-	 * Create a new instance from the given header expressions. Expressions with
-	 * header names 'Accept' or 'Content-Type' are ignored. See {@link ConsumesRequestCondition}
-	 * and {@link ProducesRequestCondition} for those.
-	 * @param headers media type expressions with syntax defined in {@link RequestMapping#headers()};
-	 * if 0, the condition will match to every request
-	 */
+	//构造器
 	public HeadersRequestCondition(String... headers) {
 		this(parseExpressions(headers));
 	}
 
+	//构造器
 	private HeadersRequestCondition(Collection<HeaderExpression> conditions) {
 		this.expressions = Collections.unmodifiableSet(new LinkedHashSet<HeaderExpression>(conditions));
 	}
 
-
+	//解析表达式
 	private static Collection<HeaderExpression> parseExpressions(String... headers) {
 		Set<HeaderExpression> expressions = new LinkedHashSet<HeaderExpression>();
 		if (headers != null) {
@@ -76,9 +52,7 @@ public final class HeadersRequestCondition extends AbstractRequestCondition<Head
 		return expressions;
 	}
 
-	/**
-	 * Return the contained request header expressions.
-	 */
+	//获取表达式
 	public Set<NameValueExpression<String>> getExpressions() {
 		return new LinkedHashSet<NameValueExpression<String>>(this.expressions);
 	}

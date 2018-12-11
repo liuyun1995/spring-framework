@@ -356,12 +356,7 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 		out.flush();
 	}
 
-	/**
-	 * Set the content type of the response to the configured
-	 * {@link #setContentType(String) content type} unless the
-	 * {@link View#SELECTED_CONTENT_TYPE} request attribute is present and set
-	 * to a concrete media type.
-	 */
+	//设置响应内容类型
 	protected void setResponseContentType(HttpServletRequest request, HttpServletResponse response) {
 		MediaType mediaType = (MediaType) request.getAttribute(View.SELECTED_CONTENT_TYPE);
 		if (mediaType != null && mediaType.isConcrete()) {

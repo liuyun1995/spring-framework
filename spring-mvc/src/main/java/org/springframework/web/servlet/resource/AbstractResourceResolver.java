@@ -15,7 +15,6 @@ public abstract class AbstractResourceResolver implements ResourceResolver {
     @Override
     public Resource resolveResource(HttpServletRequest request, String requestPath,
                                     List<? extends Resource> locations, ResourceResolverChain chain) {
-
         if (logger.isTraceEnabled()) {
             logger.trace("Resolving resource for request path \"" + requestPath + "\"");
         }
@@ -26,11 +25,9 @@ public abstract class AbstractResourceResolver implements ResourceResolver {
     @Override
     public String resolveUrlPath(String resourceUrlPath, List<? extends Resource> locations,
                                  ResourceResolverChain chain) {
-
         if (logger.isTraceEnabled()) {
             logger.trace("Resolving public URL for resource path \"" + resourceUrlPath + "\"");
         }
-
         return resolveUrlPathInternal(resourceUrlPath, locations, chain);
     }
 

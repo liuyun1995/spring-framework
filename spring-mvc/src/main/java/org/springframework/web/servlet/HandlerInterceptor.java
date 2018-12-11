@@ -2,7 +2,6 @@ package org.springframework.web.servlet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.web.method.HandlerMethod;
 
 //处理器拦截器
 public interface HandlerInterceptor {
@@ -12,13 +11,11 @@ public interface HandlerInterceptor {
 			throws Exception;
 
 	//处理后执行
-	void postHandle(
-			HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)
-			throws Exception;
+	void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+					ModelAndView modelAndView) throws Exception;
 
 	//完成后执行
-	void afterCompletion(
-			HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-			throws Exception;
+	void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,
+						 Exception ex) throws Exception;
 
 }

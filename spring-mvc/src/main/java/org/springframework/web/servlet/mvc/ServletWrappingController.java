@@ -92,47 +92,32 @@ public class ServletWrappingController extends AbstractController
 
 	private Servlet servletInstance;
 
-
+	//构造器
 	public ServletWrappingController() {
 		super(false);
 	}
 
-
-	/**
-	 * Set the class of the servlet to wrap.
-	 * Needs to implement {@code javax.servlet.Servlet}.
-	 * @see javax.servlet.Servlet
-	 */
+	//设置Servlet类
 	public void setServletClass(Class<? extends Servlet> servletClass) {
 		this.servletClass = servletClass;
 	}
 
-	/**
-	 * Set the name of the servlet to wrap.
-	 * Default is the bean name of this controller.
-	 */
+	//设置Servlet名称
 	public void setServletName(String servletName) {
 		this.servletName = servletName;
 	}
 
-	/**
-	 * Specify init parameters for the servlet to wrap,
-	 * as name-value pairs.
-	 */
+	//设置初始化参数
 	public void setInitParameters(Properties initParameters) {
 		this.initParameters = initParameters;
 	}
 
+	//设置Bean名称
 	@Override
 	public void setBeanName(String name) {
 		this.beanName = name;
 	}
 
-
-	/**
-	 * Initialize the wrapped Servlet instance.
-	 * @see javax.servlet.Servlet#init(javax.servlet.ServletConfig)
-	 */
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		if (this.servletClass == null) {
@@ -145,24 +130,15 @@ public class ServletWrappingController extends AbstractController
 		this.servletInstance.init(new DelegatingServletConfig());
 	}
 
-
-	/**
-	 * Invoke the wrapped Servlet instance.
-	 * @see javax.servlet.Servlet#service(javax.servlet.ServletRequest, javax.servlet.ServletResponse)
-	 */
+	//处理请求
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-
 		this.servletInstance.service(request, response);
 		return null;
 	}
 
-
-	/**
-	 * Destroy the wrapped Servlet instance.
-	 * @see javax.servlet.Servlet#destroy()
-	 */
+	//销毁方法
 	@Override
 	public void destroy() {
 		this.servletInstance.destroy();
@@ -175,7 +151,6 @@ public class ServletWrappingController extends AbstractController
 	 * and methods to provide init parameters and other environment info.
 	 */
 	private class DelegatingServletConfig implements ServletConfig {
-
 		@Override
 		public String getServletName() {
 			return servletName;

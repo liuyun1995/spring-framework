@@ -3,7 +3,6 @@ package org.springframework.web.servlet;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.http.MediaType;
 
 //视图接口
@@ -31,13 +30,7 @@ public interface View {
 	 */
 	String SELECTED_CONTENT_TYPE = View.class.getName() + ".selectedContentType";
 
-	/**
-	 * Return the content type of the view, if predetermined.
-	 * <p>Can be used to check the content type upfront,
-	 * before the actual rendering process.
-	 * @return the content type String (optionally including a character set),
-	 * or {@code null} if not predetermined.
-	 */
+	//获取内容类型
 	String getContentType();
 
 	//渲染视图

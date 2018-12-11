@@ -37,41 +37,13 @@ public class VersionResourceResolver extends AbstractResourceResolver {
 		return this.versionStrategyMap;
 	}
 
-	/**
-	 * Insert a content-based version in resource URLs that match the given path
-	 * patterns. The version is computed from the content of the file, e.g.
-	 * {@code "css/main-e36d2e05253c6c7085a91522ce43a0b4.css"}. This is a good
-	 * default strategy to use except when it cannot be, for example when using
-	 * JavaScript module loaders, use {@link #addFixedVersionStrategy} instead
-	 * for serving JavaScript files.
-	 * @param pathPatterns one or more resource URL path patterns,
-	 * relative to the pattern configured with the resource handler
-	 * @return the current instance for chained method invocation
-	 * @see ContentVersionStrategy
-	 */
+	//添加内容版本策略
 	public VersionResourceResolver addContentVersionStrategy(String... pathPatterns) {
 		addVersionStrategy(new ContentVersionStrategy(), pathPatterns);
 		return this;
 	}
 
-	/**
-	 * Insert a fixed, prefix-based version in resource URLs that match the given
-	 * path patterns, for example: <code>"{version}/js/main.js"</code>. This is useful (vs.
-	 * content-based versions) when using JavaScript module loaders.
-	 * <p>The version may be a random number, the current date, or a value
-	 * fetched from a git commit sha, a property file, or environment variable
-	 * and set with SpEL expressions in the configuration (e.g. see {@code @Value}
-	 * in Java config).
-	 * <p>If not done already, variants of the given {@code pathPatterns}, prefixed with
-	 * the {@code version} will be also configured. For example, adding a {@code "/js/**"} path pattern
-	 * will also cofigure automatically a {@code "/v1.0.0/js/**"} with {@code "v1.0.0"} the
-	 * {@code version} String given as an argument.
-	 * @param version a version string
-	 * @param pathPatterns one or more resource URL path patterns,
-	 * relative to the pattern configured with the resource handler
-	 * @return the current instance for chained method invocation
-	 * @see FixedVersionStrategy
-	 */
+	//添加固定版本策略
 	public VersionResourceResolver addFixedVersionStrategy(String version, String... pathPatterns) {
 		List<String> patternsList = Arrays.asList(pathPatterns);
 		List<String> prefixedPatterns = new ArrayList<String>(pathPatterns.length);

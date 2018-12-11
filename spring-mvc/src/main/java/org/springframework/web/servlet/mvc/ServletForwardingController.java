@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2015 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.mvc;
 
 import javax.servlet.RequestDispatcher;
@@ -78,81 +62,77 @@ import org.springframework.web.util.WebUtils;
  * &lt;/bean&gt;</pre>
  *
  * @author Juergen Hoeller
- * @since 1.1.1
  * @see ServletWrappingController
  * @see org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor
  * @see org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter
+ * @since 1.1.1
  */
 public class ServletForwardingController extends AbstractController implements BeanNameAware {
 
-	private String servletName;
-	private String beanName;
+    private String servletName;
+    private String beanName;
 
-	public ServletForwardingController() {
-		super(false);
-	}
+    //构造器
+    public ServletForwardingController() {
+        super(false);
+    }
 
+    //设置Servlet名称
+    public void setServletName(String servletName) {
+        this.servletName = servletName;
+    }
 
-	/**
-	 * Set the name of the servlet to forward to,
-	 * i.e. the "servlet-name" of the target servlet in web.xml.
-	 * <p>Default is the bean name of this controller.
-	 */
-	public void setServletName(String servletName) {
-		this.servletName = servletName;
-	}
+    //设置Bean名称
+    @Override
+    public void setBeanName(String name) {
+        this.beanName = name;
+        if (this.servletName == null) {
+            this.servletName = name;
+        }
+    }
 
-	@Override
-	public void setBeanName(String name) {
-		this.beanName = name;
-		if (this.servletName == null) {
-			this.servletName = name;
-		}
-	}
+    //处理请求
+    @Override
+    protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+        RequestDispatcher rd = getServletContext().getNamedDispatcher(this.servletName);
+        if (rd == null) {
+            throw new ServletException("No servlet with name '" + this.servletName + "' defined in web.xml");
+        }
+        // If already included, include again, else forward.
+        if (useInclude(request, response)) {
+            rd.include(request, response);
+            if (logger.isDebugEnabled()) {
+                logger.debug("Included servlet [" + this.servletName +
+                        "] in ServletForwardingController '" + this.beanName + "'");
+            }
+        } else {
+            rd.forward(request, response);
+            if (logger.isDebugEnabled()) {
+                logger.debug("Forwarded to servlet [" + this.servletName +
+                        "] in ServletForwardingController '" + this.beanName + "'");
+            }
+        }
+        return null;
+    }
 
-
-	@Override
-	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-
-		RequestDispatcher rd = getServletContext().getNamedDispatcher(this.servletName);
-		if (rd == null) {
-			throw new ServletException("No servlet with name '" + this.servletName + "' defined in web.xml");
-		}
-		// If already included, include again, else forward.
-		if (useInclude(request, response)) {
-			rd.include(request, response);
-			if (logger.isDebugEnabled()) {
-				logger.debug("Included servlet [" + this.servletName +
-						"] in ServletForwardingController '" + this.beanName + "'");
-			}
-		}
-		else {
-			rd.forward(request, response);
-			if (logger.isDebugEnabled()) {
-				logger.debug("Forwarded to servlet [" + this.servletName +
-						"] in ServletForwardingController '" + this.beanName + "'");
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Determine whether to use RequestDispatcher's {@code include} or
-	 * {@code forward} method.
-	 * <p>Performs a check whether an include URI attribute is found in the request,
-	 * indicating an include request, and whether the response has already been committed.
-	 * In both cases, an include will be performed, as a forward is not possible anymore.
-	 * @param request current HTTP request
-	 * @param response current HTTP response
-	 * @return {@code true} for include, {@code false} for forward
-	 * @see javax.servlet.RequestDispatcher#forward
-	 * @see javax.servlet.RequestDispatcher#include
-	 * @see javax.servlet.ServletResponse#isCommitted
-	 * @see org.springframework.web.util.WebUtils#isIncludeRequest
-	 */
-	protected boolean useInclude(HttpServletRequest request, HttpServletResponse response) {
-		return (WebUtils.isIncludeRequest(request) || response.isCommitted());
-	}
+    /**
+     * Determine whether to use RequestDispatcher's {@code include} or
+     * {@code forward} method.
+     * <p>Performs a check whether an include URI attribute is found in the request,
+     * indicating an include request, and whether the response has already been committed.
+     * In both cases, an include will be performed, as a forward is not possible anymore.
+     *
+     * @param request  current HTTP request
+     * @param response current HTTP response
+     * @return {@code true} for include, {@code false} for forward
+     * @see javax.servlet.RequestDispatcher#forward
+     * @see javax.servlet.RequestDispatcher#include
+     * @see javax.servlet.ServletResponse#isCommitted
+     * @see org.springframework.web.util.WebUtils#isIncludeRequest
+     */
+    protected boolean useInclude(HttpServletRequest request, HttpServletResponse response) {
+        return (WebUtils.isIncludeRequest(request) || response.isCommitted());
+    }
 
 }

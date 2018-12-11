@@ -1,24 +1,7 @@
-/*
- * Copyright 2002-2014 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.mvc.method;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.core.Ordered;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerAdapter;
@@ -36,33 +19,22 @@ public abstract class AbstractHandlerMethodAdapter extends WebContentGenerator i
 
 	private int order = Ordered.LOWEST_PRECEDENCE;
 
-
 	public AbstractHandlerMethodAdapter() {
-		// no restriction of HTTP methods by default
 		super(false);
 	}
 
-
-	/**
-	 * Specify the order value for this HandlerAdapter bean.
-	 * <p>Default value is {@code Integer.MAX_VALUE}, meaning that it's non-ordered.
-	 * @see org.springframework.core.Ordered#getOrder()
-	 */
+	//设置排序
 	public void setOrder(int order) {
 		this.order = order;
 	}
 
+	//获取排序
 	@Override
 	public int getOrder() {
 		return this.order;
 	}
 
-
-	/**
-	 * This implementation expects the handler to be an {@link HandlerMethod}.
-	 * @param handler the handler instance to check
-	 * @return whether or not this adapter can adapt the given handler
-	 */
+	//是否支持
 	@Override
 	public final boolean supports(Object handler) {
 		return (handler instanceof HandlerMethod && supportsInternal((HandlerMethod) handler));
@@ -81,7 +53,6 @@ public abstract class AbstractHandlerMethodAdapter extends WebContentGenerator i
 	@Override
 	public final ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-
 		return handleInternal(request, response, (HandlerMethod) handler);
 	}
 

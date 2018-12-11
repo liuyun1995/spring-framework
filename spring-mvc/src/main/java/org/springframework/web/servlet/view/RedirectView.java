@@ -14,7 +14,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.CollectionUtils;
@@ -38,7 +37,6 @@ public class RedirectView extends AbstractUrlBasedView implements SmartView {
 
     private static final Pattern URI_TEMPLATE_VARIABLE_PATTERN = Pattern.compile("\\{([^/]+?)\\}");
 
-
     private boolean contextRelative = false;
 
     private boolean http10Compatible = true;
@@ -54,7 +52,6 @@ public class RedirectView extends AbstractUrlBasedView implements SmartView {
     private boolean propagateQueryParams = false;
 
     private String[] hosts;
-
 
     //构造器
     public RedirectView() {

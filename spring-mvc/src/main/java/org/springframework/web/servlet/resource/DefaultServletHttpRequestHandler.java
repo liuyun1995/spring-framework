@@ -6,7 +6,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.util.StringUtils;
 import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.context.ServletContextAware;
@@ -39,11 +38,9 @@ public class DefaultServletHttpRequestHandler implements HttpRequestHandler, Ser
      */
     private static final String WEBSPHERE_DEFAULT_SERVLET_NAME = "SimpleFileServlet";
 
-
     private String defaultServletName;
 
     private ServletContext servletContext;
-
 
     //设置默认Servlet名称
     public void setDefaultServletName(String defaultServletName) {

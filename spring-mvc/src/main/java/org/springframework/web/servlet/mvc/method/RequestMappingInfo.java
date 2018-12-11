@@ -1,24 +1,7 @@
-/*
- * Copyright 2002-2017 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.mvc.method;
 
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.http.HttpMethod;
 import org.springframework.util.PathMatcher;
 import org.springframework.util.StringUtils;
@@ -68,7 +51,7 @@ public final class RequestMappingInfo implements RequestCondition<RequestMapping
 
 	private final RequestConditionHolder customConditionHolder;
 
-
+	//构造器
 	public RequestMappingInfo(String name, PatternsRequestCondition patterns, RequestMethodsRequestCondition methods,
 			ParamsRequestCondition params, HeadersRequestCondition headers, ConsumesRequestCondition consumes,
 			ProducesRequestCondition produces, RequestCondition<?> custom) {
@@ -83,9 +66,7 @@ public final class RequestMappingInfo implements RequestCondition<RequestMapping
 		this.customConditionHolder = new RequestConditionHolder(custom);
 	}
 
-	/**
-	 * Creates a new instance with the given request conditions.
-	 */
+	//构造器
 	public RequestMappingInfo(PatternsRequestCondition patterns, RequestMethodsRequestCondition methods,
 			ParamsRequestCondition params, HeadersRequestCondition headers, ConsumesRequestCondition consumes,
 			ProducesRequestCondition produces, RequestCondition<?> custom) {
@@ -93,9 +74,7 @@ public final class RequestMappingInfo implements RequestCondition<RequestMapping
 		this(null, patterns, methods, params, headers, consumes, produces, custom);
 	}
 
-	/**
-	 * Re-create a RequestMappingInfo with the given custom request condition.
-	 */
+	//构造器
 	public RequestMappingInfo(RequestMappingInfo info, RequestCondition<?> customRequestCondition) {
 		this(info.name, info.patternsCondition, info.methodsCondition, info.paramsCondition, info.headersCondition,
 				info.consumesCondition, info.producesCondition, customRequestCondition);
@@ -332,71 +311,29 @@ public final class RequestMappingInfo implements RequestCondition<RequestMapping
 	}
 
 
-	/**
-	 * Create a new {@code RequestMappingInfo.Builder} with the given paths.
-	 * @param paths the paths to use
-	 * @since 4.2
-	 */
 	public static Builder paths(String... paths) {
 		return new DefaultBuilder(paths);
 	}
 
-
-	/**
-	 * Defines a builder for creating a RequestMappingInfo.
-	 * @since 4.2
-	 */
 	public interface Builder {
-
-		/**
-		 * Set the path patterns.
-		 */
 		Builder paths(String... paths);
 
-		/**
-		 * Set the request method conditions.
-		 */
 		Builder methods(RequestMethod... methods);
 
-		/**
-		 * Set the request param conditions.
-		 */
 		Builder params(String... params);
 
-		/**
-		 * Set the header conditions.
-		 * <p>By default this is not set.
-		 */
 		Builder headers(String... headers);
 
-		/**
-		 * Set the consumes conditions.
-		 */
 		Builder consumes(String... consumes);
 
-		/**
-		 * Set the produces conditions.
-		 */
 		Builder produces(String... produces);
 
-		/**
-		 * Set the mapping name.
-		 */
 		Builder mappingName(String name);
 
-		/**
-		 * Set a custom condition to use.
-		 */
 		Builder customCondition(RequestCondition<?> condition);
 
-		/**
-		 * Provide additional configuration needed for request mapping purposes.
-		 */
 		Builder options(BuilderConfiguration options);
 
-		/**
-		 * Build the RequestMappingInfo.
-		 */
 		RequestMappingInfo build();
 	}
 
