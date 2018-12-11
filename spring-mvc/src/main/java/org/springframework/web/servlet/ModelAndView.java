@@ -8,238 +8,170 @@ import org.springframework.util.CollectionUtils;
 //视图模型
 public class ModelAndView {
 
-	private Object view;        //视图对象
-	private ModelMap model;     //数据模型
-	private HttpStatus status;  //http状态
+    private Object view;             //视图对象
+    private ModelMap model;          //数据模型
+    private HttpStatus status;       //http状态
+    private boolean cleared = false; //是否清空过
 
-	/** Indicates whether or not this instance has been cleared with a call to {@link #clear()} */
-	private boolean cleared = false;
+    //构造器1
+    public ModelAndView() {}
 
-	public ModelAndView() {}
+    //构造器2
+    public ModelAndView(String viewName) {
+        this.view = viewName;
+    }
 
-	public ModelAndView(String viewName) {
-		this.view = viewName;
-	}
+    //构造器3
+    public ModelAndView(View view) {
+        this.view = view;
+    }
 
-	public ModelAndView(View view) {
-		this.view = view;
-	}
+    //构造器3
+    public ModelAndView(String viewName, Map<String, ?> model) {
+        this.view = viewName;
+        if (model != null) {
+            getModelMap().addAllAttributes(model);
+        }
+    }
 
-	public ModelAndView(String viewName, Map<String, ?> model) {
-		this.view = viewName;
-		if (model != null) {
-			getModelMap().addAllAttributes(model);
-		}
-	}
+    //构造器4
+    public ModelAndView(View view, Map<String, ?> model) {
+        this.view = view;
+        if (model != null) {
+            getModelMap().addAllAttributes(model);
+        }
+    }
 
-	public ModelAndView(View view, Map<String, ?> model) {
-		this.view = view;
-		if (model != null) {
-			getModelMap().addAllAttributes(model);
-		}
-	}
+    //构造器5
+    public ModelAndView(String viewName, HttpStatus status) {
+        this.view = viewName;
+        this.status = status;
+    }
 
-	public ModelAndView(String viewName, HttpStatus status) {
-		this.view = viewName;
-		this.status = status;
-	}
+    //构造器6
+    public ModelAndView(String viewName, Map<String, ?> model, HttpStatus status) {
+        this.view = viewName;
+        if (model != null) {
+            getModelMap().addAllAttributes(model);
+        }
+        this.status = status;
+    }
 
-	public ModelAndView(String viewName, Map<String, ?> model, HttpStatus status) {
-		this.view = viewName;
-		if (model != null) {
-			getModelMap().addAllAttributes(model);
-		}
-		this.status = status;
-	}
+    //构造器7
+    public ModelAndView(String viewName, String modelName, Object modelObject) {
+        this.view = viewName;
+        addObject(modelName, modelObject);
+    }
 
-	public ModelAndView(String viewName, String modelName, Object modelObject) {
-		this.view = viewName;
-		addObject(modelName, modelObject);
-	}
+    //构造器8
+    public ModelAndView(View view, String modelName, Object modelObject) {
+        this.view = view;
+        addObject(modelName, modelObject);
+    }
 
-	public ModelAndView(View view, String modelName, Object modelObject) {
-		this.view = view;
-		addObject(modelName, modelObject);
-	}
+    //设置视图名称
+    public void setViewName(String viewName) {
+        this.view = viewName;
+    }
 
+    //获取视图名称
+    public String getViewName() {
+        return (this.view instanceof String ? (String) this.view : null);
+    }
 
-	/**
-	 * Set a view name for this ModelAndView, to be resolved by the
-	 * DispatcherServlet via a ViewResolver. Will override any
-	 * pre-existing view name or View.
-	 */
-	public void setViewName(String viewName) {
-		this.view = viewName;
-	}
+    //设置视图
+    public void setView(View view) {
+        this.view = view;
+    }
 
-	/**
-	 * Return the view name to be resolved by the DispatcherServlet
-	 * via a ViewResolver, or {@code null} if we are using a View object.
-	 */
-	public String getViewName() {
-		return (this.view instanceof String ? (String) this.view : null);
-	}
+    //获取视图
+    public View getView() {
+        return (this.view instanceof View ? (View) this.view : null);
+    }
 
-	/**
-	 * Set a View object for this ModelAndView. Will override any
-	 * pre-existing view name or View.
-	 */
-	public void setView(View view) {
-		this.view = view;
-	}
+    //是否存在视图
+    public boolean hasView() {
+        return (this.view != null);
+    }
 
-	/**
-	 * Return the View object, or {@code null} if we are using a view name
-	 * to be resolved by the DispatcherServlet via a ViewResolver.
-	 */
-	public View getView() {
-		return (this.view instanceof View ? (View) this.view : null);
-	}
+    //是否使用视图引用
+    public boolean isReference() {
+        return (this.view instanceof String);
+    }
 
-	/**
-	 * Indicate whether or not this {@code ModelAndView} has a view, either
-	 * as a view name or as a direct {@link View} instance.
-	 */
-	public boolean hasView() {
-		return (this.view != null);
-	}
+    //获取数据模型
+    protected Map<String, Object> getModelInternal() {
+        return this.model;
+    }
 
-	/**
-	 * Return whether we use a view reference, i.e. {@code true}
-	 * if the view has been specified via a name to be resolved by the
-	 * DispatcherServlet via a ViewResolver.
-	 */
-	public boolean isReference() {
-		return (this.view instanceof String);
-	}
+    //获取数据模型
+    public ModelMap getModelMap() {
+        if (this.model == null) {
+            this.model = new ModelMap();
+        }
+        return this.model;
+    }
 
-	/**
-	 * Return the model map. May return {@code null}.
-	 * Called by DispatcherServlet for evaluation of the model.
-	 */
-	protected Map<String, Object> getModelInternal() {
-		return this.model;
-	}
+    //获取数据模型
+    public Map<String, Object> getModel() {
+        return getModelMap();
+    }
 
-	/**
-	 * Return the underlying {@code ModelMap} instance (never {@code null}).
-	 */
-	public ModelMap getModelMap() {
-		if (this.model == null) {
-			this.model = new ModelMap();
-		}
-		return this.model;
-	}
+    //设置响应状态
+    public void setStatus(HttpStatus status) {
+        this.status = status;
+    }
 
-	/**
-	 * Return the model map. Never returns {@code null}.
-	 * To be called by application code for modifying the model.
-	 */
-	public Map<String, Object> getModel() {
-		return getModelMap();
-	}
+    //设置响应状态
+    public HttpStatus getStatus() {
+        return this.status;
+    }
 
-	/**
-	 * Set the HTTP status to use for the response.
-	 * <p>The response status is set just prior to View rendering.
-	 * @since 4.3
-	 */
-	public void setStatus(HttpStatus status) {
-		this.status = status;
-	}
+    //添加键值对
+    public ModelAndView addObject(String attributeName, Object attributeValue) {
+        getModelMap().addAttribute(attributeName, attributeValue);
+        return this;
+    }
 
-	/**
-	 * Return the configured HTTP status for the response, if any.
-	 * @since 4.3
-	 */
-	public HttpStatus getStatus() {
-		return this.status;
-	}
+    //添加键值对
+    public ModelAndView addObject(Object attributeValue) {
+        getModelMap().addAttribute(attributeValue);
+        return this;
+    }
 
+    //添加键值对
+    public ModelAndView addAllObjects(Map<String, ?> modelMap) {
+        getModelMap().addAllAttributes(modelMap);
+        return this;
+    }
 
-	/**
-	 * Add an attribute to the model.
-	 * @param attributeName name of the object to add to the model
-	 * @param attributeValue object to add to the model (never {@code null})
-	 * @see ModelMap#addAttribute(String, Object)
-	 * @see #getModelMap()
-	 */
-	public ModelAndView addObject(String attributeName, Object attributeValue) {
-		getModelMap().addAttribute(attributeName, attributeValue);
-		return this;
-	}
+    //清空方法
+    public void clear() {
+        this.view = null;
+        this.model = null;
+        this.cleared = true;
+    }
 
-	/**
-	 * Add an attribute to the model using parameter name generation.
-	 * @param attributeValue the object to add to the model (never {@code null})
-	 * @see ModelMap#addAttribute(Object)
-	 * @see #getModelMap()
-	 */
-	public ModelAndView addObject(Object attributeValue) {
-		getModelMap().addAttribute(attributeValue);
-		return this;
-	}
+    //是否为空
+    public boolean isEmpty() {
+        return (this.view == null && CollectionUtils.isEmpty(this.model));
+    }
 
-	/**
-	 * Add all attributes contained in the provided Map to the model.
-	 * @param modelMap a Map of attributeName -> attributeValue pairs
-	 * @see ModelMap#addAllAttributes(Map)
-	 * @see #getModelMap()
-	 */
-	public ModelAndView addAllObjects(Map<String, ?> modelMap) {
-		getModelMap().addAllAttributes(modelMap);
-		return this;
-	}
+    //是否清空过
+    public boolean wasCleared() {
+        return (this.cleared && isEmpty());
+    }
 
-
-	/**
-	 * Clear the state of this ModelAndView object.
-	 * The object will be empty afterwards.
-	 * <p>Can be used to suppress rendering of a given ModelAndView object
-	 * in the {@code postHandle} method of a HandlerInterceptor.
-	 * @see #isEmpty()
-	 * @see HandlerInterceptor#postHandle
-	 */
-	public void clear() {
-		this.view = null;
-		this.model = null;
-		this.cleared = true;
-	}
-
-	/**
-	 * Return whether this ModelAndView object is empty,
-	 * i.e. whether it does not hold any view and does not contain a model.
-	 */
-	public boolean isEmpty() {
-		return (this.view == null && CollectionUtils.isEmpty(this.model));
-	}
-
-	/**
-	 * Return whether this ModelAndView object is empty as a result of a call to {@link #clear}
-	 * i.e. whether it does not hold any view and does not contain a model.
-	 * <p>Returns {@code false} if any additional state was added to the instance
-	 * <strong>after</strong> the call to {@link #clear}.
-	 * @see #clear()
-	 */
-	public boolean wasCleared() {
-		return (this.cleared && isEmpty());
-	}
-
-
-	/**
-	 * Return diagnostic information about this model and view.
-	 */
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder("ModelAndView: ");
-		if (isReference()) {
-			sb.append("reference to view with name '").append(this.view).append("'");
-		}
-		else {
-			sb.append("materialized View is [").append(this.view).append(']');
-		}
-		sb.append("; model is ").append(this.model);
-		return sb.toString();
-	}
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("ModelAndView: ");
+        if (isReference()) {
+            sb.append("reference to view with name '").append(this.view).append("'");
+        } else {
+            sb.append("materialized View is [").append(this.view).append(']');
+        }
+        sb.append("; model is ").append(this.model);
+        return sb.toString();
+    }
 
 }

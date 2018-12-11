@@ -45,19 +45,12 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 	private String beanName;
 
 
-	/**
-	 * Set the content type for this view.
-	 * Default is "text/html;charset=ISO-8859-1".
-	 * <p>May be ignored by subclasses if the view itself is assumed
-	 * to set the content type, e.g. in case of JSPs.
-	 */
+	//设置内容类型，默认是"text/html;charset=ISO-8859-1"
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
 	}
 
-	/**
-	 * Return the content type for this view.
-	 */
+	//获取内容类型
 	@Override
 	public String getContentType() {
 		return this.contentType;
@@ -110,32 +103,12 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 		}
 	}
 
-	/**
-	 * Set static attributes for this view from a
-	 * {@code java.util.Properties} object.
-	 * <p>"Static" attributes are fixed attributes that are specified in
-	 * the View instance configuration. "Dynamic" attributes, on the other hand,
-	 * are values passed in as part of the model.
-	 * <p>This is the most convenient way to set static attributes. Note that
-	 * static attributes can be overridden by dynamic attributes, if a value
-	 * with the same name is included in the model.
-	 * <p>Can be populated with a String "value" (parsed via PropertiesEditor)
-	 * or a "props" element in XML bean definitions.
-	 * @see org.springframework.beans.propertyeditors.PropertiesEditor
-	 */
+	//设置属性
 	public void setAttributes(Properties attributes) {
 		CollectionUtils.mergePropertiesIntoMap(attributes, this.staticAttributes);
 	}
 
-	/**
-	 * Set static attributes for this view from a Map. This allows to set
-	 * any kind of attribute values, for example bean references.
-	 * <p>"Static" attributes are fixed attributes that are specified in
-	 * the View instance configuration. "Dynamic" attributes, on the other hand,
-	 * are values passed in as part of the model.
-	 * <p>Can be populated with a "map" or "props" element in XML bean definitions.
-	 * @param attributes Map with name Strings as keys and attribute objects as values
-	 */
+	//设置属性
 	public void setAttributesMap(Map<String, ?> attributes) {
 		if (attributes != null) {
 			for (Map.Entry<String, ?> entry : attributes.entrySet()) {
@@ -144,37 +117,17 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 		}
 	}
 
-	/**
-	 * Allow Map access to the static attributes of this view,
-	 * with the option to add or override specific entries.
-	 * <p>Useful for specifying entries directly, for example via
-	 * "attributesMap[myKey]". This is particularly useful for
-	 * adding or overriding entries in child view definitions.
-	 */
+	//获取属性映射
 	public Map<String, Object> getAttributesMap() {
 		return this.staticAttributes;
 	}
 
-	/**
-	 * Add static data to this view, exposed in each view.
-	 * <p>"Static" attributes are fixed attributes that are specified in
-	 * the View instance configuration. "Dynamic" attributes, on the other hand,
-	 * are values passed in as part of the model.
-	 * <p>Must be invoked before any calls to {@code render}.
-	 * @param name the name of the attribute to expose
-	 * @param value the attribute value to expose
-	 * @see #render
-	 */
+	//添加静态属性
 	public void addStaticAttribute(String name, Object value) {
 		this.staticAttributes.put(name, value);
 	}
 
-	/**
-	 * Return the static attributes for this view. Handy for testing.
-	 * <p>Returns an unmodifiable Map, as this is not intended for
-	 * manipulating the Map but rather just for checking the contents.
-	 * @return the static attributes in this view
-	 */
+	//获取静态属性
 	public Map<String, Object> getStaticAttributes() {
 		return Collections.unmodifiableMap(this.staticAttributes);
 	}
@@ -231,19 +184,13 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 		this.exposedContextBeanNames = new HashSet<String>(Arrays.asList(exposedContextBeanNames));
 	}
 
-	/**
-	 * Set the view's name. Helpful for traceability.
-	 * <p>Framework code must call this when constructing views.
-	 */
+	//设置Bean名称
 	@Override
 	public void setBeanName(String beanName) {
 		this.beanName = beanName;
 	}
 
-	/**
-	 * Return the view's name. Should never be {@code null},
-	 * if the view was correctly configured.
-	 */
+	//获取Bean名称
 	public String getBeanName() {
 		return this.beanName;
 	}
@@ -293,30 +240,13 @@ public abstract class AbstractView extends WebApplicationObjectSupport implement
 		return mergedModel;
 	}
 
-	/**
-	 * Create a RequestContext to expose under the specified attribute name.
-	 * <p>The default implementation creates a standard RequestContext instance for the
-	 * given request and model. Can be overridden in subclasses for custom instances.
-	 * @param request current HTTP request
-	 * @param model combined output Map (never {@code null}),
-	 * with dynamic values taking precedence over static attributes
-	 * @return the RequestContext instance
-	 * @see #setRequestContextAttribute
-	 * @see org.springframework.web.servlet.support.RequestContext
-	 */
+	//创建请求上下文
 	protected RequestContext createRequestContext(
 			HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) {
-
 		return new RequestContext(request, response, getServletContext(), model);
 	}
 
-	/**
-	 * Prepare the given response for rendering.
-	 * <p>The default implementation applies a workaround for an IE bug
-	 * when sending download content via HTTPS.
-	 * @param request current HTTP request
-	 * @param response current HTTP response
-	 */
+	//准备HTTP响应
 	protected void prepareResponse(HttpServletRequest request, HttpServletResponse response) {
 		if (generatesDownloadContent()) {
 			response.setHeader("Pragma", "private");

@@ -144,6 +144,7 @@ public abstract class AbstractExcelView extends AbstractView {
 			logger.debug("Created Excel Workbook from scratch");
 		}
 
+		//构建Excel文档
 		buildExcelDocument(model, workbook, request, response);
 
 		// Set the content type.

@@ -3,32 +3,7 @@ package org.springframework.web.servlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * MVC framework SPI, allowing parameterization of the core MVC workflow.
- *
- * <p>Interface that must be implemented for each handler type to handle a request.
- * This interface is used to allow the {@link DispatcherServlet} to be indefinitely
- * extensible. The {@code DispatcherServlet} accesses all installed handlers through
- * this interface, meaning that it does not contain code specific to any handler type.
- *
- * <p>Note that a handler can be of type {@code Object}. This is to enable
- * handlers from other frameworks to be integrated with this framework without
- * custom coding, as well as to allow for annotation-driven handler objects that
- * do not obey any specific Java interface.
- *
- * <p>This interface is not intended for application developers. It is available
- * to handlers who want to develop their own web workflow.
- *
- * <p>Note: {@code HandlerAdapter} implementors may implement the {@link
- * org.springframework.core.Ordered} interface to be able to specify a sorting
- * order (and thus a priority) for getting applied by the {@code DispatcherServlet}.
- * Non-Ordered instances get treated as lowest priority.
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @see org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter
- * @see org.springframework.web.servlet.handler.SimpleServletHandlerAdapter
- */
+//处理器适配器接口
 public interface HandlerAdapter {
 
 	/**

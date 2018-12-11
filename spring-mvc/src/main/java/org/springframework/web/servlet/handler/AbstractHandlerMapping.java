@@ -302,6 +302,7 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
     //获取处理器
     @Override
     public final HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
+        //根据请求获取处理器
         Object handler = getHandlerInternal(request);
         if (handler == null) {
             handler = getDefaultHandler();
@@ -325,29 +326,12 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
         return executionChain;
     }
 
-    /**
-     * Look up a handler for the given request, returning {@code null} if no
-     * specific one is found. This method is called by {@link #getHandler};
-     * a {@code null} return value will lead to the default handler, if one is set.
-     * <p>On CORS pre-flight requests this method should return a match not for
-     * the pre-flight request but for the expected actual request based on the URL
-     * path, the HTTP methods from the "Access-Control-Request-Method" header, and
-     * the headers from the "Access-Control-Request-Headers" header thus allowing
-     * the CORS configuration to be obtained via {@link #getCorsConfigurations},
-     * <p>Note: This method may also return a pre-built {@link HandlerExecutionChain},
-     * combining a handler object with dynamically determined interceptors.
-     * Statically specified interceptors will get merged into such an existing chain.
-     *
-     * @param request current HTTP request
-     * @return the corresponding handler instance, or {@code null} if none found
-     * @throws Exception if there is an internal error
-     */
+    //根据请求获取处理器
     protected abstract Object getHandlerInternal(HttpServletRequest request) throws Exception;
 
     //获取处理器执行链
     protected HandlerExecutionChain getHandlerExecutionChain(Object handler, HttpServletRequest request) {
-        HandlerExecutionChain chain = (handler instanceof HandlerExecutionChain ?
-                (HandlerExecutionChain) handler : new HandlerExecutionChain(handler));
+        HandlerExecutionChain chain = (handler instanceof HandlerExecutionChain ? (HandlerExecutionChain) handler : new HandlerExecutionChain(handler));
         String lookupPath = this.urlPathHelper.getLookupPathForRequest(request);
         for (HandlerInterceptor interceptor : this.adaptedInterceptors) {
             if (interceptor instanceof MappedInterceptor) {

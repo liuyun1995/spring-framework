@@ -1,24 +1,7 @@
-/*
- * Copyright 2002-2014 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.aop.target;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import org.springframework.aop.IntroductionAdvisor;
 import org.springframework.aop.support.DefaultIntroductionAdvisor;
 import org.springframework.aop.support.DelegatingIntroductionInterceptor;
@@ -26,28 +9,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.core.NamedThreadLocal;
 
-/**
- * Alternative to an object pool. This {@link org.springframework.aop.TargetSource}
- * uses a threading model in which every thread has its own copy of the target.
- * There's no contention for targets. Target object creation is kept to a minimum
- * on the running server.
- *
- * <p>Application code is written as to a normal pool; callers can't assume they
- * will be dealing with the same instance in invocations in different threads.
- * However, state can be relied on during the operations of a single thread:
- * for example, if one caller makes repeated calls on the AOP proxy.
- *
- * <p>Cleanup of thread-bound objects is performed on BeanFactory destruction,
- * calling their {@code DisposableBean.destroy()} method if available.
- * Be aware that many thread-bound objects can be around until the application
- * actually shuts down.
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @author Rob Harrop
- * @see ThreadLocalTargetSourceStats
- * @see org.springframework.beans.factory.DisposableBean#destroy()
- */
+//线程内目标源
 @SuppressWarnings("serial")
 public class ThreadLocalTargetSource extends AbstractPrototypeBasedTargetSource
 		implements ThreadLocalTargetSourceStats, DisposableBean {

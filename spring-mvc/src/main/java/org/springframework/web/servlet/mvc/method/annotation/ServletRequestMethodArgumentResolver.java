@@ -60,107 +60,98 @@ import org.springframework.web.servlet.support.RequestContextUtils;
  */
 public class ServletRequestMethodArgumentResolver implements HandlerMethodArgumentResolver {
 
-	@Override
-	public boolean supportsParameter(MethodParameter parameter) {
-		Class<?> paramType = parameter.getParameterType();
-		return (WebRequest.class.isAssignableFrom(paramType) ||
-				ServletRequest.class.isAssignableFrom(paramType) ||
-				MultipartRequest.class.isAssignableFrom(paramType) ||
-				HttpSession.class.isAssignableFrom(paramType) ||
-				Principal.class.isAssignableFrom(paramType) ||
-				InputStream.class.isAssignableFrom(paramType) ||
-				Reader.class.isAssignableFrom(paramType) ||
-				HttpMethod.class == paramType ||
-				Locale.class == paramType ||
-				TimeZone.class == paramType ||
-				"java.time.ZoneId".equals(paramType.getName()));
-	}
+    @Override
+    public boolean supportsParameter(MethodParameter parameter) {
+        Class<?> paramType = parameter.getParameterType();
+        return (WebRequest.class.isAssignableFrom(paramType) ||
+                ServletRequest.class.isAssignableFrom(paramType) ||
+                MultipartRequest.class.isAssignableFrom(paramType) ||
+                HttpSession.class.isAssignableFrom(paramType) ||
+                Principal.class.isAssignableFrom(paramType) ||
+                InputStream.class.isAssignableFrom(paramType) ||
+                Reader.class.isAssignableFrom(paramType) ||
+                HttpMethod.class == paramType ||
+                Locale.class == paramType ||
+                TimeZone.class == paramType ||
+                "java.time.ZoneId".equals(paramType.getName()));
+    }
 
-	@Override
-	public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
-			NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
+    @Override
+    public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
+                                  NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
 
-		Class<?> paramType = parameter.getParameterType();
-		if (WebRequest.class.isAssignableFrom(paramType)) {
-			if (!paramType.isInstance(webRequest)) {
-				throw new IllegalStateException(
-						"Current request is not of type [" + paramType.getName() + "]: " + webRequest);
-			}
-			return webRequest;
-		}
+        Class<?> paramType = parameter.getParameterType();
+        if (WebRequest.class.isAssignableFrom(paramType)) {
+            if (!paramType.isInstance(webRequest)) {
+                throw new IllegalStateException(
+                        "Current request is not of type [" + paramType.getName() + "]: " + webRequest);
+            }
+            return webRequest;
+        }
 
-		HttpServletRequest request = webRequest.getNativeRequest(HttpServletRequest.class);
-		if (ServletRequest.class.isAssignableFrom(paramType) || MultipartRequest.class.isAssignableFrom(paramType)) {
-			Object nativeRequest = webRequest.getNativeRequest(paramType);
-			if (nativeRequest == null) {
-				throw new IllegalStateException(
-						"Current request is not of type [" + paramType.getName() + "]: " + request);
-			}
-			return nativeRequest;
-		}
-		else if (HttpSession.class.isAssignableFrom(paramType)) {
-			HttpSession session = request.getSession();
-			if (session != null && !paramType.isInstance(session)) {
-				throw new IllegalStateException(
-						"Current session is not of type [" + paramType.getName() + "]: " + session);
-			}
-			return session;
-		}
-		else if (InputStream.class.isAssignableFrom(paramType)) {
-			InputStream inputStream = request.getInputStream();
-			if (inputStream != null && !paramType.isInstance(inputStream)) {
-				throw new IllegalStateException(
-						"Request input stream is not of type [" + paramType.getName() + "]: " + inputStream);
-			}
-			return inputStream;
-		}
-		else if (Reader.class.isAssignableFrom(paramType)) {
-			Reader reader = request.getReader();
-			if (reader != null && !paramType.isInstance(reader)) {
-				throw new IllegalStateException(
-						"Request body reader is not of type [" + paramType.getName() + "]: " + reader);
-			}
-			return reader;
-		}
-		else if (Principal.class.isAssignableFrom(paramType)) {
-			Principal userPrincipal = request.getUserPrincipal();
-			if (userPrincipal != null && !paramType.isInstance(userPrincipal)) {
-				throw new IllegalStateException(
-						"Current user principal is not of type [" + paramType.getName() + "]: " + userPrincipal);
-			}
-			return userPrincipal;
-		}
-		else if (HttpMethod.class == paramType) {
-			return HttpMethod.resolve(request.getMethod());
-		}
-		else if (Locale.class == paramType) {
-			return RequestContextUtils.getLocale(request);
-		}
-		else if (TimeZone.class == paramType) {
-			TimeZone timeZone = RequestContextUtils.getTimeZone(request);
-			return (timeZone != null ? timeZone : TimeZone.getDefault());
-		}
-		else if ("java.time.ZoneId".equals(paramType.getName())) {
-			return ZoneIdResolver.resolveZoneId(request);
-		}
-		else {
-			// Should never happen...
-			throw new UnsupportedOperationException(
-					"Unknown parameter type [" + paramType.getName() + "] in " + parameter.getMethod());
-		}
-	}
+        HttpServletRequest request = webRequest.getNativeRequest(HttpServletRequest.class);
+        if (ServletRequest.class.isAssignableFrom(paramType) || MultipartRequest.class.isAssignableFrom(paramType)) {
+            Object nativeRequest = webRequest.getNativeRequest(paramType);
+            if (nativeRequest == null) {
+                throw new IllegalStateException(
+                        "Current request is not of type [" + paramType.getName() + "]: " + request);
+            }
+            return nativeRequest;
+        } else if (HttpSession.class.isAssignableFrom(paramType)) {
+            HttpSession session = request.getSession();
+            if (session != null && !paramType.isInstance(session)) {
+                throw new IllegalStateException(
+                        "Current session is not of type [" + paramType.getName() + "]: " + session);
+            }
+            return session;
+        } else if (InputStream.class.isAssignableFrom(paramType)) {
+            InputStream inputStream = request.getInputStream();
+            if (inputStream != null && !paramType.isInstance(inputStream)) {
+                throw new IllegalStateException(
+                        "Request input stream is not of type [" + paramType.getName() + "]: " + inputStream);
+            }
+            return inputStream;
+        } else if (Reader.class.isAssignableFrom(paramType)) {
+            Reader reader = request.getReader();
+            if (reader != null && !paramType.isInstance(reader)) {
+                throw new IllegalStateException(
+                        "Request body reader is not of type [" + paramType.getName() + "]: " + reader);
+            }
+            return reader;
+        } else if (Principal.class.isAssignableFrom(paramType)) {
+            Principal userPrincipal = request.getUserPrincipal();
+            if (userPrincipal != null && !paramType.isInstance(userPrincipal)) {
+                throw new IllegalStateException(
+                        "Current user principal is not of type [" + paramType.getName() + "]: " + userPrincipal);
+            }
+            return userPrincipal;
+        } else if (HttpMethod.class == paramType) {
+            return HttpMethod.resolve(request.getMethod());
+        } else if (Locale.class == paramType) {
+            return RequestContextUtils.getLocale(request);
+        } else if (TimeZone.class == paramType) {
+            TimeZone timeZone = RequestContextUtils.getTimeZone(request);
+            return (timeZone != null ? timeZone : TimeZone.getDefault());
+        } else if ("java.time.ZoneId".equals(paramType.getName())) {
+            return ZoneIdResolver.resolveZoneId(request);
+        } else {
+            // Should never happen...
+            throw new UnsupportedOperationException(
+                    "Unknown parameter type [" + paramType.getName() + "] in " + parameter.getMethod());
+        }
+    }
 
 
-	/**
-	 * Inner class to avoid a hard-coded dependency on Java 8's {@link java.time.ZoneId}.
-	 */
-	@UsesJava8
-	private static class ZoneIdResolver {
+    /**
+     * Inner class to avoid a hard-coded dependency on Java 8's {@link java.time.ZoneId}.
+     */
+    @UsesJava8
+    private static class ZoneIdResolver {
 
-		public static Object resolveZoneId(HttpServletRequest request) {
-			TimeZone timeZone = RequestContextUtils.getTimeZone(request);
-			return (timeZone != null ? timeZone.toZoneId() : ZoneId.systemDefault());
-		}
-	}
+        public static Object resolveZoneId(HttpServletRequest request) {
+            TimeZone timeZone = RequestContextUtils.getTimeZone(request);
+            return (timeZone != null ? timeZone.toZoneId() : ZoneId.systemDefault());
+        }
+    }
 
 }

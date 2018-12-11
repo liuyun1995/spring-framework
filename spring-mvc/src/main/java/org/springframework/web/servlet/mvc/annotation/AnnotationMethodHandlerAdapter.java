@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2015 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.mvc.annotation;
 
 import java.io.IOException;
@@ -43,10 +27,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.transform.Source;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
@@ -113,34 +95,9 @@ import org.springframework.web.servlet.support.WebContentGenerator;
 import org.springframework.web.util.UrlPathHelper;
 import org.springframework.web.util.WebUtils;
 
-/**
- * Implementation of the {@link org.springframework.web.servlet.HandlerAdapter} interface
- * that maps handler methods based on HTTP paths, HTTP methods, and request parameters
- * expressed through the {@link RequestMapping} annotation.
- *
- * <p>Supports request parameter binding through the {@link RequestParam} annotation.
- * Also supports the {@link ModelAttribute} annotation for exposing model attribute
- * values to the view, as well as {@link InitBinder} for binder initialization methods
- * and {@link SessionAttributes} for automatic session management of specific attributes.
- *
- * <p>This adapter can be customized through various bean properties.
- * A common use case is to apply shared binder initialization logic through
- * a custom {@link #setWebBindingInitializer WebBindingInitializer}.
- *
- * @author Juergen Hoeller
- * @author Arjen Poutsma
- * @author Sam Brannen
- * @since 2.5
- * @see #setPathMatcher
- * @see #setMethodNameResolver
- * @see #setWebBindingInitializer
- * @see #setSessionAttributeStore
- * @deprecated as of Spring 3.2, in favor of
- * {@link org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter RequestMappingHandlerAdapter}
- */
+//注解方法处理器适配器
 @Deprecated
-public class AnnotationMethodHandlerAdapter extends WebContentGenerator
-		implements HandlerAdapter, Ordered, BeanFactoryAware {
+public class AnnotationMethodHandlerAdapter extends WebContentGenerator implements HandlerAdapter, Ordered, BeanFactoryAware {
 
 	/**
 	 * Log category to use when no mapped handler is found for a request.
@@ -397,8 +354,7 @@ public class AnnotationMethodHandlerAdapter extends WebContentGenerator
 	}
 
 	@Override
-	public ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
+	public ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
 		Class<?> clazz = ClassUtils.getUserClass(handler);
 		Boolean annotatedWithSessionAttributes = this.sessionAnnotatedClassesCache.get(clazz);
@@ -438,8 +394,7 @@ public class AnnotationMethodHandlerAdapter extends WebContentGenerator
 		ExtendedModelMap implicitModel = new BindingAwareModelMap();
 
 		Object result = methodInvoker.invokeHandlerMethod(handlerMethod, handler, webRequest, implicitModel);
-		ModelAndView mav =
-				methodInvoker.getModelAndView(handlerMethod, handler.getClass(), result, implicitModel, webRequest);
+		ModelAndView mav = methodInvoker.getModelAndView(handlerMethod, handler.getClass(), result, implicitModel, webRequest);
 		methodInvoker.updateModelAttributes(handler, (mav != null ? mav.getModel() : null), implicitModel, webRequest);
 		return mav;
 	}

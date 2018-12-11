@@ -22,61 +22,42 @@ public abstract class AbstractController extends WebContentGenerator implements 
 	}
 
 
-	/**
-	 * Set if controller execution should be synchronized on the session,
-	 * to serialize parallel invocations from the same client.
-	 * <p>More specifically, the execution of the {@code handleRequestInternal}
-	 * method will get synchronized if this flag is "true". The best available
-	 * session mutex will be used for the synchronization; ideally, this will
-	 * be a mutex exposed by HttpSessionMutexListener.
-	 * <p>The session mutex is guaranteed to be the same object during
-	 * the entire lifetime of the session, available under the key defined
-	 * by the {@code SESSION_MUTEX_ATTRIBUTE} constant. It serves as a
-	 * safe reference to synchronize on for locking on the current session.
-	 * <p>In many cases, the HttpSession reference itself is a safe mutex
-	 * as well, since it will always be the same object reference for the
-	 * same active logical session. However, this is not guaranteed across
-	 * different servlet containers; the only 100% safe way is a session mutex.
-	 * @see AbstractController#handleRequestInternal
-	 * @see org.springframework.web.util.HttpSessionMutexListener
-	 * @see org.springframework.web.util.WebUtils#getSessionMutex(javax.servlet.http.HttpSession)
-	 */
+	//设置会话中同步
 	public final void setSynchronizeOnSession(boolean synchronizeOnSession) {
 		this.synchronizeOnSession = synchronizeOnSession;
 	}
 
-	/**
-	 * Return whether controller execution should be synchronized on the session.
-	 */
+	//是否会话中同步
 	public final boolean isSynchronizeOnSession() {
 		return this.synchronizeOnSession;
 	}
 
-
+	//处理请求
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-
+		//若HTTP请求方式是OPTIONS
 		if (HttpMethod.OPTIONS.matches(request.getMethod())) {
 			response.setHeader("Allow", getAllowHeader());
 			return null;
 		}
-
-		// Delegate to WebContentGenerator for checking and preparing.
+		//校验HTTP请求
 		checkRequest(request);
+		//预备HTTP响应
 		prepareResponse(response);
-
-		// Execute handleRequestInternal in synchronized block if required.
+		//是否在会话中同步
 		if (this.synchronizeOnSession) {
 			HttpSession session = request.getSession(false);
 			if (session != null) {
+				//获取对象锁
 				Object mutex = WebUtils.getSessionMutex(session);
+				//对请求进行同步处理
 				synchronized (mutex) {
 					return handleRequestInternal(request, response);
 				}
 			}
 		}
-
+		//处理HTTP请求
 		return handleRequestInternal(request, response);
 	}
 
@@ -85,7 +66,6 @@ public abstract class AbstractController extends WebContentGenerator implements 
 	 * The contract is the same as for {@code handleRequest}.
 	 * @see #handleRequest
 	 */
-	protected abstract ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response)
-			throws Exception;
+	protected abstract ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception;
 
 }

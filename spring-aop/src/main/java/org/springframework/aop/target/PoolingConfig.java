@@ -1,16 +1,9 @@
 package org.springframework.aop.target;
 
-/**
- * Config interface for a pooling target source.
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- */
+//池化配置
 public interface PoolingConfig {
 
-	/**
-	 * Return the maximum size of the pool.
-	 */
+	//获取最大大小
 	int getMaxSize();
 
 	/**
