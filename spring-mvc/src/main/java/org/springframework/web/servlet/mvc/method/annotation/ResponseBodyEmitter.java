@@ -74,29 +74,17 @@ public class ResponseBodyEmitter {
 
 	private final DefaultCallback completionCallback = new DefaultCallback();
 
-
-	/**
-	 * Create a new ResponseBodyEmitter instance.
-	 */
+	//构造器1
 	public ResponseBodyEmitter() {
 		this.timeout = null;
 	}
 
-	/**
-	 * Create a ResponseBodyEmitter with a custom timeout value.
-	 * <p>By default not set in which case the default configured in the MVC
-	 * Java Config or the MVC namespace is used, or if that's not set, then the
-	 * timeout depends on the default of the underlying server.
-	 * @param timeout timeout value in milliseconds
-	 */
+	//构造器2
 	public ResponseBodyEmitter(Long timeout) {
 		this.timeout = timeout;
 	}
 
-
-	/**
-	 * Return the configured timeout value, if any.
-	 */
+	//获取超时时间
 	public Long getTimeout() {
 		return this.timeout;
 	}

@@ -36,8 +36,7 @@ import org.springframework.web.servlet.view.RedirectView;
  */
 class ViewControllerBeanDefinitionParser implements BeanDefinitionParser {
 
-    private static final String HANDLER_MAPPING_BEAN_NAME =
-            "org.springframework.web.servlet.config.viewControllerHandlerMapping";
+    private static final String HANDLER_MAPPING_BEAN_NAME = "org.springframework.web.servlet.config.viewControllerHandlerMapping";
 
 
     @Override

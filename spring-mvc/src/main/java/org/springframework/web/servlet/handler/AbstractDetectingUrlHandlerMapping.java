@@ -5,15 +5,7 @@ import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.util.ObjectUtils;
 
-/**
- * Abstract implementation of the {@link org.springframework.web.servlet.HandlerMapping}
- * interface, detecting URL mappings for handler beans through introspection of all
- * defined beans in the application context.
- *
- * @author Juergen Hoeller
- * @see #determineUrlsForHandler
- * @since 2.5
- */
+//重定向URLc处理器映射
 public abstract class AbstractDetectingUrlHandlerMapping extends AbstractUrlHandlerMapping {
 
     private boolean detectHandlersInAncestorContexts = false;
@@ -31,26 +23,14 @@ public abstract class AbstractDetectingUrlHandlerMapping extends AbstractUrlHand
         this.detectHandlersInAncestorContexts = detectHandlersInAncestorContexts;
     }
 
-
-    /**
-     * Calls the {@link #detectHandlers()} method in addition to the
-     * superclass's initialization.
-     */
+    //初始化应用上下文
     @Override
     public void initApplicationContext() throws ApplicationContextException {
         super.initApplicationContext();
         detectHandlers();
     }
 
-    /**
-     * Register all handlers found in the current ApplicationContext.
-     * <p>The actual URL determination for a handler is up to the concrete
-     * {@link #determineUrlsForHandler(String)} implementation. A bean for
-     * which no such URLs could be determined is simply not considered a handler.
-     *
-     * @throws org.springframework.beans.BeansException if the handler couldn't be registered
-     * @see #determineUrlsForHandler(String)
-     */
+    //重定向处理器
     protected void detectHandlers() throws BeansException {
         if (logger.isDebugEnabled()) {
             logger.debug("Looking for URL mappings in application context: " + getApplicationContext());
@@ -73,14 +53,7 @@ public abstract class AbstractDetectingUrlHandlerMapping extends AbstractUrlHand
         }
     }
 
-
-    /**
-     * Determine the URLs for the given handler bean.
-     *
-     * @param beanName the name of the candidate bean
-     * @return the URLs determined for the bean,
-     * or {@code null} or an empty array if none
-     */
+    //确定URL根据处理器
     protected abstract String[] determineUrlsForHandler(String beanName);
 
 }

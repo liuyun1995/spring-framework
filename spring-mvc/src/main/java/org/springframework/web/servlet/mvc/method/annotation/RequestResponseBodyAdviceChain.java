@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2017 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.mvc.method.annotation;
 
 import java.io.IOException;
@@ -21,7 +5,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.MediaType;
@@ -31,29 +14,21 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.method.ControllerAdviceBean;
 
-/**
- * Invokes {@link RequestBodyAdvice} and {@link ResponseBodyAdvice} where each
- * instance may be (and is most likely) wrapped with
- * {@link org.springframework.web.method.ControllerAdviceBean ControllerAdviceBean}.
- *
- * @author Rossen Stoyanchev
- * @since 4.2
- */
+//@RequestBody和@ResponseBody切面链
 class RequestResponseBodyAdviceChain implements RequestBodyAdvice, ResponseBodyAdvice<Object> {
 
+	//@RequestBody切面集合
 	private final List<Object> requestBodyAdvice = new ArrayList<Object>(4);
 
+	//@ResponseBody切面集合
 	private final List<Object> responseBodyAdvice = new ArrayList<Object>(4);
 
-
-	/**
-	 * Create an instance from a list of objects that are either of type
-	 * {@code ControllerAdviceBean} or {@code RequestBodyAdvice}.
-	 */
+	//构造器
 	public RequestResponseBodyAdviceChain(List<Object> requestResponseBodyAdvice) {
 		initAdvice(requestResponseBodyAdvice);
 	}
 
+	//初始化切面方法
 	private void initAdvice(List<Object> requestResponseBodyAdvice) {
 		if (requestResponseBodyAdvice == null) {
 			return;

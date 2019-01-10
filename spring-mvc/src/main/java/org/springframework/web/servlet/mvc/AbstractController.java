@@ -21,7 +21,6 @@ public abstract class AbstractController extends WebContentGenerator implements 
 		super(restrictDefaultSupportedMethods);
 	}
 
-
 	//设置会话中同步
 	public final void setSynchronizeOnSession(boolean synchronizeOnSession) {
 		this.synchronizeOnSession = synchronizeOnSession;
@@ -61,11 +60,7 @@ public abstract class AbstractController extends WebContentGenerator implements 
 		return handleRequestInternal(request, response);
 	}
 
-	/**
-	 * Template method. Subclasses must implement this.
-	 * The contract is the same as for {@code handleRequest}.
-	 * @see #handleRequest
-	 */
+	//内部处理请求方法
 	protected abstract ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception;
 
 }

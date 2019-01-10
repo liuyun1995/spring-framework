@@ -25,21 +25,15 @@ public class CompositeRequestCondition extends AbstractRequestCondition<Composit
 
     private final RequestConditionHolder[] requestConditions;
 
-
-    /**
-     * Create an instance with 0 or more {@code RequestCondition} types. It is
-     * important to create {@code CompositeRequestCondition} instances with the
-     * same number of conditions so they may be compared and combined.
-     * It is acceptable to provide {@code null} conditions.
-     */
+    //构造器1
     public CompositeRequestCondition(RequestCondition<?>... requestConditions) {
         this.requestConditions = wrap(requestConditions);
     }
 
+    //构造器2
     private CompositeRequestCondition(RequestConditionHolder[] requestConditions) {
         this.requestConditions = requestConditions;
     }
-
 
     private RequestConditionHolder[] wrap(RequestCondition<?>... rawConditions) {
         RequestConditionHolder[] wrappedConditions = new RequestConditionHolder[rawConditions.length];
@@ -49,9 +43,6 @@ public class CompositeRequestCondition extends AbstractRequestCondition<Composit
         return wrappedConditions;
     }
 
-    /**
-     * Whether this instance contains 0 conditions or not.
-     */
     public boolean isEmpty() {
         return ObjectUtils.isEmpty(this.requestConditions);
     }
@@ -135,10 +126,6 @@ public class CompositeRequestCondition extends AbstractRequestCondition<Composit
         return new CompositeRequestCondition(matchingConditions);
     }
 
-    /**
-     * If one instance is empty, the other "wins". If both instances have
-     * conditions, compare them in the order in which they were provided.
-     */
     @Override
     public int compareTo(CompositeRequestCondition other, HttpServletRequest request) {
         if (isEmpty() && other.isEmpty()) {

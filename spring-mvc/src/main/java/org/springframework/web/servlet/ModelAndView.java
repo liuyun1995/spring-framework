@@ -8,10 +8,14 @@ import org.springframework.util.CollectionUtils;
 //视图模型
 public class ModelAndView {
 
-    private Object view;             //视图对象
-    private ModelMap model;          //数据模型
-    private HttpStatus status;       //http状态
-    private boolean cleared = false; //是否清空过
+    //视图对象
+    private Object view;
+    //数据模型
+    private ModelMap model;
+    //HTTP状态
+    private HttpStatus status;
+    //是否清空过
+    private boolean cleared = false;
 
     //构造器1
     public ModelAndView() {}

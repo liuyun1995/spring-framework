@@ -6,7 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.web.util.NestedServletException;
 
 //视图渲染Servlet
@@ -44,13 +43,7 @@ public class ViewRendererServlet extends HttpServlet {
         processRequest(request, response);
     }
 
-    /**
-     * Process this request, handling exceptions.
-     * The actually event handling is performed by the abstract
-     * {@code renderView()} template method.
-     *
-     * @see #renderView
-     */
+    //处理HTTP请求
     protected final void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -64,15 +57,7 @@ public class ViewRendererServlet extends HttpServlet {
         }
     }
 
-    /**
-     * Retrieve the View instance and model Map to render
-     * and trigger actual rendering.
-     *
-     * @param request  current HTTP request
-     * @param response current HTTP response
-     * @throws Exception in case of any kind of processing failure
-     * @see org.springframework.web.servlet.View#render
-     */
+    //渲染视图
     @SuppressWarnings("unchecked")
     protected void renderView(HttpServletRequest request, HttpServletResponse response) throws Exception {
         View view = (View) request.getAttribute(VIEW_ATTRIBUTE);

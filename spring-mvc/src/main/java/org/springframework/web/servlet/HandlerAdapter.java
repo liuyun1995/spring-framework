@@ -12,15 +12,7 @@ public interface HandlerAdapter {
 	//使用给定处理器处理请求
 	ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception;
 
-	/**
-	 * Same contract as for HttpServlet's {@code getLastModified} method.
-	 * Can simply return -1 if there's no support in the handler class.
-	 * @param request current HTTP request
-	 * @param handler handler to use
-	 * @return the lastModified value for the given handler
-	 * @see javax.servlet.http.HttpServlet#getLastModified
-	 * @see org.springframework.web.servlet.mvc.LastModified#getLastModified
-	 */
+	//获取最后修改的时间戳
 	long getLastModified(HttpServletRequest request, Object handler);
 
 }

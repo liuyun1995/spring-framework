@@ -1,36 +1,22 @@
 package org.springframework.web.servlet;
 
-import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.http.MediaType;
+import java.util.Map;
 
 //视图接口
 public interface View {
 
-	/**
-	 * Name of the {@link HttpServletRequest} attribute that contains the response status code.
-	 * <p>Note: This attribute is not required to be supported by all View implementations.
-	 */
+	//响应状态属性
 	String RESPONSE_STATUS_ATTRIBUTE = View.class.getName() + ".responseStatus";
 
-	/**
-	 * Name of the {@link HttpServletRequest} attribute that contains a Map with path variables.
-	 * The map consists of String-based URI template variable names as keys and their corresponding
-	 * Object-based values -- extracted from segments of the URL and type converted.
-	 *
-	 * <p>Note: This attribute is not required to be supported by all View implementations.
-	 */
+	//路径变量
 	String PATH_VARIABLES = View.class.getName() + ".pathVariables";
 
-	/**
-	 * The {@link MediaType} selected during content negotiation, which may be
-	 * more specific than the one the View is configured with. For example:
-	 * "application/vnd.example-v1+xml" vs "application/*+xml".
-	 */
+	//选择的HTTP文本内容类型
 	String SELECTED_CONTENT_TYPE = View.class.getName() + ".selectedContentType";
 
-	//获取内容类型
+	//获取HTTP文本内容类型
 	String getContentType();
 
 	//渲染视图

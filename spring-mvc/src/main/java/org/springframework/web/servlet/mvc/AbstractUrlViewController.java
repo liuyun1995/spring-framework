@@ -24,25 +24,12 @@ public abstract class AbstractUrlViewController extends AbstractController {
 
 	private UrlPathHelper urlPathHelper = new UrlPathHelper();
 
-	/**
-	 * Set if URL lookup should always use full path within current servlet
-	 * context. Else, the path within the current servlet mapping is used
-	 * if applicable (i.e. in the case of a ".../*" servlet mapping in web.xml).
-	 * Default is "false".
-	 * @see org.springframework.web.util.UrlPathHelper#setAlwaysUseFullPath
-	 */
+	//设置总是使用全路径
 	public void setAlwaysUseFullPath(boolean alwaysUseFullPath) {
 		this.urlPathHelper.setAlwaysUseFullPath(alwaysUseFullPath);
 	}
 
-	/**
-	 * Set if context path and request URI should be URL-decoded.
-	 * Both are returned <i>undecoded</i> by the Servlet API,
-	 * in contrast to the servlet path.
-	 * <p>Uses either the request encoding or the default encoding according
-	 * to the Servlet spec (ISO-8859-1).
-	 * @see org.springframework.web.util.UrlPathHelper#setUrlDecode
-	 */
+	//设置是否对URL解码
 	public void setUrlDecode(boolean urlDecode) {
 		this.urlPathHelper.setUrlDecode(urlDecode);
 	}
@@ -55,31 +42,18 @@ public abstract class AbstractUrlViewController extends AbstractController {
 		this.urlPathHelper.setRemoveSemicolonContent(removeSemicolonContent);
 	}
 
-	/**
-	 * Set the UrlPathHelper to use for the resolution of lookup paths.
-	 * <p>Use this to override the default UrlPathHelper with a custom subclass,
-	 * or to share common UrlPathHelper settings across multiple MethodNameResolvers
-	 * and HandlerMappings.
-	 * @see org.springframework.web.servlet.handler.AbstractUrlHandlerMapping#setUrlPathHelper
-	 */
+	//设置URL路径助手
 	public void setUrlPathHelper(UrlPathHelper urlPathHelper) {
 		Assert.notNull(urlPathHelper, "UrlPathHelper must not be null");
 		this.urlPathHelper = urlPathHelper;
 	}
 
-	/**
-	 * Return the UrlPathHelper to use for the resolution of lookup paths.
-	 */
+	//获取URL路径助手
 	protected UrlPathHelper getUrlPathHelper() {
 		return this.urlPathHelper;
 	}
 
-
-	/**
-	 * Retrieves the URL path to use for lookup and delegates to
-	 * {@link #getViewNameForRequest}. Also adds the content of
-	 * {@link RequestContextUtils#getInputFlashMap} to the model.
-	 */
+	//核心处理请求方法
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) {
 		String lookupPath = getUrlPathHelper().getLookupPathForRequest(request);
@@ -90,15 +64,7 @@ public abstract class AbstractUrlViewController extends AbstractController {
 		return new ModelAndView(viewName, RequestContextUtils.getInputFlashMap(request));
 	}
 
-	/**
-	 * Return the name of the view to render for this request, based on the
-	 * given lookup path. Called by {@link #handleRequestInternal}.
-	 * @param request current HTTP request
-	 * @return a view name for this request (never {@code null})
-	 * @see #handleRequestInternal
-	 * @see #setAlwaysUseFullPath
-	 * @see #setUrlDecode
-	 */
+	//根据请求获取视图名
 	protected abstract String getViewNameForRequest(HttpServletRequest request);
 
 }

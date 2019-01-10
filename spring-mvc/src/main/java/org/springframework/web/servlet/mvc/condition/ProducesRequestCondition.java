@@ -1,19 +1,3 @@
-/*
- * Copyright 2002-2016 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.mvc.condition;
 
 import java.util.ArrayList;
@@ -24,7 +8,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.http.MediaType;
 import org.springframework.web.HttpMediaTypeException;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
@@ -51,59 +34,37 @@ public final class ProducesRequestCondition extends AbstractRequestCondition<Pro
 
 	private static final ProducesRequestCondition EMPTY_CONDITION = new ProducesRequestCondition();
 
-
-	private final List<ProduceMediaTypeExpression> MEDIA_TYPE_ALL_LIST =
-			Collections.singletonList(new ProduceMediaTypeExpression("*/*"));
+	private final List<ProduceMediaTypeExpression> MEDIA_TYPE_ALL_LIST = Collections.singletonList(new ProduceMediaTypeExpression("*/*"));
 
 	private final List<ProduceMediaTypeExpression> expressions;
 
 	private final ContentNegotiationManager contentNegotiationManager;
 
-
-	/**
-	 * Creates a new instance from "produces" expressions. If 0 expressions
-	 * are provided in total, this condition will match to any request.
-	 * @param produces expressions with syntax defined by {@link RequestMapping#produces()}
-	 */
+	//构造器1
 	public ProducesRequestCondition(String... produces) {
 		this(produces, (String[]) null);
 	}
 
-	/**
-	 * Creates a new instance with "produces" and "header" expressions. "Header"
-	 * expressions where the header name is not 'Accept' or have no header value
-	 * defined are ignored. If 0 expressions are provided in total, this condition
-	 * will match to any request.
-	 * @param produces expressions with syntax defined by {@link RequestMapping#produces()}
-	 * @param headers expressions with syntax defined by {@link RequestMapping#headers()}
-	 */
+	//构造器2
 	public ProducesRequestCondition(String[] produces, String[] headers) {
 		this(produces, headers, null);
 	}
 
-	/**
-	 * Same as {@link #ProducesRequestCondition(String[], String[])} but also
-	 * accepting a {@link ContentNegotiationManager}.
-	 * @param produces expressions with syntax defined by {@link RequestMapping#produces()}
-	 * @param headers expressions with syntax defined by {@link RequestMapping#headers()}
-	 * @param manager used to determine requested media types
-	 */
+	//构造器3
 	public ProducesRequestCondition(String[] produces, String[] headers, ContentNegotiationManager manager) {
 		this.expressions = new ArrayList<ProduceMediaTypeExpression>(parseExpressions(produces, headers));
 		Collections.sort(this.expressions);
 		this.contentNegotiationManager = (manager != null ? manager : new ContentNegotiationManager());
 	}
 
-	/**
-	 * Private constructor with already parsed media type expressions.
-	 */
+	//构造器4
 	private ProducesRequestCondition(Collection<ProduceMediaTypeExpression> expressions, ContentNegotiationManager manager) {
 		this.expressions = new ArrayList<ProduceMediaTypeExpression>(expressions);
 		Collections.sort(this.expressions);
 		this.contentNegotiationManager = (manager != null ? manager : new ContentNegotiationManager());
 	}
 
-
+	//解析表达式
 	private Set<ProduceMediaTypeExpression> parseExpressions(String[] produces, String[] headers) {
 		Set<ProduceMediaTypeExpression> result = new LinkedHashSet<ProduceMediaTypeExpression>();
 		if (headers != null) {
@@ -144,9 +105,7 @@ public final class ProducesRequestCondition extends AbstractRequestCondition<Pro
 		return result;
 	}
 
-	/**
-	 * Whether the condition has any media type expressions.
-	 */
+
 	public boolean isEmpty() {
 		return this.expressions.isEmpty();
 	}

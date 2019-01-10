@@ -46,7 +46,6 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
 
     private CorsProcessor corsProcessor = new DefaultCorsProcessor();
 
-
     //设置序号
     public final void setOrder(int order) {
         this.order = order;
@@ -74,14 +73,7 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
         this.globalCorsConfigSource.setAlwaysUseFullPath(alwaysUseFullPath);
     }
 
-    /**
-     * Set if context path and request URI should be URL-decoded. Both are returned
-     * <i>undecoded</i> by the Servlet API, in contrast to the servlet path.
-     * <p>Uses either the request encoding or the default encoding according
-     * to the Servlet spec (ISO-8859-1).
-     *
-     * @see org.springframework.web.util.UrlPathHelper#setUrlDecode
-     */
+    //设置是否要进行URL解码
     public void setUrlDecode(boolean urlDecode) {
         this.urlPathHelper.setUrlDecode(urlDecode);
         this.globalCorsConfigSource.setUrlDecode(urlDecode);
@@ -98,41 +90,26 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
         this.globalCorsConfigSource.setRemoveSemicolonContent(removeSemicolonContent);
     }
 
-    /**
-     * Set the UrlPathHelper to use for resolution of lookup paths.
-     * <p>Use this to override the default UrlPathHelper with a custom subclass,
-     * or to share common UrlPathHelper settings across multiple HandlerMappings
-     * and MethodNameResolvers.
-     */
+    //设置URL路径助手
     public void setUrlPathHelper(UrlPathHelper urlPathHelper) {
         Assert.notNull(urlPathHelper, "UrlPathHelper must not be null");
         this.urlPathHelper = urlPathHelper;
         this.globalCorsConfigSource.setUrlPathHelper(urlPathHelper);
     }
 
-    /**
-     * Return the UrlPathHelper implementation to use for resolution of lookup paths.
-     */
+    //获取URL路径助手
     public UrlPathHelper getUrlPathHelper() {
         return urlPathHelper;
     }
 
-    /**
-     * Set the PathMatcher implementation to use for matching URL paths
-     * against registered URL patterns. Default is AntPathMatcher.
-     *
-     * @see org.springframework.util.AntPathMatcher
-     */
+    //设置路径匹配器
     public void setPathMatcher(PathMatcher pathMatcher) {
         Assert.notNull(pathMatcher, "PathMatcher must not be null");
         this.pathMatcher = pathMatcher;
         this.globalCorsConfigSource.setPathMatcher(pathMatcher);
     }
 
-    /**
-     * Return the PathMatcher implementation to use for matching URL paths
-     * against registered URL patterns.
-     */
+    //获取路径匹配器
     public PathMatcher getPathMatcher() {
         return this.pathMatcher;
     }
@@ -190,29 +167,17 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
     }
 
 
-    /**
-     * Initializes the interceptors.
-     *
-     * @see #extendInterceptors(java.util.List)
-     * @see #initInterceptors()
-     */
+    //初始化应用上下文
     @Override
     protected void initApplicationContext() throws BeansException {
+        //拓展拦截器
         extendInterceptors(this.interceptors);
         detectMappedInterceptors(this.adaptedInterceptors);
+        //初始化拦截器
         initInterceptors();
     }
 
-    /**
-     * Extension hook that subclasses can override to register additional interceptors,
-     * given the configured interceptors (see {@link #setInterceptors}).
-     * <p>Will be invoked before {@link #initInterceptors()} adapts the specified
-     * interceptors into {@link HandlerInterceptor} instances.
-     * <p>The default implementation is empty.
-     *
-     * @param interceptors the configured interceptor List (never {@code null}), allowing
-     *                     to add further interceptors before as well as after the existing interceptors
-     */
+    //拓展拦截器
     protected void extendInterceptors(List<Object> interceptors) {
     }
 
@@ -230,13 +195,7 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
                         getApplicationContext(), MappedInterceptor.class, true, false).values());
     }
 
-    /**
-     * Initialize the specified interceptors, checking for {@link MappedInterceptor}s and
-     * adapting {@link HandlerInterceptor}s and {@link WebRequestInterceptor}s if necessary.
-     *
-     * @see #setInterceptors
-     * @see #adaptInterceptor
-     */
+    //初始化拦截器
     protected void initInterceptors() {
         if (!this.interceptors.isEmpty()) {
             for (int i = 0; i < this.interceptors.size(); i++) {
@@ -249,19 +208,7 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
         }
     }
 
-    /**
-     * Adapt the given interceptor object to the {@link HandlerInterceptor} interface.
-     * <p>By default, the supported interceptor types are {@link HandlerInterceptor}
-     * and {@link WebRequestInterceptor}. Each given {@link WebRequestInterceptor}
-     * will be wrapped in a {@link WebRequestHandlerInterceptorAdapter}.
-     * Can be overridden in subclasses.
-     *
-     * @param interceptor the specified interceptor object
-     * @return the interceptor wrapped as HandlerInterceptor
-     * @see org.springframework.web.servlet.HandlerInterceptor
-     * @see org.springframework.web.context.request.WebRequestInterceptor
-     * @see WebRequestHandlerInterceptorAdapter
-     */
+    //适配拦截器
     protected HandlerInterceptor adaptInterceptor(Object interceptor) {
         if (interceptor instanceof HandlerInterceptor) {
             return (HandlerInterceptor) interceptor;
@@ -272,21 +219,13 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
         }
     }
 
-    /**
-     * Return the adapted interceptors as {@link HandlerInterceptor} array.
-     *
-     * @return the array of {@link HandlerInterceptor}s, or {@code null} if none
-     */
+    //获取适配的拦截器集合
     protected final HandlerInterceptor[] getAdaptedInterceptors() {
         int count = this.adaptedInterceptors.size();
         return (count > 0 ? this.adaptedInterceptors.toArray(new HandlerInterceptor[count]) : null);
     }
 
-    /**
-     * Return all configured {@link MappedInterceptor}s as an array.
-     *
-     * @return the array of {@link MappedInterceptor}s, or {@code null} if none
-     */
+    //获取映射的拦截器集合
     protected final MappedInterceptor[] getMappedInterceptors() {
         List<MappedInterceptor> mappedInterceptors = new ArrayList<MappedInterceptor>();
         for (HandlerInterceptor interceptor : this.adaptedInterceptors) {

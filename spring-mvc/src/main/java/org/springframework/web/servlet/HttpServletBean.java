@@ -96,14 +96,7 @@ public abstract class HttpServletBean extends HttpServlet implements Environment
 		}
 	}
 
-	/**
-	 * Initialize the BeanWrapper for this HttpServletBean,
-	 * possibly with custom editors.
-	 * <p>This default implementation is empty.
-	 * @param bw the BeanWrapper to initialize
-	 * @throws BeansException if thrown by BeanWrapper methods
-	 * @see org.springframework.beans.BeanWrapper#registerCustomEditor
-	 */
+	//初始化BeanWrapper
 	protected void initBeanWrapper(BeanWrapper bw) throws BeansException {
 	}
 

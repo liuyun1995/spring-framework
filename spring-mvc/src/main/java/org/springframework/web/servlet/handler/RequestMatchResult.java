@@ -21,12 +21,7 @@ public class RequestMatchResult {
 		this.pathMatcher = pathMatcher;
 	}
 
-
-	/**
-	 * Extract URI template variables from the matching pattern as defined in
-	 * {@link PathMatcher#extractUriTemplateVariables}.
-	 * @return a map with URI template variables
-	 */
+	//额外的URI临时变量
 	public Map<String, String> extractUriTemplateVariables() {
 		return this.pathMatcher.extractUriTemplateVariables(this.matchingPattern, this.lookupPath);
 	}

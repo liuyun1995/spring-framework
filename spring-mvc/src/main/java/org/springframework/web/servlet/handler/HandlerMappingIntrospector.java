@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Properties;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
-
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
@@ -45,27 +44,19 @@ import org.springframework.web.servlet.HandlerMapping;
 public class HandlerMappingIntrospector
         implements CorsConfigurationSource, ApplicationContextAware, InitializingBean {
 
+    //应用上下文
     private ApplicationContext applicationContext;
 
     private List<HandlerMapping> handlerMappings;
 
+    //构造器1
+    public HandlerMappingIntrospector() {}
 
-    /**
-     * Constructor for use with {@link ApplicationContextAware}.
-     */
-    public HandlerMappingIntrospector() {
-    }
-
-    /**
-     * Constructor that detects the configured {@code HandlerMapping}s in the
-     * given {@code ApplicationContext} or falls back on
-     * "DispatcherServlet.properties" like the {@code DispatcherServlet}.
-     */
+    //构造器2
     @Deprecated
     public HandlerMappingIntrospector(ApplicationContext context) {
         this.handlerMappings = initHandlerMappings(context);
     }
-
 
     /**
      * Return the configured HandlerMapping's.
