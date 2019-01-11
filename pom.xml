@@ -10,5 +10,7 @@
   	<module>spring-tx</module>
   	<module>spring-mvc</module>
   	<module>spring-beans</module>
+    <module>spring-web</module>
+    <module>spring-core</module>
   </modules>
 </project>
