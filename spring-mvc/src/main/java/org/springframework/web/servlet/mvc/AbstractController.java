@@ -13,10 +13,12 @@ public abstract class AbstractController extends WebContentGenerator implements 
 
 	private boolean synchronizeOnSession = false;
 
+	//构造器
 	public AbstractController() {
 		this(true);
 	}
 
+	//构造器
 	public AbstractController(boolean restrictDefaultSupportedMethods) {
 		super(restrictDefaultSupportedMethods);
 	}

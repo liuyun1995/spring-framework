@@ -964,7 +964,6 @@ public class WebMvcConfigurationSupport implements ApplicationContextAware, Serv
 
 
 	private static final class EmptyHandlerMapping extends AbstractHandlerMapping {
-
 		@Override
 		protected Object getHandlerInternal(HttpServletRequest request) {
 			return null;
@@ -973,7 +972,6 @@ public class WebMvcConfigurationSupport implements ApplicationContextAware, Serv
 
 
 	private static final class NoOpValidator implements Validator {
-
 		@Override
 		public boolean supports(Class<?> clazz) {
 			return false;

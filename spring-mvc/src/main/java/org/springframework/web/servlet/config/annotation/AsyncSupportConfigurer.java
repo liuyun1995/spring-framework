@@ -1,16 +1,12 @@
 package org.springframework.web.servlet.config.annotation;
 
 import org.springframework.core.task.AsyncTaskExecutor;
-import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.web.context.request.async.CallableProcessingInterceptor;
 import org.springframework.web.context.request.async.DeferredResult;
 import org.springframework.web.context.request.async.DeferredResultProcessingInterceptor;
-import org.springframework.web.context.request.async.WebAsyncTask;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 /**
  * Helps with configuring options for asynchronous request processing.
@@ -24,75 +20,51 @@ public class AsyncSupportConfigurer {
 
 	private Long timeout;
 
-	private final List<CallableProcessingInterceptor> callableInterceptors =
-			new ArrayList<CallableProcessingInterceptor>();
+	private final List<CallableProcessingInterceptor> callableInterceptors = new ArrayList<CallableProcessingInterceptor>();
 
-	private final List<DeferredResultProcessingInterceptor> deferredResultInterceptors =
-			new ArrayList<DeferredResultProcessingInterceptor>();
+	private final List<DeferredResultProcessingInterceptor> deferredResultInterceptors = new ArrayList<DeferredResultProcessingInterceptor>();
 
 
-	/**
-	 * Set the default {@link AsyncTaskExecutor} to use when a controller method
-	 * returns a {@link Callable}. Controller methods can override this default on
-	 * a per-request basis by returning a {@link WebAsyncTask}.
-	 * <p>By default a {@link SimpleAsyncTaskExecutor} instance is used, and it's
-	 * highly recommended to change that default in production since the simple
-	 * executor does not re-use threads.
-	 * @param taskExecutor the task executor instance to use by default
-	 */
+	//设置任务执行器
 	public AsyncSupportConfigurer setTaskExecutor(AsyncTaskExecutor taskExecutor) {
 		this.taskExecutor = taskExecutor;
 		return this;
 	}
 
-	/**
-	 * Specify the amount of time, in milliseconds, before asynchronous request
-	 * handling times out. In Servlet 3, the timeout begins after the main request
-	 * processing thread has exited and ends when the request is dispatched again
-	 * for further processing of the concurrently produced result.
-	 * <p>If this value is not set, the default timeout of the underlying
-	 * implementation is used, e.g. 10 seconds on Tomcat with Servlet 3.
-	 * @param timeout the timeout value in milliseconds
-	 */
+	//设置默认超时时间
 	public AsyncSupportConfigurer setDefaultTimeout(long timeout) {
 		this.timeout = timeout;
 		return this;
 	}
 
-	/**
-	 * Configure lifecycle interceptors with callbacks around concurrent request
-	 * execution that starts when a controller returns a
-	 * {@link java.util.concurrent.Callable}.
-	 * @param interceptors the interceptors to register
-	 */
+	//注册可调用的拦截器
 	public AsyncSupportConfigurer registerCallableInterceptors(CallableProcessingInterceptor... interceptors) {
 		this.callableInterceptors.addAll(Arrays.asList(interceptors));
 		return this;
 	}
 
-	/**
-	 * Configure lifecycle interceptors with callbacks around concurrent request
-	 * execution that starts when a controller returns a {@link DeferredResult}.
-	 * @param interceptors the interceptors to register
-	 */
+	//注册延迟结果拦截器
 	public AsyncSupportConfigurer registerDeferredResultInterceptors(DeferredResultProcessingInterceptor... interceptors) {
 		this.deferredResultInterceptors.addAll(Arrays.asList(interceptors));
 		return this;
 	}
 
-
+	//获取任务执行器
 	protected AsyncTaskExecutor getTaskExecutor() {
 		return this.taskExecutor;
 	}
 
+	//获取超时时间
 	protected Long getTimeout() {
 		return this.timeout;
 	}
 
+	//获取可调用的拦截器
 	protected List<CallableProcessingInterceptor> getCallableInterceptors() {
 		return this.callableInterceptors;
 	}
 
+	//获取延迟结果拦截器
 	protected List<DeferredResultProcessingInterceptor> getDeferredResultInterceptors() {
 		return this.deferredResultInterceptors;
 	}

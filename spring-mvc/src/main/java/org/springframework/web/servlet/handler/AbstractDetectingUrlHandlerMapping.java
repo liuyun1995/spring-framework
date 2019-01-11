@@ -5,7 +5,7 @@ import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.util.ObjectUtils;
 
-//重定向URLc处理器映射
+//重定向URL处理器映射
 public abstract class AbstractDetectingUrlHandlerMapping extends AbstractUrlHandlerMapping {
 
     private boolean detectHandlersInAncestorContexts = false;

@@ -1,25 +1,7 @@
-/*
- * Copyright 2002-2016 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package org.springframework.web.servlet.config.annotation;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import org.springframework.web.cors.CorsConfiguration;
+import java.util.Arrays;
 
 /**
  * Assists with the creation of a {@link CorsConfiguration} instance mapped to
@@ -40,15 +22,7 @@ public class CorsRegistration {
 
 	private final CorsConfiguration config;
 
-
-	/**
-	 * Create a new {@link CorsRegistration} that allows all origins, headers, and
-	 * credentials for {@code GET}, {@code HEAD}, and {@code POST} requests with
-	 * max age set to 1800 seconds (30 minutes) for the specified path.
-	 * @param pathPattern the path that the CORS configuration should apply to;
-	 * exact path mapping URIs (such as {@code "/admin"}) are supported as well
-	 * as Ant-style path patterns (such as {@code "/admin/**"}).
-	 */
+	//构造器
 	public CorsRegistration(String pathPattern) {
 		this.pathPattern = pathPattern;
 		// Same implicit default values as the @CrossOrigin annotation + allows simple methods

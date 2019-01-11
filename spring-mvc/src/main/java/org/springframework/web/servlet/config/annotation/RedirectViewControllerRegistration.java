@@ -36,7 +36,7 @@ public class RedirectViewControllerRegistration {
 
 	private final ParameterizableViewController controller = new ParameterizableViewController();
 
-
+	//构造器
 	public RedirectViewControllerRegistration(String urlPath, String redirectUrl) {
 		Assert.notNull(urlPath, "'urlPath' is required.");
 		Assert.notNull(redirectUrl, "'redirectUrl' is required.");
@@ -46,12 +46,7 @@ public class RedirectViewControllerRegistration {
 		this.controller.setView(this.redirectView);
 	}
 
-
-	/**
-	 * Set the specific redirect 3xx status code to use.
-	 * <p>If not set, {@link org.springframework.web.servlet.view.RedirectView}
-	 * will select {@code HttpStatus.MOVED_TEMPORARILY (302)} by default.
-	 */
+	//设置状态码
 	public RedirectViewControllerRegistration setStatusCode(HttpStatus statusCode) {
 		Assert.isTrue(statusCode.is3xxRedirection(), "Not a redirect status code");
 		this.redirectView.setStatusCode(statusCode);

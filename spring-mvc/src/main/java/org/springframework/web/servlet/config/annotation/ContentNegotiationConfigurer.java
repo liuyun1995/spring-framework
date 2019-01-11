@@ -80,9 +80,7 @@ public class ContentNegotiationConfigurer {
 	private final Map<String, MediaType> mediaTypes = new HashMap<String, MediaType>();
 
 
-	/**
-	 * Class constructor with {@link javax.servlet.ServletContext}.
-	 */
+	//构造器
 	public ContentNegotiationConfigurer(ServletContext servletContext) {
 		this.factory.setServletContext(servletContext);
 	}
